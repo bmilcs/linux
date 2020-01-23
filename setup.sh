@@ -5,9 +5,9 @@ echo ===========================================================================
 echo
 echo --- configuring directories -----------------------------------------------------------------------
 echo
-cd ~
 mkdir -p ~/_scripts
 cd ~/_scripts
+echo '/home/user/scripts' folder created
 echo
 echo --- apt-update ------------------------------------------------------------------------------------
 echo
@@ -15,7 +15,6 @@ sudo apt-get update
 echo
 echo --- setup git -------------------------------------------------------------------------------------
 echo
-sudo apt-get install git
 git -version
 git config --global user.name "bmilcs"
 git config --global user.email "bmilcs@yahoo.com"
