@@ -1,2 +1,2 @@
-# linux
-linux scriptiing
+#linux
+vm deployment & general linux configuration
