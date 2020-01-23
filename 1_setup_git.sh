@@ -19,7 +19,7 @@ sudo apt-get install git
 git -version
 git config --global user.name "bmilcs"
 git config --global user.email "bmilcs@yahoo.com"
-git clone 
+git clone https://github.com/bmilcs/linux.git ~/_scripts
 echo --- git status ------------------------------------------------------------------------------------
 git status
 echo ===================================================================================================
