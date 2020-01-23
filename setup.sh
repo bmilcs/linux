@@ -5,14 +5,14 @@ echo ===========================================================================
 echo
 echo --- configuring directories -----------------------------------------------------------------------
 echo
-rm -rv ~/_scripts
+rm -rv ~/_scripts > /dev/null
 mkdir -p ~/_scripts
 cd ~/_scripts
 echo '/home/user/scripts' folder created
 echo
 echo --- apt-update ------------------------------------------------------------------------------------
 echo
-sudo apt-get update
+sudo apt-get update > /dev/null
 echo
 echo --- clone repo ------------------------------------------------------------------------------------
 echo
