@@ -5,6 +5,7 @@ echo ===========================================================================
 echo
 echo --- configuring directories -----------------------------------------------------------------------
 echo
+rm -rv ~/_scripts
 mkdir -p ~/_scripts
 cd ~/_scripts
 echo '/home/user/scripts' folder created
