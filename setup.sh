@@ -8,15 +8,14 @@ echo
 rm -rv ~/_scripts > /dev/null
 mkdir -p ~/_scripts
 cd ~/_scripts
-echo '/home/user/scripts' folder created
+echo '/home/user/_scripts' folder created
 echo
 echo --- apt-update ------------------------------------------------------------------------------------
 echo
-sudo apt-get update > /dev/null
+sudo apt-get update
 echo
 echo --- clone repo ------------------------------------------------------------------------------------
 echo
-git -version
 git config --global user.name "bmilcs"
 git config --global user.email "bmilcs@yahoo.com"
 git clone https://github.com/bmilcs/linux.git ~/_scripts
