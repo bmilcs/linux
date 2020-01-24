@@ -1,13 +1,12 @@
 # **bmilcs linux repo**
 
+# **todo**
+- [ ] inputbox for rsa ssh login
+- [ ] configure network
+
 ### setup github | clone repo
 
 `curl -H 'Accept: application/vnd.github.v3.raw' -O -L https://api.github.com/repos/bmilcs/linux/contents/setup.sh`
-
-## **todo**
-- [ ] inputbox for rsa ssh login
-- [ ] install network configs
-
 
 # **common problems**
 
@@ -20,5 +19,5 @@
     sudo dpkg --configure -a
     sudo apt update
 
-## bookmarks
+# bookmarks
 - [github readme.md markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
