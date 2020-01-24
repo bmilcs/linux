@@ -3,7 +3,7 @@
 
 echo '---- apt-get & distro update/upgrade ----------------------------------------------------------------'
 echo
-echo 'testing: sudo apt-get update && apt-get upgrade && sudo apt dist-upgrade'
+sudo apt-get update && apt-get upgrade && sudo apt dist-upgrade
 echo
 echo '---- setup openssh ----------------------------------------------------------------------------------'
 echo
