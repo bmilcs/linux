@@ -20,5 +20,3 @@ grep -qxF 'AuthorizedKeysFile %h/.ssh/authorized_keys' /etc/ssh/sshd_config || e
 /etc/rc.d/rc.sshd restart
 sudo service ssh restart
 exit
-
-
