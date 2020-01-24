@@ -1,6 +1,6 @@
 # **bmilcs linux repo**
 
-# **todo**
+### **todo**
 - [ ] inputbox for rsa ssh login
 - [ ] configure network
 
@@ -8,9 +8,9 @@
 
 `curl -H 'Accept: application/vnd.github.v3.raw' -O -L https://api.github.com/repos/bmilcs/linux/contents/setup.sh`
 
-# **common problems**
+### **common problems**
 
-## permission issues (dpkg)
+#### permission issues (dpkg)
 ![error](https://i.imgur.com/5Om2naZ.png)    
 
     sudo killall apt apt-get
@@ -20,5 +20,5 @@
     sudo dpkg --configure -a
     sudo apt update
 
-# bookmarks
+### bookmarks
 - [github readme.md markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
