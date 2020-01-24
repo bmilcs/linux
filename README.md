@@ -21,5 +21,5 @@
     sudo dpkg --configure -a
     sudo apt update
 
-### bookmarks
+### references
 - [github readme.md markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
