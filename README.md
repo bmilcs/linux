@@ -3,7 +3,7 @@
 ### setup github | clone repo
 
 	cd /tmp && sudo curl -H 'Accept: application/vnd.github.v3.raw' -O -L https://api.github.com/repos/bmilcs/linux/contents/install.sh && sudo chmod +x *.sh && sudo ./install.sh
-	
+
 ### **todo**
 - [ ] inputbox for rsa ssh login
 - [ ] password-less sudo'ers
@@ -22,4 +22,5 @@
     sudo apt update
 
 ### references
+...
 - [github readme.md markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
