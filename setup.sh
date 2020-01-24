@@ -5,10 +5,10 @@ echo ===========================================================================
 echo
 echo --- configuring directories -----------------------------------------------------------------------
 echo
-rm -rv ~/_scripts > /dev/null
-mkdir -p ~/_scripts
-cd ~/_scripts
-echo '/home/user/_scripts' folder created
+rm -rv ~/scripts > /dev/null
+mkdir -p ~/scripts
+cd ~/scripts
+echo '/home/user/scripts' folder created
 echo
 echo --- apt-update ------------------------------------------------------------------------------------
 echo
@@ -18,14 +18,14 @@ echo --- clone repo ------------------------------------------------------------
 echo
 git config --global user.name "bmilcs"
 git config --global user.email "bmilcs@yahoo.com"
-git clone https://github.com/bmilcs/linux.git ~/_scripts
+git clone https://github.com/bmilcs/linux.git ~/scripts
 echo
 echo --- git status ------------------------------------------------------------------------------------
 git status
 echo
 echo --- make scripts executable -----------------------------------------------------------------------
 echo
-chmod +x ~/_scripts/*.sh -v
+chmod +x ~/scripts/*.sh -v
 echo
 cd ~/_scripts
 echo ===================================================================================================
