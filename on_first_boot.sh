@@ -7,6 +7,7 @@ sudo apt-get update && apt-get upgrade && sudo apt dist-upgrade
 echo
 echo ---- setup openssh ----------------------------------------------------------------------------------
 echo
+sudo su 
 sudo mkdir -p ~/.ssh
 sudo chmod 0700 ~/.ssh
 sudo touch ~/.ssh/authorized_keys
