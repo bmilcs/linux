@@ -2,6 +2,7 @@
 
 ### **todo**
 - [ ] inputbox for rsa ssh login
+- [ ] password-less sudo'ers
 - [ ] configure network
 
 ### setup github | clone repo
