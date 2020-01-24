@@ -10,8 +10,8 @@
 
 ### **common problems**
 
-#### permission issues (dpkg)
-![error](https://i.imgur.com/5Om2naZ.png)    
+- #### permission issues (dpkg)
+> ![error](https://i.imgur.com/5Om2naZ.png)    
 
     sudo killall apt apt-get
     sudo rm /var/lib/apt/lists/lock
