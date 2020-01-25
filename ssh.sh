@@ -19,6 +19,6 @@ grep -qxF 'AuthorizedKeysFile %h/.ssh/authorized_keys' /etc/ssh/sshd_config || e
 sudo service ssh restart
 echo
 echo '====================================================================================================='
-echo '====  setup complete: paste rsa-key into ~/.ssh/sshd_config  ========================================'
+echo '====  setup complete: paste rsa-key into ~/.ssh/authorized_keys  ===================================='
 echo '====================================================================================================='
 exit
