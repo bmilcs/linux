@@ -11,11 +11,10 @@ sudo mkdir -p ~/.ssh
 sudo chmod 0700 ~/.ssh
 sudo touch ~/.ssh/authorized_keys
 sudo chmod 0644 ~/.ssh/authorized_keys
-sudo su
-sudo mkdir -p ~/.ssh
-sudo chmod 0700 ~/.ssh
-sudo touch ~/.ssh/authorized_keys
-sudo chmod 0644 ~/.ssh/authorized_keys
+sudo mkdir -p /home/bmilcs/.ssh
+sudo chmod 0700 /home/bmilcs/.ssh
+sudo touch /home/bmilcs/.ssh/authorized_keys
+sudo chmod 0644 /home/bmilcs/.ssh/authorized_keys
 echo ... complete.
 echo
 echo '---- configure ssh config ---------------------------------------------------------------------------'
@@ -35,5 +34,4 @@ echo '==========================================================================
 echo '====  ssh complete  ================================================================================='
 echo '====================================================================================================='
 echo
-echo '** dont forget to paste rsa-keys **'
 exit
