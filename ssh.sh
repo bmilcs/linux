@@ -17,4 +17,8 @@ grep -qxF 'PermitRootLogin yes' /etc/ssh/sshd_config || echo 'PermitRootLogin ye
 grep -qxF 'PubkeyAuthentication yes' /etc/ssh/sshd_config || echo 'PubkeyAuthentication yes' >> /etc/ssh/sshd_config
 grep -qxF 'AuthorizedKeysFile %h/.ssh/authorized_keys' /etc/ssh/sshd_config || echo 'AuthorizedKeysFile %h/.ssh/authorized_keys' >> /etc/ssh/sshd_config
 sudo service ssh restart
+echo
+echo '====================================================================================================='
+echo '====  setup complete: paste rsa-key into ~/.ssh/sshd_config  ========================================'
+echo '====================================================================================================='
 exit
