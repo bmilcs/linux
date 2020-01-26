@@ -9,10 +9,12 @@
 - [ ] password-less sudo'ers
 - [ ] configure network
 
-### **common problems**
+### **errors**
 
-- #### permission issues (dpkg)
-> ![error](https://i.imgur.com/5Om2naZ.png)    
+
+- #### can't open lock file /var/lib/dpkg/lock-frontend (permission denied)
+
+    ![error](https://i.imgur.com/5Om2naZ.png)    
 
     sudo killall apt apt-get
     sudo rm /var/lib/apt/lists/lock
