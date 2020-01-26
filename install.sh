@@ -9,8 +9,8 @@ sudo apt-get update && apt-get upgrade && sudo apt dist-upgrade -y
 echo
 echo '---- configuring directories ------------------------------------------------------------------------'
 echo
-rm -rv ~/scripts > /dev/null
-mkdir -p ~/scripts
+sudo rm -rv ~/scripts > /dev/null
+sudo mkdir -p ~/scripts
 cd ~/scripts
 echo '/home/user/scripts' folder created
 echo
@@ -23,7 +23,7 @@ echo ... complete
 echo
 echo '---- make scripts executable ------------------------------------------------------------------------'
 echo
-chmod +x ~/scripts/*.sh -v
+sudo chmod +x ~/scripts/*.sh -v
 echo
 echo '====================================================================================================='
 echo '====  scripts installed: cd ~/scripts  =============================================================='
