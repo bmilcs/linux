@@ -27,12 +27,25 @@
 	# enter 3x
 
 	# id_rsa.pub > notepad > copy code
-	
+
 	# github.com/bmilcs/
 		# profile icon (top right)
 		# settings
 		# ssh and gpg keys (left menu)
 		# create new ssh key, paste & save
 
+> #### VS CODE:
+
+**create hotkey**
+- ctrl+k ctrl+s (*or file > preferences > keyboard shortcuts*)
 
 
+
+![commit key](https://i.imgur.com/yAzBook.png)
+
+
+![code](https://i.imgur.com/KKGBp0D.png)
+![code](https://i.imgur.com/HGnXt7p.png)
+![code](https://i.imgur.com/igUyuyW.png)
+![code](https://i.imgur.com/4V91Kdb.png)
+![code](https://i.imgur.com/pMVEcFg.png)
