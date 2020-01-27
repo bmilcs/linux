@@ -1,6 +1,5 @@
 #!/bin/bash
 # after deploying fresh linux vm, execute the following:
-
 echo '====================================================================================================='
 echo '====  configuring ssh & rsa key  ===================================================================='
 echo '====================================================================================================='
@@ -24,11 +23,9 @@ echo
 grep -qxF 'PermitRootLogin yes' /etc/ssh/sshd_config || echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
 grep -qxF 'PubkeyAuthentication yes' /etc/ssh/sshd_config || echo 'PubkeyAuthentication yes' >> /etc/ssh/sshd_config
 grep -qxF 'AuthorizedKeysFile %h/.ssh/authorized_keys' /etc/ssh/sshd_config || echo 'AuthorizedKeysFile %h/.ssh/authorized_keys' >> /etc/ssh/sshd_config
-#grep -qxF 'PasswordAuthentication yes' /etc/ssh/sshd_config || echo 'PasswordAuthentication yes' >> /etc/ssh/sshd_config
 sudo service ssh restart
 echo '> password-less login configured & openssh restarted'
 echo
-su bmilcs
 echo '====================================================================================================='
 echo '====  ssh complete  ================================================================================='
 echo '====================================================================================================='
