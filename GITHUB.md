@@ -21,19 +21,20 @@
 ### RSA-SSH KEY PASSWORDLESS LOGIN (WINDOWS)
 	cd c:/users/bmilcs/
 	ssh-keygen -t rsa -b 2048 -C "bmilcs@yahoo.com"
-	# enter 3x
+	# hit enter 3x
 
+	copy contents of id_rsa.pub
 	# file explorer > c:/users/bmilcs/.ssh/id_rsa.pub
 	# right click > open with > notepad > select all > copy 
-
-	# visit github.com/bmilcs/
+	
+	visit github.com/bmilcs/ and save my pub key.
 	# profile icon (top right) > settings
 	# ssh and gpg keys (left menu) 
 	# create new ssh key, paste & save
 
-#### PUSH LOCAL REPO ONLINE
- 	# 1. goto github.com
-	# 2. create repo 
+#### PUSH LOCAL REPO TO GITHUB
+ 	1. goto github.com
+	2. create repo 
 
 	# password-less ssh commit/push (recommended)
 	git remote add origin git@github.com:bmilcs/REPO
@@ -53,16 +54,15 @@ for example, i make changes to a file and then follow this workflow:
 	a 						# message describing commit (unnecessary for what i use github for)
 	enter					# done. visit my page to view changes.
 
-**create hotkey**
-- ctrl+k ctrl+s (*file > preferences > keyboard shortcuts*)
+#1 **create hotkey**
+- ctrl+k ctrl+s (or *file > preferences > keyboard shortcuts*)
 - search for "git commit all" and set a hotkey (ie: ctrl + alt + enter)
 
 	![commit key](https://i.imgur.com/yAzBook.png)
 
-**make commit/push easier:**
+#2 **make commit/push easier:**
+- ctrl+, (or *file > preferences > settings*
+- expand extensions (list on left side)
+- select git & change these settings:
 
-![code](https://i.imgur.com/KKGBp0D.png)
-![code](https://i.imgur.com/HGnXt7p.png)
-![code](https://i.imgur.com/igUyuyW.png)
-![code](https://i.imgur.com/4V91Kdb.png)
-![code](https://i.imgur.com/pMVEcFg.png)
+![code](https://i.imgur.com/jdIwpuI.png)![code](https://i.imgur.com/KKGBp0D.png)![code](https://i.imgur.com/HGnXt7p.png)![code](https://i.imgur.com/igUyuyW.png)![code](https://i.imgur.com/4V91Kdb.png)![code](https://i.imgur.com/pMVEcFg.png)
