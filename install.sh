@@ -25,7 +25,7 @@ echo '---- make scripts executable ---------------------------------------------
 echo
 sudo chmod +x ~/scripts/*.sh -v
 echo
-sudo -u bmilcs grep -qxF 'bmilcs ALL=(ALL) NOPASSWD: ALL' /etc/sudoers || sudo echo 'bmilcs ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
+sudo grep -qxF 'bmilcs ALL=(ALL) NOPASSWD: ALL' /etc/sudoers || sudo echo 'bmilcs ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
 echo '====================================================================================================='
 echo '====  scripts installed: cd ~/scripts  =============================================================='
 echo '====================================================================================================='
