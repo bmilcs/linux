@@ -65,4 +65,4 @@ for example, i make changes to a file and then follow this workflow:
 - expand extensions (list on left side)
 - select git & change these settings:
 
-![code](https://i.imgur.com/jdIwpuI.png)  ![code](https://i.imgur.com/KKGBp0D.png)  ![code](https://i.imgur.com/HGnXt7p.png)  ![code](https://i.imgur.com/igUyuyW.png)  ![code](https://i.imgur.com/4V91Kdb.png)  ![code](https://i.imgur.com/pMVEcFg.png)
+![code](https://i.imgur.com/jdIwpuI.png)  ![code](https://i.imgur.com/4V91Kdb.png)  ![code](https://i.imgur.com/KKGBp0D.png)  ![code](https://i.imgur.com/HGnXt7p.png)  ![code](https://i.imgur.com/igUyuyW.png)  ![code](https://i.imgur.com/pMVEcFg.png)
