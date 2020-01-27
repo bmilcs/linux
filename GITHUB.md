@@ -19,31 +19,38 @@
 	git push origin master
 
 ### PASSWORDLESS COMMIT PUSH PULL VIA RSA-SSH
+
 	cd c:/users/bmilcs/
 	ssh-keygen -t rsa -b 2048 -C "bmilcs@yahoo.com"
-	# hit enter 3x
+	# enter > enter > enter
 
-	copy contents of id_rsa.pub
-	# file explorer > c:/users/bmilcs/.ssh/id_rsa.pub
-	# right click > open with > notepad > select all > copy 
-	
-	visit github.com/bmilcs/ and save my pub key.
-	# profile icon (top right) > settings
-	# ssh and gpg keys (left menu) 
-	# create new ssh key, paste & save
+- **open windows file explorer**
+	- *c:/users/bmilcs/.ssh/*
+- right click **id_rsa.pub** 
+	- open with > *notepad*
+	- select all
+	- copy to clipboard
+- visit **https://github.com/bmilcs/**
+	- click profile icon (top right)
+		- settings
+	- ssh and gpg keys (left menu) 
+		- create new ssh key
+		- enter any name
+		- paste clipboard
+		- save
 
 ### PUSH LOCAL REPO TO GITHUB
- 	1. goto github.com
-	2. create repo 
+- create a repo on **https://github.com/bmilcs**
+- return to git bash:
 
-	# password-less ssh commit/push (recommended)
-	git remote add origin git@github.com:bmilcs/REPO
-	git push -u origin master
+		# password-less ssh commit/push (recommended)
+		git remote add origin git@github.com:bmilcs/REPO
+		git push -u origin master
 	
-	#### non-ssh login (untested)
-	#### git remote add origin https://github.com/bmilcs/new_repo
+		#### non-ssh login (untested)
+		#### git remote add origin https://github.com/bmilcs/new_repo
 
-### VISUAL STUDIO CODE SETUP
+### VISUAL STUDIO CODE SUMMARY
 with these settings, you can commit & push any changes to github with a single key combo. for example, i revise a script and follow this workflow:
 
 hotkey | description
@@ -54,15 +61,17 @@ a | message "a" describing commit (unnecessary for my needs)
 enter|uploads to github
 
 
-
-### **SET HOTKEY**
+#### VISUAL STUDIO HOTKEY
 
 - ctrl+k ctrl+s (or *file > preferences > keyboard shortcuts*)
 - search for "git commit all" and set a hotkey (ie: ctrl + alt + enter)
 
 	![commit key](https://i.imgur.com/yAzBook.png)
 
-### **REDUCE NECESSARY INPUT**
+
+
+
+#### VISUAL STUDIO SETTINGS
 
 - ctrl+, (or *file > preferences > settings*
 - expand extensions (list on left side)
