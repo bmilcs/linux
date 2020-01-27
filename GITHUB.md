@@ -89,7 +89,7 @@ enter|uploads to github
 
 #### VISUAL STUDIO GIT SETTINGS
 
-- ctrl+, (or *file > preferences > settings*
+- ctrl+, (or *file > preferences > settings*)
 - expand extensions (list on left side)
 - select git & change these settings:
 
