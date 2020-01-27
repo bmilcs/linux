@@ -18,7 +18,7 @@ echo '---- clone repo ----------------------------------------------------------
 echo
 git config --global user.name "bmilcs"
 git config --global user.email "bmilcs@yahoo.com"
-git clone https://github.com/bmilcs/linux.git ~/
+git clone https://github.com/bmilcs/linux.git ~/scripts
 echo ... complete 
 echo
 echo '---- make scripts executable ------------------------------------------------------------------------'
