@@ -6,10 +6,9 @@
 
 >#### CREATE LOCAL REPO
 	# mkdir C:/path/project (if you don't have one with existing content already)
-	# goto C:/path/project within File Explorer
-	# 	right click > open git bash in project folder 
-	# OR open git bash software AND:
-	
+	# goto C:/path/project within file explorer
+	#	right click > "GIT BASH HERE"
+	# or open git bash software and:
 	cd C:/path/project
 	git init
 	git add .
@@ -23,9 +22,10 @@
 	ssh-keygen -t rsa -b 2048 -C "bmilcs@yahoo.com"
 	# enter 3x
 
-	# id_rsa.pub > notepad > copy code
+	# locate c:/users/bmilcs/.ssh/id_rsa.pub
+	# right click > open with > notepad > select all > copy 
 
-	# github.com/bmilcs/
+	# visit github.com/bmilcs/
 		# profile icon (top right)
 		# settings
 		# ssh and gpg keys (left menu)
@@ -35,12 +35,12 @@
  	# 1. goto github.com
 	# 2. create repo 
 
-	# ssh password-less login
+	# password-less ssh commit/push (recommended)
 	git remote add origin git@github.com:bmilcs/REPO
 	git push -u origin master
 	
-		# non-ssh login
-		# git remote add origin https://github.com/bmilcs/new_repo
+		### non-ssh login
+		### git remote add origin https://github.com/bmilcs/new_repo
 
 > #### VS CODE SETUP
 
