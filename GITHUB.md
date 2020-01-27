@@ -1,6 +1,6 @@
-## NEW REPO, EXISTING/NEW FOLDER
+# bmilcs: github guide
+#### CREATE *LOCAL* REPO
 
-	#--- local changes -------------------------------------#
 	cd *
 	git init
 	git add .
@@ -10,12 +10,10 @@
 	git config --global user.email bmilcs@yahoo.com
 	git push origin master
 
-## PUSH TO GITHUB.COM
-1. login github.com & **create repo**
+#### login github.com & **create repo**
 
-	#--- upload to github ---------------------------------#
-	# ssh login - passwordless
-	git remote add origin git@github.com:bmilcs/REPO 
+	# ssh login
+	git remote add origin git@github.com:bmilcs/REPO
 	git push -u origin master
 	
 	# alternative:
