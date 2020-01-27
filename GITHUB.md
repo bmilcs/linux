@@ -69,8 +69,8 @@ for example, i make changes to a file and then follow this workflow:
 
 - make the following changes (yellow line indicates "not default")
 
-	![code](https://i.imgur.com/4V91Kdb.png)
 	![code](https://i.imgur.com/igUyuyW.png)
+	![code](https://i.imgur.com/4V91Kdb.png)
 	![code](https://i.imgur.com/KKGBp0D.png)
 	![code](https://i.imgur.com/HGnXt7p.png)
 	![code](https://i.imgur.com/pMVEcFg.png)
