@@ -1,5 +1,5 @@
 # bmilcs: github guide
-#### CREATE *LOCAL* REPO
+> #### CREATE *LOCAL* REPO
 
 	cd *
 	git init
@@ -10,7 +10,9 @@
 	git config --global user.email bmilcs@yahoo.com
 	git push origin master
 
-#### login github.com & **create repo**
+> #### PUSH LOCAL REPO ONLINE
+
+##### VISIT GITHUB.COM & **CREATE REPO**
 
 	# ssh login
 	git remote add origin git@github.com:bmilcs/REPO
