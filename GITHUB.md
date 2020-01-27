@@ -1,5 +1,7 @@
 # bmilcs: github & vscode on windows 
 
+after learning the basics of git, i found commiting changes and pushing them to master, via visual studio code, a tedious process. i created this guide for dummies like myself, simplifying the process of getting content to github with a single hotkey. 
+
 ### REQUIRED SOFTWARE
 - [**visual studio code**](https://code.visualstudio.com/download)
 - [**git**](https://git-scm.com/download/win) (default options are fine)
@@ -52,7 +54,8 @@
 
 ### VISUAL STUDIO CODE CONFIGURATION
 
-with these tweaks, you can commit & push any changes to github with a single key combo. after revising a script, you can follow this workflow:
+with these tweaks, you can commit & push any changes to github with a single key combo. after revising a script, you can
+ follow this workflow:
 
 hotkey | description
 ---:|:---
