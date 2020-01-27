@@ -18,7 +18,7 @@
 	git config --global user.email bmilcs@yahoo.com
 	git push origin master
 
-### RSA-SSH KEY PASSWORDLESS LOGIN (WINDOWS)
+### PASSWORDLESS COMMIT PUSH PULL VIA RSA-SSH
 	cd c:/users/bmilcs/
 	ssh-keygen -t rsa -b 2048 -C "bmilcs@yahoo.com"
 	# hit enter 3x
