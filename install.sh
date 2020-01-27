@@ -25,10 +25,7 @@ echo '---- make scripts executable ---------------------------------------------
 echo
 sudo chmod +x ~/scripts/*.sh -v
 echo
-sudo grep -qxF '$USER ALL=(ALL) NOPASSWD: ALL' /etc/sudoers || echo '$USER ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
-
-
-
+sudo grep -qxF '$USER ALL=(ALL) NOPASSWD: ALL' /etc/sudoers || sudo echo '$USER ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
 echo '====================================================================================================='
 echo '====  scripts installed: cd ~/scripts  =============================================================='
 echo '====================================================================================================='
