@@ -1,30 +1,38 @@
 # bmilcs: github & vscode on windows 
 
+### SUMMARY
+
 after learning the basics of git, i found commiting changes and pushing them to master, via visual studio code, a tedious process. i created this guide for dummies like myself, simplifying the process of getting content to github with a single hotkey. 
+
+---
 
 ### REQUIRED SOFTWARE
 - [**visual studio code**](https://code.visualstudio.com/download)
 - [**git**](https://git-scm.com/download/win) (default options are fine)
 
-### CREATE LOCAL REPO
-	# mkdir C:/path/project 	(if you don't have one with existing content already)
-	# goto C:/path/project 		(within file explorer)
-	# right click > "GIT BASH HERE"
-	# or open git bash software and:
+---
 
-	cd C:/path/project
-	git init
-	git add .
-	git commit -m "message"
-	git config --global user.name "bmilcs"
-	git config --global user.email bmilcs@yahoo.com
-	git push origin master
+### CREATE LOCAL REPO
+- open **windows file explorer** 
+	- *c:/path/project*
+	- right click > **git bash here**
+
+			git init
+			git add .
+			git commit -m "message"
+			git config --global user.name "bmilcs"
+			git config --global user.email bmilcs@yahoo.com
+			git push origin master
+
+---
 
 ### PASSWORDLESS COMMIT PUSH PULL VIA RSA-SSH
 
-	cd c:/users/bmilcs/
-	ssh-keygen -t rsa -b 2048 -C "bmilcs@yahoo.com"
-	# enter > enter > enter
+- within **git bash**:
+
+		cd c:/users/bmilcs/
+		ssh-keygen -t rsa -b 2048 -C "bmilcs@yahoo.com"
+		# enter > enter > enter
 
 - **open windows file explorer**
 	- *c:/users/bmilcs/.ssh/*
@@ -41,6 +49,8 @@ after learning the basics of git, i found commiting changes and pushing them to 
 		- paste clipboard
 		- save
 
+----
+
 ### PUSH LOCAL REPO TO GITHUB
 - create a repo on **https://github.com/bmilcs**
 - return to git bash:
@@ -49,8 +59,10 @@ after learning the basics of git, i found commiting changes and pushing them to 
 		git remote add origin git@github.com:bmilcs/REPO
 		git push -u origin master
 	
-		#### non-ssh login (untested)
-		#### git remote add origin https://github.com/bmilcs/new_repo
+				# for non-ssh login (untested)
+				# git remote add origin https://github.com/bmilcs/new_repo
+
+----
 
 ### VISUAL STUDIO CODE CONFIGURATION
 
@@ -64,18 +76,18 @@ ctrl+alt+enter|commit (with multiple local repos, arrow down to select > enter)
 a | message "a" describing commit (unnecessary for my needs)
 enter|uploads to github
 
+----
 
-#### VISUAL STUDIO HOTKEY
+#### SET VISUAL STUDIO HOTKEY
 
 - ctrl+k ctrl+s (or *file > preferences > keyboard shortcuts*)
 - search for "git commit all" and set a hotkey (ie: ctrl + alt + enter)
 
 	![commit key](https://i.imgur.com/yAzBook.png)
 
+----
 
-
-
-#### VISUAL STUDIO SETTINGS
+#### VISUAL STUDIO GIT SETTINGS
 
 - ctrl+, (or *file > preferences > settings*
 - expand extensions (list on left side)
