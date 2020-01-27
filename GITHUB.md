@@ -32,7 +32,7 @@
 	# ssh and gpg keys (left menu) 
 	# create new ssh key, paste & save
 
-#### PUSH LOCAL REPO TO GITHUB
+### PUSH LOCAL REPO TO GITHUB
  	1. goto github.com
 	2. create repo 
 
@@ -43,16 +43,20 @@
 	#### non-ssh login (untested)
 	#### git remote add origin https://github.com/bmilcs/new_repo
 
-#### VS CODE SETUP
+### VS CODE SETUP
 with these settings, you can commit & push any changes to github with a single key combo.
 
 for example, i make changes to a file and then follow this workflow:
 
-	ctrl+s 					# save file to disk
-	ctrl+alt+enter				# commit all
-						# with multiple repos, i arrow down to correct one & hit enter
-	a 					# message describing commit (unnecessary for what i use github for)
-	enter					# done. visit my page to view changes.
+hotkey | description
+-- | --
+ctrl+s| save file to disk
+ctrl+alt+enter|commit all
+n/a| with multiple repos, i arrow down > hit enter
+a| "a"  = message describing commit (unnecessary for what i use github for)
+enter|uploads to github
+
+
 
 #1 **create hotkey**
 - ctrl+k ctrl+s (or *file > preferences > keyboard shortcuts*)
