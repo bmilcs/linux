@@ -4,27 +4,19 @@
 - [**visual studio code**](https://code.visualstudio.com/download)
 - [**git**](https://git-scm.com/download/win) (default options are fine)
 
->#### CREATE *LOCAL* REPO
-	cd *
+>#### CREATE LOCAL REPO
+	# mkdir C:/path/project (if you don't have one with existing content already)
+	# goto C:/path/project within File Explorer
+	# 	right click > open git bash in project folder 
+	# OR open git bash software AND:
+	
+	cd C:/path/project
 	git init
 	git add .
-	git commit
-		OR git commit -m "x"
+	git commit -m "message"
 	git config --global user.name "bmilcs"
 	git config --global user.email bmilcs@yahoo.com
 	git push origin master
-
->#### PUSH LOCAL REPO ONLINE
-
-	# 1. GOTO GITHUB.COM
-	# 2. CREATE REPO 
-
-	# ssh login
-	git remote add origin git@github.com:bmilcs/REPO
-	git push -u origin master
-	
-		# non-ssh login
-		# git remote add origin https://github.com/bmilcs/new_repo
 
 > #### RSA-SSH KEY PASSWORDLESS LOGIN (WINDOWS)
 	cd c:/users/bmilcs/
@@ -38,6 +30,17 @@
 		# settings
 		# ssh and gpg keys (left menu)
 		# create new ssh key, paste & save
+
+>#### PUSH LOCAL REPO ONLINE
+ 	# 1. goto github.com
+	# 2. create repo 
+
+	# ssh password-less login
+	git remote add origin git@github.com:bmilcs/REPO
+	git push -u origin master
+	
+		# non-ssh login
+		# git remote add origin https://github.com/bmilcs/new_repo
 
 > #### VS CODE SETUP
 
