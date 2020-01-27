@@ -3,10 +3,10 @@ echo '==========================================================================
 echo '====  bmilcs: git setup started  ===================================================================='
 echo '====================================================================================================='
 echo
-echo '---- apt-get update, upgrade & dist-upgrade ---------------------------------------------------------'
-echo
+#echo '---- apt-get update, upgrade & dist-upgrade ---------------------------------------------------------'
+#echo
 #sudo apt-get update && apt-get upgrade && sudo apt dist-upgrade -y
-echo
+#echo
 echo '---- configuring directories ------------------------------------------------------------------------'
 echo
 sudo rm -rv ~/scripts > /dev/null
