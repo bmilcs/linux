@@ -1,4 +1,9 @@
-# bmilcs: github guide
+# bmilcs: github & vscode on windows 
+
+>#### INSTALL SOFTWARE
+- [**visual studio code**](https://code.visualstudio.com/download)
+- [**git**](https://git-scm.com/download/win) (default options are fine)
+
 >#### CREATE *LOCAL* REPO
 	cd *
 	git init
@@ -34,11 +39,12 @@
 		# ssh and gpg keys (left menu)
 		# create new ssh key, paste & save
 
-> #### VS CODE:
+> #### VS CODE SETUP
 
 **create hotkey**
 - ctrl+k ctrl+s (*file > preferences > keyboard shortcuts*)
-- create hotkey  for "git commit all" (ie: ctrl + alt + enter)
+- search for "git commit all" and set a hotkey (ie: ctrl + alt + enter)
+
 	![commit key](https://i.imgur.com/yAzBook.png)
 
 **make commit/push easier:**
@@ -46,10 +52,9 @@
 changing the following settings allows you to commit & push in seconds:
 
 	ctrl + alt + enter
-	select repo (if  mulitple present)
-	type note describing commit (ie: "did stuff")
+		* if multiple repos present, arrow down to select it & hit enter
+	input message (ie: "did stuff")
 	enter
-
 
 ![code](https://i.imgur.com/KKGBp0D.png)
 ![code](https://i.imgur.com/HGnXt7p.png)
