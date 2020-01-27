@@ -5,8 +5,8 @@
 - [**git**](https://git-scm.com/download/win) (default options are fine)
 
 ### CREATE LOCAL REPO
-	# mkdir C:/path/project (if you don't have one with existing content already)
-	# goto C:/path/project within file explorer
+	# mkdir C:/path/project 	(if you don't have one with existing content already)
+	# goto C:/path/project 		(within file explorer)
 	#	right click > "GIT BASH HERE"
 	# or open git bash software and:
 
