@@ -43,20 +43,14 @@
 	#### git remote add origin https://github.com/bmilcs/new_repo
 
 #### VS CODE SETUP
-with the following settings, you can commit & push any saved file to github with a single key combo & enter.
+with these settings, you can commit & push any changes to github with a single key combo.
 
-	ctrl + alt + enter
-	# arrow down to repo > enter (only if multiple repos exist)
-	input message (ie: "stuff")
-	enter
+for example, i make changes to a file and then follow this workflow:
 
-ie:
-
-	ctrl+alt+enter
-	enter
-	a
-	enter
-
+	ctrl+s 					# save file to disk
+	ctrl+alt+enter			# commit all
+	a 						# message describing commit (unnecessary for what i use github for)
+	enter					# done. visit my page to view changes.
 
 **create hotkey**
 - ctrl+k ctrl+s (*file > preferences > keyboard shortcuts*)
