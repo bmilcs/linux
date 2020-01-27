@@ -43,7 +43,7 @@
 	#### non-ssh login (untested)
 	#### git remote add origin https://github.com/bmilcs/new_repo
 
-### VS CODE SETUP
+### VISUAL STUDIO CODE SETUP
 with these settings, you can commit & push any changes to github with a single key combo. for example, i revise a script and follow this workflow:
 
 hotkey | description
