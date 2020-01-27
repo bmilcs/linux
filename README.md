@@ -1,3 +1,4 @@
+theme: jekyll-theme-slate
 # **bmilcs linux repo**
 
 ### setup github | clone repo
