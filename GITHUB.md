@@ -52,7 +52,7 @@
 
 ### VISUAL STUDIO CODE CONFIGURATION
 
-with these tweaks, you can commit & push any changes to github with a single key combo. for example, i revise a script and follow this workflow:
+with these tweaks, you can commit & push any changes to github with a single key combo. after revising a script, you can follow this workflow:
 
 hotkey | description
 ---:|:---
