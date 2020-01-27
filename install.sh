@@ -5,7 +5,7 @@ echo '==========================================================================
 echo
 echo '---- apt-get update, upgrade & dist-upgrade ---------------------------------------------------------'
 echo
-sudo apt-get update && apt-get upgrade && sudo apt dist-upgrade -y
+#sudo apt-get update && apt-get upgrade && sudo apt dist-upgrade -y
 echo
 echo '---- configuring directories ------------------------------------------------------------------------'
 echo
