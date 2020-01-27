@@ -50,8 +50,9 @@
 		#### non-ssh login (untested)
 		#### git remote add origin https://github.com/bmilcs/new_repo
 
-### VISUAL STUDIO CODE SUMMARY
-with these settings, you can commit & push any changes to github with a single key combo. for example, i revise a script and follow this workflow:
+### VISUAL STUDIO CODE CONFIGURATION
+
+with these tweaks, you can commit & push any changes to github with a single key combo. for example, i revise a script and follow this workflow:
 
 hotkey | description
 ---:|:---
