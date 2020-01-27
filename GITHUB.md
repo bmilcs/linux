@@ -7,7 +7,7 @@
 ### CREATE LOCAL REPO
 	# mkdir C:/path/project 	(if you don't have one with existing content already)
 	# goto C:/path/project 		(within file explorer)
-	#	right click > "GIT BASH HERE"
+	# right click > "GIT BASH HERE"
 	# or open git bash software and:
 
 	cd C:/path/project
