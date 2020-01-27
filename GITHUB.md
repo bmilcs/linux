@@ -1,14 +1,15 @@
 # bmilcs: github & vscode on windows 
 
->#### INSTALL SOFTWARE
+### REQUIRED SOFTWARE
 - [**visual studio code**](https://code.visualstudio.com/download)
 - [**git**](https://git-scm.com/download/win) (default options are fine)
 
->#### CREATE LOCAL REPO
+### CREATE LOCAL REPO
 	# mkdir C:/path/project (if you don't have one with existing content already)
 	# goto C:/path/project within file explorer
 	#	right click > "GIT BASH HERE"
 	# or open git bash software and:
+
 	cd C:/path/project
 	git init
 	git add .
@@ -17,21 +18,20 @@
 	git config --global user.email bmilcs@yahoo.com
 	git push origin master
 
-> #### RSA-SSH KEY PASSWORDLESS LOGIN (WINDOWS)
+### RSA-SSH KEY PASSWORDLESS LOGIN (WINDOWS)
 	cd c:/users/bmilcs/
 	ssh-keygen -t rsa -b 2048 -C "bmilcs@yahoo.com"
 	# enter 3x
 
-	# locate c:/users/bmilcs/.ssh/id_rsa.pub
+	# file explorer > c:/users/bmilcs/.ssh/id_rsa.pub
 	# right click > open with > notepad > select all > copy 
 
 	# visit github.com/bmilcs/
-		# profile icon (top right)
-		# settings
-		# ssh and gpg keys (left menu)
-		# create new ssh key, paste & save
+	# profile icon (top right) > settings
+	# ssh and gpg keys (left menu) 
+	# create new ssh key, paste & save
 
->#### PUSH LOCAL REPO ONLINE
+#### PUSH LOCAL REPO ONLINE
  	# 1. goto github.com
 	# 2. create repo 
 
@@ -39,10 +39,24 @@
 	git remote add origin git@github.com:bmilcs/REPO
 	git push -u origin master
 	
-		### non-ssh login
-		### git remote add origin https://github.com/bmilcs/new_repo
+	#### non-ssh login (untested)
+	#### git remote add origin https://github.com/bmilcs/new_repo
 
-> #### VS CODE SETUP
+#### VS CODE SETUP
+with the following settings, you can commit & push any saved file to github with a single key combo & enter.
+
+	ctrl + alt + enter
+	# arrow down to repo > enter (only if multiple repos exist)
+	input message (ie: "stuff")
+	enter
+
+ie:
+
+	ctrl+alt+enter
+	enter
+	a
+	enter
+
 
 **create hotkey**
 - ctrl+k ctrl+s (*file > preferences > keyboard shortcuts*)
@@ -51,13 +65,6 @@
 	![commit key](https://i.imgur.com/yAzBook.png)
 
 **make commit/push easier:**
-
-changing the following settings allows you to commit & push in seconds:
-
-	ctrl + alt + enter
-		* if multiple repos present, arrow down to select it & hit enter
-	input message (ie: "did stuff")
-	enter
 
 ![code](https://i.imgur.com/KKGBp0D.png)
 ![code](https://i.imgur.com/HGnXt7p.png)
