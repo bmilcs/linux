@@ -49,6 +49,7 @@ for example, i make changes to a file and then follow this workflow:
 
 	ctrl+s 					# save file to disk
 	ctrl+alt+enter			# commit all
+							# with multiple repos, i arrow down to correct one & hit enter
 	a 						# message describing commit (unnecessary for what i use github for)
 	enter					# done. visit my page to view changes.
 
