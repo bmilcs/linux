@@ -29,6 +29,7 @@ grep -qxF 'AuthorizedKeysFile %h/.ssh/authorized_keys' /etc/ssh/sshd_config || e
 sudo service ssh restart
 echo '> password-less login configured & openssh restarted'
 echo
+su bmilcs
 echo '====================================================================================================='
 echo '====  ssh complete  ================================================================================='
 echo '====================================================================================================='
