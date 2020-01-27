@@ -44,27 +44,26 @@
 	#### git remote add origin https://github.com/bmilcs/new_repo
 
 ### VS CODE SETUP
-with these settings, you can commit & push any changes to github with a single key combo.
-
-for example, i make changes to a file and then follow this workflow:
+with these settings, you can commit & push any changes to github with a single key combo. for example, i revise a script and follow this workflow:
 
 hotkey | description
--- | --
-ctrl+s| save file to disk
-ctrl+alt+enter|commit all
-n/a| with multiple repos, i arrow down > hit enter
-a| "a"  = message describing commit (unnecessary for what i use github for)
+---:|:---
+ctrl+s| save file
+ctrl+alt+enter|commit (with multiple local repos, arrow down to select > enter)
+a | message "a" describing commit (unnecessary for my needs)
 enter|uploads to github
 
 
 
-#1 **create hotkey**
+### **SET HOTKEY**
+
 - ctrl+k ctrl+s (or *file > preferences > keyboard shortcuts*)
 - search for "git commit all" and set a hotkey (ie: ctrl + alt + enter)
 
 	![commit key](https://i.imgur.com/yAzBook.png)
 
-#2 **make commit/push easier:**
+### **REDUCE NECESSARY INPUT**
+
 - ctrl+, (or *file > preferences > settings*
 - expand extensions (list on left side)
 - select git & change these settings:
