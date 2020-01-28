@@ -3,20 +3,20 @@
 ## CHEAT SHEET
 
 ||verb||adverb||noun|
---:|--|--:|--|--:|--|--|--
+--:|--|--:|--|--:|--|--:|--
 **d** |delete|**a** | around|**w** | word
-**c** |change|**#** | number|**s** \| **)**  | sentence
-**y** |yank|**t** |  search & stop before it|**p** \| **}** | paragraph
+**c** |change|**#** | number|**s** ... **)**  | sentence
+**y** |yank|**t** |  search & stop before it|**p** ... **}** | paragraph
 **v** |visually select|**f** |  search & land on it|**b** | block (programming)
 |||**l**  | find string (literal or regex)|**t** | tag (html,xml) 
 
 ## WOMBO COMBO (SENTENCE)
-combo|explain
+ cmd|?
 --:|--
-d2w|	#delete 2 words
-cis|	#change inside sentence (delete current > insert)
-yip|	#yank inside paragraph (copy current paragraph)
-ct<|	#change to < (delete everything until next <)
+d2w|	delete 2 words
+cis|	change inside sentence (delete current > insert)
+yip|	yank inside paragraph (copy current paragraph)
+ct<|	change to < (delete everything until next <)
 
 ## FILE OPERATIONS
 cmd | ?
