@@ -1,4 +1,4 @@
-# bmilcs: github & vscode on windows 
+# bmilcs: github, visual studio, all-in-one commit & push hotkey
 
 ### SUMMARY
 
