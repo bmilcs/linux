@@ -1,0 +1,29 @@
+# vim
+
+## verbs
+key|desc
+---|---
+**d** |delete
+**c** |change
+**y** |yank
+**v**: |visually select
+
+## adverbs
+key|desc
+---|---
+**a** | around
+**0-9** | number
+**t** |  search & stop before it
+**f** |  search & land on it
+**l**  | find string (literal or regex)
+
+## nouns
+key|desc
+---|---
+**w** | word
+**s** | sentence
+**)** | sentence
+**p** | paragraph
+**}** | paragraph
+**t** | tag (html,xml) 
+**b** | block (programming)
