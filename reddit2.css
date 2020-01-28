@@ -1,0 +1,786 @@
+/*
+
+                                    ████████╗██╗  ██╗███████╗███╗   ███╗███████╗ ██╗ ██████╗                      
+                                    ╚══██╔══╝██║  ██║██╔════╝████╗ ████║██╔════╝███║██╔═████╗                     
+                                       ██║   ███████║█████╗  ██╔████╔██║█████╗  ╚██║██║██╔██║                     
+                                       ██║   ██╔══██║██╔══╝  ██║╚██╔╝██║██╔══╝   ██║████╔╝██║                     
+                                       ██║   ██║  ██║███████╗██║ ╚═╝ ██║███████╗ ██║╚██████╔╝                     
+                                       ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝     ╚═╝╚══════╝ ╚═╝ ╚═════╝                      
+                                                                                                                  
+                     ██╗██╗   ██╗███╗   ██╗ ██████╗ ██╗     ███████╗██╗     ██╗ ██████╗ ██╗   ██╗ ██████╗ ██████╗ 
+                     ██║██║   ██║████╗  ██║██╔════╝ ██║     ██╔════╝██║     ██║██╔═══██╗██║   ██║██╔═══██╗██╔══██╗
+                     ██║██║   ██║██╔██╗ ██║██║  ███╗██║     █████╗  ██║     ██║██║   ██║██║   ██║██║   ██║██████╔╝
+                ██   ██║██║   ██║██║╚██╗██║██║   ██║██║     ██╔══╝  ██║     ██║██║▄▄ ██║██║   ██║██║   ██║██╔══██╗
+                ╚█████╔╝╚██████╔╝██║ ╚████║╚██████╔╝███████╗███████╗███████╗██║╚██████╔╝╚██████╔╝╚██████╔╝██║  ██║
+                 ╚════╝  ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝ ╚══════╝╚══════╝╚══════╝╚═╝ ╚══▀▀═╝  ╚═════╝  ╚═════╝ ╚═╝  ╚═╝
+
+
+  Welcome to Theme10, a theme completly made by u/JungleLiquor.
+  There is no watermark or anything like that, but please leave this message on the stylesheet,
+  it would be really cool.
+
+  Oh, also, if you have any problem with the theme or would want me to install it,
+  send me a message. My username is u/JungleLiquor and I'm always active.
+
+  ██████  ██      ███████  █████  ███████ ███████   ███████ ██    ██ ██████  ██████   ██████  ██████  ████████
+  ██   ██ ██      ██      ██   ██ ██      ██        ██      ██    ██ ██   ██ ██   ██ ██    ██ ██   ██    ██   
+  ██████  ██      █████   ███████ ███████ █████     ███████ ██    ██ ██████  ██████  ██    ██ ██████     ██   
+  ██      ██      ██      ██   ██      ██ ██             ██ ██    ██ ██      ██      ██    ██ ██   ██    ██   
+  ██      ███████ ███████ ██   ██ ███████ ███████   ███████  ██████  ██      ██       ██████  ██   ██    ██    
+  ██                                                                                                     ██   
+  ██  Finally, I won't force you, but since I'm spending all my free time doing themes for Reddit,       ██   
+  ██  you can always consider donating to me via https://www.paypal.me/jungleliquor, it'd be very nice.  ██   
+  ██                                                                                                     ██   
+  █████████████████████████████████████████████████████████████████████████████████████████████████████████   
+
+  I hope you'll enjoy the theme as much as I enjoyed making it, cya!                                                           */
+
+/*██████╗  ██████╗ ██████╗ ██╗   ██╗
+  ██╔══██╗██╔═══██╗██╔══██╗╚██╗ ██╔╝
+  ██████╔╝██║   ██║██║  ██║ ╚████╔╝  Everything under the theme, Since the header image is in the body,
+  ██╔══██╗██║   ██║██║  ██║  ╚██╔╝   you'll find it here (body:before).
+  ██████╔╝╚██████╔╝██████╔╝   ██║   
+  ╚═════╝  ╚═════╝ ╚═════╝    ╚═╝*/
+
+  /* Whole body */
+  
+  body {
+    background-color: #DAE0E6;
+    background: url(%%background%%);
+    background-size: cover;
+    background-attachment: fixed; }
+
+/*██████╗  ██████╗ ███████╗████████╗███████╗    ██╗     ██╗███████╗████████╗
+  ██╔══██╗██╔═══██╗██╔════╝╚══██╔══╝██╔════╝    ██║     ██║██╔════╝╚══██╔══╝
+  ██████╔╝██║   ██║███████╗   ██║   ███████╗    ██║     ██║███████╗   ██║    Posts list is the list of posts you see when
+  ██╔═══╝ ██║   ██║╚════██║   ██║   ╚════██║    ██║     ██║╚════██║   ██║    you visit the sub.
+  ██║     ╚██████╔╝███████║   ██║   ███████║    ███████╗██║███████║   ██║   
+  ╚═╝      ╚═════╝ ╚══════╝   ╚═╝   ╚══════╝    ╚══════╝╚═╝╚══════╝   ╚═╝*/
+
+  /* All posts */
+
+  .sitetable { margin: 10px 315px 0 5px; }
+
+  /* Every post */
+
+  .link { background: white; padding: 10px; border: 1px solid #CCCCCC; }
+
+  /* Every post > Titles */
+
+  .link .title { margin-bottom: 5px; }
+  .sitetable a, .thing .title { color: #0074D9; }
+  .sitetable a:hover, .thing .title:hover { color: #001f3f; }
+  .sitetable a:visited, .thing .title:visited { color: #B10DC9; }
+
+  /* Every post > Info, links */
+
+  .link .tagline, .search-result-meta { font-size: 11px; }
+  .link .entry .buttons li a { opacity:0.2;}
+  a.bylink.comments.empty.may-blank, a.post-sharing-button { opacity: 1 !important; color: #0074D9; }
+  a.bylink.comments.may-blank { opacity: 1 !important; color:  }
+  .link:hover .entry .buttons li a { opacity: 1; transition: 0.3s; }
+
+  /* Every post > Thumbnail */
+
+  .thumbnail { width: 70px; height: 50px; margin: 0 15px 0 5px; }
+  a.thumbnail img {
+    min-width: 100%;
+    min-height: 100%;
+    height: auto;
+    width: auto;
+    background-position: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+  a.thumbnail.invisible-when-pinned.may-blank.loggedin { background-color: #CCCCC7; }
+
+  /* Every post> Post preview, post */
+
+  .link .usertext-body .md { border: 1px solid #CCCCCC; background: #FFFFFF; border-radius: 0; }
+
+  /* Every post > Announcements */
+
+  .thing.stickied.link { background: #EEEEEE; border: 1px solid #3D9970; }
+  .thing.stickied.link a.title, .tagline .stickied-tagline, .search-result-meta .stickied-tagline { color: #3D9970; }
+
+    /* Every post > Reports, spam, remove, approve,ignore reports buttons */
+
+  .entry .buttons li.reported-stamp,
+    .pretty-button.negative,
+      .pretty-button.neutral,
+        .pretty-button.positive { border: 1px solid #CCCCCC !important; border-radius: 0; }
+  .entry .buttons li.reported-stamp { color: white; }
+  .entry .buttons li.reported-stamp { background: #FF3E00 }
+  .pretty-button.negative,
+    .pretty-button.neutral,
+      .pretty-button.positive { background: #EEEEEE; }
+
+  /* Responsive */
+
+  @media only screen and (max-width: 700px) {
+    .side { display: none; }
+    .sitetable { margin-right: 10px; } }
+
+  /* End of Posts list */
+
+/*███████╗██╗██████╗ ███████╗██████╗  █████╗ ██████╗ 
+  ██╔════╝██║██╔══██╗██╔════╝██╔══██╗██╔══██╗██╔══██╗ Sidebar: Everything on the side, excepted for the footer. The sidebar
+  ███████╗██║██║  ██║█████╗  ██████╔╝███████║██████╔╝ on certain pages is different, so you'll find sidebar codes in
+  ╚════██║██║██║  ██║██╔══╝  ██╔══██╗██╔══██║██╔══██╗ Post page and Submit page
+  ███████║██║██████╔╝███████╗██████╔╝██║  ██║██║  ██║
+  ╚══════╝╚═╝╚═════╝ ╚══════╝╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝*/
+
+  /* Sidebar */
+
+  .side { background: transparent; margin: 10px 10px 0 0; }
+  .side { color: #0074D9; }
+  .side a, .footer a { color: #0074D9; }
+  .side .spacer { margin: 0 0 10px 0; }
+
+/*██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████*/
+/*██*/                                                                                                                          /*██*/
+/*██*/  /* This is for the sidebar to be animated when hovering on (REMOVED) */                                                 /*██*/
+/*██*/  /*.side:hover { background: #FFFFFF; padding: 10px; width: 280px; transition: 0.3s; transition-delay: .3s; }*/          /*██*/
+/*██*/  /*.side:hover #search input[type=text] { width: 280px; transition: 0.3s; transition-delay: .3s; }*/                     /*██*/
+/*██*/  /*.side:hover .morelink a { background: #CCCCCC; transition: 0.3s; transition-delay: .3s; color: #FFFFFF; }*/           /*██*/
+/*██*/  /*.side:hover .titlebox h1 a { font-size: 25px; transition: 0.3s; transition-delay: .3s; }*/                            /*██*/
+/*██*/  /*.side:hover .titlebox .subscribe-button .active { width: 258px; transition: 0.3s; transition-delay: .3s; }*/          /*██*/
+/*██*/  /*.side:hover .md { background: #CCCCCC; color: #FFFFFF; transition: 0.3s; font-size: 15px; transition-delay: .3s; }*/  /*██*/
+/*██*/  /*.side:hover .md:hover { color: black; }*/                                                                             /*██*/
+/*██*/                                                                                                                          /*██*/
+/*██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████*/
+
+  /* Sidebar > Search */
+
+  .side #search input[type=text] { border: 1px solid #CCCCCC; }
+  #searchexpando { border: 1px solid #CCCCCC; border-radius: 0; background: white; }
+
+  /* Sidebar > Submit Buttons */
+
+  .morelink { border: 1px solid #CCCCCC; }
+  .morelink a { background: white; }
+  .morelink .nub { display: none; }
+  .morelink:hover a { color: #0074D9; }
+
+  /* Sidebar > Submit Buttons > Moderators only */
+
+  .submit.mod-override .morelink a:after {
+    background: url(%%spritesheet%%);
+    background-position: -5px -106px; }
+
+  /* Sidebar > Get Reddit Premium */
+
+  /* Sidebar > Image */
+
+  .titlebox { padding: 10px; background: white; border: 1px solid #CCCCCC;}
+  .titlebox .redditname { text-shadow: 0px 0px 2px rgba(0, 0, 0, 1);
+    font-size: 30px;
+    text-align: center;
+    background: url(%%banner%%);
+    background-size: cover;
+    background-position: center;
+    padding: 20px 0;
+    margin: -10px -10px 5px -10px;
+    word-break: break-all;
+    padding: 20px 15px; }
+    .titlebox h1 a { color: white; top: 25px; font-weight: normal; text-shadow: 0px 0px 15px rgba(0, 0, 0, 0.25); }
+       
+  /* Sidebar > Subscribe button */
+
+  a.option.add.active { background: #368C1A !important; font-weight: bold; height: 29px; font-size: large; line-height: 29px; }
+  a.option.add.active:hover { background: #43AA20 !important; }
+  
+  /* Sidebar > Unsubscribe button */
+
+  .titlebox .subscribe-button .active {
+    background: #AAAAAA;
+    border: 0;
+    border-radius: 0;
+    display: block;
+    padding: 0;
+    text-align: center;
+    width: 278px;
+    font-weight: normal;
+    height: 20px;
+    font-size: 10px;
+    line-height: 20px;
+    margin: 5px 0; }
+    .titlebox .subscribe-button .active:hover { background: #BF4C35; }
+
+  /* Sidebar >  Readers, users here now */
+
+  .users-online { float: right }
+  .users-online:before { display: none;}
+
+  /* Sidebar > Moderator: you are a moderator of this subreddit. */
+
+  .leavemoderator { margin-top: 5px;}
+  .titlebox form.toggle, .leavemoderator { font-size: 11px; }
+
+  /* Sidebar > Icons (you are a moderator of this subreddit, you are an approved submitter on this subreddit) */
+
+  .titlebox .leavemoderator:before,
+    .moderator.toggle .main:before {
+      background: url(%%spritesheet%%);
+      background-position: -5px -106px; }
+  .titlebox form.leavecontributor-button:before { background: url(%%spritesheet%%); background-position: -5px -81px; }
+
+  /* Sidebar > Description */
+
+  .side .md { border: 1px solid #CCCCCC; margin: 5px 0; padding: 10px; }
+
+  /* Sidebar > Created by, Subreddit age */
+
+  .titlebox .bottom { border: 0; margin-top: -4px; font-size: 11px; }
+  .titlebox .age { font-size: 0px; margin-top: 1px; }
+  .titlebox .age time:after { content:  old; }
+  .titlebox .age time { font-size: 11px !important; }
+
+  /* Sidebar > Sideboxes (moderations tools, Moderators, Recently viewed links */
+
+  .sidecontentbox .content { background: white; padding-left: 10px; border: 1px solid #CCCCCC; }
+
+  /* Sidebar > Moderation tools */
+
+  .icon-menu a { background: transparent; }
+
+  /* Sidebar > Create your own subreddit */
+
+  .sidebox .spacer { display: none !important; }
+
+  /* Sidebar > Recently viewed links */
+
+  .gadget .reddit-entry { margin-top: 5px; }
+  .gadget .score { margin-left: 0; }
+
+  /* Sidebar > Login, register */
+
+  .login-form-side { background: white; border: 1px solid #CCCCCC; }
+
+  /* End of Sidebar */
+
+/*██╗  ██╗███████╗ █████╗ ██████╗ ███████╗██████╗ 
+  ██║  ██║██╔════╝██╔══██╗██╔══██╗██╔════╝██╔══██╗
+  ███████║█████╗  ███████║██║  ██║█████╗  ██████╔╝ Header:
+  ██╔══██║██╔══╝  ██╔══██║██║  ██║██╔══╝  ██╔══██╗
+  ██║  ██║███████╗██║  ██║██████╔╝███████╗██║  ██║
+  ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═════╝ ╚══════╝╚═╝  ╚═╝*/
+
+  /* Whole header + Bottom navigation bar */
+
+  #header {
+    height: 200px;
+    /*margin: 10px 10px 0 10px;*/
+    background: url(%%banner%%);
+    background-position: center;
+    background-size: cover;
+    border: 0; }
+
+/*██████████████████████████████████████████████████*/
+/*██*/                                          /*██*/                                   
+/*██*/  /* Header > Banner image (REMOVED) */   /*██*/  
+/*██*/                                          /*██*/
+/*██*/  /*#header:before {                        ██
+  ██    content: '';                              ██  
+  ██    position: absolute;                       ██  
+  ██    width: 512px;                             ██  
+  ██    height: 176px;                            ██  
+  ██    left:50%;                                 ██  
+  ██    margin-top: 60px;                         ██  
+  ██    -webkit-transform: translateX(-50%);      ██  
+  ██    transform: translateX(-50%);              ██  
+  ██    z-index: -1;                              ██  
+  ██    background-image: url(%%background%%);    ██  
+  ██    top:-44px; }*/                          /*██*/
+/*██*/                                          /*██*/
+/*██████████████████████████████████████████████████*/
+    
+  /* Header > Navigation > Top navigation */
+
+  #sr-header-area {
+    border-bottom: 0;
+    position: inherit;
+    margin-right: 55px; 
+    background: transparent }
+  #sr-header-area a { color: #CCCCCC; } 
+  #header:hover #sr-header-area {
+    padding: 10px 0;
+    background: rgba(0,0,0,0.5);
+    border-right: 55px solid rgba(0,0,0,0);
+    margin-right: 0px; }
+
+  /* Header > Navigation > Top navigation > Get new Reddit */
+
+  #sr-header-area .redesign-beta-optin {
+    background: transparent;
+    width: auto;
+    color: #FF4500;
+    margin: 1px -15px 0 10px; } 
+  #sr-header-area .redesign-beta-optin:before { display: none; }
+  #sr-header-area .redesign-beta-optin:after { display: none; }
+
+  /* Header > Navigation > Top navigation > My subreddits dropdown */
+
+  .dropdown.srdrop .selected { color: #CCCCCC; }
+  #sr-header-area .drop-choices.srdrop a { color: #000000; }
+  #sr-header-area .drop-choices.srdrop a:hover { color: white; background: #CCCCCC; }
+  #sr-header-area a, .dropdown.srdrop .selected { font-size: 11px; text-transform: lowercase; }
+  #sr-header-area .redesign-beta-optin { font-size: 11px; }
+  #sr-header-area .drop-choices.srdrop { border: 1px solid #CCCCCC; margin-top: 10px; }
+    
+  /* Header > Navigation > Top navigation > Edit button */
+
+  #sr-more-link { background: transparent; padding: 0 10px 0 10px; right: -51px;}
+  a#sr-more-link { width: 31px; }
+
+  /* Header > Navigation > Bottom-left navigation */
+
+  #header-bottom-left { margin-top: 156px; height: 26px; background: transparent; }
+  #header:hover #header-bottom-left { background: rgba(0,0,0,0.5); transition: .3s; margin-top: 124px; padding: 6px 0; }
+  #header-bottom-left .tabmenu { margin-left: 10px; margin-top: 0; }
+  #header:hover #header-bottom-left .tabmenu { margin-left: 10px; margin-top: 0px; }
+
+  /* Header > Navigation > Bottom-left navigation > Reddit Icon */
+
+  #header-img.default-header { display: none; }
+        
+  /* Header > Navigation > Bottom-left navigation > Links > Icons */
+
+  .tabmenu li.selected a { background: transparent; border: 0; }
+  .tabmenu li a { background: transparent; color: #CCCCCC; }
+  #header-bottom-left .tabmenu li a {
+    font-size: 0;
+    width: 16px!important;
+    height: 16px!important;
+    display: inline-block;
+    vertical-align: top;
+    background: url(%%spritesheet%%);
+    margin-top: 5px;
+    padding: 0px;
+    margin-right: 10px; }
+  #header .tabmenu li a { background-position: -81px -30px; }
+  #header .tabmenu li.selected a { background-position: -107px -30px; }
+  #header .tabmenu li a[href*=/new] { background-position: -107px -55px; }
+  #header .tabmenu li.selected a[href*=/new] { background-position: -56px -55px; }
+  #header .tabmenu li a[href*=/rising] { background-position: -81px -81px; }
+  #header .tabmenu li.selected a[href*=/rising] { background-position: -107px -81px; }
+  #header .tabmenu li a[href*=/controversial] { background-position: -55px -5px; }
+  #header .tabmenu li.selected a[href*=/controversial] { background-position: -81px -5px; }
+  #header .tabmenu li a[href*=/top] { background-position: -133px -55px; }
+  #header .tabmenu li.selected a[href*=/top] { background-position: -133px -81px; }
+  #header .tabmenu li a[href*=/gilded] { background-position: -131px -5px; }
+  #header .tabmenu li.selected a[href*=/gilded] { background-position: -132px -30px; }
+  #header .tabmenu li a[href*=/wiki] { background-position: -81px -107px; }
+  #header .tabmenu li.selected a[href*=/wiki] { background-position: -133px -107px; }
+
+  /* Header > Navigation > Bottom-right navigation */
+
+  #header-bottom-right { bottom: -1px; background: transparent; margin-right: 10px; }
+ #header:hover #header-bottom-right { bottom: 5px; transition: .3s; }
+
+  /* Header > Navigation > Bottom-right navigation > Icons */
+
+  #mail.nohavemail {
+    top: 5px;
+    background: url(%%spritesheet%%);
+    background-position: -106px -5px;
+    height: 16px;
+    width: 16px; }
+  #mail.havemail {
+    top: 5px;
+    background: url(%%spritesheet%%);
+    background-position: -5px -30px;
+    height: 16px;
+    width: 16px; }
+  #chat {
+    margin-left: 2px;
+    background: url(%%spritesheet%%);
+    background-position: -5px -5px;
+    height: 16px;
+    width: 16px; }
+  #chat.active { background: url(%%spritesheet%%);
+    background-position: -30px -5px;
+    height: 16px;
+    width: 16px; }
+  .user, a.pref-lang.choice, .logout a { font-size: 0; }
+  #header .user>a, a.pref-lang.choice, .logout a {
+    width: 16px!important;
+    height: 16px!important;
+    display: inline-block;
+    vertical-align: top;
+    background: url(%%spritesheet%%); 
+    margin-top: 5px; }
+  .logout a { background-position: -31px -55px; margin-top: 4px; }
+  a.pref-lang.choice { background-position: -107px -106px; margin-top: 3px; }
+  #header .user>a { background-position: -30px -107px; margin-top: 4px; }
+  #header-bottom-right a { color: #CCCCCC; }
+  #new_modmail.havemail, #new_modmail.nohavemail, #modmail.havemail, #modmail.nohavemail { background: url(%%spritesheet%%); }
+  #new_modmail.havemail { background-position: -55px -106px; padding-right: 4px; }
+  #new_modmail.nohavemail { background-position: -6px -106px; }
+  #modmail.havemail { background-position: -56px -81px; }
+  #modmail.nohavemail { background-position: -30px -81px; }
+  #header #sr-header-area,
+    #header #header-bottom-left .tabmenu li a,
+      #header #new_modmail.nohavemail,
+        #header #modmail.nohavemail,
+          #header .user>a,
+            #header a.pref-lang.choice,
+              #header .logout a,
+                #header #chat,
+                  #header #mail.nohavemail {
+                    opacity: 0.2; }
+  #header:hover #sr-header-area,
+    #header:hover #header-bottom-left .tabmenu li a,
+      #header:hover #new_modmail.nohavemail,
+        #header:hover #modmail.nohavemail,
+          #header:hover .user>a,
+            #header:hover a.pref-lang.choice,
+              #header:hover .logout a,
+                #header:hover #chat,
+                  #header:hover #mail.nohavemail,
+                    #chat.active {
+                      opacity: 1;
+                      transition: .3s; }
+  #chat.active { opacity: 1 !important; }
+
+  /* Header > Navigation > Bottom-right navigation > Icons > Chat, mail message count */
+
+  .message-count { background: transparent; color: #FF4500 !important; margin-right: -3px; }
+
+  /* Header > Subreddit name */
+
+  .pagename {
+    position: absolute;
+    top: 65px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    font-size: 0px; }
+  .pagename a {
+    font-size: 54px;
+    color: #fff;
+    font-family: Arial,sans-serif;
+    letter-spacing: -2px;
+    font-variant: none;
+    font-weight: normal;
+    text-shadow: 0px 0px 15px rgba(0, 0, 0, 0.25); }
+  .pagename a:before {
+    content: r/;
+    font-variant: none;
+    text-transform: lowercase;
+    font-size: 70%; letter-spacing: -1px;
+    opacity: 0.8; }
+    .pagename a:hover {
+    text-decoration: none;
+    opacity: 0.8;
+    transition: .3s; }
+
+  /* Header > Navigation > Bottom-right navigation > Icons > All icons > Separators */
+
+  #header-bottom-right .separator { opacity: 0; margin: 0 6px; }
+
+/*██████╗  ██████╗ ███████╗████████╗    ██████╗  █████╗  ██████╗ ███████╗
+  ██╔══██╗██╔═══██╗██╔════╝╚══██╔══╝    ██╔══██╗██╔══██╗██╔════╝ ██╔════╝
+  ██████╔╝██║   ██║███████╗   ██║       ██████╔╝███████║██║  ███╗█████╗   Post page
+  ██╔═══╝ ██║   ██║╚════██║   ██║       ██╔═══╝ ██╔══██║██║   ██║██╔══╝  
+  ██║     ╚██████╔╝███████║   ██║       ██║     ██║  ██║╚██████╔╝███████╗
+  ╚═╝      ╚═════╝ ╚══════╝   ╚═╝       ╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚══════╝*/
+
+  /* Post page > Comments */
+
+  .comment, .content .details { border: 1px solid #CCCCCC; background: white; padding: 10px; margin: 0; }
+  .child .comment { border: 0; }
+  .child .sitetable { margin: 0 }
+  .comment .child, .comment .showreplies { border-left: 1px solid #CCCCCC; }
+
+  /* Post page > Sidebar > Link info */
+
+  .linkinfo { border: 1px solid #CCCCCC; background: white; border-radius: 0; padding: 10px;}
+
+  /* Post page > Locked post */
+
+  .reddit-infobar.with-icon {
+    margin-left: 5px;
+    margin-right: 315px;
+    background: #CCCCCC;
+    border: 1px solid #FF4300;
+    font-size: 15px; }
+  .reddit-infobar.with-icon:before { background-color: #FF4300; }
+
+  /* End of Post page */
+
+/*███████╗ ██████╗  ██████╗ ████████╗███████╗██████╗ 
+  ██╔════╝██╔═══██╗██╔═══██╗╚══██╔══╝██╔════╝██╔══██╗
+  █████╗  ██║   ██║██║   ██║   ██║   █████╗  ██████╔╝ Footer: The white block under the sidebar (about, help,
+  ██╔══╝  ██║   ██║██║   ██║   ██║   ██╔══╝  ██╔══██╗ apps and tools, <3) and the text below it.
+  ██║     ╚██████╔╝╚██████╔╝   ██║   ███████╗██║  ██║
+  ╚═╝      ╚═════╝  ╚═════╝    ╚═╝   ╚══════╝╚═╝  ╚═╝*/
+
+  /* Footer > Whole footer */
+
+  .footer {
+    background: white;
+    border: 1px solid #CCCCCC;
+    border-radius: 0; width: 288px;
+    float: right; margin: 0 10px 0 0;
+    display: inline-block; }
+  .footer .col { border-left: 0; width: 50%; }
+  .footer-parent { padding: 0; }
+
+  /* Footer > Text under footer: Use of this site constitutes acceptance of our User Agreement and Privacy Policy. */
+
+  .bottommenu { float: right; width: 250px; margin: 10px 36px 0 0; padding: 0; }
+
+  /* End of Footer */
+
+
+/*██╗   ██╗ ██████╗ ████████╗███████╗    ██╗ ██████╗ ██████╗ ███╗   ██╗███████╗
+  ██║   ██║██╔═══██╗╚══██╔══╝██╔════╝    ██║██╔════╝██╔═══██╗████╗  ██║██╔════╝
+  ██║   ██║██║   ██║   ██║   █████╗      ██║██║     ██║   ██║██╔██╗ ██║███████╗ Vote icons: On posts list, post pages and in
+  ╚██╗ ██╔╝██║   ██║   ██║   ██╔══╝      ██║██║     ██║   ██║██║╚██╗██║╚════██║ the sidebar (Recently viewed links)
+   ╚████╔╝ ╚██████╔╝   ██║   ███████╗    ██║╚██████╗╚██████╔╝██║ ╚████║███████║
+    ╚═══╝   ╚═════╝    ╚═╝   ╚══════╝    ╚═╝ ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝*/
+
+  /* Vote icons > Upvote and downvote arrows */
+
+  .arrow.up { background: url(%%spritesheet%%); width: 15px; height: 15px; background-position: -5px -133px; }
+  .arrow.upmod { background: url(%%spritesheet%%); width: 15px; height: 15px; background-position: -30px -133px;  }
+  .arrow.down { background: url(%%spritesheet%%); width: 15px; height: 15px; background-position: -55px -133px;  }
+  .arrow.downmod { background: url(%%spritesheet%%); width: 15px; height: 15px; background-position: -80px -133px;  }
+
+  /* Vote icons > Number between the upvote and downvote arrows */
+
+  .link .score.likes { color: #FF4107; }
+  .link .score { color: #CCCCCC; }
+  .link .score.dislikes { color: #0254FB; }
+
+  /* End of Vote icons */
+
+/*███████╗████████╗██╗   ██╗██╗     ███████╗███████╗██╗  ██╗███████╗███████╗████████╗
+  ██╔════╝╚══██╔══╝╚██╗ ██╔╝██║     ██╔════╝██╔════╝██║  ██║██╔════╝██╔════╝╚══██╔══╝
+  ███████╗   ██║    ╚████╔╝ ██║     █████╗  ███████╗███████║█████╗  █████╗     ██║    Stylesheet: This is the page
+  ╚════██║   ██║     ╚██╔╝  ██║     ██╔══╝  ╚════██║██╔══██║██╔══╝  ██╔══╝     ██║    where you're now.
+  ███████║   ██║      ██║   ███████╗███████╗███████║██║  ██║███████╗███████╗   ██║   
+  ╚══════╝   ╚═╝      ╚═╝   ╚══════╝╚══════╝╚══════╝╚═╝  ╚═╝╚══════╝╚══════╝   ╚═╝*/ 
+
+  /* Stylesheet > Text area */
+
+  textarea#stylesheet_contents { max-width: 1015px !important; min-height: 300px !important; }
+
+  /* ? */
+
+  .reddit-infobar.with-icon { margin-left: 522px !important; margin-right: 10px !important; }
+
+  /* End of Stylesheet */
+
+/*██╗    ██╗██╗██╗  ██╗██╗
+  ██║    ██║██║██║ ██╔╝██║
+  ██║ █╗ ██║██║█████╔╝ ██║ Wiki:
+  ██║███╗██║██║██╔═██╗ ██║
+  ╚███╔███╔╝██║██║  ██╗██║
+   ╚══╝╚══╝ ╚═╝╚═╝  ╚═╝╚═╝*/
+
+  .wiki-page .wiki-page-content .wiki.md { background: white; padding: 15px; }
+
+  /* End of Wiki */
+
+
+/*██████╗ ███████╗███████╗
+  ██╔══██╗██╔════╝██╔════╝ RES: Reddit Enhancement Suite is a browser extension, it adds more features and edits the CSS.
+  ██████╔╝█████╗  ███████╗ It's not perfect but it won't look too messy with this CSS. Please note that one icon was removed:
+  ██╔══██╗██╔══╝  ╚════██║ the RES announcement icon. It's not a feature and looks horrible, you can visit r/Enhancement for more info.
+  ██║  ██║███████╗███████║
+  ╚═╝  ╚═╝╚══════╝╚══════╝*/
+
+  /* RES */
+
+  #RESAnnouncementAlert { display: none !important; }
+ .sheets .col textarea { background: url(%%banner%%); color: white; border: 1px solid #CCCCCC; }
+
+  /* End of RES */
+
+/*███╗   ██╗██╗ ██████╗ ██╗  ██╗████████╗    ███╗   ███╗ ██████╗ ██████╗ ███████╗
+  ████╗  ██║██║██╔════╝ ██║  ██║╚══██╔══╝    ████╗ ████║██╔═══██╗██╔══██╗██╔════╝
+  ██╔██╗ ██║██║██║  ███╗███████║   ██║       ██╔████╔██║██║   ██║██║  ██║█████╗   Night mode:
+  ██║╚██╗██║██║██║   ██║██╔══██║   ██║       ██║╚██╔╝██║██║   ██║██║  ██║██╔══╝  
+  ██║ ╚████║██║╚██████╔╝██║  ██║   ██║       ██║ ╚═╝ ██║╚██████╔╝██████╔╝███████╗
+  ╚═╝  ╚═══╝╚═╝ ╚═════╝ ╚═╝  ╚═╝   ╚═╝       ╚═╝     ╚═╝ ╚═════╝ ╚═════╝ ╚══════╝*/
+
+  /* Nightmode > Body */
+
+  html[lang=nm] body { background: #111111; }
+
+  /* Nightmode > Posts list */
+
+  html[lang=nm] .link { background: #222222; border: 1px solid #333333; }
+  html[lang=nm] .thing.stickied.link { background: #333333; }
+  html[lang=nm] .link .usertext-body .md { background: #111111; color: white; border: 1px solid #333333;}
+  html[lang=nm] .spoiler-stamp { color: #555555; }
+  html[lang=nm] .flaircolorlight { color: black; opacity: .5; }
+  
+
+  /* Nightmode > Sidebar */
+
+  html[lang=nm] .side #search input[type=text] { border: 1px solid #333333; background: #222222; color: #AAAAAA;}
+  html[lang=nm] #searchexpando { border: 1px solid #333333; border-radius: 0; background: #222222; }
+  html[lang=nm] .titlebox { background: #222222; border: 1px solid #333333; }
+  html[lang=nm] .morelink { border: 1px solid #333333; }
+  html[lang=nm] .morelink a { background: #222222; }
+
+  html[lang=nm] .titlebox .subscribe-button .active { background: #333333; }
+  html[lang=nm] .titlebox form.toggle, html[lang=nm] .leavemoderator { background: #222222; }
+  html[lang=nm] .side .md { background: #333333; color: white; border: 1px solid #333333;}
+  html[lang=nm] .sidecontentbox .content { background: #222222; border: 1px solid #333333; }
+  html[lang=nm] .thumbnail.self,
+    html[lang=nm] .thumbnail.default,
+      html[lang=nm] .thumbnail.nsfw,
+        html[lang=nm] .thumbnail.spoiler { background: url(%%nightmode%%) }
+  html[lang=nm] .thumbnail.self { background-position: 0px -1267px; background-repeat: no-repeat; }
+  html[lang=nm] .thumbnail.default { background-position: 0px -1099px; background-repeat: no-repeat; }
+  html[lang=nm] .thumbnail.nsfw { background-position: 0px -1155px; background-repeat: no-repeat; }
+  html[lang=nm] .thumbnail.spoiler { background-position: 0px -1211px; background-repeat: no-repeat; }
+  html[lang=nm] a.thumbnail.invisible-when-pinned.may-blank.loggedin { background-color: #30302E; }
+
+  /* Nightmode > Post page */
+
+  html[lang=nm] .commentarea .comment { background: #222222; border: 1px solid #333333; color: white; }
+  html[lang=nm] .child .comment { border: 0; color: white !important; }
+  html[lang=nm] .comment p { color: white !important; }
+  html[lang=nm] span.score.unvoted,
+    html[lang=nm] span.score.unvoted .likes .score.likes,
+      html[lang=nm] time.live-timestamp { color: #555555; }
+
+  html[lang=nm] .comment .child, .comment .showreplies { border-left: 1px solid #555555; }
+
+  /* Nightmode > Footer */
+
+  html[lang=nm] .footer { background: #222222; border: 1px solid #333333; }
+
+  /* Nightmode > Button */
+
+    /* Addon: Start Nightmode */
+
+  .titlebox .usertext-body .md h5 {
+    display: block;
+    position: absolute;
+    z-index:5;
+    font-family: Segoe UI, Arial, Verdana;
+    top: 201px!important;
+    right: 11px;
+    font-size: 14px;
+    line-height: 25px;
+    height: 26px;
+    z-index: 400; 
+    padding: 1px 10px 1px 0px;
+    color: #757575;
+    transition:background-color, 0.25s, ease;
+    text-decoration:none;
+    font-weight: 400;
+    background: #FFFFFF; }
+
+  .titlebox .usertext-body .md h5 { top: 35px; }
+  .titlebox .usertext-body .md h5 a { color: #757575; }
+  .titlebox .usertext-body .md h5:hover{background-color: #0074CD; transition: background-color, 0.25s, ease; }
+  .titlebox .usertext-body .md h5 a:before {
+    content: Enable;
+    white-space: pre;
+    display: inline-block;
+    color: #757575;
+    font-weight: bold;
+    padding: 0 9px 0 9px;
+    border-radius: 1px 0 0 1px;
+    height:26px;
+    background: transparent; }
+
+  html[lang^=nm] .titlebox .usertext-body .md h5 { display:none; }
+  html[lang^=nm].titlebox .usertext-body .md h5{ display:none; }
+  html[lang^=nm].titlebox .usertext-body .md h5 a{ display:none; }
+  html[lang^=nm].titlebox .usertext-body .md h5:hover{ display:none; }
+  html[lang^=nm] .titlebox .usertext-body .md h5 a:before { display:none; }
+
+  html[lang^=nm] .titlebox .usertext-body .md h6 {
+    display: block;
+    position: absolute;
+    z-index:5;
+    font-family: Segoe UI, Arial, Verdana;
+    top: 201px!important;
+    right: 11px;
+    font-size: 14px;
+    line-height: 25px;
+    height: 26px;
+    z-index: 400; 
+    padding: 1px 10px 1px 0px;
+    color: white;
+    transition:background-color, 0.25s, ease;
+    text-decoration:none;
+    font-weight: 400;
+    background: #333333; }
+
+  html[lang^=nm] .titlebox .usertext-body .md h6 { top: 75px; }
+  html[lang^=nm] .titlebox .usertext-body .md h6 a { color: white; }
+  html[lang^=nm] .titlebox .usertext-body .md h6:hover{ background-color: #0074D9;transition:background-color, 0.25s, ease; }
+  html[lang^=nm] .titlebox .usertext-body .md h6 a:before {
+    content: Disable;
+    white-space: pre;
+    display: inline-block;
+    color: white;
+    font-weight: bold;
+    padding: 0 9px 0 9px;
+    border-radius: 1px 0 0 1px;
+    height:26px;
+    background: transparent; }
+  .titlebox .usertext-body .md h6 a:hover:before { content: Disable; }
+  .titlebox .usertext-body .md h6 {display:none}
+
+  /* End of Night mode */
+
+/*██╗   ██╗██████╗    ██╗    ██╗   ██╗██████╗ ██████╗  █████╗ ████████╗███████╗
+  ██║   ██║╚════██╗  ███║    ██║   ██║██╔══██╗██╔══██╗██╔══██╗╚══██╔══╝██╔════╝
+  ██║   ██║ █████╔╝  ╚██║    ██║   ██║██████╔╝██║  ██║███████║   ██║   █████╗   Thanks for using the theme,
+  ╚██╗ ██╔╝██╔═══╝    ██║    ██║   ██║██╔═══╝ ██║  ██║██╔══██║   ██║   ██╔══╝   here's what's being updated!
+   ╚████╔╝ ███████╗██╗██║    ╚██████╔╝██║     ██████╔╝██║  ██║   ██║   ███████╗
+    ╚═══╝  ╚══════╝╚═╝╚═╝     ╚═════╝ ╚═╝     ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚══════╝*/
+
+  /* ADDED */
+
+  /* Sidebar > Submit Buttons */
+
+  /*.submit.mod-override .morelink a:after {
+    background: url(%%spritesheet%%);
+    background-position: -5px -106px; }*/
+
+  /* Post page > Comments */
+
+  /*.comment, .content .details { margin-bottom: 5px; }*/
+
+  /* Header > Navigation > Top navigation > My subreddits dropdown */
+
+  /*#sr-header-area .drop-choices.srdrop { border: 1px solid #CCCCCC; margin-top: 10px; }*/
+
+  /* - Edited header: black bar removed when not hovering on, edit button fixed. 
+     - Edited header: Padding added on navigation bars, black bar opacity is now .5
+     - New chat messages icon is fully visible */
+
+  /* Only for r/TheUnicornHorn:
+     - Banner image position edited (unicorn)
+     - Pagename font color edited (same color as unicorn eye)
+     - New banner for dark mode */
+
+  /* End of V2.1 update */
+
+/* ██████╗██╗   ██╗███████╗████████╗ ██████╗ ███╗   ███╗     ██████╗███████╗███████╗
+  ██╔════╝██║   ██║██╔════╝╚══██╔══╝██╔═══██╗████╗ ████║    ██╔════╝██╔════╝██╔════╝
+  ██║     ██║   ██║███████╗   ██║   ██║   ██║██╔████╔██║    ██║     ███████╗███████╗ Custom CSS: Here you can add the additional CSS
+  ██║     ██║   ██║╚════██║   ██║   ██║   ██║██║╚██╔╝██║    ██║     ╚════██║╚════██║ for your theme.
+  ╚██████╗╚██████╔╝███████║   ██║   ╚██████╔╝██║ ╚═╝ ██║    ╚██████╗███████║███████║
+   ╚═════╝ ╚═════╝ ╚══════╝   ╚═╝    ╚═════╝ ╚═╝     ╚═╝     ╚═════╝╚══════╝╚══════╝*/
+
+  .JungleLiquor {
+    content: Thanks for using my theme again, it means a lot to me.; }
+
+  /* End of Custom CSS */
+
+  /* I just wanted to add that you can search the parts of your theme by doing ctrl + f and searching for End of (part),
+     for example End of Sidebar. That way you'll go directly at the bottom of the CSS for the sidebar.
+     Hope it'll help a little! Have a good day! */
