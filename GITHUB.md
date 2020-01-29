@@ -1,4 +1,4 @@
-# bmilcs: github, visual studio, all-in-one commit & push hotkey
+# bmilcs: github & visual studio optimization
 
 ### SUMMARY
 
