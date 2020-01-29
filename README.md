@@ -1,17 +1,20 @@
 # bmilcs: linux, etc.
 
-### linux vm setup | clone repo | make executable
-
-	cd /tmp && sudo curl -H 'Accept: application/vnd.github.v3.raw' -O -L https://api.github.com/repos/bmilcs/linux/contents/install.sh && sudo chmod +x *.sh && sudo ./install.sh
+### table of contents
 - [linux notes](https://github.com/bmilcs/linux/blob/master/LINUX.md)
-- [github guide](https://github.com/bmilcs/linux/blob/master/GITHUB.md)
+- [github & visual studio optimization](https://github.com/bmilcs/linux/blob/master/GITHUB.md)
 - [vim guide](https://github.com/bmilcs/linux/blob/master/VIM.md)
-### **todo**
-- [ ] inputbox for rsa ssh login
+
+
+### linux vm setup 
+* *dl repo | clone | make scripts executable*
+
+    	cd /tmp && sudo curl -H 'Accept: application/vnd.github.v3.raw' -O -L https://api.github.com/repos/bmilcs/linux/contents/install.sh && sudo chmod +x *.sh && sudo ./install.sh
+
+## **to do**
+- [ ] integrate read (user input) into scripts
 - [ ] password-less sudo'ers
 - [ ] configure network
 
-
-
-### references
+## links
 - [github readme.md markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
