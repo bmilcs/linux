@@ -8,7 +8,7 @@
 **c** |change|**#** | number|**s** ... **)**  | sentence
 **y** |yank|**t** |  search & stop before it|**p** ... **}** | paragraph
 **v** |visually select|**f** |  search & land on it|**b** | block (programming)
-|||**l**  | find string (literal or regex)|**t** | tag (html,xml) 
+ | | | **l**  | find string (literal or regex)|**t** | tag (html,xml) 
 
 ## WOMBO COMBO (SENTENCE)
  cmd|?
