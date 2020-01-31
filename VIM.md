@@ -3,7 +3,7 @@
 ## CHEAT SHEET
 
 ||verb||adverb||noun|
---:|--|--:|--|--:|--|--:|--
+--:|--|--:|--|--:|--|
 **d** |delete|**a** | around|**w** | word
 **c** |change|**#** | number|**s** ... **)**  | sentence
 **y** |yank|**t** |  search & stop before it|**p** ... **}** | paragraph
