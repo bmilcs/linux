@@ -15,3 +15,7 @@
 		- .109	192.168.109.0
 			- empty, future tenants?
 		
+## switches
+### tpalink
+
+### cisco
