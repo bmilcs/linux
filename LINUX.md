@@ -1,41 +1,48 @@
 # bmilcs: linux notes
 
-## fundamentals
-	apt-get update 				* always UPDATE before apt upgrade / dist-upgrade
+## apt-get basics
+
+#### always UPDATE before apt upgrade / dist-upgraded
+
+#### update
+
+	apt-get update 				
 		updates package lists
-			newest versions for packages and their dependencies
-			"re-synchronize the package index files"
 	apt-get upgrade 
 		downloads latest versions of installed packages (via apt-get update list)
-			"from the sources enumerated in /etc/apt/sources.list(5)"
-			* never removes installed packages
-			* ONLY packages that are currently on system 
-			* if package upgrade requires a package not already installed on system
-				UPGRADE will not perform on it
+		* "from the sources enumerated in /etc/apt/sources.list(5)"
 	apt-get dist-upgrade
 		performs "apt-get upgrade" AND intelligently handles the dependencies
-			MAY remove obsolete packages or add new ones
-		apt-get has a "smart" conflict resolution system
-		attempt to upgrade the most important packages at the expense of less important ones (if necessary)
-		
-		> /etc/apt/sources.list(5) = list of locations for package files
+		MAY remove obsolete packages or add new ones
+	      > /etc/apt/sources.list(5) = list of locations for package files
 		> apt_preferences(5) - overriding the general settings for individual packages.
-	apt-get
-		-h This help text.
-		-q Loggable output - no progress indicator
-		-qq No output except for errors
-		-d Download only - do NOT install or unpack archives
-		-s No-act. Perform ordering simulation
-		-y Assume Yes to all queries and do not prompt
-		-f Attempt to correct a system with broken dependencies in place
-		-m Attempt to continue if archives are unlocatable
-		-u Show a list of upgraded packages as well
-		-b Build the source package after fetching it
-		-V Show verbose version numbers
-		-c=? Read this configuration file
-		-o=? Set an arbitrary configuration option, eg -o dir::cache=/tmp
+
+#### maintenance 
+      apt-get -f install
+            "Fix Broken Packages"
+      apt-get autoclean
+            removes .deb files no longer installed on system.
+      *apt-get autoremove
+            removes packages that were installed by other packages and are no longer needed.
 
 
+#### install
+
+
+#### delete
+      apt-get remove X
+            removes package
+            leaves configuration files intact
+      apt-get purge X
+            removes package
+            removes all config files
+      apt-get autoremove X
+            deletes package & dependencies
+
+
+
+
+---
 
 ## linux setup
 
@@ -188,6 +195,79 @@
 ### check linux crash logs
 
 	sudo vi /var/crash
+
+---
+
+# vpn killswitch (current)
+
+      #!/bin/bash
+      iptables -F
+      iptables -X
+      iptables -t nat -F
+      iptables -t nat -X
+      ip6tables -F
+      ip6tables -X
+      ip6tables -t nat -F
+      ip6tables -t nat -X
+
+      # localhost > accept all
+      iptables -A INPUT -i lo -j ACCEPT
+      iptables -A OUTPUT -o lo -j ACCEPT
+      ip6tables -A INPUT -i lo -j ACCEPT
+      ip6tables -A OUTPUT -o lo -j ACCEPT
+
+      # allow ping
+      iptables -A INPUT -p icmp --icmp-type echo-request -j ACCEPT
+
+      # lan > accept all
+      iptables -A INPUT  -i enp2s0 -s 10.1.1.0/24 -j ACCEPT
+      iptables -A OUTPUT -o enp2s0 -d 10.1.1.0/24 -j ACCEPT
+      iptables -A INPUT  -i enp2s0 -s 10.1.2.0/24 -j ACCEPT
+      iptables -A OUTPUT -o enp2s0 -d 10.1.2.0/24 -j ACCEPT
+      iptables -A INPUT  -i enp2s0 -s 10.1.86.0/24 -j ACCEPT
+      iptables -A OUTPUT -o enp2s0 -d 10.1.86.0/24 -j ACCEPT
+      iptables -A INPUT  -i enp2s0 -s 10.1.99.0/24 -j ACCEPT
+      iptables -A OUTPUT -o enp2s0 -d 10.1.99.0/24 -j ACCEPT
+
+      # allow dns
+      iptables -A INPUT  -p udp --sport 53 -j ACCEPT
+      iptables -A OUTPUT -p udp --dport 53 -j ACCEPT
+
+
+      # allow vpn traffic
+      iptables -A INPUT  -p udp --sport 1194 -j ACCEPT
+      iptables -A OUTPUT -p udp --dport 1194 -j ACCEPT
+      iptables -A INPUT  -p udp --sport 1198 -j ACCEPT
+      iptables -A OUTPUT -p udp --dport 1198 -j ACCEPT
+
+      # xrdp ports
+      ip6tables -I INPUT -p tcp --dport 3350 -m state --state NEW,ESTABLISHED -j ACCEPT
+      ip6tables -I INPUT -p udp --dport 3389 -m state --state NEW,ESTABLISHED -j ACCEPT
+      ip6tables -I INPUT -p tcp --dport 3389 -m state --state NEW,ESTABLISHED -j ACCEPT
+      ip6tables -I INPUT -p tcp --dport 5910 -m state --state NEW,ESTABLISHED -j ACCEPT
+
+      # dns: pia
+      iptables -A INPUT  -d 209.222.18.222 -j ACCEPT
+      iptables -A OUTPUT -d 209.222.18.222 -j ACCEPT
+      iptables -A OUTPUT -d 209.222.18.218 -j ACCEPT
+      iptables -A OUTPUT -d 209.222.18.218 -j ACCEPT
+
+      # PIA server
+      iptables -A INPUT  -p udp -s swiss.privateinternetaccess.comm -j ACCEPT;
+      iptables -A OUTPUT -p udp -d swiss.privateinternetaccess.com -j ACCEPT;
+
+      # Accept TUN
+      iptables -A INPUT    -i tun+ -j ACCEPT
+      iptables -A OUTPUT   -o tun+ -j ACCEPT
+      iptables -A FORWARD  -i tun+ -j ACCEPT
+
+      # Drop the rest
+      iptables -A INPUT   -j DROP
+      iptables -A OUTPUT  -j DROP
+      iptables -A FORWARD -j DROP
+      ip6tables -A INPUT   -j DROP
+      ip6tables -A OUTPUT  -j DROP
+      ip6tables -A FORWARD -j DROP
 
 ---
 
