@@ -98,6 +98,22 @@
 
 # xrdp
 
+### xrdp.ini
+
+      sudo vi etc/xrdp/xrdp.ini
+
+#### cleanup
+
+      # comment the following:
+
+      #[Xorg]
+      #[vnc-any]
+      #[sesman-any]
+      #[rdp-any]
+      #[neutrinordp-any]
+
+
+
 
 ### add lan for access
 
