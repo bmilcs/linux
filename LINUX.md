@@ -1,3 +1,13 @@
+# bmilcs: linux cQueryotes
+
+admin user
+      > usermod -aG sudo bmilcs
+sudo without password
+      > sudo nano /etc/sudoers
+      > bmilcs    ALL=NOPASSWD: ALL
+
+
+
 ### **errors**
 
 - #### can't open lock file /var/lib/dpkg/lock-frontend (permission denied)
