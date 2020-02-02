@@ -1,5 +1,41 @@
 # bmilcs: linux notes
 
+## fundamentals
+	apt-get update 				* always UPDATE before apt upgrade / dist-upgrade
+		updates package lists
+			newest versions for packages and their dependencies
+			"re-synchronize the package index files"
+	apt-get upgrade 
+		downloads latest versions of installed packages (via apt-get update list)
+			"from the sources enumerated in /etc/apt/sources.list(5)"
+			* never removes installed packages
+			* ONLY packages that are currently on system 
+			* if package upgrade requires a package not already installed on system
+				UPGRADE will not perform on it
+	apt-get dist-upgrade
+		performs "apt-get upgrade" AND intelligently handles the dependencies
+			MAY remove obsolete packages or add new ones
+		apt-get has a "smart" conflict resolution system
+		attempt to upgrade the most important packages at the expense of less important ones (if necessary)
+		
+		> /etc/apt/sources.list(5) = list of locations for package files
+		> apt_preferences(5) - overriding the general settings for individual packages.
+	apt-get
+		-h This help text.
+		-q Loggable output - no progress indicator
+		-qq No output except for errors
+		-d Download only - do NOT install or unpack archives
+		-s No-act. Perform ordering simulation
+		-y Assume Yes to all queries and do not prompt
+		-f Attempt to correct a system with broken dependencies in place
+		-m Attempt to continue if archives are unlocatable
+		-u Show a list of upgraded packages as well
+		-b Build the source package after fetching it
+		-V Show verbose version numbers
+		-c=? Read this configuration file
+		-o=? Set an arbitrary configuration option, eg -o dir::cache=/tmp
+
+
 
 ## linux setup
 
