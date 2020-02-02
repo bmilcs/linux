@@ -1,7 +1,7 @@
 # bmilcs: linux notes
 
 
-## initial setup
+## linux setup
 
 #### 1. **login as root**
 
@@ -37,7 +37,7 @@
       sudo vi /etc/sudoers
       bmilcs    ALL=NOPASSWD: ALL
 
-### ssh: rsa
+### universal ssh: rsa
 	**** ROOT ****
 	sudo mkdir ~/.ssh
 	sudo chmod 0700 ~/.ssh
@@ -55,6 +55,46 @@
 	/etc/rc.d/rc.sshd restart
 
 ---
+
+# unraid 
+
+## ssh: rsa
+	cd /boot/config/ssh/
+	sudo vi authorized_keys
+			ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAngRc7vefUjzk2k6noOtBlhAzROXTAxG31mwuMXF2/qM8O795WMBHdPndW/5M7Zxk06waqPDDfsjRNj/Zmhfq62kFdTeUP+4WZlo6SZ6v3xVthhf+WQjEDejsVkRoilZIyyA3dxzbLJZzK0RE/sJ8kbIZ1yb+a8sAI6OSUWvIhhfKyfIilNbATuctXKnZRaQVPKHbsCWhS/BYgpVRJmm6TCtjmEnUZGl1+liio4hvlgaXxsZH5Mi2/+1BcKj/5+OQqq8gM2SNDO/vnfRJLTE9yUrvtvUJUJ6XLWnHVigIjZJK/prdzY/N7dHuUVKVV3NsbdhNgzb4N8hsdzRsiGp7Pw== rsa-NAMEHERE
+	sudo vi /boot/config/go
+			mkdir /root/.ssh
+			chmod 700 /root/.ssh
+			cp /boot/config/ssh/authorized_keys /root/.ssh/
+			chmod 600 /root/.ssh/authorized_keys
+
+
+## mount share
+
+### vm gui
+
+      <filesystem type='mount' accessmode='passthrough'>
+      <source dir='/mnt/user/storage/downloads/vm'/>
+      <target dir='share'/>
+      </filesystem>
+      <filesystem type='mount' accessmode='passthrough'>
+      <source dir='/mnt/user/storage/downloads/#torrent/watch'/>
+      <target dir='watch'/>
+      </filesystem>
+
+### within vm
+
+	sudo mkdir /home/share
+	sudo vi /etc/fstab
+	share /home/#share       9p      trans=virtio,version=9p2000.L,_netdev,rw        0 0
+	share /home/#watch       9p      trans=virtio,version=9p2000.L,_netdev,rw        0 0
+
+
+
+---
+
+
+
 
 # xrdp
 
@@ -84,7 +124,7 @@
 	max_bpp 128
 
 
-## optimize
+# clean up | optimize | misc useful commands
 
 
 ### del apps via string
@@ -99,7 +139,7 @@
 
 ---
 
-## **common fixes | errors**
+# **common fixes | errors**
 
 - #### can't open lock file /var/lib/dpkg/lock-frontend (permission denied)
 
