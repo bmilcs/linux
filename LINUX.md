@@ -1,8 +1,11 @@
 # bmilcs: linux notes
 
 admin user
+
             usermod -aG sudo bmilcs
+
 sudo without password
+
             sudo nano /etc/sudoers
             bmilcs    ALL=NOPASSWD: ALL
 
