@@ -1,5 +1,5 @@
 #!/bin/bash
-#  cd /tmp && sudo curl -H 'Accept: application/vnd.github.v3.raw' -O -L https://raw.githubusercontent.com/bmilcs/linux/master/ssh_raspbian.sh && sudo chmod +x *.sh && sudo -u bmilcs ./ssh_raspbian.sh
+#  cd /tmp && sudo curl -H 'Accept: application/vnd.github.v3.raw' -O -L https://raw.githubusercontent.com/bmilcs/linux/master/ssh_raspbian.sh && sudo chmod +x *.sh && sudo -i -u bmilcs ./ssh_raspbian.sh
 #
 #
 #
