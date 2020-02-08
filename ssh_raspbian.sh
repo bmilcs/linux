@@ -1,11 +1,10 @@
 #!/bin/bash
+#  install rsa-ssh passwordless login
 #  cd /tmp && sudo curl -H 'Accept: application/vnd.github.v3.raw' -O -L https://raw.githubusercontent.com/bmilcs/linux/master/ssh_raspbian.sh && sudo chmod +x *.sh && sudo -u bmilcs ./ssh_raspbian.sh
-# xxxx
-# xxx
-# after deploying fresh linux vm, execute the following:
 
-# Exit script on Error
+# exit on error 
 set -e
+
 
 echo '====================================================================================================='
 echo '====  configuring ssh & rsa key  ===================================================================='
@@ -22,8 +21,8 @@ echo '> authorized_keys imported: root/bmilcs'
 echo
 echo '---- customize openssh config -----------------------------------------------------------------------'
 echo
-#ssh root access
-#sudo grep -qxF 'PermitRootLogin yes' /etc/ssh/sshd_config || echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
+#ssh root access: NO for PEEAAATTT
+sudo grep -qxF 'PermitRootLogin no' /etc/ssh/sshd_config || echo 'PermitRootLogin no' >> /etc/ssh/sshd_config
 sudo grep -qxF 'PubkeyAuthentication yes' /etc/ssh/sshd_config || echo 'PubkeyAuthentication yes' >> /etc/ssh/sshd_config
 sudo grep -qxF 'AuthorizedKeysFile %h/.ssh/authorized_keys' /etc/ssh/sshd_config || echo 'AuthorizedKeysFile %h/.ssh/authorized_keys' >> /etc/ssh/sshd_config
 sudo service ssh restart
