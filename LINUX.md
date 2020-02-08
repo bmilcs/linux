@@ -135,10 +135,20 @@
 
 
 ---
+# unattended upgrades
+
+      apt-get install unattended-upgrades apt-listchanges
+
+
+---
+
+# openvpn 
+      openvpn –config client.ovpn
 
 
 
 
+---
 # xrdp
 
 ### xrdp.ini
