@@ -1,6 +1,12 @@
 # bmilcs: vim notes
 
 ## CHEAT SHEET
+cmd | use
+--:|--
+o|new line
+0|end of line
+A|beginning of line
+
 
 ||verb||adverb||noun|
 --:|--|--:|--|--:|--|

@@ -1,43 +1,5 @@
 # bmilcs: linux notes
 
-## apt-get basics
-
-#### always UPDATE before apt upgrade / dist-upgraded
-
-#### update
-
-	apt-get update 				
-		updates package lists
-	apt-get upgrade 
-		downloads latest versions of installed packages (via apt-get update list)
-		* "from the sources enumerated in /etc/apt/sources.list(5)"
-	apt-get dist-upgrade
-		performs "apt-get upgrade" AND intelligently handles the dependencies
-		MAY remove obsolete packages or add new ones
-	      > /etc/apt/sources.list(5) = list of locations for package files
-		> apt_preferences(5) - overriding the general settings for individual packages.
-
-#### maintenance 
-      apt-get -f install
-            "Fix Broken Packages"
-      apt-get autoclean
-            removes .deb files no longer installed on system.
-      *apt-get autoremove
-            removes packages that were installed by other packages and are no longer needed.
-
-
-#### install
-
-
-#### delete
-      apt-get remove X
-            removes package
-            leaves configuration files intact
-      apt-get purge X
-            removes package
-            removes all config files
-      apt-get autoremove X
-            deletes package & dependencies
 
 
 
@@ -138,8 +100,23 @@
 # unattended upgrades
 
       apt-get install unattended-upgrades apt-listchanges
+   
+      sudo vi /etc/apt/apt.conf.d/20auto-upgrades
+            APT::Periodic::Update-Package-Lists "1";
+            APT::Periodic::Unattended-Upgrade "1";
+            APT::Periodic::Download-Upgradeable-Packages "1";
+            APT::Periodic::AutocleanInterval "7";     
 
+      sudo vi /etc/apt/apt.conf.d/50unattended-upgrades
+            "${distro_id}:${distro_codename}-updates";
+            Unattended-Upgrade::Mail "bmilcs@yahoo.com";
+            Unattended-Upgrade::Remove-Unused-Dependencies "true";
+            Unattended-Upgrade::Automatic-Reboot "true";
+            Unattended-Upgrade::Automatic-Reboot-Time "02:00";
 
+FIND ALTERNATIVE TO MAILX
+
+      
 ---
 
 # openvpn 
@@ -205,6 +182,43 @@
 ### check linux crash logs
 
 	sudo vi /var/crash
+
+---
+
+## apt-get basics
+
+#### always UPDATE before apt upgrade / dist-upgraded
+
+#### update
+
+	apt-get update 				
+		updates package lists
+	apt-get upgrade 
+		downloads latest versions of installed packages (via apt-get update list)
+		* "from the sources enumerated in /etc/apt/sources.list(5)"
+	apt-get dist-upgrade
+		performs "apt-get upgrade" AND intelligently handles the dependencies
+		MAY remove obsolete packages or add new ones
+	      > /etc/apt/sources.list(5) = list of locations for package files
+		> apt_preferences(5) - overriding the general settings for individual packages.
+
+#### maintenance 
+      apt-get -f install
+            "Fix Broken Packages"
+      apt-get autoclean
+            removes .deb files no longer installed on system.
+      *apt-get autoremove
+            removes packages that were installed by other packages and are no longer needed.
+
+#### delete
+      apt-get remove X
+            removes package
+            leaves configuration files intact
+      apt-get purge X
+            removes package
+            removes all config files
+      apt-get autoremove X
+            deletes package & dependencies
 
 ---
 
