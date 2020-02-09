@@ -1,6 +1,6 @@
 #!/bin/bash
 #  install rsa-ssh passwordless login
-#  cd /tmp && sudo curl -H 'Accept: application/vnd.github.v3.raw' -O -L https://raw.githubusercontent.com/bmilcs/linux/master/ssh_raspbian.sh && sudo chmod +x *.sh && sudo -u bmilcs ./ssh_raspbian.sh
+#  sudo rm -rv /tmp/ssh_raspbian.sh && cd /tmp && sudo curl -H 'Accept: application/vnd.github.v3.raw' -O -L https://raw.githubusercontent.com/bmilcs/linux/master/ssh_raspbian.sh && sudo chmod +x *.sh && sudo -u bmilcs ./ssh_raspbian.sh
 
 # exit on error 
 set -e
@@ -9,7 +9,6 @@ echo '==========================================================================
 echo '====  configure user  ==============================================================================='
 echo '====================================================================================================='
 echo
-usermod -aG sudo bmilcs
 sudo echo 'bmilcs    ALL=NOPASSWD: ALL' >> /etc/sudoers
 
 
