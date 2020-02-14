@@ -105,7 +105,9 @@
             APT::Periodic::Update-Package-Lists "1";
             APT::Periodic::Unattended-Upgrade "1";
             APT::Periodic::Download-Upgradeable-Packages "1";
-            APT::Periodic::AutocleanInterval "7";     
+            APT::Periodic::AutocleanInterval "7";
+            APT::Periodic::Verbose "1";
+
 
       sudo vi /etc/apt/apt.conf.d/50unattended-upgrades
             "${distro_id}:${distro_codename}-updates";
@@ -114,7 +116,14 @@
             Unattended-Upgrade::Automatic-Reboot "true";
             Unattended-Upgrade::Automatic-Reboot-Time "02:00";
 
-FIND ALTERNATIVE TO MAILX
+## FIND ALTERNATIVE TO MAILX
+
+# unattended upgrades *rpi*
+
+        "o=${distro_id},n=${distro_codename}";
+        "o=${distro_id},n=${distro_codename}-updates";
+        "o=${distro_id},n=${distro_codename}-proposed-updates";
+        "o=${distro_id},n=${distro_codename},l=Debian-Security";
 
       
 ---
