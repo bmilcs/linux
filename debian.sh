@@ -1,21 +1,24 @@
 #!/bin/bash
 # after deploying fresh linux vm, execute the following:
-# sudo rm -f ssh_debian.sh && wget https://raw.githubusercontent.com/bmilcs/linux/master/ssh_debian.sh && sudo chmod +x *.sh && sudo ./ssh_debian.sh
+# sudo rm -f debian.sh && wget https://raw.githubusercontent.com/bmilcs/linux/master/debian.sh && sudo chmod +x debian.sh && sudo ./debian.sh
 
 echo '====================================================================================================='
 echo '====  update | upgrade | install barebones  ========================================================='
 echo '====================================================================================================='
-apt update && apt upgrade -y
 echo
-echo 'updated upgraded - done'
+apt-get update && apt-get upgrade -y
+echo
+echo '> updated & upgraded'
 echo
 apt install sudo && apt install open-vm-tools -y
-echo 'installed sudo, vm tools'
+echo '> installed: sudo, vm tools, '
 echo
 usermod -aG sudo bmilcs
-echo 'bmilcs granted sudo'
+echo '> sudo granted: bmilcs'
 echo
-
+sudo grep -qxF 'bmilcs ALL=(ALL) NOPASSWD: ALL' /etc/sudoers || sudo echo 'bmilcs ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
+echo '> sudo password: removed'
+echo
 echo '====================================================================================================='
 echo '====  configuring ssh & rsa key  ===================================================================='
 echo '====================================================================================================='
