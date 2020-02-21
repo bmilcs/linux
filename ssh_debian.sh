@@ -1,5 +1,6 @@
 #!/bin/bash
 # after deploying fresh linux vm, execute the following:
+# sudo rm -f ssh_debian.sh && wget https://raw.githubusercontent.com/bmilcs/linux/master/ssh_debian.sh && sudo chmod +x *.sh && sudo ./ssh_debian.sh
 echo '====================================================================================================='
 echo '====  configuring ssh & rsa key  ===================================================================='
 echo '====================================================================================================='
