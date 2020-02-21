@@ -3,6 +3,20 @@
 # sudo rm -f ssh_debian.sh && wget https://raw.githubusercontent.com/bmilcs/linux/master/ssh_debian.sh && sudo chmod +x *.sh && sudo ./ssh_debian.sh
 
 echo '====================================================================================================='
+echo '====  update | upgrade | install barebones  ========================================================='
+echo '====================================================================================================='
+apt update && apt upgrade -y
+echo
+echo 'updated upgraded - done'
+echo
+apt install sudo && apt install open-vm-tools -y
+echo 'installed sudo, vm tools'
+echo
+usermod -aG sudo bmilcs
+echo 'bmilcs granted sudo'
+echo
+
+echo '====================================================================================================='
 echo '====  configuring ssh & rsa key  ===================================================================='
 echo '====================================================================================================='
 echo

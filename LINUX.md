@@ -1,10 +1,5 @@
 # bmilcs: linux notes
-
-
-
-
-
----
+--
 
 ## linux setup
 
