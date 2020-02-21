@@ -1,6 +1,6 @@
 #!/bin/bash
 # after deploying fresh linux vm, execute the following:
-# sudo rm -f debian.sh && wget https://raw.githubusercontent.com/bmilcs/linux/master/debian.sh && sudo chmod +x debian.sh && sudo ./debian.sh
+# apt-get install sudo -y && cd /tmp && sudo rm -f debian.sh && wget https://raw.githubusercontent.com/bmilcs/linux/master/debian.sh && sudo chmod +x debian.sh && sudo ./debian.sh
 
 echo '====================================================================================================='
 echo '====  update | upgrade | install barebones  ========================================================='
@@ -10,7 +10,7 @@ apt-get update && apt-get upgrade -y
 echo
 echo '> updated & upgraded'
 echo
-apt install sudo && apt install open-vm-tools -y
+apt install open-vm-tools -y
 echo '> installed: sudo, vm tools, '
 echo
 usermod -aG sudo bmilcs
@@ -39,7 +39,7 @@ echo '> authorized_keys imported: root/bmilcs'
 echo
 echo '---- customize openssh config -----------------------------------------------------------------------'
 echo
-grep -qxF 'PermitRootLogin yes' /etc/ssh/sshd_config || echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
+grep -qxF 'PermitRootLogin no' /etc/ssh/sshd_config || echo 'PermitRootLogin no' >> /etc/ssh/sshd_config
 grep -qxF 'PubkeyAuthentication yes' /etc/ssh/sshd_config || echo 'PubkeyAuthentication yes' >> /etc/ssh/sshd_config
 grep -qxF 'AuthorizedKeysFile %h/.ssh/authorized_keys' /etc/ssh/sshd_config || echo 'AuthorizedKeysFile %h/.ssh/authorized_keys' >> /etc/ssh/sshd_config
 sudo service ssh restart
