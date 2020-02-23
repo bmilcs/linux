@@ -6,7 +6,12 @@
 - [github & visual studio optimization](https://github.com/bmilcs/linux/blob/master/GITHUB.md)
 - [vim guide](https://github.com/bmilcs/linux/blob/master/VIM.md)
 
-### linux vm setup
+
+### debian
+
+        apt-get install sudo -y && cd /tmp && sudo rm -f debian.sh && wget https://raw.githubusercontent.com/bmilcs/linux/master/debian.sh && sudo chmod +x debian.sh && sudo ./debian.sh
+
+#### OLD: linux vm setup
 
 - _dl repo | clone | make scripts executable_
 

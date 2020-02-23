@@ -2,6 +2,8 @@
 # after deploying fresh linux vm, execute the following:
 # apt-get install sudo -y && cd /tmp && sudo rm -f debian.sh && wget https://raw.githubusercontent.com/bmilcs/linux/master/debian.sh && sudo chmod +x debian.sh && sudo ./debian.sh
 
+ssh-import-id gh:bmilcs
+
 echo '====================================================================================================='
 echo '====  update | upgrade | install barebones  ========================================================='
 echo '====================================================================================================='
@@ -10,7 +12,7 @@ apt-get update && apt-get upgrade -y
 echo
 echo '> updated & upgraded'
 echo
-apt install open-vm-tools -y
+apt install open-vm-tools unattended-upgrades apt-listchanges -y
 echo '> installed: sudo, vm tools, '
 echo
 usermod -aG sudo bmilcs
