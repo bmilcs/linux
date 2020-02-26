@@ -13,7 +13,8 @@ echo
 echo '> updated & upgraded'
 echo
 apt install open-vm-tools unattended-upgrades apt-listchanges -y
-echo '> installed: sudo, vm tools, '
+printf 'APT::Periodic::Update-Package-Lists "1";\nAPT::Periodic::Unattended-Upgrade "1";\nAPT::Periodic::Download-Upgradeable-Packages "1";\nAPT::Periodic::AutocleanInterval "7";\nAPT::Periodic::Verbose "1";' > /etc/apt/apt.conf.d/20auto-upgrades
+echo '> installed: sudo, vm tools, unattended-upgrades'
 echo
 usermod -aG sudo bmilcs
 echo '> sudo granted: bmilcs'

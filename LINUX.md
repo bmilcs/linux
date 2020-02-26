@@ -120,6 +120,11 @@
         "o=${distro_id},n=${distro_codename}-proposed-updates";
         "o=${distro_id},n=${distro_codename},l=Debian-Security";
 
+# test config
+
+      sudo unattended-upgrades --dry-run --debug
+
+
       
 ---
 
