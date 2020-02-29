@@ -9,6 +9,7 @@ echo '====  bmilcs debian basic configuration setup  ===========================
 echo '====================================================================================================='
 echo
 echo '> apt-get update/upgrade'
+echo '  & installing sudo'
 echo
 apt-get update && apt-get upgrade -y && apt-get install sudo
 echo
