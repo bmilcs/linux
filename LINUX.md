@@ -193,6 +193,13 @@
 	sudo vi /var/crash
 
 ---
+## misc
+
+replace whole line found in file
+      sed -i '/TEXT_TO_BE_REPLACED/c\This line is removed by the admin.' /tmp/foo
+
+
+---
 
 ## apt-get basics
 
