@@ -72,4 +72,4 @@ echo '====  bmilcs debian configuration complete  ==============================
 echo '====================================================================================================='
 echo 
 echo 
-echo '>>>> it\'s PUTTY TIME! <<<<'
+echo '>>>> its PUTTY TIME! <<<<'
