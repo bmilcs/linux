@@ -77,13 +77,15 @@ echo '> install: custom login screen'
       # import custom banner text
       touch /etc/banner
       echo > /etc/banner
-      printf "%s" "--- welcome to bmilcs homelab -----------------------" >> /etc/banner
+	  printf "%s" "--- welcome to bmilcs homelab -----------------------" >> /etc/banner
       printf "\n%s" "         > host:   " >> /etc/banner
       echo $HOSTNAME " .bm.bmilcs.com>> /etc/banner
       ipp="ip a | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'"
       eval ip=\$\($ipp\)
       printf "%s" "         > ip:     " >> /etc/banner
       echo $ip >> /etc/banner
+	  eval wan=\$\(dig TXT +short o-o.myaddr.l.google.com @ns1.google.com\)
+	  echo $wan >> /etc/banner
       printf "%s\n\n" "-----------------------------------------------------" >> /etc/banner
       sudo /etc/init.d/ssh restart
 echo '... done.'
