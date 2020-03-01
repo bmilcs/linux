@@ -23,33 +23,29 @@ apt-get update && apt-get dist-upgrade -y
 echo
 echo '... done.'
 echo
-echo '> install: sudo | dnsutils | vmtools | unattended | listchanges'
+echo '====================================================================================================='
+echo '====  install: sudo | dnsutils | vmtools | unattended | listchanges  ================================'
+echo '====================================================================================================='
 apt-get install sudo dnsutils open-vm-tools unattended-upgrades apt-listchanges -y
-echo
 echo '... done.'
 echo
 echo '> add user to sudoers: bmilcs'
 usermod -aG sudo bmilcs
-echo
 echo '... done.'
 echo 
 echo '> remove sudo password: bmilcs'
 sudo grep -qxF 'bmilcs ALL=(ALL) NOPASSWD: ALL' /etc/sudoers || sudo echo 'bmilcs ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
-echo
 echo '... done.'
 echo
 echo '> configuring unattended-upgrades'
-echo
 printf 'APT::Periodic::Update-Package-Lists "1";\nAPT::Periodic::Unattended-Upgrade "1";\nAPT::Periodic::Download-Upgradeable-Packages "1";\nAPT::Periodic::AutocleanInterval "7";\nAPT::Periodic::Verbose "1";' > /etc/apt/apt.conf.d/20auto-upgrades
 sed -i '/"origin=Debian,codename=${distro_codename}-updates";/c\\t"origin=Debian,codename=${distro_codename}-updates";' /etc/apt/apt.conf.d/50unattended-upgrades
 sed -i '/Unattended-Upgrade::Remove-Unused-Dependencies "/c\Unattended-Upgrade::Remove-Unused-Dependencies "true";' /etc/apt/apt.conf.d/50unattended-upgrades
 sed -i '/Unattended-Upgrade::Automatic-Reboot-WithUsers "/c\Unattended-Upgrade::Automatic-Reboot-WithUsers "true";' /etc/apt/apt.conf.d/50unattended-upgrades
 sed -i '/Unattended-Upgrade::Automatic-Reboot "/c\Unattended-Upgrade::Automatic-Reboot "true";' /etc/apt/apt.conf.d/50unattended-upgrades
-echo
 echo '... done.'
 echo
 echo '> create rsa-ssh keys: root|bmilcs'
-echo
 sudo mkdir -p /root/.ssh
 sudo chmod 700 /root/.ssh
 sudo touch /root/.ssh/authorized_keys
@@ -63,17 +59,14 @@ grep -qxF 'ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAngRc7vefUjzk2k6noOtBlhAzROXTAxG31
 echo '... done.'
 echo
 echo '> add rsa-ssh keys to sshd_config'
-echo
 grep -qxF 'PermitRootLogin no' /etc/ssh/sshd_config || echo 'PermitRootLogin no' >> /etc/ssh/sshd_config
 grep -qxF 'PubkeyAuthentication yes' /etc/ssh/sshd_config || echo 'PubkeyAuthentication yes' >> /etc/ssh/sshd_config
 grep -qxF 'AuthorizedKeysFile %h/.ssh/authorized_keys' /etc/ssh/sshd_config || echo 'AuthorizedKeysFile %h/.ssh/authorized_keys' >> /etc/ssh/sshd_config
 echo '... done.'
 echo 
 echo '> install: custom login screen'
-# custom ssh login script
 # remove bs from ssh login
 touch /home/bmilcs/.hushlogin
-
 # add banner location to sshd_config
 if grep -Fxq "#Banner none" /etc/ssh/sshd_config 
 then
@@ -97,24 +90,16 @@ printf "%s" "           wan:   " >> /etc/banner
 echo $wan >> /etc/banner
 printf "%s\n\n" "-----------------------------------------------------" >> /etc/banner
 sudo /etc/init.d/ssh restart
-
 echo '... done.'
 echo
 echo '> restarting openssh'
 sudo service ssh restart
-echo 
 echo '... done.'
-echo
 echo 
 echo '====================================================================================================='
 echo '====  bmilcs debian configuration complete  ========================================================='
 echo '====================================================================================================='
 echo 
-echo 
 echo '>       open:    putty.exe'
 echo '>    address:    bmilcs@'$HOSTNAME
 echo
-echo
-
-
-
