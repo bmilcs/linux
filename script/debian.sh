@@ -101,8 +101,8 @@ echo '====  bmilcs debian configuration complete  ==============================
 echo '====================================================================================================='
 echo 
 echo 
-echo '> open putty.exe'
-echo 'connect to: bmilcs@'$HOSTNAME
+echo '>       open:    putty.exe'
+echo '> connect to:    bmilcs@'$HOSTNAME
 echo
 echo
 
