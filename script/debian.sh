@@ -16,7 +16,12 @@ if [[ $EUID -ne 0 ]]; then
 fi
 echo '... done'
 echo
-apt-get update && apt-get upgrade -y 
+echo '====================================================================================================='
+echo '====  apt update & dist-upgrade  ===================================================================='
+echo '====================================================================================================='
+apt-get update && apt-get dist-upgrade -y 
+echo
+echo '... done.'
 echo
 echo '> install: sudo | dnsutils | vmtools | unattended | listchanges'
 apt-get install sudo dnsutils open-vm-tools unattended-upgrades apt-listchanges -y
@@ -75,7 +80,6 @@ then
 	echo '> enabled banner option > /etc/banner'
 	sed -i '/#Banner/c\Banner /etc/banner' /etc/ssh/sshd_config
 fi
-
 # import custom banner text
 touch /etc/banner
 echo > /etc/banner
@@ -93,7 +97,7 @@ printf "%s" "           wan:   " >> /etc/banner
 echo $wan >> /etc/banner
 printf "%s\n\n" "-----------------------------------------------------" >> /etc/banner
 sudo /etc/init.d/ssh restart
-# custom ssh login
+
 echo '... done.'
 echo
 echo '> restarting openssh'
