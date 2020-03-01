@@ -9,6 +9,37 @@
       apt update && apt upgrade
       apt install sudo
 
+#### customize ssh login
+
+##### custom ssh login script
+      # remove bs from ssh login
+      touch /home/bmilcs/.hushlogin
+
+      # add banner location to sshd_config
+      if grep -Fxq "#Banner none" /etc/ssh/sshd_config 
+      then
+            echo '> enabled banner option > /etc/banner'
+            sed -i '/#Banner/c\Banner /etc/banner' /etc/ssh/sshd_config
+      else
+            echo '> error: sshd_config already configured.'
+      fi
+
+      # import custom banner text
+      touch /etc/banner
+      echo > /etc/banner
+      printf "%s" "-----------------------------------------------------" >> /etc/banner
+      printf "\n%s" "  >>>   bmilcs homelab" "   >>   host:   " >> /etc/banner
+      echo $HOSTNAME >> /etc/banner
+      ipp="ip a | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'"
+      eval ip=\$\($ipp\)
+      printf "%s" "    >   ip:     " >> /etc/banner
+      echo $ip >> /etc/banner
+      printf "%s\n\n" "-----------------------------------------------------" >> /etc/banner
+      sudo /etc/init.d/ssh restart
+
+      
+
+
 #### 2. configure network ####
 
       sudo vi /etc/network/interfaces
