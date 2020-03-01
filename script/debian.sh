@@ -72,8 +72,6 @@ echo '> install: custom login screen'
       then
             echo '> enabled banner option > /etc/banner'
             sed -i '/#Banner/c\Banner /etc/banner' /etc/ssh/sshd_config
-      else
-            echo '> error: sshd_config already configured.'
       fi
 
       # import custom banner text
