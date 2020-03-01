@@ -29,6 +29,10 @@ echo '==========================================================================
 apt-get install sudo dnsutils open-vm-tools unattended-upgrades apt-listchanges -y
 echo '... done.'
 echo
+echo '====================================================================================================='
+echo '====  configure: user | ssh | apps  ================================================================='
+echo '====================================================================================================='
+echo
 echo '> add user to sudoers: bmilcs'
 usermod -aG sudo bmilcs
 echo '... done.'
