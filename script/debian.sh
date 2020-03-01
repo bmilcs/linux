@@ -82,7 +82,7 @@ printf "\n%s" "          host:   " >> /etc/banner
 echo $HOSTNAME "(.bm.bmilcs.com)" >> /etc/banner
 ipp="ip a | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'"
 eval ip=\$\($ipp\)
-printf "%s" "            ip:   " >> /etc/banner
+printf "%s" "           lan:   " >> /etc/banner
 echo $ip >> /etc/banner
 eval wan=\$\(dig @1.1.1.1 ch txt whoami.cloudflare +short\)
 wan="${wan%\"}"
