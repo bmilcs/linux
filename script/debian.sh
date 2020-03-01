@@ -4,16 +4,22 @@
 
 #ssh-import-id gh:bmilcs
 
+
 echo '====================================================================================================='
 echo '====  bmilcs debian basic configuration setup  ======================================================'
 echo '====================================================================================================='
 echo
-echo '> apt-get update/upgrade'
+echo '> root check'
+if [[ $EUID -ne 0 ]]; then
+   echo "This script must be run as root" 
+   exit 1
+fi
+echo '... done'
 echo
 apt-get update && apt-get upgrade -y 
 echo
-echo '> install: sudo | dig'
-apt-get install sudo && apt-get install dnsutils
+echo '> install: sudo | dnsutils | vmtools | unattended | listchanges'
+apt-get install sudo dnsutils open-vm-tools unattended-upgrades apt-listchanges -y
 echo
 echo '... done.'
 echo
@@ -24,12 +30,6 @@ echo '... done.'
 echo 
 echo '> remove sudo password: bmilcs'
 sudo grep -qxF 'bmilcs ALL=(ALL) NOPASSWD: ALL' /etc/sudoers || sudo echo 'bmilcs ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
-echo
-echo '... done.'
-echo
-echo '> installing: vmware tools & unattended-upgrades'
-echo
-apt install open-vm-tools unattended-upgrades apt-listchanges -y
 echo
 echo '... done.'
 echo
@@ -111,4 +111,6 @@ echo '>       open:    putty.exe'
 echo '>    address:    bmilcs@'$HOSTNAME
 echo
 echo
+
+
 

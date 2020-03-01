@@ -1,15 +1,10 @@
 # bmilcs: linux notes
 --
-
-## linux setup
-
-#### 1. **login as root**
+## initial setup
 
       **** ROOT ****
       apt update && apt upgrade
       apt install sudo
-
-#### customize ssh login
 
 ##### custom ssh login script
       # remove bs from ssh login
