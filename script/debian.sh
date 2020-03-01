@@ -85,6 +85,8 @@ echo '> install: custom login screen'
       printf "%s" "         > ip:     " >> /etc/banner
       echo $ip >> /etc/banner
 	  eval wan=\$\(dig TXT +short o-o.myaddr.l.google.com @ns1.google.com\)
+	  wan="${wan%\"}"
+	  wan="${wan#\"}"
 	  echo $wan >> /etc/banner
       printf "%s\n\n" "-----------------------------------------------------" >> /etc/banner
       sudo /etc/init.d/ssh restart
