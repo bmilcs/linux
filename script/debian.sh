@@ -9,9 +9,11 @@ echo '====  bmilcs debian basic configuration setup  ===========================
 echo '====================================================================================================='
 echo
 echo '> apt-get update/upgrade'
-echo '  & installing sudo'
 echo
-apt-get update && apt-get upgrade -y && apt-get install sudo
+apt-get update && apt-get upgrade -y 
+echo
+echo '> install: sudo | dig'
+apt-get install sudo && apt-get install dnsutils
 echo
 echo '... done.'
 echo
