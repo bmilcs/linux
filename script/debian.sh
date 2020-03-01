@@ -63,6 +63,7 @@ grep -qxF 'PermitRootLogin no' /etc/ssh/sshd_config || echo 'PermitRootLogin no'
 grep -qxF 'PubkeyAuthentication yes' /etc/ssh/sshd_config || echo 'PubkeyAuthentication yes' >> /etc/ssh/sshd_config
 grep -qxF 'AuthorizedKeysFile %h/.ssh/authorized_keys' /etc/ssh/sshd_config || echo 'AuthorizedKeysFile %h/.ssh/authorized_keys' >> /etc/ssh/sshd_config
 echo '... done.'
+sudo /etc/init.d/ssh restart
 echo 
 echo '> install: custom login screen'
 # remove bs from ssh login
@@ -89,7 +90,6 @@ wan="${wan#\"}"
 printf "%s" "           wan:   " >> /etc/banner
 echo $wan >> /etc/banner
 printf "%s\n\n" "-----------------------------------------------------" >> /etc/banner
-sudo /etc/init.d/ssh restart
 echo '... done.'
 echo
 echo '> restarting openssh'
