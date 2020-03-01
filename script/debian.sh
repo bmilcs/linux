@@ -63,33 +63,34 @@ grep -qxF 'AuthorizedKeysFile %h/.ssh/authorized_keys' /etc/ssh/sshd_config || e
 echo '... done.'
 echo 
 echo '> install: custom login screen'
-	  # custom ssh login script
-      # remove bs from ssh login
-      touch /home/bmilcs/.hushlogin
+# custom ssh login script
+# remove bs from ssh login
+touch /home/bmilcs/.hushlogin
 
-      # add banner location to sshd_config
-      if grep -Fxq "#Banner none" /etc/ssh/sshd_config 
-      then
-            echo '> enabled banner option > /etc/banner'
-            sed -i '/#Banner/c\Banner /etc/banner' /etc/ssh/sshd_config
-      fi
+# add banner location to sshd_config
+if grep -Fxq "#Banner none" /etc/ssh/sshd_config 
+then
+	echo '> enabled banner option > /etc/banner'
+	sed -i '/#Banner/c\Banner /etc/banner' /etc/ssh/sshd_config
+fi
 
-      # import custom banner text
-      touch /etc/banner
-      echo > /etc/banner
-	  printf "%s" "--- welcome to bmilcs homelab -----------------------" >> /etc/banner
-      printf "\n%s" "         > host:   " >> /etc/banner
-      echo $HOSTNAME " .bm.bmilcs.com>> /etc/banner
-      ipp="ip a | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'"
-      eval ip=\$\($ipp\)
-      printf "%s" "         > ip:     " >> /etc/banner
-      echo $ip >> /etc/banner
-	  eval wan=\$\(dig TXT +short o-o.myaddr.l.google.com @ns1.google.com\)
-	  wan="${wan%\"}"
-	  wan="${wan#\"}"
-	  echo $wan >> /etc/banner
-      printf "%s\n\n" "-----------------------------------------------------" >> /etc/banner
-      sudo /etc/init.d/ssh restart
+# import custom banner text
+touch /etc/banner
+echo > /etc/banner
+printf "%s" "--- welcome to bmilcs homelab -----------------------" >> /etc/banner
+printf "\n%s" "         > host:   " >> /etc/banner
+echo $HOSTNAME " .bm.bmilcs.com>> /etc/banner
+ipp="ip a | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'"
+eval ip=\$\($ipp\)
+printf "%s" "         > ip:     " >> /etc/banner
+echo $ip >> /etc/banner
+#eval wan=\$\(dig TXT +short o-o.myaddr.l.google.com @ns1.google.com\)
+#wan="${wan%\"}"
+#wan="${wan#\"}"
+#echo $wan >> /etc/banner
+printf "%s\n\n" "-----------------------------------------------------" >> /etc/banner
+sudo /etc/init.d/ssh restart
+# custom ssh login
 echo '... done.'
 echo
 echo '> restarting openssh'
