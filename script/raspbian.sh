@@ -24,9 +24,9 @@ echo
 echo '---- done -------------------------------------------------------------------------------------------'
 echo
 echo '====================================================================================================='
-echo '====  install: sudo | dnsutils | vmtools | unattended | listchanges  ================================'
+echo '====  install: sudo | dnsutils | unattended | listchanges  =========================================='
 echo '====================================================================================================='
-apt-get install sudo dnsutils open-vm-tools unattended-upgrades apt-listchanges -y
+apt-get install sudo dnsutils unattended-upgrades apt-listchanges -y
 echo
 echo '---- done -------------------------------------------------------------------------------------------'
 echo
@@ -44,7 +44,8 @@ echo '... done.'
 echo
 echo '> configuring unattended-upgrades'
 printf 'APT::Periodic::Update-Package-Lists "1";\nAPT::Periodic::Unattended-Upgrade "1";\nAPT::Periodic::Download-Upgradeable-Packages "1";\nAPT::Periodic::AutocleanInterval "7";\nAPT::Periodic::Verbose "1";' > /etc/apt/apt.conf.d/20auto-upgrades
-sed -i '/"origin=Debian,codename=${distro_codename}-updates";/c\\t"origin=Debian,codename=${distro_codename}-updates";' /etc/apt/apt.conf.d/50unattended-upgrades
+sed -i '/"origin=Debian,codename=${distro_codename}-updates"/c\\t"origin=Raspbian,codename=${distro_codename},label=Raspbian";' /etc/apt/apt.conf.d/50unattended-upgrades
+sed -i '/"origin=Debian,codename=${distro_codename}-proposed-updates";/c\\t"origin=Raspberry Pi Foundation,codename=${distro_codename},label=Raspberry Pi Foundation";' /etc/apt/apt.conf.d/50unattended-upgrades
 sed -i '/Unattended-Upgrade::Remove-New-Unused-Dependencies/c\Unattended-Upgrade::Remove-New-Unused-Dependencies "true";' /etc/apt/apt.conf.d/50unattended-upgrades
 sed -i '/Unattended-Upgrade::Remove-Unused-Kernel-Packages/c\Unattended-Upgrade::Remove-Unused-Kernel-Packages "true";' /etc/apt/apt.conf.d/50unattended-upgrades
 sed -i '/Unattended-Upgrade::Remove-Unused-Dependencies "/c\Unattended-Upgrade::Remove-Unused-Dependencies "true";' /etc/apt/apt.conf.d/50unattended-upgrades
