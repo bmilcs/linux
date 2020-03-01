@@ -100,7 +100,7 @@ echo '==========================================================================
 echo 
 echo 
 echo '>       open:    putty.exe'
-echo '> connect to:    bmilcs@'$HOSTNAME
+echo '>    address:    bmilcs@'$HOSTNAME
 echo
 echo
 
