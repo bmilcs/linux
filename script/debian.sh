@@ -84,7 +84,7 @@ ipp="ip a | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p
 eval ip=\$\($ipp\)
 printf "%s" "         > ip:     " >> /etc/banner
 echo $ip >> /etc/banner
-eval wan=\$\(dig TXT +short o-o.myaddr.l.google.com @ns1.google.com\)
+eval wan=\$\(dig @1.1.1.1 ch txt whoami.cloudflare +short\)
 wan="${wan%\"}"
 wan="${wan#\"}"
 printf "%s" "         > wan:     " >> /etc/banner
