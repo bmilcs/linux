@@ -1,0 +1,5 @@
+#!/bin/bash
+sudo grep -qxF '#bmilcs unraid file shares' /etc/fstab || sudo echo '#bmilcs unraid file shares' >> /etc/fstab
+sudo grep -qxF 'unraid:/mnt/user/storage/video/movies   /nas/movies     nfs     auto,defaults,nofail 0 0' /etc/fstab || sudo echo 'unraid:/mnt/user/storage/video/movies   /nas/movies     nfs     auto,defaults,nofail 0 0' >> /etc/fstab
+sudo grep -qxF 'unraid:/mnt/user/storage/video/tv       /nas/tv nfs     auto,defaults,nofail 0 0' /etc/fstab || sudo echo 'unraid:/mnt/user/storage/video/tv       /nas/tv nfs     auto,defaults,nofail 0 0' >> /etc/fstab
+sudo grep -qxF 'unraid:/mnt/user/storage/video/sports   /nas/sports     nfs     auto,defaults,nofail 0 0' /etc/fstab || sudo echo 'unraid:/mnt/user/storage/video/sports   /nas/sports     nfs     auto,defaults,nofail 0 0' >> /etc/fstab

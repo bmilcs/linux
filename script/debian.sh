@@ -26,7 +26,7 @@ echo
 echo '====================================================================================================='
 echo '====  install: sudo | dnsutils | vmtools | unattended | listchanges  ================================'
 echo '====================================================================================================='
-apt-get install sudo dnsutils open-vm-tools unattended-upgrades apt-listchanges -y
+apt-get install sudo dnsutils open-vm-tools unattended-upgrades apt-listchanges nfs-common -y
 echo
 echo '---- done -------------------------------------------------------------------------------------------'
 echo
