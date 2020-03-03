@@ -26,10 +26,9 @@
 	sudo grep -qxF 'unraid:/mnt/user/docker   /nas/docker     nfs     auto,defaults,nofail 0 0' /etc/fstab || sudo echo 'unraid:/mnt/user/docker   /nas/docker     nfs     auto,defaults,nofail 0 0' >> /etc/fstab
 
 
-
-
+---
+# command line docker installs
 # docker installations
-
 ## sabnzbd
 [linuxserver](https://hub.docker.com/r/linuxserver/sabnzbd/)
 

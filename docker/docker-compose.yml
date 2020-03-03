@@ -1,281 +1,238 @@
+# ===================================================================================================
+# ===  bmilcs docker compose  =======================================================================
+# ===================================================================================================
 
+#https://bitwarden.com/#download
+# curl -Lso bitwarden.sh https://go.btwrdn.co/bw-sh \
+#   && chmod +x bitwarden.sh
+# ./bitwarden.sh install
+# ./bitwarden.sh start
 
+version: '3'
 
+services:
 
-# version: '3'
+  #https://hub.docker.com/r/containrrr/watchtower
+  watchtower:
+    image: containrrr/watchtower
+    container_name: watchtower
+    hostname: watch
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - PGID
+      - PUID
+      - TZ
+    command: --schedule "0 0 6 * * *" --label-enable --cleanup
+    restart: unless-stopped
+    
+  #https://hub.docker.com/r/linuxserver/hydra2
+  hydra2:
+    image: linuxserver/hydra2
+    container_name: hydra2
+    hostname: hyd
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+    volumes:
+      - ${CONFIG}/hydra2:/config
+      - nzb download:/downloads
+    ports:
+      - 5076:5076
+    restart: unless-stopped
 
-# services:
+  #https://hub.docker.com/r/linuxserver/jackett/
+  jackett:
+    image: linuxserver/jackett
+    container_name: jackett
+    hostname: jac
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+    # - RUN_OPTS=run options here #optional
+    volumes:
+      - ${CONFIG}/jackett:/config
+      - path to blackhole:/downloads
+    ports:
+      - 9117:9117
+    restart: unless-stopped
 
-#   traefik:
-#     image: traefik:v1.7
-#     command: --web --docker --docker.watch --docker.domain=${DOMAIN} \
-#              --docker.exposedbydefault=false --acme.domains=${DOMAIN}
-#     container_name: traefik
-#     hostname: traefik
-#     ports:
-#       - "80:80"
-#       - "443:443"
-#     volumes:
-#       - /var/run/docker.sock:/var/run/docker.sock:ro
-#       - ${CONFIG}/traefik/acme.json:/acme.json
-#       - ${CONFIG}/traefik/traefik.toml:/etc/traefik/traefik.toml
-#       - ${CONFIG}/traefik/.htpasswd:/etc/traefik/.htpasswd:ro
-#     labels:
-#       traefik.enable: "true"
-#       traefik.frontend.rule: "Host:mon.${DOMAIN}"
-#       traefik.port: "8080"
-#       traefik.frontend.auth.basic: "${HTPASSWD}"
-#       com.centurylinklabs.watchtower.enable: "true"
-#     restart: unless-stopped
+  #https://hub.docker.com/r/linuxserver/sabnzbd
+  sabnzbd:
+    image: linuxserver/sabnzbd
+    container_name: sabnzbd
+    hostname: sab
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+    volumes:
+      - ${CONFIG}/sabnzbd:/config
+      - path to downloads:/downloads
+      - path to incomplete downloads:/incomplete-downloads #optional
+    ports:
+      - 8080:8080
+      - 9090:9090
+    restart: unless-stopped
 
-#   watchtower:
-#     image: containrrr/watchtower
-#     container_name: watchtower
-#     volumes:
-#       - /var/run/docker.sock:/var/run/docker.sock
-#     environment:
-#       - PGID
-#       - PUID
-#       - TZ
-#     command: --schedule "0 0 6 * * *" --label-enable --cleanup
-#     restart: unless-stopped
+  #https://hub.docker.com/r/linuxserver/rutorrent
+  ---
+  version: "2"
+  services:
+    rutorrent:
+      image: linuxserver/rutorrent
+      container_name: rutorrent
+      hostname: tor
+      environment:
+        - PUID=1000
+        - PGID=1000
+      volumes:
+        - ${CONFIG}/rutorrent:/config
+        - /path/to/rutorrent/downloads:/downloads
+      ports:
+        - 80:80
+        - 5000:5000
+        - 51413:51413
+        - 6881:6881/udp
+      restart: unless-stopped
 
-#   sabnzbd:
-#     image: linuxserver/sabnzbd:latest
-#     container_name: sabnzbd
-#     hostname: sabnzbd
-#     ports:
-#       - "8080:8080"
-#     volumes:
-#       - ${CONFIG}/sabnzbd:/config
-#       - ${DOWNLOAD}/complete:/downloads
-#       - ${DOWNLOAD}/incomplete:/incomplete-downloads
-#       - ${DOWNLOAD}/watch:/watch
-#     environment:
-#       - PGID
-#       - PUID
-#       - TZ
-#     labels:
-#       traefik.enable: "true"
-#       traefik.port: "8080"
-#       traefik.frontend.rule: "Host:sab.${DOMAIN}"
-#       traefik.frontend.auth.basic: "${HTPASSWD}"
-#       com.centurylinklabs.watchtower.enable: "true"
-#     restart: unless-stopped
+  #https://hub.docker.com/r/cpoppema/docker-flexget/
+  flexget:
+    image: cpoppema/docker-flexget
+    container_name: flexget
+    hostname: flex
+    ports:
+      - "5050:5050"
+    volumes:
+      - ${CONFIG}/flexget:/config
+      - ${DOWNLOAD}/watch:/watch
+    environment:
+      - PGID
+      - PUID
+    restart: unless-stopped
 
-#   sonarr:
-#     image: linuxserver/sonarr:latest
-#     container_name: sonarr
-#     hostname: sonarr
-#     ports:
-#       - "8989:8989"
-#     volumes:
-#       - ${CONFIG}/sonarr:/config
-#       - ${DOWNLOAD}/complete:/downloads
-#       - ${DATA}/tv:/tv
-#       - ${DATA}/anime:/anime
-#     environment:
-#       - PGID
-#       - PUID
-#       - TZ
-#     labels:
-#       traefik.enable: "true"
-#       traefik.port: "8989"
-#       traefik.frontend.rule: "Host:son.${DOMAIN}"
-#       traefik.frontend.auth.basic: "${HTPASSWD}"
-#       com.centurylinklabs.watchtower.enable: "true"
-#     restart: unless-stopped
+  #https://hub.docker.com/r/linuxserver/lidarr
+  lidarr:
+    image: linuxserver/lidarr
+    container_name: lidarr
+    hostname: lid
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+      - UMASK_SET=022 #optional
+    volumes:
+      - ${CONFIG}/lidarr:/config
+      - ${MEDIA}/audio/music:/music
+      - /path/to/downloads:/downloads
+    ports:
+      - 8686:8686
+    restart: unless-stopped
+      
+   
+# https://github.com/linuxserver/docker-sonarr
+  sonarr:
+    image: linuxserver/sonarr
+    container_name: sonarr
+    hostname: son
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Europe/London
+    - UMASK_SET=022 #optional
+    volumes:
+    - ${CONFIG}/sonarr:/config
+    - ${MEDIA}/tv:/tv
+    - <path/to/downloadclient-downloads>:/downloads
+    ports:
+    - 8989:8989
+    restart: unless-stopped
 
-#   radarr:
-#     image: linuxserver/radarr:latest
-#     container_name: radarr
-#     hostname: radarr
-#     ports:
-#       - "7878:7878"
-#     volumes:
-#       - ${CONFIG}/radarr:/config
-#       - ${DOWNLOAD}/complete:/downloads
-#       - ${DATA}/movies:/movies
-#     environment:
-#       - PGID
-#       - PUID
-#       - TZ
-#     labels:
-#       traefik.enable: "true"
-#       traefik.port: "7878"
-#       traefik.frontend.rule: "Host:rad.${DOMAIN}"
-#       traefik.frontend.auth.basic: "${HTPASSWD}"
-#       com.centurylinklabs.watchtower.enable: "true"
-#     restart: unless-stopped
+#https://hub.docker.com/r/linuxserver/radarr/
+  ---
+  version: "2"
+  services:
+    radarr:
+      image: linuxserver/radarr
+      container_name: radarr
+      hostname: rad
+      environment:
+        - PUID=1000
+        - PGID=1000
+        - TZ=Europe/London
+        - UMASK_SET=022 #optional
+      volumes:
+        - ${CONFIG}/radarr:/config
+        - ${MEDIA}/movies:/movies
+        - path/to/downloadclient-downloads:/downloads
+      ports:
+        - 7878:7878
+      restart: unless-stopped
 
-#   lidarr:
-#     image: linuxserver/lidarr:latest
-#     container_name: lidarr
-#     hostname: lidarr
-#     ports:
-#       - "8686:8686"
-#     volumes:
-#       - ${CONFIG}/lidarr:/config
-#       - /etc/localtime:/etc/localtime:ro
-#       - ${DOWNLOAD}/complete:/downloads
-#       - ${DATA}/music:/music
-#     environment:
-#       - PGID
-#       - PUID
-#     labels:
-#       traefik.enable: "true"
-#       traefik.port: "8686"
-#       traefik.frontend.rule: "Host:lid.${DOMAIN}"
-#       traefik.frontend.auth.basic: "${HTPASSWD}"
-#       com.centurylinklabs.watchtower.enable: "true"
-#     restart: unless-stopped
+#https://hub.docker.com/r/linuxserver/tautulli
+  tautulli:
+    image: linuxserver/tautulli
+    container_name: tautulli
+    hostname: tau
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+    volumes:
+      - ${CONFIG}/tautulli:/config
+      - path to plex logs:/logs
+    ports:
+      - 8181:8181
+    restart: unless-stopped
 
-#   lazylibrarian:
-#     image: linuxserver/lazylibrarian:latest
-#     container_name: lazylibrarian
-#     hostname: lazylibrarian
-#     ports:
-#       - "5299:5299"
-#     volumes:
-#       - ${CONFIG}/lazylibrarian:/config
-#       - ${DOWNLOAD}/complete:/downloads
-#       - ${DATA}/books:/books
-#     environment:
-#       - PGID
-#       - PUID
-#       - TZ
-#     labels:
-#       traefik.enable: "true"
-#       traefik.port: "5299"
-#       traefik.frontend.rule: "Host:laz.${DOMAIN}"
-#       traefik.frontend.auth.basic: "${HTPASSWD}"
-#       com.centurylinklabs.watchtower.enable: "true"
-#     restart: unless-stopped
+  #https://hub.docker.com/r/linuxserver/ombi/
+  ombi:
+    image: linuxserver/ombi
+    container_name: ombi
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+      - BASE_URL=/ombi #optional
+    volumes:
+      - ${CONFIG}/ombi:/config
+    ports:
+      - 3579:3579
+    restart: unless-stopped
 
-#   nzbhydra:
-#     image: linuxserver/hydra2:latest
-#     container_name: nzbhydra
-#     hostname: nzbhydra
-#     ports:
-#       - "5076:5076"
-#     volumes:
-#       - ${CONFIG}/nzbhydra2:/config
-#       - ${DOWNLOAD}/complete:/downloads
-#     environment:
-#       - PGID
-#       - PUID
-#       - TZ
-#     labels:
-#       traefik.enable: "true"
-#       traefik.port: "5076"
-#       traefik.frontend.rule: "Host:hyd.${DOMAIN}"
-#       traefik.frontend.auth.basic: "${HTPASSWD}"
-#       com.centurylinklabs.watchtower.enable: "true"
-#     restart: unless-stopped
+  #https://hub.docker.com/r/linuxserver/plex/
+  plex:
+    image: linuxserver/plex
+    container_name: plex
+    hostname: plex
+    network_mode: host
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - VERSION=docker
+      - UMASK_SET=022 #optional
+      - PLEX_CLAIM= #optional
+    volumes:
+      - ${CONFIG}/plex:/config
+      - ${MEDIA}/tv:/tv
+      - ${MEDIA}/movies:/movies
+    restart: unless-stopped
 
-#   plex:
-#     image: linuxserver/plex
-#     container_name: plex
-#     hostname: plex
-#     ports:
-#       - "32400:32400"
-#       - "32400:32400/udp"
-#       - "32469:32469"
-#       - "32469:32469/udp"
-#       - "1900:1900/udp"
-#     volumes:
-#       - ${CONFIG}/plex:/config
-#       - ${DATA}/tv:/media/tv
-#       - ${DATA}/movies:/media/movies
-#       - ${DATA}/music:/media/music
-#       - ${DATA}/anime:/media/anime
-#     environment:
-#       - PGID
-#       - PUID
-#       - TZ
-#       - VERSION=latest
-#     labels:
-#       traefik.enable: "true"
-#       traefik.port: "32400"
-#       traefik.frontend.rule: "Host:plex.${DOMAIN}"
-#       com.centurylinklabs.watchtower.enable: "true"
-#     restart: unless-stopped
+  #https://hub.docker.com/r/linuxserver/heimdall/
+  heimdall:
+    image: linuxserver/heimdall
+    container_name: heimdall
+    hostname: heim
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+    volumes:
+      - ${CONFIG}/heimdall:/config
+    ports:
+      - 80:80
+      - 443:443
+    restart: unless-stopped
 
-#   plexpy:
-#     image: linuxserver/tautulli:latest
-#     container_name: tautulli
-#     hostname: tautulli
-#     ports:
-#       - "8181:8181"
-#     volumes:
-#       - ${CONFIG}/plexpy:/config
-#       - ${CONFIG}/plex/Library/Application Support/Plex Media Server/Logs:/logs:ro
-#     environment:
-#       - PGID
-#       - PUID
-#       - TZ
-#     labels:
-#       traefik.enable: "true"
-#       traefik.port: "8181"
-#       traefik.frontend.rule: "Host:tau.${DOMAIN}"
-#       traefik.frontend.auth.basic: "${HTPASSWD}"
-#       com.centurylinklabs.watchtower.enable: "true"
-#     restart: unless-stopped
-
-#   heimdall:
-#     image: linuxserver/heimdall:latest
-#     container_name: heimdall
-#     hostname: heimdall
-#     volumes:
-#       - ${CONFIG}/heimdall:/config
-#     environment:
-#       - PGID
-#       - PUID
-#       - TZ
-#     labels:
-#       traefik.enable: "true"
-#       traefik.port: "80"
-#       traefik.frontend.rule: "Host:${DOMAIN}"
-#       traefik.frontend.auth.basic: "${HTPASSWD}"
-#       com.centurylinklabs.watchtower.enable: "true"
-#     restart: unless-stopped
-
-#   ombi:
-#     image: linuxserver/ombi
-#     container_name: ombi
-#     hostname: ombi
-#     ports:
-#       - "3579:3579"
-#     volumes:
-#       - ${CONFIG}/ombi:/config
-#     environment:
-#       - PGID
-#       - PUID
-#       - TZ
-#     labels:
-#       traefik.enable: "true"
-#       traefik.port: "3579"
-#       traefik.frontend.rule: "Host:req.${DOMAIN}"
-#       com.centurylinklabs.watchtower.enable: "true"
-#     restart: unless-stopped
-
-#   flexget:
-#     image: cpoppema/docker-flexget
-#     container_name: flexget
-#     hostname: flexget
-#     ports:
-#       - "5050:5050"
-#     volumes:
-#       - ${CONFIG}/flexget:/config
-#       - ${DOWNLOAD}/watch:/watch
-#     environment:
-#       - PGID
-#       - PUID
-#       - WEB_PASSWD=pNTgQj4hfJPPiGVFt9re
-#     labels:
-#       traefik.enable: "true"
-#       traefik.port: "5050"
-#       traefik.frontend.rule: "Host:flex.${DOMAIN}"
-#       traefik.frontend.auth.basic: "${HTPASSWD}"
-#       com.centurylinklabs.watchtower.enable: "true"
-#     restart: unless-stopped
