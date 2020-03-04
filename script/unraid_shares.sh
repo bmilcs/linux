@@ -20,3 +20,4 @@ sudo grep -qxF 'unraid:/mnt/user/storage/literature/books   /nas/media/books    
 sudo grep -qxF 'unraid:/mnt/user/dl   /nas/dl     nfs     auto,defaults,nofail 0 0' /etc/fstab || sudo echo 'unraid:/mnt/user/dl   /nas/dl     nfs     auto,defaults,nofail 0 0' >> /etc/fstab
 # esxi/docker > /nas/docker/
 sudo grep -qxF 'unraid:/mnt/user/docker   /nas/docker     nfs     auto,defaults,nofail 0 0' /etc/fstab || sudo echo 'unraid:/mnt/user/docker   /nas/docker     nfs     auto,defaults,nofail 0 0' >> /etc/fstab
+mount -av
