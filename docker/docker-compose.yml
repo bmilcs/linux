@@ -8,9 +8,32 @@
 # ./bitwarden.sh install
 # ./bitwarden.sh start
 
-version: '3'
+version: '3.3'
 
 services:
+
+  traefik:
+    image: "traefik:v2.1"
+    container_name: "traefik"
+    command:
+      #- "--log.level=DEBUG"
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+    ports:
+      - "80:80"
+      - "8080:8080"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+
+  whoami:
+    image: "containous/whoami"
+    container_name: "simple-service"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.whoami.rule=Host(`whoami.localhost`)"
+      - "traefik.http.routers.whoami.entrypoints=web"
 
   #https://hub.docker.com/r/containrrr/watchtower
   watchtower:
@@ -37,7 +60,7 @@ services:
       - TZ=Europe/London
     volumes:
       - ${CONFIG}/hydra2:/config
-      - nzb download:/downloads
+      - ${DOWNLOAD}:/downloads
     ports:
       - 5076:5076
     restart: unless-stopped
@@ -54,7 +77,7 @@ services:
     # - RUN_OPTS=run options here #optional
     volumes:
       - ${CONFIG}/jackett:/config
-      - path to blackhole:/downloads
+      - ${DOWNLOAD}/watch:/downloads
     ports:
       - 9117:9117
     restart: unless-stopped
@@ -70,17 +93,15 @@ services:
       - TZ=Europe/London
     volumes:
       - ${CONFIG}/sabnzbd:/config
-      - path to downloads:/downloads
-      - path to incomplete downloads:/incomplete-downloads #optional
+      - ${DOWNLOAD}/watch:/watch
+      - ${DOWNLOAD}/complete:/downloads
+      - ${DOWNLOAD}/temp:/incomplete-downloads #optional
     ports:
       - 8080:8080
       - 9090:9090
     restart: unless-stopped
 
   #https://hub.docker.com/r/linuxserver/rutorrent
-  ---
-  version: "2"
-  services:
     rutorrent:
       image: linuxserver/rutorrent
       container_name: rutorrent
@@ -90,7 +111,7 @@ services:
         - PGID=1000
       volumes:
         - ${CONFIG}/rutorrent:/config
-        - /path/to/rutorrent/downloads:/downloads
+        - ${DOWNLOAD}:/downloads
       ports:
         - 80:80
         - 5000:5000
@@ -107,7 +128,7 @@ services:
       - "5050:5050"
     volumes:
       - ${CONFIG}/flexget:/config
-      - ${DOWNLOAD}/watch:/watch
+      - ${MEDIA}/podcasts:/podcasts  # - ${MEDIA}/watch:/watch
     environment:
       - PGID
       - PUID
@@ -125,8 +146,8 @@ services:
       - UMASK_SET=022 #optional
     volumes:
       - ${CONFIG}/lidarr:/config
-      - ${MEDIA}/audio/music:/music
-      - /path/to/downloads:/downloads
+      - ${MEDIA}/music:/music
+      - ${DOWNLOAD}:/downloads
     ports:
       - 8686:8686
     restart: unless-stopped
@@ -145,7 +166,7 @@ services:
     volumes:
     - ${CONFIG}/sonarr:/config
     - ${MEDIA}/tv:/tv
-    - <path/to/downloadclient-downloads>:/downloads
+    - ${DOWNLOAD}:/downloads
     ports:
     - 8989:8989
     restart: unless-stopped
@@ -166,26 +187,26 @@ services:
       volumes:
         - ${CONFIG}/radarr:/config
         - ${MEDIA}/movies:/movies
-        - path/to/downloadclient-downloads:/downloads
+        - ${DOWNLOAD}:/downloads
       ports:
         - 7878:7878
       restart: unless-stopped
 
-#https://hub.docker.com/r/linuxserver/tautulli
-  tautulli:
-    image: linuxserver/tautulli
-    container_name: tautulli
-    hostname: tau
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/London
-    volumes:
-      - ${CONFIG}/tautulli:/config
-      - path to plex logs:/logs
-    ports:
-      - 8181:8181
-    restart: unless-stopped
+# #https://hub.docker.com/r/linuxserver/tautulli
+#   tautulli:
+#     image: linuxserver/tautulli
+#     container_name: tautulli
+#     hostname: tau
+#     environment:
+#       - PUID=1000
+#       - PGID=1000
+#       - TZ=Europe/London
+#     volumes:
+#       - ${CONFIG}/tautulli:/config
+#       - path to plex logs:/logs
+#     ports:
+#       - 8181:8181
+#     restart: unless-stopped
 
   #https://hub.docker.com/r/linuxserver/ombi/
   ombi:
@@ -202,22 +223,22 @@ services:
       - 3579:3579
     restart: unless-stopped
 
-  #https://hub.docker.com/r/linuxserver/plex/
-  plex:
-    image: linuxserver/plex
-    container_name: plex
-    hostname: plex
-    network_mode: host
+  #https://hub.docker.com/r/linuxserver/bazarr
+  bazarr:
+    image: linuxserver/bazarr
+    container_name: bazarr
+    hostname: baz
     environment:
       - PUID=1000
       - PGID=1000
-      - VERSION=docker
+      - TZ=Europe/London
       - UMASK_SET=022 #optional
-      - PLEX_CLAIM= #optional
     volumes:
-      - ${CONFIG}/plex:/config
-      - ${MEDIA}/tv:/tv
+      - ${CONFIG}/bazaar:/config
       - ${MEDIA}/movies:/movies
+      - ${MEDIA}/tv:/tv
+    ports:
+      - 6767:6767
     restart: unless-stopped
 
   #https://hub.docker.com/r/linuxserver/heimdall/
@@ -236,3 +257,15 @@ services:
       - 443:443
     restart: unless-stopped
 
+  portainer:
+    image: portainer/portainer
+    hostname: portainer
+    container_name: portainer
+    command: -H unix:///var/run/docker.sock
+    restart: always
+    ports:
+      - 9000:9000
+      - 8000:8000
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ${DATA}/portainer:/data
