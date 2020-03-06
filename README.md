@@ -6,6 +6,59 @@
       [] VPN > TOR
       [] DOCKER/NAS PERMISSIONS OPTIMIZE
 
+## linux file permissions
+
+### file & folders
+
+- **THREE** TYPES OF PERMISSIONS
+
+READ | WRITE | EXECUTE
+---|--|---
+OPEN | ADD | RUN FILE
+READ |REMOVE|...
+LS DIR| RENAME |  ...
+...| MOVE | ...
+
+### reading file type & access permissions
+
+      drwxrwxrwx  1 bmilcs   140   69 Mar  5 09:44 dl
+      drwxr-xr-x 19 root   root  4096 Mar  6 12:38 docker
+      drwxr-xr-x  9 bmilcs   140 4096 Mar  5 11:49 media
+
+
+***drwxrwxrwx*** *--- becomes ---* **d  ... rwx ... rwx ... rwx**
+
+
+
+
+TYPE | **USER** | **GROUP**  | **PUBLIC** 
+:-:|:-:|:-:|:-:
+**[d]** *rwxrwxrwx* | *d* [**rwx**] *rwxrwx* | *d* *rwx* [**rwx**] *rwx* | *d* *rwx* *rwx* [**rwx**]
+
+## chmod
+
+      chmod permissions filename
+
+# |  | example
+:-:|:-:|:-:
+0	|No Permission	|---
+1	|Execute	|--x
+2	|Write	|-w-
+3	|Execute + Write	|-wx
+4	|Read	|r--
+5	|Read + Execute	|r-x
+6	|Read +Write	|rw-
+7	|Read + Write +Execute	|rwx
+
+### chmod 764 /path/file
+
+OWNER   |  GROUP |    ALL
+--|--|--
+7 | 6 | 4
+rwx | rw- | r--
+
+chmod 764 /path/file becomes -rwxrw-r--
+
 ## initial setup
 
       **** ROOT ****
