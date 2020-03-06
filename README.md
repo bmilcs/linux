@@ -1,5 +1,11 @@
 # bmilcs: linux notes
 --
+## to do
+
+      [] VARKEN 
+      [] VPN > TOR
+      [] DOCKER/NAS PERMISSIONS OPTIMIZE
+
 ## initial setup
 
       **** ROOT ****
