@@ -39,7 +39,7 @@ TYPE | **USER** | **GROUP**  | **PUBLIC**
 
       chown username file.zip
 
-      
+
 
 ## chmod: change permissions
 
@@ -64,6 +64,37 @@ OWNER   |  GROUP |    ALL
 rwx | rw- | r--
 
 chmod 764 /path/file becomes -rwxrw-r--
+
+## puid & pguid
+
+**list puid & pguid**
+      
+      ls -n
+
+**change user's GID / UID**
+      
+      usermod -u #PID# bmilcs     #group
+      groupmod -g #GID# bmilcs    #group
+
+      ls -l                     #verify changes
+
+> usermod & groupmod **fix /home/bmilcs automatically**
+
+**fix file/folder permissions (outside of /home)**
+
+      find / -group #OLD-GID# -exec chgrp -h bmilcs {} \;
+      find / -user #OLD-UID# -exec chown -h bmilcs {} \;
+
+      find / -group 1000 -exec chgrp -h bmilcs {} \; && find / -user 1000 -exec chown -h bmilcs {} \;
+
+      # verify everything
+      ls -l /home/bmilcs/
+      id -u bmilcs
+      id -g bmilcs
+      grep bmilcs /etc/passwd
+      grep bmilcs /etc/group
+      find / -user bmilcs -ls
+      find / -group sales -ls
 
 ## initial setup
 

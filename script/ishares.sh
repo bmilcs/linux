@@ -1,4 +1,5 @@
 #!/bin/bash
+
 cd /
 mkdir -p /nas /nas/movies /nas/tv /nas/sports /nas/podcasts /nas/music /nas/audiobooks /nas/books /nas/dl /nas/docker
 
@@ -20,4 +21,17 @@ sudo grep -qxF 'unraid:/mnt/user/storage/literature/books   /nas/media/books    
 sudo grep -qxF 'unraid:/mnt/user/dl   /nas/dl     nfs     auto,defaults,nofail 0 0' /etc/fstab || sudo echo 'unraid:/mnt/user/dl   /nas/dl     nfs     auto,defaults,nofail 0 0' >> /etc/fstab
 # esxi/docker > /nas/docker/
 sudo grep -qxF 'unraid:/mnt/user/docker   /nas/.dev     nfs     auto,defaults,nofail 0 0' /etc/fstab || sudo echo 'unraid:/mnt/user/docker   /nas/.dev     nfs     auto,defaults,nofail 0 0' >> /etc/fstab
+
+echo '====================================================================================================='
+echo '====  network shares installed  ====================================================================='
+echo '====================================================================================================='
+
+cat /etc/fstab
+
+echo
+echo
+echo '----  attempting to mount new shares  -----------------------------------------------------------------'
+echo
+
+
 mount -av
