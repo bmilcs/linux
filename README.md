@@ -35,7 +35,13 @@ TYPE | **USER** | **GROUP**  | **PUBLIC**
 :-:|:-:|:-:|:-:
 **[d]** *rwxrwxrwx* | *d* [**rwx**] *rwxrwx* | *d* *rwx* [**rwx**] *rwx* | *d* *rwx* *rwx* [**rwx**]
 
-## chmod
+## chown: change owner
+
+      chown username file.zip
+
+      
+
+## chmod: change permissions
 
       chmod permissions filename
 
