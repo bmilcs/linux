@@ -1,7 +1,7 @@
 #!/bin/bash
 # fstab title
-sed -i '/unraid:/' /etc/fstab
-sed -i '/#bmilcs/' /etc/fstab
+sed -i '/unraid:/d' /etc/fstab
+sed -i '/#bmilcs/d' /etc/fstab
 echo
 echo '====================================================================================================='
 echo '====  removed network shares  ======================================================================='
