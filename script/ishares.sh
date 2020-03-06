@@ -1,7 +1,7 @@
 #!/bin/bash
 
 cd /
-mkdir -p /nas /nas/movies /nas/tv /nas/sports /nas/podcasts /nas/music /nas/audiobooks /nas/books /nas/dl /nas/docker
+mkdir -p /nas /nas/media/movies /nas/media/tv /nas/media/sports /nas/media/podcasts /nas/media/music /nas/media/audiobooks /nas/media/books /nas/dl /nas/docker
 
 # fstab title
 sudo grep -qxF '#bmilcs unraid file shares' /etc/fstab || sudo echo '#bmilcs unraid file shares' >> /etc/fstab
