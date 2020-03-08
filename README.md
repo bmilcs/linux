@@ -112,7 +112,7 @@ ps: peeat is the worst.
 
         chmod 764 file.zip
 
-      > results in: **-rwxrw-r--**
+      results in: **-rwxrw-r--**
 
       7 | 6 | 4
       :--:|:--:|:--:
