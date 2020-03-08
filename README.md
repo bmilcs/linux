@@ -98,7 +98,7 @@ ps: peeat is the worst.
   - chmod requires **3 permissions**
 
         chmod 764 file.zip
-        
+
   - chmod permission arguments
 
       chmod | rule | ie.
@@ -124,7 +124,7 @@ ps: peeat is the worst.
 
 ## owner & user groups
 
-### reading owner/user & user groups
+### reading user (owner) & user groups
 - **ls** command
 
      - **list user & user group**
