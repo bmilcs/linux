@@ -1,40 +1,46 @@
 # > BMiLCS LINUX REPO
 
-welcome to my personal linux notepad & script center. my limited exposure to linux began in late 2016, when i set out to create a home media server using an old amd fx-6300 pc and basic unraid license.
 
-something something... homelab, edgerouter, unifi ap, docker, vm, nginx, etc...
 
-fast forward to february of 2020. while browsing /r/homelabsales, a dell poweredge r720 sff with 144gb ecc caught my eye and my love for the foss operating system took off. 
+welcome to my personal linux notepad & script center. my limited exposure began in late 2016, when i set out to create a home media server using an old amd fx-6300 pc and basic unraid license.
+
+*something something something... homelab, edgerouter, unifi ap, docker, vm, nginx, home security system...*
+
+*february 2020* - while browsing /r/homelabsales, a dell poweredge r720 sff with 144gb ecc caught my eye and my love for the foss operating system took off. 
+
+enjoy the ramblings of a dummy with add.
 
 ps: peeat is the worst. 
 
 -bmilcs
 
+<br>
 ---
 
-## installation
 
-#### scripts
+### installation
+
+#### /.dotfiles
+
+      mkdir -p ~/_bmilcs && rm -f ~/.bm* ~/.inputrc && rm -rf ~/_bmilcs/dotfiles && cd ~/_bmilcs && git clone https://github.com/bmilcs/dotfiles.git && cd dotfiles && chmod +x *.sh && ./install.sh && source ~/.bashrc
+#### /scripts
 
       mkdir -p ~/_bmilcs && cd ~/_bmilcs && rm -rf linux && git clone https://github.com/bmilcs/linux.git && cd linux/scripts && chmod +x *.sh && clear && echo && echo '\''---- installed scripts listed below -----------------------------------------------------------------'\'' && echo && l && echo && echo '\''-----------------------------------------------------------------------------------------------------'\''
 
-## dot files
-
-      mkdir -p ~/_bmilcs && rm -f ~/.bm* ~/.inputrc && rm -rf ~/_bmilcs/dotfiles && cd ~/_bmilcs && git clone https://github.com/bmilcs/dotfiles.git && cd dotfiles && chmod +x *.sh && ./install.sh && source ~/.bashrc
-
+<br>
 ---
 
-## to do
 
+## to do
 - [] varken 
 - [] bitwarden
 - [x] vpn > tor
 - [x] docker/nas permissions optimize
 
 ---
-# notepad
+# meat & potatoes
 
-# permissions
+## permissions
 
 ### file & folders
 
