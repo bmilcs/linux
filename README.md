@@ -31,10 +31,10 @@ ps: peeat is the worst.
 
 ## to do
 
-[ ] varken 
-[ ] bitwarden
-[x] vpn > tor
-[x] docker/nas permissions optimize
+- [ ] varken 
+- [ ] bitwarden
+- [x] vpn > tor
+- [x] docker/nas permissions optimize
 
 ---
 # meat & potatoes
