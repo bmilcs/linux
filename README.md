@@ -38,7 +38,7 @@ ps: peeat is the worst.
 
 <br>
 
-## permissions
+## file permissions 
 ### **reading permissions**
 
   - **three** types of permission
@@ -191,8 +191,12 @@ ps: peeat is the worst.
           grep bmilcs /etc/group
           find / -user bmilcs -ls
           find / -group sales -ls 
+<br>
+---
+<br>
+---
 
-## initial setup
+## initial os setup
 
       **** ROOT ****
       apt update && apt upgrade
