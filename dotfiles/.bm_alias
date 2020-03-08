@@ -3,9 +3,9 @@
 # ===================================================================================================
 
 # Scripts
-alias bmi="redot && iscripts"
-alias redot="mkdir -p ~/_bmilcs && rm -f ~/.bm* ~/.inputrc && rm -rf ~/_bmilcs/dotfiles && cd ~/_bmilcs && git clone https://github.com/bmilcs/dotfiles.git && cd dotfiles && chmod +x *.sh && ./install.sh && source ~/.bashrc"
-alias iscripts="mkdir -p ~/_bmilcs && cd ~/_bmilcs && rm -rf linux && git clone https://github.com/bmilcs/linux.git && cd linux/scripts && chmod +x *.sh && clear && echo && echo '---- installed scripts listed below -----------------------------------------------------------------' && echo && l && echo && echo '-----------------------------------------------------------------------------------------------------'"
+alias regit="rm -rf ~/_bmilcs ~/.bm* ~/.inputr* && cd ~ && mkdir _bmilcs && git clone https://github.com/bmilcs/linux.git ~/_bmilcs && cd ~/_bmilcs && chmod -R +x * && cd dotfiles && ./install.sh && source ~/.bashrc && cd ~/_bmilcs/script && l"
+# alias redot="mkdir -p ~/_bmilcs && rm -f ~/.bm* ~/.inputrc && rm -rf ~/_bmilcs/dotfiles && cd ~/_bmilcs && git clone https://github.com/bmilcs/dotfiles.git && cd dotfiles && chmod +x *.sh && ./install.sh && source ~/.bashrc"
+# alias iscripts="mkdir -p ~/_bmilcs && cd ~/_bmilcs && rm -rf linux && git clone https://github.com/bmilcs/linux.git && cd linux/scripts && chmod +x *.sh && clear && echo && echo '---- installed scripts listed below -----------------------------------------------------------------' && echo && l && echo && echo '-----------------------------------------------------------------------------------------------------'"
 alias ideb="cd ~/_bmilcs/linux/scripts && sudo ./debian.sh"
 
 # Reload
@@ -18,7 +18,7 @@ alias rnet="sudo /etc/init.d/networking restart"
 alias enet="sudo nano /etc/network/interfaces"
 
 #app related
-alias uut="sudo unattended-upgrade -d"
+alias uur="sudo unattended-upgrade -d"
 alias uul="sudo cat /var/log/unattended-upgrades/unattended-upgrades.log | grep applying"
 alias idig="ai dnsutils"
 

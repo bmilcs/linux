@@ -20,14 +20,7 @@ ps: peeat is the worst.
 
 ### installation
 
-    rm -rf ~/_bmilcs ~/.bm* ~/.inputr* && cd ~ && mkdir _bmilcs && git clone https://github.com/bmilcs/linux.git ~/_bmilcs && cd ~/_bmilcs && chmod -R +x * && cd dotfiles && sudo ./install.sh && cd ~/_bmilcs/scripts
-
-**/.dotfiles**
-
-    mkdir -p ~/_bmilcs && rm -f ~/.bm* ~/.inputr* && rm -rf ~/_bmilcs/dotfiles && cd ~/_bmilcs && git clone https://github.com/bmilcs/dotfiles.git && cd dotfiles && chmod +x *.sh && ./install.sh && source ~/.bashrc
-**/scripts**
-
-    mkdir -p ~/_bmilcs && cd ~/_bmilcs && rm -rf linux && git clone https://github.com/bmilcs/linux.git && cd linux/scripts && chmod +x *.sh && clear && echo && echo '\''---- installed scripts listed below -----------------------------------------------------------------'\'' && echo && l && echo && echo '\''-----------------------------------------------------------------------------------------------------'\''
+    rm -rf ~/_bmilcs ~/.bm* ~/.inputr* && cd ~ && mkdir _bmilcs && git clone https://github.com/bmilcs/linux.git ~/_bmilcs && cd ~/_bmilcs && chmod -R +x * && cd dotfiles && ./install.sh && source ~/.bashrc && cd ~/_bmilcs/script && l
 
 <br>
 
