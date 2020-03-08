@@ -1,6 +1,20 @@
-# bmilcs: linux notes
+# > BMiLCS LINUX REPO
 
-## scripts
+welcome to my personal linux notepad & script center. my limited exposure to linux began in late 2016, when i set out to create a home media server using an old amd fx-6300 pc and basic unraid license.
+
+something something... homelab, edgerouter, unifi ap, docker, vm, nginx, etc...
+
+fast forward to february of 2020. while browsing /r/homelabsales, a dell poweredge r720 sff with 144gb ecc caught my eye and my love for the foss operating system took off. 
+
+ps: peeat is the worst. 
+
+-bmilcs
+
+---
+
+## installation
+
+#### scripts
 
       mkdir -p ~/_bmilcs && cd ~/_bmilcs && rm -rf linux && git clone https://github.com/bmilcs/linux.git && cd linux/scripts && chmod +x *.sh && clear && echo && echo '\''---- installed scripts listed below -----------------------------------------------------------------'\'' && echo && l && echo && echo '\''-----------------------------------------------------------------------------------------------------'\''
 
@@ -8,12 +22,17 @@
 
       mkdir -p ~/_bmilcs && rm -f ~/.bm* ~/.inputrc && rm -rf ~/_bmilcs/dotfiles && cd ~/_bmilcs && git clone https://github.com/bmilcs/dotfiles.git && cd dotfiles && chmod +x *.sh && ./install.sh && source ~/.bashrc
 
+---
 
 ## to do
 
-- [] VARKEN 
-- [] VPN > TOR
-- [x] DOCKER/NAS PERMISSIONS OPTIMIZE
+- [] varken 
+- [] bitwarden
+- [x] vpn > tor
+- [x] docker/nas permissions optimize
+
+---
+# notepad
 
 # permissions
 
