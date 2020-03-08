@@ -11,11 +11,11 @@
 
 ## to do
 
-      [] VARKEN 
-      [] VPN > TOR
-      [] DOCKER/NAS PERMISSIONS OPTIMIZE
+- [] VARKEN 
+- [] VPN > TOR
+- [x] DOCKER/NAS PERMISSIONS OPTIMIZE
 
-## linux file permissions
+# permissions
 
 ### file & folders
 
@@ -54,25 +54,29 @@ TYPE | **USER** | **GROUP**  | **PUBLIC**
 
       chmod permissions filename
 
-# |  | example
-:-:|:-:|:-:
-0	|No Permission	|---
+chmod | rule | ie.
+---:|:---:|:--
+0	|None	|---
 1	|Execute	|--x
 2	|Write	|-w-
-3	|Execute + Write	|-wx
-4	|Read	|r--
-5	|Read + Execute	|r-x
-6	|Read +Write	|rw-
-7	|Read + Write +Execute	|rwx
+3	|Write Execute	|-wx
+4	|Read|r--
+5	|Read Execute	|r-x
+6	|Read Write	|rw-
+7	|Read Write Execute |rwx
 
-### chmod 764 /path/file
+### example
 
-OWNER   |  GROUP |    ALL
---|--|--
+      chmod 764 /path/file
+
+owner   |  group |    all
+--:|:--:|:--
 7 | 6 | 4
 rwx | rw- | r--
 
-chmod 764 /path/file becomes -rwxrw-r--
+> "chmod 764 /path/file" results in: 
+
+      -rwxrw-r--
 
 ## puid & pguid
 
