@@ -95,6 +95,10 @@ ps: peeat is the worst.
       chmod permissions *           # everything (current dir)
       chmod -R permissions *        # everything (current dir & subdir)
 
+  - chmod requires **3 permissions**
+
+        chmod 764 file.zip
+        
   - chmod permission arguments
 
       chmod | rule | ie.
@@ -108,9 +112,6 @@ ps: peeat is the worst.
       6	|Read Write	|rw-
       7	|Read Write Execute |rwx
 
-  - chmod requires **3 permissions**
-
-        chmod 764 file.zip
 
       results in: **-rwxrw-r--**
 
