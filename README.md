@@ -167,7 +167,7 @@ ps: peeat is the worst.
             ls -l 
             ls -ln
 
-**applying new PGUID/PUID to files & directories**
+### applying new PGUID/PUID to files & directories**
 
 - **/home/user** contents are automatically changed with user/groupmod commands
 
