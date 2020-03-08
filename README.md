@@ -38,101 +38,158 @@ ps: peeat is the worst.
 
 <br>
 
-# meat & potatoes
-
 ## permissions
+### **reading permissions**
 
-### file & folders
+  - **three** types of permission
 
-- **THREE** TYPES OF PERMISSIONS
+      read | write | execute
+      ---|--|---
+      open | add | run file
+      read |remove|...
+      ls dir| rename |  ...
+      ...| move | ...
+ - **three** levels of permission
 
-READ | WRITE | EXECUTE
----|--|---
-OPEN | ADD | RUN FILE
-READ |REMOVE|...
-LS DIR| RENAME |  ...
-...| MOVE | ...
+      - owner of file
+      - user group
+      - public
 
-### reading file type & access permissions
+ - **example**
 
-      drwxrwxrwx  1 bmilcs   140   69 Mar  5 09:44 dl
-      drwxr-xr-x 19 root   root  4096 Mar  6 12:38 docker
-      drwxr-xr-x  9 bmilcs   140 4096 Mar  5 11:49 media
+        drwxrwxrwx  1 bmilcs   140   69 Mar  5 09:44 dl
 
+      - ***drwxrwxrwx*** = file permissions
+      - reads as: **d | rwx | rwx | rwx**
 
-***drwxrwxrwx*** *--- becomes ---* **d  ... rwx ... rwx ... rwx**
-
-
-
-
-TYPE | **USER** | **GROUP**  | **PUBLIC** 
-:-:|:-:|:-:|:-:
-**[d]** *rwxrwxrwx* | *d* [**rwx**] *rwxrwx* | *d* *rwx* [**rwx**] *rwx* | *d* *rwx* *rwx* [**rwx**]
-
-## chown: change owner
-
-      chown username file.zip
+           file or dir | user | group  | public
+           :-:|:-:|:-:|:-:
+           **[d]** *rwxrwxrwx* | *d* [**rwx**] *rwxrwx* | *d* *rwx* [**rwx**] *rwx* | *d* *rwx* *rwx* [**rwx**]
 
 
+### **changing ownership**
+- **chown** command
 
-## chmod: change permissions
+  - **1 file/folder:**
 
-      chmod permissions filename
+        chown username file.zip
+        chown UID file.zip
 
-chmod | rule | ie.
----:|:---:|:--
-0	|None	|---
-1	|Execute	|--x
-2	|Write	|-w-
-3	|Write Execute	|-wx
-4	|Read|r--
-5	|Read Execute	|r-x
-6	|Read Write	|rw-
-7	|Read Write Execute |rwx
+  - **everything in current directory**
 
-### example
+        chown username *
+        chown UID *
 
-      chmod 764 /path/file
 
-owner   |  group |    all
---:|:--:|:--
-7 | 6 | 4
-rwx | rw- | r--
+  - **everything: current directory & subdirectories** (recursive)
 
-> "chmod 764 /path/file" results in: 
+        chown -R username *
+        chown -R UID *
 
-      -rwxrw-r--
 
-## puid & pguid
 
-**list puid & pguid**
+### changing permissions
+- **chmod** command
+
+      chmod permissions filename    # single file/dir
+      chmod permissions *           # everything (current dir)
+      chmod -R permissions *        # everything (current dir & subdir)
+
+  - chmod permission arguments
+
+      chmod | rule | ie.
+      ---:|:---:|:--
+      0	|None	|---
+      1	|Execute	|--x
+      2	|Write	|-w-
+      3	|Write Execute	|-wx
+      4	|Read|r--
+      5	|Read Execute	|r-x
+      6	|Read Write	|rw-
+      7	|Read Write Execute |rwx
+
+  - chmod requires **3 permissions**
+
+        chmod 764 file.zip
+
+      > results in: **-rwxrw-r--**
+
+      7 | 6 | 4
+      :--:|:--:|:--:
+      owner   |  group |    all
+      rwx | rw- | r--
+      read write execute|read write|read
+
+
+## owner & user groups
+
+### reading owner/user & user groups
+- **ls** command
+
+     - **list user & user group**
+            
+            $ ls -lia 
+
+            648799826320195755 drwxrwxrwx  1 bmilcs bmgrp   69 Mar  7 15:33 dl
+                        284018 drwxr-xr-x 19 bmilcs bmgrp 4096 Mar  7 15:09 docker
+                        264505 drwxr-xr-x  9 bmilcs bmgrp 4096 Mar  5 11:49 media
+
+       - **bmilcs** is user (left)
+       - **bmgrp** is group (right)
+
+     - **list puid & pguid**
+
+            $ ls -lian        # -n argument
+            648799826320195755 drwxrwxrwx  1 1086 1000   69 Mar  7 15:33 dl
+                        284018 drwxr-xr-x 19 1086 1000 4096 Mar  7 15:09 docker
+                        264505 drwxr-xr-x  9 1086 1000 4096 Mar  5 11:49 media
+
+        - **1086** is user's id (left)
+        - **1000** is user group's id (right)
+
+
+
+
+
+
+### change user's PGUID / PUID
+
+- **usermod -u** command changes a user's PUID/PID
       
-      ls -n
+      usermod -u #PID# bmilcs
 
-**change user's GID / UID**
-      
-      usermod -u #PID# bmilcs     #group
+- **groupmod -g** command changes user's PGUID/GID
+
       groupmod -g #GID# bmilcs    #group
 
-      ls -l                     #verify changes
+   - verify file changes
 
-> usermod & groupmod **fix /home/bmilcs automatically**
+            ls -l 
+            ls -ln
 
-**fix file/folder permissions (outside of /home)**
+**applying new PGUID/PUID to files & directories**
 
-      find / -group #OLD-GID# -exec chgrp -h bmilcs {} \;
-      find / -user #OLD-UID# -exec chown -h bmilcs {} \;
+- **/home/user** contents are automatically changed with user/groupmod commands
 
-      find / -group 1000 -exec chgrp -h bmilcs {} \; && find / -user 1000 -exec chown -h bmilcs {} \;
+- **other locations** require manual permission commands
 
-      # verify everything
-      ls -l /home/bmilcs/
-      id -u bmilcs
-      id -g bmilcs
-      grep bmilcs /etc/passwd
-      grep bmilcs /etc/group
-      find / -user bmilcs -ls
-      find / -group sales -ls
+    - substitute **$OLD-GID** with **OLD group id**
+    - substitute **$OLD-PID** with **OLD used user id**
+
+          find / -group $OLD-GID -exec chgrp -h bmilcs {} \;
+          find / -user $OLD-UID -exec chown -h bmilcs {} \;
+
+      
+
+    - **verify everything**
+
+          ls -l /home/bmilcs/
+          id -u bmilcs
+          id -g bmilcs
+          grep bmilcs /etc/passwd
+          grep bmilcs /etc/group
+          find / -user bmilcs -ls
+          find / -group sales -ls 
 
 ## initial setup
 
