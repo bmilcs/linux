@@ -15,21 +15,19 @@ ps: peeat is the worst.
 -bmilcs
 
 <br>
----
+
 
 
 ### installation
 
-#### /.dotfiles
+**/.dotfiles**
 
-      mkdir -p ~/_bmilcs && rm -f ~/.bm* ~/.inputrc && rm -rf ~/_bmilcs/dotfiles && cd ~/_bmilcs && git clone https://github.com/bmilcs/dotfiles.git && cd dotfiles && chmod +x *.sh && ./install.sh && source ~/.bashrc
-#### /scripts
+    mkdir -p ~/_bmilcs && rm -f ~/.bm* ~/.inputrc && rm -rf ~/_bmilcs/dotfiles && cd ~/_bmilcs && git clone https://github.com/bmilcs/dotfiles.git && cd dotfiles && chmod +x *.sh && ./install.sh && source ~/.bashrc
+**/scripts**
 
-      mkdir -p ~/_bmilcs && cd ~/_bmilcs && rm -rf linux && git clone https://github.com/bmilcs/linux.git && cd linux/scripts && chmod +x *.sh && clear && echo && echo '\''---- installed scripts listed below -----------------------------------------------------------------'\'' && echo && l && echo && echo '\''-----------------------------------------------------------------------------------------------------'\''
+    mkdir -p ~/_bmilcs && cd ~/_bmilcs && rm -rf linux && git clone https://github.com/bmilcs/linux.git && cd linux/scripts && chmod +x *.sh && clear && echo && echo '\''---- installed scripts listed below -----------------------------------------------------------------'\'' && echo && l && echo && echo '\''-----------------------------------------------------------------------------------------------------'\''
 
 <br>
----
-
 
 ## to do
 [ ] varken 
