@@ -8,7 +8,6 @@ alias reload="rm -rf ~/_bmilcs ~/.bm* ~/.inputr* && cd ~ && mkdir _bmilcs && git
 	# alias iscripts="mkdir -p ~/_bmilcs && cd ~/_bmilcs && rm -rf linux && git clone https://github.com/bmilcs/linux.git && cd linux/scripts && chmod +x *.sh && clear && echo && echo '---- installed scripts listed below -----------------------------------------------------------------' && echo && l && echo && echo '-----------------------------------------------------------------------------------------------------'"
 alias ideb="cd ~/_bmilcs/linux/scripts && sudo ./debian.sh"
 
-
 #common | networking
 alias up='sudo apt update && sudo apt upgrade -y'
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
@@ -45,7 +44,9 @@ alias nn='cd /nas/docker'
 alias drmc='docker rm $(docker ps -a -q)'
 alias drmi='docker rmi $(docker images -a -q)'
 alias dstop='docker stop $(docker ps -a -q)'
-alias drun='rm -rf /nas/docker/docker-compose.yaml /nas/docker/.env && cp /nas/.dev/docker-compose.yaml /nas/docker/docker-compose.yaml && cp /nas/.dev/.env /nas/docker/.env && cd /nas/docker && docker-compose up -d --remove-orphans'
+
+#rm -rf /nas/docker/docker-compose.yaml /nas/docker/.env && cp /nas/.dev/docker-compose.yaml /nas/docker/docker-compose.yaml && cp /nas/.dev/.env /nas/docker/.env && 
+alias drun='cd /nas/docker && docker-compose up -d --remove-orphans'
 alias dps='docker ps -a'
 
 
