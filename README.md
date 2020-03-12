@@ -34,6 +34,15 @@ ps: peeat is the worst.
 <br>
 
 ---
+# create samba file share
+
+      sudo apt install samba
+      sudo /etc/samba/smb.conf
+            workgroup = WORKGROUP
+            interfaces = 192.168.1.0/24 eth0
+            hosts allow = 127.0.0.1/8 192.168.1.0/24
+
+
 
 # increase partition size
 
