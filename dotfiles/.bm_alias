@@ -1,16 +1,13 @@
 # ===================================================================================================
 # ===  bmilcs: aliases  =============================================================================
 # ===================================================================================================
-
 # Scripts
 alias reload="rm -rf ~/_bmilcs ~/.bm* ~/.inputr* && cd ~ && mkdir _bmilcs && git clone https://github.com/bmilcs/linux.git ~/_bmilcs && cd ~/_bmilcs && chmod -R +x * && cd dotfiles && ./install.sh && source ~/.bashrc && cd ~/_bmilcs/script && l"
-	# alias redot="mkdir -p ~/_bmilcs && rm -f ~/.bm* ~/.inputrc && rm -rf ~/_bmilcs/dotfiles && cd ~/_bmilcs && git clone https://github.com/bmilcs/dotfiles.git && cd dotfiles && chmod +x *.sh && ./install.sh && source ~/.bashrc"
-	# alias iscripts="mkdir -p ~/_bmilcs && cd ~/_bmilcs && rm -rf linux && git clone https://github.com/bmilcs/linux.git && cd linux/scripts && chmod +x *.sh && clear && echo && echo '---- installed scripts listed below -----------------------------------------------------------------' && echo && l && echo && echo '-----------------------------------------------------------------------------------------------------'"
 alias ideb="cd ~/_bmilcs/linux/scripts && sudo ./debian.sh"
 
 #common | networking
 alias up='sudo apt update && sudo apt upgrade -y'
-alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
+alias myip='ip a | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'
 alias rnet="sudo /etc/init.d/networking restart"
 alias enet="sudo nano /etc/network/interfaces"
 
