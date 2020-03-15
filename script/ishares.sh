@@ -17,7 +17,7 @@ echo '----  download location  -------------------------------------------------
 sudo grep -qxF 'unraid:/mnt/user/dl   /nas/dl     nfs     auto,defaults,nofail 0 0' /etc/fstab || sudo echo 'unraid:/mnt/user/dl   /nas/dl     nfs     auto,defaults,nofail 0 0' >> /etc/fstab
 # esxi/docker > /nas/docker/
 echo '----  backup  -----------------------------------------------------------------------------------------'
-sudo grep -qxF 'unraid:/mnt/user/docker   /nas/backup     nfs     auto,defaults,nofail 0 0' /etc/fstab || sudo echo 'unraid:/mnt/user/docker   /nas/backup     nfs     auto,defaults,nofail 0 0' >> /etc/fstab
+sudo grep -qxF 'unraid:/mnt/user/esxi/docker   /nas/backup     nfs     auto,defaults,nofail 0 0' /etc/fstab || sudo echo 'unraid:/mnt/user/esxi/docker   /nas/backup     nfs     auto,defaults,nofail 0 0' >> /etc/fstab
 echo '====================================================================================================='
 echo '====  network shares installed  ====================================================================='
 echo '====================================================================================================='
