@@ -22,8 +22,7 @@ after learning the basics of git, i found commiting changes and pushing them to 
 			git commit -m "message"
 			git config --global user.name "bmilcs"
 			git config --global user.email bmilcs@yahoo.com
-			git push origin master
-
+			
 ---
 
 ### PASSWORDLESS COMMIT PUSH PULL VIA RSA-SSH
