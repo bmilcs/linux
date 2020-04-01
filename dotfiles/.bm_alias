@@ -11,18 +11,15 @@
 	alias a="alias | sed 's/=.*//'"
 	alias func="declare -f | grep '^[a-z].* ()' | sed 's/{$//'"
 	alias paths='echo -e ${PATH//:/\\n}'
-
 #----  network  ----------------------------------------------------------------------------------------
 	alias up='sudo apt update && sudo apt upgrade -y'
 	alias rnet="sudo /etc/init.d/networking restart"
 	alias enet="sudo nano /etc/network/interfaces"
-
 #----  unattended-upgrades  ----------------------------------------------------------------------------
 # run now
 	alias uur="sudo unattended-upgrade -d"
 # list updates applied
 	alias uul="sudo cat /var/log/unattended-upgrades/unattended-upgrades.log | grep applying"
-
 #----  file/dir navigation  ----------------------------------------------------------------------------
 	alias c="clear"
 	alias l="ls -lai --group-directories-first"		   # List in long format, include dotfiles
@@ -36,7 +33,6 @@
 	alias ..="cd ..&& c && l"
 	alias ...="cd ../.. && c && l"
 	alias ....="cd ../../.. && c && l"
-
 #----  bmilcs docker  ----------------------------------------------------------------------------------
 # nav to docker volumes
 	alias ddir='cd ~/docker'
@@ -52,9 +48,7 @@
 	alias dps='docker ps -a'
 # letsencrypt restart
 	alias le="docker restart letsencrypt && docker logs -f letsencrypt"
-
-
-# DOCKER
+#----  docker  -----------------------------------------------------------------------------------------
 alias dstopcont='sudo docker stop $(docker ps -a -q)'
 alias drmcont='sudo docker rm $(docker ps -a -q)'
 alias dvolprune='sudo docker volume prune'
@@ -66,6 +60,7 @@ alias dexec='docker exec -ti'
 alias docps='docker ps -a'
 alias dcrm='dcrun rm'
 alias docdf='docker system df'
+
 
 # STACK UP AND DOWN
 alias dc1down='cd /nas/docker ; dcdown1v ; dcdown1'
