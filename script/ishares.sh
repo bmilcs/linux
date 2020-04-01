@@ -13,7 +13,7 @@ sudo grep -qxF 'unraid:/mnt/user/storage/audio/podcasts   /nas/media/podcasts   
 sudo grep -qxF 'unraid:/mnt/user/storage/audio/music   /nas/media/music     nfs     auto,defaults,nofail 0 0' /etc/fstab || sudo echo 'unraid:/mnt/user/storage/audio/music   /nas/media/music     nfs     auto,defaults,nofail 0 0' >> /etc/fstab
 sudo grep -qxF 'unraid:/mnt/user/storage/audio/audiobooks   /nas/media/audiobooks     nfs     auto,defaults,nofail 0 0' /etc/fstab || sudo echo 'unraid:/mnt/user/storage/audio/audiobooks   /nas/media/audiobooks     nfs     auto,defaults,nofail 0 0' >> /etc/fstab
 sudo grep -qxF 'unraid:/mnt/user/storage/literature/books   /nas/media/books     nfs     auto,defaults,nofail 0 0' /etc/fstab || sudo echo 'unraid:/mnt/user/storage/literature/books   /nas/media/books     nfs     auto,defaults,nofail 0 0' >> /etc/fstab
-sudo grep -qxF 'unraid:/mnt/user/security   /nas/security     nfs     auto,defaults,nofail 0 0' /etc/fstab || sudo echo 'unraid:/mnt/user/security   /nas/security     nfs     auto,defaults,nofail 0 0' >> /etc/fstab
+sudo grep -qxF 'freenas:/mnt/security   /nas/security     nfs     auto,defaults,nofail 0 0' /etc/fstab || sudo echo 'freenas:/mnt/security   /nas/security     nfs     auto,defaults,nofail 0 0' >> /etc/fstab
 sudo grep -qxF 'unraid:/mnt/user/storage/video/learning   /nas/media/learning     nfs     auto,defaults,nofail 0 0' /etc/fstab || sudo echo 'unraid:/mnt/user/storage/video/learning   /nas/media/learning     nfs     auto,defaults,nofail 0 0' >> /etc/fstab
 
 
