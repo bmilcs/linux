@@ -48,7 +48,7 @@
 	alias dps='docker ps -a'
 # letsencrypt restart
 	alias le="docker restart letsencrypt && docker logs -f letsencrypt"
-	alias le="dlog letsencrypt"
+	alias lel="dlog letsencrypt"
 #----  docker  -----------------------------------------------------------------------------------------
 	alias dstopcont='sudo docker stop $(docker ps -a -q)'
 	alias drmcont='sudo docker rm $(docker ps -a -q)'
