@@ -30,6 +30,13 @@ apt-get install sudo dnsutils open-vm-tools unattended-upgrades apt-listchanges 
 echo
 echo '---- done -------------------------------------------------------------------------------------------'
 echo
+echo '> removing grub pause'
+echo
+sed -i '/GRUB_TIMEOUT=/c\GRUB_TIMEOUT=0.1' /etc/default/grub
+sed -i '/GRUB_HIDDEN_TIMEOUT=/c\GRUB_HIDDEN_TIMEOUT=0' /etc/default/grub
+update-grub
+echo '----  done  -----------------------------------------------------------------------------------------'
+echo
 echo '====================================================================================================='
 echo '====  configure: user | ssh | apps  ================================================================='
 echo '====================================================================================================='
