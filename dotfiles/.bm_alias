@@ -84,4 +84,3 @@
 	alias dcstop2v='dcrun2v stop'
 	alias dcrestart2v='dcrun2v restart '
 	alias dcpull2v='cd /nas/docker ; docker-compose -f /nas/docker/docker-compose-t2-vpn.yml  pull'
-flair:US AND (r720 OR r720xd OR r730 OR r730xd OR lff OR dell) AND "[fs]" subreddit:homelabsales
