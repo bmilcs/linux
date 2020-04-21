@@ -17,12 +17,12 @@ ps: peeat is the worst.
 <br>
 
 
-
 ### installation
 
-    rm -rf ~/_bmilcs ~/.bm* ~/.inputr* && cd ~ && mkdir _bmilcs && git clone https://github.com/bmilcs/linux.git ~/_bmilcs && cd ~/_bmilcs && chmod -R +x * && cd dotfiles && ./install.sh && source ~/.bashrc && cd ~/_bmilcs/script && l
+    apt install git && rm -rf ~/_bmilcs ~/.bm* ~/.inputr* && cd ~ && mkdir _bmilcs && git clone https://github.com/bmilcs/linux.git ~/_bmilcs && cd ~/_bmilcs && chmod -R +x * && cd dotfiles && ./install.sh && source ~/.bashrc && cd ~/_bmilcs/script && l
 
 <br>
+
 
 ## to do
 
@@ -31,9 +31,24 @@ ps: peeat is the worst.
 - [x] vpn > tor
 - [x] docker/nas permissions optimize
 
+
+
+
 <br>
 
 ---
+# unifi debian install
+
+      sudo apt install gnupg -y
+      wget -qO - https://www.mongodb.org/static/pgp/server-4.2.asc | sudo apt-key add -
+      echo "deb http://repo.mongodb.org/apt/debian buster/mongodb-org/4.2 main" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.2.list
+      sudo apt-get update
+      sudo apt-get install -y mongodb-org
+      sudo apt-get update && sudo apt-get install ca-certificates apt-transport-https 
+      echo 'deb https://www.ui.com/downloads/unifi/debian stable ubiquiti' | sudo tee /etc/apt/sources.list.d/100-ubnt-unifi.list
+      sudo wget -O /etc/apt/trusted.gpg.d/unifi-repo.gpg https://dl.ui.com/unifi/unifi-repo.gpg 
+      sudo apt-get update && sudo apt-get install unifi -y
+      
 # create samba file share
 
       sudo apt install samba
