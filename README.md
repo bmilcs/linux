@@ -36,6 +36,18 @@ ps: peeat is the worst.
 
 <br>
 
+
+# nfs file sharing
+
+      sudo apt install nfs-kernel-server
+      sudo nano /etc/exports
+
+      "/path/to the/dir"	10.1.1.0/24(rw,sync,no_subtree_check)
+
+      sudo systemctl restart nfs-kernel-server
+
+      sudo systemctl status nfs-kernel-server
+
 ---
 # unifi debian install
 
