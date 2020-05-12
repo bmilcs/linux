@@ -1,5 +1,9 @@
 # BMiLCS | OPNsense
 
+# NOTES
+[- NO INTERNET? WAN ISSUES?](https://jrs-s.net/2020/01/19/why-cant-i-get-to-the-internet-on-my-new-opnsense-install/)
+
+
 # DNS
 
 ## [Priority / Behavior](https://forum.opnsense.org/index.php?topic=6332.msg26912#msg26912)
