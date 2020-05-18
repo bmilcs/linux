@@ -12,8 +12,7 @@
 	cd dotfiles 
 	./install.sh 
 	source ~/.bashrc
-	cd ~/_bmilcs/script 
-	l'
+	'
 # debian script
 	alias ideb="cd ~/_bmilcs/linux/script && sudo ./debian.sh"
 # list customizations
