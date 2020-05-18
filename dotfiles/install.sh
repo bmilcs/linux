@@ -12,19 +12,7 @@ sudo grep -qxF '#initialize bmilcs dot files' ~/.bashrc || printf "\n\n#initiali
 
 #clear
 echo
-echo '====================================================================================================='
 echo '====  bmilcs dotfiles refreshed  ===================================================================='
-echo '====================================================================================================='
 echo
-echo '> ***reboot required for .inputrc refresh!***'
-echo 
-echo '               PUTTY (post reboot)'
-echo 
-echo '                 > wait 5-10 sec'
-echo '                 > space            (clear error msgbox)'
-echo '                 > alt+space        (drop down menu)'
-echo '                 > r                (refresh connection)'
-echo
-echo 
-echo 
+
 
