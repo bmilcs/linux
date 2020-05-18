@@ -12,7 +12,7 @@
 	alias func="declare -f | grep '^[a-z].* ()' | sed 's/{$//'"
 	alias paths='echo -e ${PATH//:/\\n}'
 #----  network  ----------------------------------------------------------------------------------------
-	alias up='sudo apt update && sudo apt upgrade -y'
+	alias up='sudo apt-get update -y && sudo apt-get dist-upgrade -y && sudo apt-get autoclean -y && sudo apt-get purge -y'
 	alias rnet="sudo /etc/init.d/networking restart"
 	alias enet="sudo nano /etc/network/interfaces"
 #----  unattended-upgrades  ----------------------------------------------------------------------------
