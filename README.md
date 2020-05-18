@@ -42,7 +42,7 @@ ps: peeat is the worst.
       crontab -e
 
 
-# | time | example
+pos | time | example
 --|--|--
 1 |	Minute |	0 to 59, or * (no specific value)
 2 |	Hour 	|0 to 23, or * for any value. All times UTC.
