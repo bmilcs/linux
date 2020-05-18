@@ -37,6 +37,29 @@ ps: peeat is the worst.
 <br>
 
 
+# cron
+
+      crontab -e
+
+
+# | time | example
+--|--|--
+1 |	Minute |	0 to 59, or * (no specific value)
+2 |	Hour 	|0 to 23, or * for any value. All times UTC.
+3 |	Day of the month 	|1 to 31, or * (no specific value)
+4 |	Month |	1 to 12, or * (no specific value)
+5 |	Day of the week |	0 to 7 (0 and 7 both represent Sunday), or * (no specific value)
+
+Cron time string 	| Description
+--|--
+30 * * * *| 	Execute a command at 30 minutes past the hour, every hour.
+0 13 * * 1 |	Execute a command at 1:00 p.m. UTC every Monday.
+*/5 * * * * |	Execute a command every five minutes.
+0 */2 * * * |	Execute a command every second hour, on the hour.
+
+
+
+
 # nfs file sharing
 
       sudo apt install nfs-kernel-server
