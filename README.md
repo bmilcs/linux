@@ -41,7 +41,6 @@ ps: peeat is the worst.
 
       crontab -e
 
-
 pos | time | example
 --|--|--
 1 |	Minute |	0 to 59, or * (no specific value)
