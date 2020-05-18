@@ -8,7 +8,8 @@
 	rm -rf ~/_bmilcs ~/.bm* ~/.inputr* 
 	cd ~ && mkdir _bmilcs 
 	git clone https://github.com/bmilcs/linux.git ~/_bmilcs 
-	cd ~/_bmilcs chmod -R +x * 
+	cd ~/_bmilcs 
+	chmod -R +x * 
 	cd dotfiles 
 	./install.sh 
 	source ~/.bashrc
