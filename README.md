@@ -1,24 +1,13 @@
-# $ BMiLCS LINUX REPO
+# bmilcs linux
 
-### installation
+###### install dotfiles, scripts, etc.
 
     apt install git && rm -rf ~/_bmilcs ~/.bm* ~/.inputr* && cd ~ && mkdir _bmilcs && git clone https://github.com/bmilcs/linux.git ~/_bmilcs && cd ~/_bmilcs && chmod -R +x * && cd dotfiles && ./install.sh && source ~/.bashrc && cd ~/_bmilcs/script && l
 
-<br>
 
-
-## to do
-
+todo:
 - [ ] varken 
 - [ ] bitwarden
-- [x] vpn > tor
-- [x] docker/nas permissions optimize
-
-
-
-
-<br>
-
 
 # cron
 
