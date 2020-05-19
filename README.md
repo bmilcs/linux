@@ -1,22 +1,5 @@
 # $ BMiLCS LINUX REPO
 
-
-
-welcome to my personal linux notepad & script center. my limited exposure began in late 2016, when i set out to create a home media server using an old amd fx-6300 pc and basic unraid license.
-
-*something something something... homelab, edgerouter, unifi ap, docker, vm, nginx, home security system...*
-
-*february 2020* - while browsing /r/homelabsales, a dell poweredge r720 sff with 144gb ecc caught my eye and my love for the foss operating system took off. 
-
-enjoy the ramblings of a dummy with add.
-
-ps: peeat is the worst. 
-
--bmilcs
-
-<br>
-
-
 ### installation
 
     apt install git && rm -rf ~/_bmilcs ~/.bm* ~/.inputr* && cd ~ && mkdir _bmilcs && git clone https://github.com/bmilcs/linux.git ~/_bmilcs && cd ~/_bmilcs && chmod -R +x * && cd dotfiles && ./install.sh && source ~/.bashrc && cd ~/_bmilcs/script && l
