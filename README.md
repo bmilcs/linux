@@ -519,8 +519,18 @@ replace whole line found in file
             deletes package & dependencies
 
 ---
+# vpn dns
+
+      sudo nano /etc/resolv.conf
+      209.222.18.222
+      209.222.18.218
+
+
 
 # vpn killswitch (current)
+
+
+
 
       #!/bin/bash
       iptables -F
