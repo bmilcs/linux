@@ -13,8 +13,8 @@ after learning the basics of git, i found commiting changes and pushing them to 
 ---
 ### FIRST TIME IN VS
 
-			git config --global user.name "bmilcs"
-			git config --global user.email bmilcs@yahoo.com
+	git config --global user.name "bmilcs"
+	git config --global user.email bmilcs@yahoo.com
 
 
 ### CREATE *NEW* REPO FROM LOCAL DIR 
@@ -22,17 +22,17 @@ after learning the basics of git, i found commiting changes and pushing them to 
 > password-less ssh commit/push (recommended)
 
 
-			#1 create repo on **https://github.com/bmilcs**
+	#1 create repo on **https://github.com/bmilcs**
 
-			git init
-			git add .
-			git commit -m a
-			
-			git remote add origin git@github.com:bmilcs/REPO
-			git push -u origin master
-	
-			# for non-ssh login (untested)
-			# git remote add origin https://github.com/bmilcs/new_repo
+	git init
+	git add .
+	git commit -m a
+
+	git remote add origin git@github.com:bmilcs/REPO
+	git push -u origin master
+
+	# for non-ssh login (untested)
+	# git remote add origin https://github.com/bmilcs/new_repo
 
 
 
@@ -43,9 +43,9 @@ after learning the basics of git, i found commiting changes and pushing them to 
 
 - within **git bash**:
 
-		cd c:/users/bmilcs/
-		ssh-keygen -t rsa -b 2048 -C "bmilcs@yahoo.com"
-		# enter > enter > enter
+	cd c:/users/bmilcs/
+	ssh-keygen -t rsa -b 2048 -C "bmilcs@yahoo.com"
+	# enter > enter > enter
 
 - **open windows file explorer**
 	- *c:/users/bmilcs/.ssh/*
@@ -55,12 +55,12 @@ after learning the basics of git, i found commiting changes and pushing them to 
 	- copy to clipboard
 - visit **https://github.com/bmilcs/**
 	- click profile icon (top right)
-		- settings
+	- settings
 	- ssh and gpg keys (left menu) 
-		- create new ssh key
-		- enter any name
-		- paste clipboard
-		- save
+	- create new ssh key
+	- enter any name
+	- paste clipboard
+	- save
 
 ----
 
