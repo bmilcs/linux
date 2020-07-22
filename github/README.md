@@ -11,18 +11,31 @@ after learning the basics of git, i found commiting changes and pushing them to 
 - [**git**](https://git-scm.com/download/win) (default options are fine)
 
 ---
+### FIRST TIME IN VS
 
-### CREATE LOCAL REPO
-- open **windows file explorer** 
-	- *c:/path/project*
-	- right click > **git bash here**
+			git config --global user.name "bmilcs"
+			git config --global user.email bmilcs@yahoo.com
+
+
+### CREATE *NEW* REPO FROM LOCAL DIR 
+	# password-less ssh commit/push (recommended)
+
+- create a repo on **https://github.com/bmilcs**
+- terminal in vs:
 
 			git init
 			git add .
-			git commit -m "message"
-			git config --global user.name "bmilcs"
-			git config --global user.email bmilcs@yahoo.com
+			git commit -m a
 			
+			git remote add origin git@github.com:bmilcs/REPO
+			git push -u origin master
+	
+				# for non-ssh login (untested)
+				# git remote add origin https://github.com/bmilcs/new_repo
+
+
+
+
 ---
 
 ### PASSWORDLESS COMMIT PUSH PULL VIA RSA-SSH
@@ -50,16 +63,6 @@ after learning the basics of git, i found commiting changes and pushing them to 
 
 ----
 
-### PUSH LOCAL REPO TO GITHUB
-- create a repo on **https://github.com/bmilcs**
-- return to git bash:
-
-		# password-less ssh commit/push (recommended)
-		git remote add origin git@github.com:bmilcs/REPO
-		git push -u origin master
-	
-				# for non-ssh login (untested)
-				# git remote add origin https://github.com/bmilcs/new_repo
 
 ----
 
