@@ -18,10 +18,11 @@ after learning the basics of git, i found commiting changes and pushing them to 
 
 
 ### CREATE *NEW* REPO FROM LOCAL DIR 
-	# password-less ssh commit/push (recommended)
 
-- create a repo on **https://github.com/bmilcs**
-- terminal in vs:
+> password-less ssh commit/push (recommended)
+
+
+			#1 create repo on **https://github.com/bmilcs**
 
 			git init
 			git add .
@@ -30,8 +31,8 @@ after learning the basics of git, i found commiting changes and pushing them to 
 			git remote add origin git@github.com:bmilcs/REPO
 			git push -u origin master
 	
-				# for non-ssh login (untested)
-				# git remote add origin https://github.com/bmilcs/new_repo
+			# for non-ssh login (untested)
+			# git remote add origin https://github.com/bmilcs/new_repo
 
 
 
