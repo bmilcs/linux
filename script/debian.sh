@@ -17,6 +17,7 @@ fi
 echo '... done.'
 echo
 echo 'user name?'
+read -e -i $USER varUSER
 read varUser
 echo
 echo '====================================================================================================='
