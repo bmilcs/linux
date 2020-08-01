@@ -1,7 +1,7 @@
 #!/bin/bash
 #-----------------------------------------------------------------------------------------------------
 # symlink all dotfiles from repo
-for file in $(find . -maxdepth 1 -name ".*" -type f -printf "%f\n" ); do
+for file in $(find . -maxdepth 1 -name "~/_bmilcs/dotfiles/.*" -type f -printf "%f\n" ); do
     if [ -e ~/$file ]; then
         mv -f ~/$file{,.dtbak}
     fi
