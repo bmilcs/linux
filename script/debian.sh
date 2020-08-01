@@ -17,7 +17,7 @@ fi
 echo '... done.'
 echo
 echo 'user name?'
-read -e -i $USER varUSER
+read -e -i ${SUDO_USER:-$USER} varUSER
 read varUser
 echo
 echo '====================================================================================================='
