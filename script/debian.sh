@@ -49,7 +49,9 @@ usermod -aG sudo $varUser
 echo '... done.'
 echo 
 echo '> remove sudo password: bmilcs'
-sudo grep -qxF '$varUser ALL=(ALL) NOPASSWD: ALL' /etc/sudoers || sudo echo '$varUser ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
+greppy=$varUser" ALL=(ALL) NOPASSWD: ALL"
+gepp='sudo grep -qxF '"'$greppy'"' /etc/sudoers'
+$gepp || echo $greppy >> /etc/sudoers
 echo '... done.'
 echo
 # echo '> configuring unattended-upgrades'
