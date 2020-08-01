@@ -10,10 +10,8 @@
 	cd ~ 
 	mkdir _bmilcs 
 	git clone https://github.com/bmilcs/linux.git ~/_bmilcs 
-	cd ~/_bmilcs 
-	chmod -R +x * 
-	cd dotfiles 
-	./install.sh 
+	chmod -R +x ~/_bmilcs/* 
+  source ~/_bmilcs/dotfiles/install.sh
 	source ~/.bashrc
 	cd $bmDir
 	'
