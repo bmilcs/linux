@@ -5,6 +5,7 @@
 #----  github  -----------------------------------------------------------------------------------------
 # scripts & dotfiles
 	alias ibm='
+	bmDir=$(pwd)
 	rm -rf ~/_bmilcs ~/.bm* ~/.inputr* 
 	cd ~ 
 	mkdir _bmilcs 
@@ -14,6 +15,7 @@
 	cd dotfiles 
 	./install.sh 
 	source ~/.bashrc
+	cd $bmDir
 	'
 	alias mine="/opt/minecraft/tools/mcrcon/mcrcon -H 127.0.0.1 -P 25575 -p nFkA_vKG8FTP2v@K9YdPA6utw -t"
 # debian script
