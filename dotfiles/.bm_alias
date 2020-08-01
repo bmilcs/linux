@@ -6,7 +6,7 @@
 # scripts & dotfiles
 	alias ibm='
 	rm -rf ~/_bmilcs ~/.bm* ~/.inputr* 
-	mkdir ~/_bmilcs 
+	mkdir ~/_bmilcs
 	git clone https://github.com/bmilcs/linux.git ~/_bmilcs 
 	chmod -R +x ~/_bmilcs/* 
   source ~/_bmilcs/dotfiles/install.sh
@@ -14,7 +14,7 @@
 	'
 	alias mine="/opt/minecraft/tools/mcrcon/mcrcon -H 127.0.0.1 -P 25575 -p nFkA_vKG8FTP2v@K9YdPA6utw -t"
 # debian script
-	alias ideb="sudo touch /_bmilcs/script/debian.sh"
+	alias ideb="source ~/_bmilcs/script/debian.sh"
 # list customizations
 	alias a="alias | sed 's/=.*//'"
 	alias func="declare -f | grep '^[a-z].* ()' | sed 's/{$//'"
