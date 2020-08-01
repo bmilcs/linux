@@ -14,5 +14,5 @@ sudo grep -qxF '#initialize bmilcs dot files' ~/.bashrc || printf "\n\n#initiali
 echo
 echo '====  bmilcs dotfiles refreshed  ===================================================================='
 echo
-
+cd -
 
