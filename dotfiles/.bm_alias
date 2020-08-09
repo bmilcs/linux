@@ -44,8 +44,8 @@
 	alias uul="sudo cat /var/log/unattended-upgrades/unattended-upgrades.log | grep applying"
 #----  file/dir navigation  ----------------------------------------------------------------------------
 	alias c="clear"
-	alias l="ls -lai --group-directories-first"		   # List in long format, include dotfiles
-	alias ll="ls -lani --group-directories-first"       # List in long format, include dotfiles
+	alias l="ls -hlai --group-directories-first"		   # List in long format, include dotfiles
+	alias ll="ls -hlani --group-directories-first"       # List in long format, include dotfiles
 	alias pid="cat /etc/passwd"
 	alias ld="ls -ld */"   # List in long format, only directories
 	alias bm="su bmilcs"	# only while root
