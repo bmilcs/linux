@@ -4,7 +4,7 @@
 
 #----  github  -----------------------------------------------------------------------------------------
 # scripts & dotfiles
-	alias ibm='
+	alias uppa='
 	rm -rf ~/_bmilcs ~/.bm* ~/.inputr* 
 	mkdir ~/_bmilcs
 	git clone https://github.com/bmilcs/linux.git ~/_bmilcs 
