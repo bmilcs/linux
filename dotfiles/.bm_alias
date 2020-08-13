@@ -21,7 +21,8 @@
 	alias paths='echo -e ${PATH//:/\\n}'
   
 #----  file sharing  -----------------------------------------------------------------------------------
-	alias nfs='sudo nano /etc/exports'
+	alias enfs='sudo nano /etc/exports'
+	alias rnfs='sudo systemctl restart nfs-kernel-server'
 
 #----  network  ----------------------------------------------------------------------------------------
 	alias up='
