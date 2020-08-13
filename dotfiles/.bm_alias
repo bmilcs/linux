@@ -19,6 +19,10 @@
 	alias a="alias | sed 's/=.*//'"
 	alias func="declare -f | grep '^[a-z].* ()' | sed 's/{$//'"
 	alias paths='echo -e ${PATH//:/\\n}'
+  
+#----  file sharing  -----------------------------------------------------------------------------------
+	alias nfs='sudo nano /etc/exports'
+
 #----  network  ----------------------------------------------------------------------------------------
 	alias up='
 	echo && echo "==================================================================================================="
@@ -66,9 +70,14 @@
 	alias dstop='docker stop $(docker ps -a -q)'
 # nuke all
 	alias dnuke='
+	dstop
 	drmc
 	drmi
 	'
+	alias dnet='cd ~/docker ; docker network create ; dcrec1 plexms ; dcup1 ; dcup1v'
+
+# docker logs
+	alias dlogg='cd /nas/docker ; docker-compose -f /nas/docker/docker-compose-t2-vpn.yml logs -tf --tail="50"'
 # run docker-compose (github)
 	alias drun='cd /tmp && rm -rf /tmp/docker && git clone git@github.com:bmilcs/docker.git /tmp/docker && cd /tmp/docker && rm -f ~/docker/docker-compose.yaml ~/docker/.env && cp docker-compose.yaml .env ~/docker/ && cd ~/dockerl &&  docker-compose up -d --remove-orphans'
 # list all dockers
@@ -77,17 +86,9 @@
 	alias le="docker restart letsencrypt && docker logs -f letsencrypt"
 	alias lel="dlog letsencrypt"
 #----  docker  -----------------------------------------------------------------------------------------
-	alias dstopcont='sudo docker stop $(docker ps -a -q)'
-	alias drmcont='sudo docker rm $(docker ps -a -q)'
-	alias dvolprune='sudo docker volume prune'
-	alias dsysprune='sudo docker system prune -a'
-	alias ddelimages='sudo docker rmi $(docker images -q)'
-	alias docerase='dstopcont ; drmcont ; ddelimages ; dvolprune ; dsysprune'
-	alias docprune='ddelimages ; dvolprune ; dsysprune'
 	alias dexec='docker exec -ti'
 	alias docps='docker ps -a'
-	alias dcrm='dcrun rm'
-	alias docdf='docker system df'
+	alias ddf='docker system df'
 	# STACK UP AND DOWN
 	alias dc1down='cd /nas/docker ; dcdown1v ; dcdown1'
 	alias dc1up='cd /nas/docker ; docker network create traefik_proxy ; dcrec1 plexms ; dcup1 ; dcup1v'
@@ -101,8 +102,7 @@
 	alias dcrec2='dcrun2 up -d --force-recreate'
 	alias dcstop2='dcrun2 stop'
 	alias dcrestart2='dcrun2 restart '
-	alias dcpull2='cd /nas/docker ; docker-compose -f /nas/docker/docker-compose-t2.yml  pull'
-	# DOCKER TRAEFIK 2 VPN
+		# DOCKER TRAEFIK 2 VPN
 	alias dcrun2v='cd /nas/docker ; docker-compose -f /nas/docker/docker-compose-t2-vpn.yml '
 	alias dclogs2v='cd /nas/docker ; docker-compose -f /nas/docker/docker-compose-t2-vpn.yml logs -tf --tail="50" '
 	alias dcup2v='dcrun2v up -d'
