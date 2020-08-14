@@ -25,7 +25,8 @@
 	alias nfs='sudo nano /etc/exports'
 	alias nfsr='sudo systemctl restart nfs-kernel-server'
   alias fstab='sudo nano /etc/fstab'
-	alias ismb="sudo apt install samba
+	alias ismb="
+	sudo apt install samba
 	sudo sed -i '#         valid users = bmilcs' /etc/samba/smb.conf
 	sudo sed -i '#         guest ok = no' /etc/samba/smb.conf
 	sudo sed -i '#         read only = no' /etc/samba/smb.conf
@@ -38,7 +39,8 @@
 	sudo sed -i '#       interfaces = 192.168.1.0/24 eth0' /etc/samba/smb.conf
 	sudo sed -i '#       workgroup = BM' /etc/samba/smb.conf
 	sudo sed -i '1# B M I L C S'' /etc/samba/smb.conf
-	sudo nano /etc/samba/smb.conf"
+	sudo nano /etc/samba/smb.conf
+	"
 	alias smb="sudo nano /etc/samba/smb.conf"
 #----  network  ----------------------------------------------------------------------------------------
 	alias up='
