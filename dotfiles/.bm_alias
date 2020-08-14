@@ -21,6 +21,7 @@
 	alias paths='echo -e ${PATH//:/\\n}'
   
 #----  file sharing  -----------------------------------------------------------------------------------
+#	alias infs='sudo apt install nfs-kernel-server && sudo echo ''#"path/to/dir"          10.0.0.0/8(ro,sync)'' >> /etc/exports && sudo nano /etc/exports
 	alias enfs='sudo nano /etc/exports'
 	alias rnfs='sudo systemctl restart nfs-kernel-server'
   alias fstab='sudo nano /etc/fstab'

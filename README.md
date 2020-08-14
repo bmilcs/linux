@@ -65,7 +65,7 @@ Cron time string 	| Description
 
 
 
-# increase partition size
+# increase partition size / expand hard drive of vm
 
 - list partitions
 
@@ -78,9 +78,30 @@ Cron time string 	| Description
 
 - fdisk into primary partition
 
-      $ fdisk /dev/sda
+      root
+      fdisk /dev/sda
+      p     #take note of start cylinder sda1
+      d     #delete all
+      d
+      d
+      n     #new
+      p     #primary
+      1     
+      enter
+      enter
+      n     #no, do not remove signature            
+      a     #bootable
+      w     #write changes
 
-      Run sudo fdisk /dev/sda
+      sudo reboot
+
+      sudo resize2fs /dev/sda1
+
+      sudo nano /etc/fstab
+      #comment out swap
+
+
+            
 
       use p to list the partitions. Make note of the start cylinder of /dev/sda1
       use d to delete first the swap partition (2) and then the /dev/sda1 partition. This is very scary but is actually harmless as the data is not written to the disk until you write the changes to the disk.
