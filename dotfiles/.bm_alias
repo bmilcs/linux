@@ -26,7 +26,6 @@
 	alias nfsr='sudo systemctl restart nfs-kernel-server'
   alias fstab='sudo nano /etc/fstab'
 	alias ismb="
-	sudo apt install samba
 	sudo sed -i '#         valid users = bmilcs' /etc/samba/smb.conf
 	sudo sed -i '#         guest ok = no' /etc/samba/smb.conf
 	sudo sed -i '#         read only = no' /etc/samba/smb.conf
