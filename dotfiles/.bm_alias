@@ -41,7 +41,7 @@
 	sudo sed -i '1# B M I L C S'' /etc/samba/smb.conf
 	sudo nano /etc/samba/smb.conf
 	"
-	alias smb="sudo nano /etc/samba/smb.conf"
+	alias smb='sudo nano /etc/samba/smb.conf'
 #----  network  ----------------------------------------------------------------------------------------
 	alias up='
 	echo && echo "==================================================================================================="
