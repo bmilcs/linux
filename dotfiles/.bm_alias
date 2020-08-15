@@ -19,27 +19,26 @@
 	alias a="alias | sed 's/=.*//'"
 	alias func="declare -f | grep '^[a-z].* ()' | sed 's/{$//'"
 	alias paths='echo -e ${PATH//:/\\n}'
-  
 #----  file sharing  -----------------------------------------------------------------------------------
 	alias infs="sudo apt install nfs-kernel-server && sudo echo \'#path/to/dir          10.0.0.0/8(ro,sync)\' >> /etc/exports && sudo nano /etc/exports"
 	alias nfs='sudo nano /etc/exports'
 	alias nfsr='sudo systemctl restart nfs-kernel-server'
   alias fstab='sudo nano /etc/fstab'
-	alias ismb='sudo apt install samba
-	# sudo sed -i '#         valid users = bmilcs' /etc/samba/smb.conf
-	# sudo sed -i '#         guest ok = no' /etc/samba/smb.conf
-	# sudo sed -i '#         read only = no' /etc/samba/smb.conf
-	# sudo sed -i '#         browseable = yes' /etc/samba/smb.conf
-	# sudo sed -i '#         path = /home/bmilcs/docker' /etc/samba/smb.conf
-	# sudo sed -i '#         comment = docker vm config files' /etc/samba/smb.conf
-	# sudo sed -i '# [docker]' /etc/samba/smb.conf
-	# sudo sed -i '#' /etc/samba/smb.conf
-	# sudo sed -i '#       hosts allow = 127.0.0.1/8 192.168.1.0/24' /etc/samba/smb.conf
-	# sudo sed -i '#       interfaces = 192.168.1.0/24 eth0' /etc/samba/smb.conf
-	# sudo sed -i '#       workgroup = BM' /etc/samba/smb.conf
-	# sudo sed -i '1# B M I L C S'' /etc/samba/smb.conf
-	# sudo nano /etc/samba/smb.conf
-	'
+		# alias ismb='sudo apt install samba
+		# # sudo sed -i '#         valid users = bmilcs' /etc/samba/smb.conf
+		# # sudo sed -i '#         guest ok = no' /etc/samba/smb.conf
+		# # sudo sed -i '#         read only = no' /etc/samba/smb.conf
+		# # sudo sed -i '#         browseable = yes' /etc/samba/smb.conf
+		# # sudo sed -i '#         path = /home/bmilcs/docker' /etc/samba/smb.conf
+		# # sudo sed -i '#         comment = docker vm config files' /etc/samba/smb.conf
+		# # sudo sed -i '# [docker]' /etc/samba/smb.conf
+		# # sudo sed -i '#' /etc/samba/smb.conf
+		# # sudo sed -i '#       hosts allow = 127.0.0.1/8 192.168.1.0/24' /etc/samba/smb.conf
+		# # sudo sed -i '#       interfaces = 192.168.1.0/24 eth0' /etc/samba/smb.conf
+		# # sudo sed -i '#       workgroup = BM' /etc/samba/smb.conf
+		# # sudo sed -i '1# B M I L C S'' /etc/samba/smb.conf
+		# # sudo nano /etc/samba/smb.conf
+		# '
 	alias smb='sudo nano /etc/samba/smb.conf'
 #----  network  ----------------------------------------------------------------------------------------
 	alias up='
@@ -118,25 +117,25 @@
 	alias dexec='docker exec -ti'
 	alias docps='docker ps -a'
 	alias ddf='docker system df'
-	# STACK UP AND DOWN
-	alias dc1down='cd /nas/docker ; dcdown1v ; dcdown1'
-	alias dc1up='cd /nas/docker ; docker network create traefik_proxy ; dcrec1 plexms ; dcup1 ; dcup1v'
-	alias dc2down='cd /nas/docker ; dcdown2v ; dcdown2'
-	alias dc2up='cd /nas/docker ; docker network create --gateway 192.168.90.1 --subnet 192.168.90.0/24 t2_proxy ; dcrec2 plexms ; dcup2 ; dcup2v'
-	# DOCKER TRAEFIK 2
-	alias dcrun2='cd /nas/docker ; docker-compose -f /nas/docker/docker-compose-t2.yml '
-	alias dclogs2='cd /nas/docker ; docker-compose -f /nas/docker/docker-compose-t2.yml logs -tf --tail="50" '
-	alias dcup2='dcrun2 up -d'
-	alias dcdown2='dcrun2 down'
-	alias dcrec2='dcrun2 up -d --force-recreate'
-	alias dcstop2='dcrun2 stop'
-	alias dcrestart2='dcrun2 restart '
-		# DOCKER TRAEFIK 2 VPN
-	alias dcrun2v='cd /nas/docker ; docker-compose -f /nas/docker/docker-compose-t2-vpn.yml '
-	alias dclogs2v='cd /nas/docker ; docker-compose -f /nas/docker/docker-compose-t2-vpn.yml logs -tf --tail="50" '
-	alias dcup2v='dcrun2v up -d'
-	alias dcdown2v='dcrun2v down'
-	alias dcrec2v='dcrun2v up -d --force-recreate'
-	alias dcstop2v='dcrun2v stop'
-	alias dcrestart2v='dcrun2v restart '
-	alias dcpull2v='cd /nas/docker ; docker-compose -f /nas/docker/docker-compose-t2-vpn.yml  pull'
+	# # STACK UP AND DOWN
+	# alias dc1down='cd /nas/docker ; dcdown1v ; dcdown1'
+	# alias dc1up='cd /nas/docker ; docker network create traefik_proxy ; dcrec1 plexms ; dcup1 ; dcup1v'
+	# alias dc2down='cd /nas/docker ; dcdown2v ; dcdown2'
+	# alias dc2up='cd /nas/docker ; docker network create --gateway 192.168.90.1 --subnet 192.168.90.0/24 t2_proxy ; dcrec2 plexms ; dcup2 ; dcup2v'
+	# # DOCKER TRAEFIK 2
+	# alias dcrun2='cd /nas/docker ; docker-compose -f /nas/docker/docker-compose-t2.yml '
+	# alias dclogs2='cd /nas/docker ; docker-compose -f /nas/docker/docker-compose-t2.yml logs -tf --tail="50" '
+	# alias dcup2='dcrun2 up -d'
+	# alias dcdown2='dcrun2 down'
+	# alias dcrec2='dcrun2 up -d --force-recreate'
+	# alias dcstop2='dcrun2 stop'
+	# alias dcrestart2='dcrun2 restart '
+	# 	# DOCKER TRAEFIK 2 VPN
+	# alias dcrun2v='cd /nas/docker ; docker-compose -f /nas/docker/docker-compose-t2-vpn.yml '
+	# alias dclogs2v='cd /nas/docker ; docker-compose -f /nas/docker/docker-compose-t2-vpn.yml logs -tf --tail="50" '
+	# alias dcup2v='dcrun2v up -d'
+	# alias dcdown2v='dcrun2v down'
+	# alias dcrec2v='dcrun2v up -d --force-recreate'
+	# alias dcstop2v='dcrun2v stop'
+	# alias dcrestart2v='dcrun2v restart '
+	# alias dcpull2v='cd /nas/docker ; docker-compose -f /nas/docker/docker-compose-t2-vpn.yml  pull'
