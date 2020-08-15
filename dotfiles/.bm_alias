@@ -105,6 +105,7 @@
 
 # list all dockers
 	alias dps='docker ps -a'
+	alias dnet='docker network ls'
 # letsencrypt restart
 	alias le="docker restart letsencrypt && docker logs -f letsencrypt"
 	alias lel="dlog letsencrypt"
