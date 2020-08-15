@@ -2,6 +2,8 @@
 # ===  bmilcs: aliases  ================================================================================
 # ======================================================================================================
 
+# odir="$PWD" && sudo apt install git && rm -rf ~/_bmilcs ~/.bm* ~/.inputr* && cd ~ && mkdir _bmilcs && git clone https://github.com/bmilcs/linux.git ~/_bmilcs && cd ~/_bmilcs && chmod -R +x * && cd dotfiles && ./install.sh && source ~/.bashrc && cd "$odir"
+
 #----  github  -----------------------------------------------------------------------------------------
 # scripts & dotfiles
 	alias upp='
@@ -104,7 +106,7 @@
 		echo && echo \"----  docker1: www & doc content  ---------------------------------------------------------------------\" && echo
 		cd /tmp && rm -rf /tmp/docker && git clone git@github.com:bmilcs/docker.git /tmp/docker && cd /tmp/docker && rm -f ~/docker/docker-compose.yaml ~/docker/.env && cp 1docker-compose.yaml .env ~/docker/ && cd ~/dockerl &&  docker-compose up -d --remove-orphans
 	else if [ \"\$HOSTNAME\" = docker123 ]; then
-		
+		echo && echo \"----  docker2: linux iso  -----------------------------------------------------------------------------\" && echo
 		cd /tmp && rm -rf /tmp/docker && git clone git@github.com:bmilcs/docker.git /tmp/docker && cd /tmp/docker && rm -f ~/docker/docker-compose.yaml ~/docker/.env && cp 2docker-compose.yaml .env ~/docker/ && cd ~/dockerl &&  docker-compose up -d --remove-orphans
 	else
 		echo \'error: wrong vm dummy!\'
