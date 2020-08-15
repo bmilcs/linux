@@ -85,12 +85,29 @@
 #----  bmilcs docker  ----------------------------------------------------------------------------------
 # nav to docker volumes
 	alias ddir='cd ~/docker'
+# remove unused: containers | vol | networks | etc
+	alias drmu='docker system prune -a'
 # remove all containers
 	alias drmc='docker rm $(docker ps -a -q)'
 # remove all images
 	alias drmi='docker rmi $(docker images -a -q)'
 # stop all containres
 	alias dstop='docker stop $(docker ps -a -q)'
+# remove nfs share volumes
+	alias dvol='
+	docker volume remove docker_dl
+	docker volume remove docker_movies
+	docker volume remove docker_music
+	docker volume remove docker_plexlog
+	docker volume remove docker_podcasts
+	docker volume remove docker_tv
+	'
+# remove: containers | volumes
+	alias dnew='
+	dstop
+	drmc
+	dvol
+	'
 # nuke all
 	alias dnuke='
 	dstop
