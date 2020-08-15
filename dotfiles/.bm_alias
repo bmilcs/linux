@@ -97,7 +97,17 @@
 # docker logs
 	alias dlogg='cd /nas/docker ; docker-compose -f /nas/docker/docker-compose-t2-vpn.yml logs -tf --tail="50"'
 # run docker-compose (github)
-	alias drun='cd /tmp && rm -rf /tmp/docker && git clone git@github.com:bmilcs/docker.git /tmp/docker && cd /tmp/docker && rm -f ~/docker/docker-compose.yaml ~/docker/.env && cp docker-compose.yaml .env ~/docker/ && cd ~/dockerl &&  docker-compose up -d --remove-orphans'
+	alias drun='
+	if [ "$HOSTNAME" = docker12 ]; then
+		echo && echo "----  docker1: www & doc content  ---------------------------------------------------------------------" && echo
+		cd /tmp && rm -rf /tmp/docker && git clone git@github.com:bmilcs/docker.git /tmp/docker && cd /tmp/docker && rm -f ~/docker/docker-compose.yaml ~/docker/.env && cp docker-compose.yaml .env ~/docker/ && cd ~/dockerl &&  docker-compose up -d --remove-orphans
+	else if [ "$HOSTNAME" = docker123 ]; then
+		
+		cd /tmp && rm -rf /tmp/docker && git clone git@github.com:bmilcs/docker.git /tmp/docker && cd /tmp/docker && rm -f ~/docker/docker-compose.yaml ~/docker/.env && cp docker-compose.yaml .env ~/docker/ && cd ~/dockerl &&  docker-compose up -d --remove-orphans
+	else
+		echo 'error: wrong vm dummy!'
+  fi
+	'
 # list all dockers
 	alias dps='docker ps -a'
 # letsencrypt restart
