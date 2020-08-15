@@ -25,21 +25,21 @@
 	alias nfs='sudo nano /etc/exports'
 	alias nfsr='sudo systemctl restart nfs-kernel-server'
   alias fstab='sudo nano /etc/fstab'
-	alias ismb="
-	sudo sed -i '#         valid users = bmilcs' /etc/samba/smb.conf
-	sudo sed -i '#         guest ok = no' /etc/samba/smb.conf
-	sudo sed -i '#         read only = no' /etc/samba/smb.conf
-	sudo sed -i '#         browseable = yes' /etc/samba/smb.conf
-	sudo sed -i '#         path = /home/bmilcs/docker' /etc/samba/smb.conf
-	sudo sed -i '#         comment = docker vm config files' /etc/samba/smb.conf
-	sudo sed -i '# [docker]' /etc/samba/smb.conf
-	sudo sed -i '#' /etc/samba/smb.conf
-	sudo sed -i '#       hosts allow = 127.0.0.1/8 192.168.1.0/24' /etc/samba/smb.conf
-	sudo sed -i '#       interfaces = 192.168.1.0/24 eth0' /etc/samba/smb.conf
-	sudo sed -i '#       workgroup = BM' /etc/samba/smb.conf
-	sudo sed -i '1# B M I L C S'' /etc/samba/smb.conf
-	sudo nano /etc/samba/smb.conf
-	"
+	alias ismb='sudo apt install samba
+	# sudo sed -i '#         valid users = bmilcs' /etc/samba/smb.conf
+	# sudo sed -i '#         guest ok = no' /etc/samba/smb.conf
+	# sudo sed -i '#         read only = no' /etc/samba/smb.conf
+	# sudo sed -i '#         browseable = yes' /etc/samba/smb.conf
+	# sudo sed -i '#         path = /home/bmilcs/docker' /etc/samba/smb.conf
+	# sudo sed -i '#         comment = docker vm config files' /etc/samba/smb.conf
+	# sudo sed -i '# [docker]' /etc/samba/smb.conf
+	# sudo sed -i '#' /etc/samba/smb.conf
+	# sudo sed -i '#       hosts allow = 127.0.0.1/8 192.168.1.0/24' /etc/samba/smb.conf
+	# sudo sed -i '#       interfaces = 192.168.1.0/24 eth0' /etc/samba/smb.conf
+	# sudo sed -i '#       workgroup = BM' /etc/samba/smb.conf
+	# sudo sed -i '1# B M I L C S'' /etc/samba/smb.conf
+	# sudo nano /etc/samba/smb.conf
+	'
 	alias smb='sudo nano /etc/samba/smb.conf'
 #----  network  ----------------------------------------------------------------------------------------
 	alias up='
@@ -93,22 +93,22 @@
 	drmc
 	drmi
 	'
-	alias dnet='cd ~/docker ; docker network create ; dcrec1 plexms ; dcup1 ; dcup1v'
-
+# alias dnet='cd ~/docker ; docker network create ; dcrec1 plexms ; dcup1 ; dcup1v'
 # docker logs
 	alias dlogg='cd /nas/docker ; docker-compose -f /nas/docker/docker-compose-t2-vpn.yml logs -tf --tail="50"'
 # run docker-compose (github)
-	alias drun='
-	if [ "$HOSTNAME" = docker12 ]; then
-		echo && echo "----  docker1: www & doc content  ---------------------------------------------------------------------" && echo
-		cd /tmp && rm -rf /tmp/docker && git clone git@github.com:bmilcs/docker.git /tmp/docker && cd /tmp/docker && rm -f ~/docker/docker-compose.yaml ~/docker/.env && cp docker-compose.yaml .env ~/docker/ && cd ~/dockerl &&  docker-compose up -d --remove-orphans
-	else if [ "$HOSTNAME" = docker123 ]; then
+	alias drun="
+	if [ \"\$HOSTNAME\" = docker12 ]; then
+		echo && echo \"----  docker1: www & doc content  ---------------------------------------------------------------------\" && echo
+		cd /tmp && rm -rf /tmp/docker && git clone git@github.com:bmilcs/docker.git /tmp/docker && cd /tmp/docker && rm -f ~/docker/docker-compose.yaml ~/docker/.env && cp 1docker-compose.yaml .env ~/docker/ && cd ~/dockerl &&  docker-compose up -d --remove-orphans
+	else if [ \"\$HOSTNAME\" = docker123 ]; then
 		
-		cd /tmp && rm -rf /tmp/docker && git clone git@github.com:bmilcs/docker.git /tmp/docker && cd /tmp/docker && rm -f ~/docker/docker-compose.yaml ~/docker/.env && cp docker-compose.yaml .env ~/docker/ && cd ~/dockerl &&  docker-compose up -d --remove-orphans
+		cd /tmp && rm -rf /tmp/docker && git clone git@github.com:bmilcs/docker.git /tmp/docker && cd /tmp/docker && rm -f ~/docker/docker-compose.yaml ~/docker/.env && cp 2docker-compose.yaml .env ~/docker/ && cd ~/dockerl &&  docker-compose up -d --remove-orphans
 	else
-		echo 'error: wrong vm dummy!'
+		echo \'error: wrong vm dummy!\'
   fi
-	'
+	"
+
 # list all dockers
 	alias dps='docker ps -a'
 # letsencrypt restart
