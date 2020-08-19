@@ -16,9 +16,9 @@ compare copied data and export missing content to log
       rsync -avun --no-group --no-owner --no-perms --no-times /original/nas/dir/ user@newhost:/new/nas/dir/ >> bmilcs_missing.log
 
 
-      - Make sure /original/nas/dir/ has trailing / (supposedly this is important)
-      - >> bmilcs.log (save output to a file, as it takes a while with huge amounts of data and if you're like me, you'll forget you ran it.
-      - Here's a breakdown:
+- Make sure /original/nas/dir/ has trailing / (supposedly this is important)
+- >> bmilcs.log (save output to a file, as it takes a while with huge amounts of data and if you're like me, you'll forget you ran it.
+- Here's a breakdown:
 
 argument 	desc
 n 	dry-run (DONT CHANGE SHIT)
