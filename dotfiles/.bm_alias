@@ -113,6 +113,7 @@
 	dstop
 	drmc
 	drmi
+	dvol
 	'
 # alias dnet='cd ~/docker ; docker network create ; dcrec1 plexms ; dcup1 ; dcup1v'
 # docker logs

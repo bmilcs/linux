@@ -9,6 +9,28 @@ todo:
 - [ ] varken 
 - [ ] bitwarden
 
+# rsync
+
+compare copied data and export missing content to log
+
+      rsync -avun --no-group --no-owner --no-perms --no-times /original/nas/dir/ user@newhost:/new/nas/dir/ >> bmilcs_missing.log
+
+
+      - Make sure /original/nas/dir/ has trailing / (supposedly this is important)
+      - >> bmilcs.log (save output to a file, as it takes a while with huge amounts of data and if you're like me, you'll forget you ran it.
+      - Here's a breakdown:
+
+argument 	desc
+n 	dry-run (DONT CHANGE SHIT)
+a 	archive (recursive, preserve everything)
+v 	verbose (speak up)
+u 	update (skip any files which exists in destination)
+no-group 	ignore mismatching groups
+no-owner 	ignore mismatching owners
+no-perms 	ignore mismatching perms
+no-times 	ignore mismatching times
+
+
 # cron
 
       crontab -e
