@@ -16,7 +16,7 @@ fi
 echo '... done.'
 echo
 echo 'user name?'
-read varUSER
+read -e -i ${SUDO_USER:-$USER} varUSER
 echo
 echo '====================================================================================================='
 echo '====  apt update & dist-upgrade  ===================================================================='
@@ -44,11 +44,11 @@ echo '====  configure: user | ssh | apps  ======================================
 echo '====================================================================================================='
 echo
 echo '> add user to sudoers: bmilcs'
-usermod -aG sudo $varUser
+usermod -aG sudo $varUSER
 echo '... done.'
 echo 
 echo '> remove sudo password: bmilcs'
-greppy=$varUser" ALL=(ALL) NOPASSWD: ALL" 
+greppy=$varUSER" ALL=(ALL) NOPASSWD: ALL" 
 gepp='sudo grep -qxF '"'$greppy'"' /etc/sudoers'
 $gepp || echo $greppy >> /etc/sudoers
 echo '... done.'
@@ -71,11 +71,11 @@ echo '> create rsa-ssh keys: bmilcs'
 # sudo touch /root/.ssh/authorized_keys
 # sudo chmod 600 /root/.ssh/authorized_keys
 # sudo grep -qxF 'ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAngRc7vefUjzk2k6noOtBlhAzROXTAxG31mwuMXF2/qM8O795WMBHdPndW/5M7Zxk06waqPDDfsjRNj/Zmhfq62kFdTeUP+4WZlo6SZ6v3xVthhf+WQjEDejsVkRoilZIyyA3dxzbLJZzK0RE/sJ8kbIZ1yb+a8sAI6OSUWvIhhfKyfIilNbATuctXKnZRaQVPKHbsCWhS/BYgpVRJmm6TCtjmEnUZGl1+liio4hvlgaXxsZH5Mi2/+1BcKj/5+OQqq8gM2SNDO/vnfRJLTE9yUrvtvUJUJ6XLWnHVigIjZJK/prdzY/N7dHuUVKVV3NsbdhNgzb4N8hsdzRsiGp7Pw== bmilcs' /root/.ssh/authorized_keys || echo 'ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAngRc7vefUjzk2k6noOtBlhAzROXTAxG31mwuMXF2/qM8O795WMBHdPndW/5M7Zxk06waqPDDfsjRNj/Zmhfq62kFdTeUP+4WZlo6SZ6v3xVthhf+WQjEDejsVkRoilZIyyA3dxzbLJZzK0RE/sJ8kbIZ1yb+a8sAI6OSUWvIhhfKyfIilNbATuctXKnZRaQVPKHbsCWhS/BYgpVRJmm6TCtjmEnUZGl1+liio4hvlgaXxsZH5Mi2/+1BcKj/5+OQqq8gM2SNDO/vnfRJLTE9yUrvtvUJUJ6XLWnHVigIjZJK/prdzY/N7dHuUVKVV3NsbdhNgzb4N8hsdzRsiGp7Pw== bmilcs' >> /root/.ssh/authorized_keys
-sudo -u $varUser mkdir -p /home/$varUser/.ssh
-sudo -u $varUser chmod 700 /home/$varUser/.ssh
-sudo -u $varUser touch /home/$varUser/.ssh/authorized_keys
-sudo -u $varUser chmod 600 /home/$varUser/.ssh/authorized_keys
-grep -qxF 'ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAngRc7vefUjzk2k6noOtBlhAzROXTAxG31mwuMXF2/qM8O795WMBHdPndW/5M7Zxk06waqPDDfsjRNj/Zmhfq62kFdTeUP+4WZlo6SZ6v3xVthhf+WQjEDejsVkRoilZIyyA3dxzbLJZzK0RE/sJ8kbIZ1yb+a8sAI6OSUWvIhhfKyfIilNbATuctXKnZRaQVPKHbsCWhS/BYgpVRJmm6TCtjmEnUZGl1+liio4hvlgaXxsZH5Mi2/+1BcKj/5+OQqq8gM2SNDO/vnfRJLTE9yUrvtvUJUJ6XLWnHVigIjZJK/prdzY/N7dHuUVKVV3NsbdhNgzb4N8hsdzRsiGp7Pw== $varUser' /home/$varUser/.ssh/authorized_keys || echo 'ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAngRc7vefUjzk2k6noOtBlhAzROXTAxG31mwuMXF2/qM8O795WMBHdPndW/5M7Zxk06waqPDDfsjRNj/Zmhfq62kFdTeUP+4WZlo6SZ6v3xVthhf+WQjEDejsVkRoilZIyyA3dxzbLJZzK0RE/sJ8kbIZ1yb+a8sAI6OSUWvIhhfKyfIilNbATuctXKnZRaQVPKHbsCWhS/BYgpVRJmm6TCtjmEnUZGl1+liio4hvlgaXxsZH5Mi2/+1BcKj/5+OQqq8gM2SNDO/vnfRJLTE9yUrvtvUJUJ6XLWnHVigIjZJK/prdzY/N7dHuUVKVV3NsbdhNgzb4N8hsdzRsiGp7Pw== $varUser' >> /home/$varUser/.ssh/authorized_keys
+sudo -u $varUSER mkdir -p /home/$varUSER/.ssh
+sudo -u $varUSER chmod 700 /home/$varUSER/.ssh
+sudo -u $varUSER touch /home/$varUSER/.ssh/authorized_keys
+sudo -u $varUSER chmod 600 /home/$varUSER/.ssh/authorized_keys
+grep -qxF 'ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAngRc7vefUjzk2k6noOtBlhAzROXTAxG31mwuMXF2/qM8O795WMBHdPndW/5M7Zxk06waqPDDfsjRNj/Zmhfq62kFdTeUP+4WZlo6SZ6v3xVthhf+WQjEDejsVkRoilZIyyA3dxzbLJZzK0RE/sJ8kbIZ1yb+a8sAI6OSUWvIhhfKyfIilNbATuctXKnZRaQVPKHbsCWhS/BYgpVRJmm6TCtjmEnUZGl1+liio4hvlgaXxsZH5Mi2/+1BcKj/5+OQqq8gM2SNDO/vnfRJLTE9yUrvtvUJUJ6XLWnHVigIjZJK/prdzY/N7dHuUVKVV3NsbdhNgzb4N8hsdzRsiGp7Pw== $varUSER' /home/$varUSER/.ssh/authorized_keys || echo 'ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAngRc7vefUjzk2k6noOtBlhAzROXTAxG31mwuMXF2/qM8O795WMBHdPndW/5M7Zxk06waqPDDfsjRNj/Zmhfq62kFdTeUP+4WZlo6SZ6v3xVthhf+WQjEDejsVkRoilZIyyA3dxzbLJZzK0RE/sJ8kbIZ1yb+a8sAI6OSUWvIhhfKyfIilNbATuctXKnZRaQVPKHbsCWhS/BYgpVRJmm6TCtjmEnUZGl1+liio4hvlgaXxsZH5Mi2/+1BcKj/5+OQqq8gM2SNDO/vnfRJLTE9yUrvtvUJUJ6XLWnHVigIjZJK/prdzY/N7dHuUVKVV3NsbdhNgzb4N8hsdzRsiGp7Pw== $varUSER' >> /home/$varUSER/.ssh/authorized_keys
 echo '... done.'
 echo && echo "----  crontab: auto up daily  -------------------------------------------------------------------------" && echo
 echo
@@ -91,7 +91,7 @@ sudo /etc/init.d/ssh restart
 echo 
 echo '> install: custom login screen'
 # remove bs from ssh login
-touch /home/$varUser/.hushlogin
+touch /home/$varUSER/.hushlogin
 # add banner location to sshd_config
 if grep -Fxq "#Banner none" /etc/ssh/sshd_config 
 then
