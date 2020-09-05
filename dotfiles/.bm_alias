@@ -29,21 +29,25 @@
 	alias nfs='sudo nano /etc/exports'
 	alias nfsr='sudo systemctl restart nfs-kernel-server'
   alias fstab='sudo nano /etc/fstab'
-		# alias ismb='sudo apt install samba
-		# # sudo sed -i '#         valid users = bmilcs' /etc/samba/smb.conf
-		# # sudo sed -i '#         guest ok = no' /etc/samba/smb.conf
-		# # sudo sed -i '#         read only = no' /etc/samba/smb.conf
-		# # sudo sed -i '#         browseable = yes' /etc/samba/smb.conf
-		# # sudo sed -i '#         path = /home/bmilcs/docker' /etc/samba/smb.conf
-		# # sudo sed -i '#         comment = docker vm config files' /etc/samba/smb.conf
-		# # sudo sed -i '# [docker]' /etc/samba/smb.conf
-		# # sudo sed -i '#' /etc/samba/smb.conf
-		# # sudo sed -i '#       hosts allow = 127.0.0.1/8 192.168.1.0/24' /etc/samba/smb.conf
-		# # sudo sed -i '#       interfaces = 192.168.1.0/24 eth0' /etc/samba/smb.conf
-		# # sudo sed -i '#       workgroup = BM' /etc/samba/smb.conf
-		# # sudo sed -i '1# B M I L C S'' /etc/samba/smb.conf
-		# # sudo nano /etc/samba/smb.conf
-		# '
+	alias fschk='$ sudo findmnt --verify --verbose'
+	alias ismb='
+		sudo apt install samba
+		echo && echo "====================================================================================================="
+		echo "====  bmilcs: samba instructions  ==================================================================="
+		echo "=====================================================================================================" && echo
+		echo "sudo nano /etc/samba/smb.conf"
+		echo "#       workgroup = BM"
+		echo "#       interfaces = 192.168.1.0/24 eth0"
+		echo "#       hosts allow = 127.0.0.1/8 192.168.1.0/24"
+		echo "# [docker]"
+		echo "#         comment = docker vm config files"
+		echo "#         path = /home/bmilcs/docker"
+		echo "#         browseable = yes"
+		echo "#         read only = no"
+		echo "#         guest ok = no"
+		echo "#         valid users = bmilcs"
+		echo "-----------------------------------------------------------------------------------------------------"
+		'
 	alias smb='sudo nano /etc/samba/smb.conf'
 #----  network  ----------------------------------------------------------------------------------------
 	alias up='

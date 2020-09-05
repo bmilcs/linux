@@ -80,7 +80,7 @@ grep -qxF 'ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAngRc7vefUjzk2k6noOtBlhAzROXTAxG31
 echo '... done.'
 echo && echo "----  crontab: auto up daily  -------------------------------------------------------------------------" && echo
 echo
-crontab -l | grep -q '30 1 * * * up'  && echo 'entry exists' || echo '30 1 * * * up' >> ~/cronny && crontab ~/cronny && rm ~/cronny
+crontab -l | grep -qF '* * up' || (crontab -l >> ~/cronny && echo '30 1 * * * up' >> ~/cronny && crontab ~/cronny && rm ~/cronny)
 echo '... done.'
 echo
 echo '> add rsa-ssh keys to sshd_config'
