@@ -130,7 +130,6 @@
 	alias dnet='docker network ls'
 # letsencrypt restart
 	alias le="docker restart letsencrypt && docker logs -f letsencrypt"
-	alias lel="dlog letsencrypt"
 #----  docker  -----------------------------------------------------------------------------------------
 	alias dexec='docker exec -ti'
 	alias docps='docker ps -a'

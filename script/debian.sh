@@ -1,9 +1,8 @@
 #!/bin/bash
 # after deploying fresh linux vm, execute the following:
 # apt-get install sudo -y && cd /tmp && sudo rm -f debian.sh && wget https://raw.githubusercontent.com/bmilcs/linux/master/debian.sh && sudo chmod +x debian.sh && sudo ./debian.sh
-
 #ssh-import-id gh:bmilcs
-
+set -x #echo on
 
 echo '====================================================================================================='
 echo '====  bmilcs debian basic configuration setup  ======================================================'
