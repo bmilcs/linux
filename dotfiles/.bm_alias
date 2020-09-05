@@ -9,7 +9,7 @@
 	alias upp='
 	odir="$PWD"
 	cd ~
-	rm -rf ~/_bmilcs ~/.bm* ~/.inputr* 
+	rm -rf ~/_bmilcs ~/.bm* ~/.inputr*
 	mkdir ~/_bmilcs
 	git clone https://github.com/bmilcs/linux.git ~/_bmilcs 
 	chmod -R +x ~/_bmilcs/* 
