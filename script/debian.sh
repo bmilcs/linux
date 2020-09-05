@@ -49,7 +49,7 @@ usermod -aG sudo $varUser
 echo '... done.'
 echo 
 echo '> remove sudo password: bmilcs'
-greppy=$varUser" ALL=(ALL) NOPASSWD: ALL"
+greppy=$varUser" ALL=(ALL) NOPASSWD: ALL" 
 gepp='sudo grep -qxF '"'$greppy'"' /etc/sudoers'
 $gepp || echo $greppy >> /etc/sudoers
 echo '... done.'
