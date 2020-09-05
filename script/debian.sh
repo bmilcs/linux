@@ -49,7 +49,7 @@ echo '... done.'
 echo 
 echo '> remove sudo password: bmilcs'
 greppy=$varUSER" ALL=(ALL) NOPASSWD: ALL" 
-gepp='sudo grep -qxF '"'$greppy'"' /etc/sudoers'
+gepp='sudo grep -qxF ' $greppy ' /etc/sudoers'
 $gepp || echo $greppy >> /etc/sudoers
 echo '... done.'
 echo
