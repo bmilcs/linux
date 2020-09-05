@@ -23,10 +23,10 @@ if [ $bmUID == 1086 ] && [ $varUSER == "bmilcs" ] || [ $varUSER != "bmilcs" ]; t
 	echo '> cheers! uid/pid is fine!'
 else
 	echo '> ugh. time to fix uid & gid'
-	usermod -u 1086 bmilcs
-	groupmod -g 1190 bmilcs
-	find / -group $bmGID -exec chgrp -h bmilcs {} \;
-	find / -user $bmUID -exec chown -h bmilcs {} \;
+	sudo usermod -u 1086 bmilcs
+	sudo groupmod -g 1190 bmilcs
+	sudo find / -group $bmGID -exec chgrp -h bmilcs {} \;
+	sudo find / -user $bmUID -exec chown -h bmilcs {} \;
 fi
 
 echo
