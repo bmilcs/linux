@@ -19,8 +19,8 @@ read -e -i ${SUDO_USER:-$USER} -p "user name: " varUSER
 bmUID=$(id -u bmilcs)
 bmGID=$(id -g bmilcs)
 echo $bmUID
-if [[ $bmUID == 1086 ]]; then
-	echo '> cheers! uid of 1086 is all set'
+if [ $bmUID == 1086 ] && [ $varUSER == "bmilcs" ] || [ $varUSER != "bmilcs" ]; then
+	echo '> cheers! uid/pid is fine!'
 else
 	echo '> ugh. time to fix uid & gid'
 fi
