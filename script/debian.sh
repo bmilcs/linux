@@ -21,7 +21,7 @@ bmGID=$(id -g bmilcs)
 echo $bmUID
 if [[ $bmUID == 1086 ]]
 	echo '> cheers! uid of 1086 is all set'
-else 
+else
 	echo '> ugh. time to fix uid & gid'
 fi
 
