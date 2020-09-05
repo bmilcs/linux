@@ -29,7 +29,7 @@
 	alias nfs='sudo nano /etc/exports'
 	alias nfsr='sudo systemctl restart nfs-kernel-server'
   alias fstab='sudo nano /etc/fstab'
-	alias fschk='$ sudo findmnt --verify --verbose'
+	alias fschk='sudo findmnt --verify --verbose'
 	alias ismb='
 		sudo apt install samba
 		echo && echo "====================================================================================================="
