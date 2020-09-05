@@ -23,12 +23,32 @@ if [ $bmUID == 1086 ] && [ $varUSER == "bmilcs" ] || [ $varUSER != "bmilcs" ]; t
 	echo '> cheers! uid/pid is fine!'
 else
 	echo '> ugh. time to fix uid & gid'
-	sudo usermod -u 1086 bmilcs
-	sudo groupmod -g 1190 bmilcs
-	sudo find / -group $bmGID -exec chgrp -h bmilcs {} \;
-	sudo find / -user $bmUID -exec chown -h bmilcs {} \;
+	function checkUser {                                                            
+				status=0                                                                
+				for u in $(who | awk '{print $1}' | sort | uniq)                        
+				do                                                                      
+						if [ "$u" == "$1" ]; then                                           
+										return 0                                                    
+						fi                                                                  
+				done                                                                    
+				return 1                                                                
+	}                                                                               
+	checkUser $varUSER                                                         
+	ret_val=$?                                                              
+	if [ $ret_val -eq 0 ]; then                                                     
+		echo $varUSER "is logged in. SSH back in as Root -- Temporarily enabled."                                                   
+		sed -i '/PermitRootLogin no=/c\' /etc/default/grub
+		grep -qxF 'PermitRootLogin yes' /etc/ssh/sshd_config || echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
+		exit 0                                                                  
+	else                                                                            
+		sudo usermod -u 1086 bmilcs
+		sudo groupmod -g 1190 bmilcs
+		sudo find / -group $bmGID -exec chgrp -h bmilcs {} \;
+		sudo find / -user $bmUID -exec chown -h bmilcs {} \;                    
+	fi
 fi
-
+sed -i '/PermitRootLogin=/c\' /etc/default/grub
+grep -qxF 'PermitRootLogin no' /etc/ssh/sshd_config || echo 'PermitRootLogin no' >> /etc/ssh/sshd_config
 echo
 echo '====================================================================================================='
 echo '====  apt update & dist-upgrade  ===================================================================='
