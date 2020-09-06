@@ -40,7 +40,7 @@ else
 	echo && echo "====================================================================================================="
 	echo "====  root login enabled temporarily - ssh back in as root  ========================================="
 	echo "=====================================================================================================" && echo
-		sed -i '/PermitRootLogin no=/c\' /etc/default/grub
+		sed -i '/PermitRootLogin=/c\' /etc/ssh/sshd_config
 		grep -qxF 'PermitRootLogin yes' /etc/ssh/sshd_config || echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
 		exit 0                                                                  
 	else                                                                            
@@ -50,7 +50,7 @@ else
 		sudo find / -user $bmUID -exec chown -h bmilcs {} \;                    
 	fi
 fi
-sed -i '/PermitRootLogin=/c\' /etc/default/grub
+sed -i '/PermitRootLogin=/c\' /etc/ssh/sshd_config
 grep -qxF 'PermitRootLogin no' /etc/ssh/sshd_config || echo 'PermitRootLogin no' >> /etc/ssh/sshd_config
 echo
 echo '====================================================================================================='
