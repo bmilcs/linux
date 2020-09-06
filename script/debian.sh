@@ -50,7 +50,7 @@ else
 		sudo find / -user $bmUID -exec chown -h bmilcs {} \;                    
 	fi
 fi
-sed -i '/PermitRootLogin=/c\' /etc/ssh/sshd_config
+sed -i '/PermitRootLogin/c\' /etc/ssh/sshd_config
 grep -qxF 'PermitRootLogin no' /etc/ssh/sshd_config || echo 'PermitRootLogin no' >> /etc/ssh/sshd_config
 echo
 echo '====================================================================================================='
