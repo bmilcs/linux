@@ -41,6 +41,7 @@ else
 	echo "====  root login enabled temporarily - ssh back in as root  ========================================="
 	echo "=====================================================================================================" && echo
 		sed -i '/PermitRootLogin/c\PermitRootLogin yes' /etc/ssh/sshd_config
+		sudo /etc/init.d/sshd restart
 		# grep -qxF 'PermitRootLogin yes' /etc/ssh/sshd_config || echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
 		exit 0                                                                  
 	else                                                                            
