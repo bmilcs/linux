@@ -36,7 +36,10 @@ else
 	checkUser $varUSER                                                         
 	ret_val=$?                                                              
 	if [ $ret_val -eq 0 ]; then                                                     
-		echo $varUSER "is logged in. SSH back in as Root -- Temporarily enabled."                                                   
+	echo "ERROR! "$varUSER " is logged in."                                                   
+	echo && echo "====================================================================================================="
+	echo "====  root login enabled temporarily - ssh back in as root  ========================================="
+	echo "=====================================================================================================" && echo
 		sed -i '/PermitRootLogin no=/c\' /etc/default/grub
 		grep -qxF 'PermitRootLogin yes' /etc/ssh/sshd_config || echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
 		exit 0                                                                  
