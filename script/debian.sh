@@ -47,6 +47,8 @@ else
 	else                                                                            
 		sudo usermod -u 1086 bmilcs
 		sudo groupmod -g 1190 bmilcs
+		find / -group 2000 -exec chgrp -h foo {} \;
+		find / -user 1005 -exec chown -h foo {} \;
 		sudo find / -group $bmGID -exec chgrp -h bmilcs {} \;
 		sudo find / -user $bmUID -exec chown -h bmilcs {} \;                    
 	fi
