@@ -60,6 +60,7 @@ fi
 # remove ROOT ssh access
 sed -i '/PermitRootLogin/c\PermitRootLogin no' /etc/ssh/sshd_config
 # grep -qxF 'PermitRootLogin no' /etc/ssh/sshd_config || echo 'PermitRootLogin no' >> /etc/ssh/sshd_config
+
 echo && echo "====================================================================================================="
 echo "====  apt update & dist-upgrade  ====================================================================" && echo "=====================================================================================================" && echo
 apt-get update && apt-get dist-upgrade -y 
