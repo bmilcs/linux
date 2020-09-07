@@ -10,19 +10,23 @@ echo '==========================================================================
 echo
 echo '> root check'
 if [[ $EUID -ne 0 ]]; then
-   echo "This script must be run as root" 
+   echo "ERROR: This script must be run as root" 
    exit 1
+else 
+	echo '... done.'
+	echo
 fi
-echo '... done.'
-echo
+
+echo "> " $varUSER " uid & gid check"
+
 read -e -i ${SUDO_USER:-$USER} -p "user name: " varUSER
 bmUID=$(id -u bmilcs)
 bmGID=$(id -g bmilcs)
 echo $bmUID
 if [ $bmUID == 1086 ] && [ $varUSER == "bmilcs" ] || [ $varUSER != "bmilcs" ]; then
-	echo '> cheers! uid/pid is fine!'
+	echo '... cheers! uid/pid is fine!'
 else
-	echo '> ugh. time to fix uid & gid'
+	echo '... error! fixing bmilcs uid & gid'
 	function checkUser {                                                            
 				status=0                                                                
 				for u in $(who | awk '{print $1}' | sort | uniq)                        
@@ -36,10 +40,10 @@ else
 	checkUser $varUSER                                                         
 	ret_val=$?                                                              
 	if [ $ret_val -eq 0 ]; then                                                     
-	echo "ERROR! "$varUSER " is logged in."                                                   
-	echo && echo "====================================================================================================="
-	echo "====  root login enabled temporarily - ssh back in as root  ========================================="
-	echo "=====================================================================================================" && echo
+		echo "ERROR! "$varUSER " is logged in."                                                   
+		echo && echo "====================================================================================================="
+		echo "====  root login enabled temporarily - ssh back in as root  ========================================="
+		echo "=====================================================================================================" && echo
 		sed -i '/PermitRootLogin/c\PermitRootLogin yes' /etc/ssh/sshd_config
 		sudo /etc/init.d/sshd restart
 		# grep -qxF 'PermitRootLogin yes' /etc/ssh/sshd_config || echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
@@ -53,19 +57,20 @@ else
 		sudo find / -user $bmUID -exec chown -h bmilcs {} \;                    
 	fi
 fi
-sed -i '/PermitRootLogin/c\PermitRootLogin yes' /etc/ssh/sshd_config
+# remove ROOT ssh access
+sed -i '/PermitRootLogin/c\PermitRootLogin no' /etc/ssh/sshd_config
 # grep -qxF 'PermitRootLogin no' /etc/ssh/sshd_config || echo 'PermitRootLogin no' >> /etc/ssh/sshd_config
-echo
-echo '====================================================================================================='
-echo '====  apt update & dist-upgrade  ===================================================================='
-echo '====================================================================================================='
+
+echo && echo "====================================================================================================="
+echo "====  apt update & dist-upgrade  ====================================================================" && echo "=====================================================================================================" && echo
+
+
 apt-get update && apt-get dist-upgrade -y 
 echo
 echo '---- done -------------------------------------------------------------------------------------------'
-echo
-echo '====================================================================================================='
-echo '====  install: sudo | dnsutils | vmtools | unattended | listchanges  ================================'
-echo '====================================================================================================='
+echo && echo "====================================================================================================="
+echo "====  apt install: sudo | open-vm-tools | nfs-common  ==============================================="
+echo "=====================================================================================================" && echo
 apt-get install sudo open-vm-tools nfs-common -y #unattended-upgrades apt-listchanges dnsutils
 echo
 echo '---- done -------------------------------------------------------------------------------------------'
