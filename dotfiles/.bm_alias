@@ -105,6 +105,7 @@
 		docker volume remove docker_plexlog
 		docker volume remove docker_podcasts
 		docker volume remove docker_tv
+		docker volume remove docker_audiobooks
 		'
 # remove: containers | volumes
 	alias dnew='
