@@ -16,7 +16,8 @@ else
 	echo '... done.'
 	echo
 fi
-
+echo && echo "----  setup users  ------------------------------------------------------------------------------------" && echo
+read -e -i ${SUDO_USER:-$USER} -p "user name: " varUSER
 
 
 # remove ROOT ssh access
@@ -119,7 +120,6 @@ printf "%s\n\n" "-----------------------------------------------------" >> /etc/
 echo '... done.'
 echo 
 echo "> " $varUSER " uid & gid check"
-read -e -i ${SUDO_USER:-$USER} -p "user name: " varUSER
 bmUID=$(id -u bmilcs)
 bmGID=$(id -g bmilcs)
 echo $bmUID
