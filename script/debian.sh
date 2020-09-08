@@ -19,44 +19,6 @@ fi
 
 echo "> " $varUSER " uid & gid check"
 
-read -e -i ${SUDO_USER:-$USER} -p "user name: " varUSER
-bmUID=$(id -u bmilcs)
-bmGID=$(id -g bmilcs)
-echo $bmUID
-if [ $bmUID == 1086 ] && [ $varUSER == "bmilcs" ] || [ $varUSER != "bmilcs" ]; then
-	echo '... cheers! uid/pid is fine!'
-else
-	echo '... error! fixing bmilcs uid & gid'
-	function checkUser {                                                            
-				status=0                                                                
-				for u in $(who | awk '{print $1}' | sort | uniq)                        
-				do                                                                      
-						if [ "$u" == "$1" ]; then                                           
-										return 0                                                    
-						fi                                                                  
-				done                                                                    
-				return 1                                                                
-	}                                                                               
-	checkUser $varUSER                                                         
-	ret_val=$?                                                              
-	if [ $ret_val -eq 0 ]; then                                                     
-		echo "ERROR! "$varUSER " is logged in."                                                   
-		echo && echo "====================================================================================================="
-		echo "====  root login enabled temporarily - ssh back in as root  ========================================="
-		echo "=====================================================================================================" && echo
-		sed -i '/PermitRootLogin/c\PermitRootLogin yes' /etc/ssh/sshd_config
-		sudo /etc/init.d/sshd restart
-		# grep -qxF 'PermitRootLogin yes' /etc/ssh/sshd_config || echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
-		exit 0                                                                  
-	else                                                                            
-		sudo usermod -u 1086 bmilcs
-		sudo groupmod -g 1190 bmilcs
-		find / -group 2000 -exec chgrp -h foo {} \;
-		find / -user 1005 -exec chown -h foo {} \;
-		sudo find / -group $bmGID -exec chgrp -h bmilcs {} \;
-		sudo find / -user $bmUID -exec chown -h bmilcs {} \;                    
-	fi
-fi
 # remove ROOT ssh access
 sed -i '/PermitRootLogin/c\PermitRootLogin no' /etc/ssh/sshd_config
 # grep -qxF 'PermitRootLogin no' /etc/ssh/sshd_config || echo 'PermitRootLogin no' >> /etc/ssh/sshd_config
@@ -158,6 +120,45 @@ echo '... done.'
 echo
 echo '> disabling grub selection screen'
 echo 
+
+read -e -i ${SUDO_USER:-$USER} -p "user name: " varUSER
+bmUID=$(id -u bmilcs)
+bmGID=$(id -g bmilcs)
+echo $bmUID
+if [ $bmUID == 1086 ] && [ $varUSER == "bmilcs" ] || [ $varUSER != "bmilcs" ]; then
+	echo '... cheers! uid/pid is fine!'
+else
+	echo '... error! fixing bmilcs uid & gid'
+	function checkUser {                                                            
+				status=0                                                                
+				for u in $(who | awk '{print $1}' | sort | uniq)                        
+				do                                                                      
+						if [ "$u" == "$1" ]; then                                           
+										return 0                                                    
+						fi                                                                  
+				done                                                                    
+				return 1                                                                
+	}                                                                               
+	checkUser $varUSER                                                         
+	ret_val=$?                                                              
+	if [ $ret_val -eq 0 ]; then                                                     
+		echo "ERROR! "$varUSER " is logged in."                                                   
+		echo && echo "====================================================================================================="
+		echo "====  root login enabled temporarily - ssh back in as root  ========================================="
+		echo "=====================================================================================================" && echo
+		sed -i '/PermitRootLogin/c\PermitRootLogin yes' /etc/ssh/sshd_config
+		sudo /etc/init.d/sshd restart
+		# grep -qxF 'PermitRootLogin yes' /etc/ssh/sshd_config || echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
+		exit 0                                                                  
+	else                                                                            
+		sudo usermod -u 1086 bmilcs
+		sudo groupmod -g 1190 bmilcs
+		find / -group 2000 -exec chgrp -h foo {} \;
+		find / -user 1005 -exec chown -h foo {} \;
+		sudo find / -group $bmGID -exec chgrp -h bmilcs {} \;
+		sudo find / -user $bmUID -exec chown -h bmilcs {} \;                    
+	fi
+fi
 
 
 echo '====================================================================================================='
