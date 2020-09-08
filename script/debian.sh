@@ -28,9 +28,9 @@ echo && echo "==================================================================
 echo "====  apt update & dist-upgrade  ====================================================================" && echo "=====================================================================================================" && echo
 apt-get update && apt-get dist-upgrade -y 
 echo && echo "====================================================================================================="
-echo "====  apt install: sudo | open-vm-tools | nfs-common  ==============================================="
+echo "====  apt install: sudo | open-vm-tools | nfs-common | dnsutils  ============================================"
 echo "=====================================================================================================" && echo
-apt-get install sudo open-vm-tools nfs-common -y #unattended-upgrades apt-listchanges dnsutils
+apt-get install sudo open-vm-tools nfs-common dnsutils -y #unattended-upgrades apt-listchanges 
 echo
 echo '---- done -------------------------------------------------------------------------------------------'
 echo
