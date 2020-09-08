@@ -17,7 +17,7 @@ else
 	echo
 fi
 
-echo "> " $varUSER " uid & gid check"
+
 
 # remove ROOT ssh access
 sed -i '/PermitRootLogin/c\PermitRootLogin no' /etc/ssh/sshd_config
@@ -26,7 +26,7 @@ sed -i '/PermitRootLogin/c\PermitRootLogin no' /etc/ssh/sshd_config
 echo && echo "====================================================================================================="
 echo "====  apt update & dist-upgrade  ====================================================================" && echo "=====================================================================================================" && echo
 apt-get update && apt-get dist-upgrade -y 
-bmilcs - 20-09-07 (13:21)echo && echo "====================================================================================================="
+echo && echo "====================================================================================================="
 echo "====  apt install: sudo | open-vm-tools | nfs-common  ==============================================="
 echo "=====================================================================================================" && echo
 apt-get install sudo open-vm-tools nfs-common -y #unattended-upgrades apt-listchanges dnsutils
@@ -117,10 +117,8 @@ printf "%s" "           wan:   " >> /etc/banner
 echo $wan >> /etc/banner
 printf "%s\n\n" "-----------------------------------------------------" >> /etc/banner
 echo '... done.'
-echo
-echo '> disabling grub selection screen'
 echo 
-
+echo "> " $varUSER " uid & gid check"
 read -e -i ${SUDO_USER:-$USER} -p "user name: " varUSER
 bmUID=$(id -u bmilcs)
 bmGID=$(id -g bmilcs)
