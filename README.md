@@ -89,6 +89,11 @@ Cron time string 	| Description
 
 # increase partition size / expand hard drive of vm
 
+
+- fix command not found
+      PATH="/sbin:$PATH"
+      
+
 - list partitions
 
       $ fdisk -l
