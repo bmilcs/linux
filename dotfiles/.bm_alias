@@ -13,7 +13,21 @@ alias grep='grep --color=auto'			# color
 alias apt-get="sudo apt-get --yes"	# auto sudo
 alias apt="sudo apt --yes"					# auto sudo
 alias wget='wget -c'								# autoresume
-alias ls='ls --color -lF --group-directories-first'
+alias ls='ls --color -lhF --group-directories-first'
+#----  file/dir navigation  ----------------------------------------------------------------------------
+alias c="clear"
+alias l="ls -hla --group-directories-first"		   # List in long format, include dotfiles
+alias ll="ls -hlna --group-directories-first"       # List in long format, include dotfiles
+alias lll="ls -hlna --group-directories-first"       # List in long format, include dotfiles
+alias pid="cat /etc/passwd"
+alias ld="ls -ld */"   # List in long format, only directories
+alias bm="su bmilcs"	# only while root
+alias rt="sudo -s"
+alias rd="cd / && c && l"
+alias h="cd ~ && c && l"
+alias ..="cd ..&& c && l"
+alias ...="cd ../.. && c && l"
+alias ....="cd ../../.. && c && l"
 #----  github  -----------------------------------------------------------------------------------------
 # scripts & dotfiles
 	alias upp='
@@ -83,20 +97,6 @@ alias ls='ls --color -lF --group-directories-first'
 		'
 	alias rnet="sudo /etc/init.d/networking restart"
 	alias enet="sudo nano /etc/network/interfaces"
-#----  file/dir navigation  ----------------------------------------------------------------------------
-	alias c="clear"
-	alias l="ls -hla --group-directories-first"		   # List in long format, include dotfiles
-	alias ll="ls -hlna --group-directories-first"       # List in long format, include dotfiles
-	alias lll="ls -hlna --group-directories-first"       # List in long format, include dotfiles
-	alias pid="cat /etc/passwd"
-	alias ld="ls -ld */"   # List in long format, only directories
-	alias bm="su bmilcs"	# only while root
-	alias rt="sudo -s"
-	alias rd="cd / && c && l"
-	alias h="cd ~ && c && l"
-	alias ..="cd ..&& c && l"
-	alias ...="cd ../.. && c && l"
-	alias ....="cd ../../.. && c && l"
 #----  bmilcs docker  ----------------------------------------------------------------------------------
 # nav to docker volumes
 	alias ddir='cd ~/docker'
