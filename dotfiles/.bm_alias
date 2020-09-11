@@ -106,7 +106,7 @@
 		docker volume remove docker_podcasts
 		docker volume remove docker_tv
 		docker volume remove docker_audiobooks
-		docker volume remove docker_nextcloud
+		docker volume remove docker_cloud
 		'
 # remove: containers | volumes
 	alias dnew='
