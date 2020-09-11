@@ -9,10 +9,10 @@ alias mv='rm -i'	#confirmation
 alias mv='mv -i'	#confirmation
 alias cp='cp -i'	#confirmation
 alias ln='ln -i'	#confirmation
-
+alias grep='grep --color=auto'			# color
 alias apt-get="sudo apt-get --yes"	# auto sudo
 alias apt="sudo apt --yes"					# auto sudo
-alias wget='wget -c'								#autoresume
+alias wget='wget -c'								# autoresume
 alias ls='ls --color -h --group-directories-first'
 #----  github  -----------------------------------------------------------------------------------------
 # scripts & dotfiles
