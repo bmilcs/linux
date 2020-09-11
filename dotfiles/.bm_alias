@@ -10,7 +10,8 @@ alias cp='cp -i'	#confirmation
 alias ln='ln -i'	#confirmation
 
 alias apt-get="sudo apt-get --yes"	# auto sudo
-alias apt="sudo apt --yes"	# auto sudo
+alias apt="sudo apt --yes"					# auto sudo
+alias wget='wget -c'								#autoresume
 #----  github  -----------------------------------------------------------------------------------------
 # scripts & dotfiles
 	alias upp='
