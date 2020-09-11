@@ -13,7 +13,7 @@ alias grep='grep --color=auto'			# color
 alias apt-get="sudo apt-get --yes"	# auto sudo
 alias apt="sudo apt --yes"					# auto sudo
 alias wget='wget -c'								# autoresume
-alias ls='ls --color -l --group-directories-first'
+alias ls='ls --color -lF --group-directories-first'
 #----  github  -----------------------------------------------------------------------------------------
 # scripts & dotfiles
 	alias upp='
