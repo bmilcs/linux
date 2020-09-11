@@ -11,6 +11,7 @@ for file in $(find . -maxdepth 1 -name ".*" -type f -printf "%f\n" ); do
 done
 # add source loop for new files
 sudo grep -qxF '#initialize bmilcs dot files' ~/.bashrc || printf "\n\n#initialize bmilcs dot files\nfor bmfile in ~/.bm*\ndo\n\tsource \"\$bmfile\"\ndone\n" >> ~/.bashrc
+sudo grep -qxF 'export LC_COLLATE="C"' ~/.bashrc || printf "\n\n# group .dotfiles together (ls command)\nexport LC_COLLATE="C"" >> ~/.bashrc
 #clear
 echo
 echo '====  bmilcs dotfiles refreshed  ===================================================================='
