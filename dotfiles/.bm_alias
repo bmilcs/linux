@@ -30,7 +30,6 @@ alias ls='ls --color -h --group-directories-first'
 	alias mine="/opt/minecraft/tools/mcrcon/mcrcon -H 127.0.0.1 -P 25575 -p nFkA_vKG8FTP2v@K9YdPA6utw -t"
 # debian script
 	alias ideb="sudo /bin/bash ~/_bmilcs/script/debian.sh"
-# list customizations
 	alias a="alias | sed 's/=.*//'"
 	alias func="declare -f | grep '^[a-z].* ()' | sed 's/{$//'"
 	alias paths='echo -e ${PATH//:/\\n}'
@@ -39,7 +38,14 @@ alias ls='ls --color -h --group-directories-first'
 	alias nfsr='sudo systemctl restart nfs-kernel-server'
   alias fstab='sudo nano /etc/fstab'
 	alias fstest='sudo findmnt --verify --verbose'
-	alias infs="sudo apt install nfs-kernel-server && sudo echo \'#path/to/dir          10.0.0.0/8(ro,sync)\' >> /etc/exports && sudo nano /etc/exports"
+	alias infs='
+		sudo apt install nfs-kernel-server 
+		echo && echo "====================================================================================================="
+		echo "====  bmilcs: nfs instructions  ====================================================================="  && necho "=====================================================================================================" && echo
+		echo "sudo nano /etc/exports"
+		echo "#path/to/dir          10.0.0.0/8(ro,sync)\"
+		echo "-----------------------------------------------------------------------------------------------------"
+		'
 	alias ismb='
 		sudo apt install samba
 		echo && echo "====================================================================================================="
