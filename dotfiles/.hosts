@@ -1,0 +1,7 @@
+Host docker
+	Hostname docker.bm.bmilcs.com
+	IdentityFile ~/.ssh
+	user bmilcs
+	Port 22
+	ForwardX11Trusted yes
+	TCPKeepAlive yes
