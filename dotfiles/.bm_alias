@@ -44,7 +44,7 @@ alias ....="cd ../../.. && c && l"
 		'
 	alias mine="/opt/minecraft/tools/mcrcon/mcrcon -H 127.0.0.1 -P 25575 -p nFkA_vKG8FTP2v@K9YdPA6utw -t"
 # debian script
-	alias ideb="sudo /bin/bash ~/_bmilcs/script/debian.sh"
+	alias ideb="sudo /bin/bash /etc/bmilcs/script/debian.sh"
 	alias a="alias | sed 's/=.*//'"
 	alias func="declare -f | grep '^[a-z].* ()' | sed 's/{$//'"
 	alias paths='echo -e ${PATH//:/\\n}'
