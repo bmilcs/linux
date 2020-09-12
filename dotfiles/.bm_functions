@@ -24,11 +24,11 @@ function aptf() {
 	dpkg --get-selections | grep $@
 }
 
-function st() {
+function apts() {
 	systemctl status $@re
 }
 
-function ips() {
+function myip() {
 	printf "\n%s" "          host:   "
 	echo $HOSTNAME "(.bm.bmilcs.com)"
 	ipp="ip a | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'"
