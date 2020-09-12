@@ -34,6 +34,7 @@ alias ....="cd ../../.. && c && l"
 # scripts & dotfiles
 	alias upp='
 		odir="$PWD"
+		cd /etc/
 		sudo rm -rf /etc/bmilcs
 		sudo mkdir /etc/bmilcs
 		sudo git clone https://github.com/bmilcs/linux.git /etc/bmilcs
