@@ -59,10 +59,12 @@ echo '... done.' && echo
 
 # custom login notice
 echo '> custom ssh login msg'
-sed -i '/#Banner none/c\Banner /etc/banner' /etc/ssh/sshd_config
+# remove stock crap
 sed -i '/PrintMotd/c\PrintMotd no' /etc/ssh/sshd_config
 sed -i '/PrintLastLog/c\PrintLastLog no' /etc/ssh/sshd_config
 sed -i '/session    optional     pam_motd.so/c\' /etc/pam.d/sshd
+# insert custom
+sed -i '/#Banner none/c\Banner /etc/banner' /etc/ssh/sshd_config
 touch /etc/banner # create custom banner config
 echo > /etc/banner # clear if exists
 printf "%s" "--- welcome to bmilcs homelab -----------------------" >> /etc/banner
