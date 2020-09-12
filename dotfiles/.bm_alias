@@ -35,9 +35,10 @@ alias ....="cd ../../.. && c && l"
 	alias upp='
 		odir="$PWD"
 		rm -rf ~/_bmilcs ~/.bm ~/.bm_* ~/.dir_colors ~/.hosts 
-		sudo rm -rf ~/.bm
-		sudo git clone https://github.com/bmilcs/linux.git ~/.bm
-		sudo chmod -R +x ~/.bm
+		rm -rf ~/.bm
+		git clone https://github.com/bmilcs/linux.git ~/.bm
+		
+		chmod -R +x ~/.bm
 		cd ~/.bm/dotfiles
 		sudo ./install.sh
 		source ~/.bashrc
