@@ -54,7 +54,7 @@ echo '... done.' && echo
 
 # crontab auto
 echo '> crontab autoupdate' && echo
-#crontab /etc/bmilcs/
+crontab ~/.bm/dotfiles/.crontabs
 # crontab -l | grep -qF '* * up' || (crontab -l >> ~/cronny && echo '30 1 * * * up' >> ~/cronny && crontab ~/cronny && rm ~/cronny)
 echo '... done.' && echo
 
