@@ -80,9 +80,7 @@ echo '... done.' && echo
 
 # change uid & gid if bmilcs
 echo "> " $varUSER " uid & gid check"
-bmUID=$(id -u bmilcs)
-bmGID=$(id -g bmilcs)
-echo $bmUID
+bmUID=$(id -u bmilcs) && bmGID=$(id -g bmilcs)
 if [ $bmUID == 1086 ] && [ $varUSER == "bmilcs" ] || [ $varUSER != "bmilcs" ]; then
 	echo '... cheers! uid/pid is fine!'
 else
@@ -114,7 +112,7 @@ else
 		sudo find / -user $bmUID -exec chown -h bmilcs {} \;                    
 	fi
 fi
-
+echo "... done." && echo
 
 echo '====================================================================================================='
 echo '====  bmilcs debian configuration complete  ========================================================='
