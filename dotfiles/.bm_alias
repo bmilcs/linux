@@ -34,7 +34,7 @@ alias ....="cd ../../.. && c && l"
 # scripts & dotfiles
 	alias upp='
 		odir="$PWD"
-		rm -rf ~/_bmilcs ~/.hushlogin ~/.bm_*
+		rm -rf ~/_bmilcs ~/.hushlogin ~/.bm_* ~/.dir_colors ~/.hosts
 		cd /etc/
 		sudo rm -rf /etc/bmilcs
 		sudo mkdir /etc/bmilcs
