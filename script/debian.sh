@@ -54,7 +54,8 @@ echo '... done.' && echo
 
 # crontab auto
 echo '> crontab autoupdate' && echo
-crontab -l | grep -qF '* * up' || (crontab -l >> ~/cronny && echo '30 1 * * * up' >> ~/cronny && crontab ~/cronny && rm ~/cronny)
+#crontab /etc/bmilcs/
+# crontab -l | grep -qF '* * up' || (crontab -l >> ~/cronny && echo '30 1 * * * up' >> ~/cronny && crontab ~/cronny && rm ~/cronny)
 echo '... done.' && echo
 
 # custom login notice
