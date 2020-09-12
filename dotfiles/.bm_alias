@@ -36,9 +36,6 @@ alias ....="cd ../../.. && c && l"
 		odir="$PWD"
 		rm -rf ~/_bmilcs ~/.hushlogin ~/.bm_* ~/.dir_colors ~/.hosts ~/*.dtbak
 		cd /etc/
-		touch /etc/profile.d/bmilcs.sh
-		chmod +x /etc/profile.d/bmilcs.sh
-		sudo grep -qxF "#bmilcs bash" /etc/profile.d/bmilcs.sh || sudo printf "\n#bmilcs bash\nsource /etc/bash.bashrc" >> /etc/profile.d/bmilcs.sh
 		sudo rm -rf /etc/bmilcs
 		sudo mkdir /etc/bmilcs
 		sudo git clone https://github.com/bmilcs/linux.git /etc/bmilcs
