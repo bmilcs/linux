@@ -12,13 +12,13 @@ cd /etc/bmilcs/dotfiles
 #     ln -s $PWD/$file ~/$file
 # done
 # add source loop for new files
-sudo grep -qxF '#initialize bmilcs dot files' /etc/.bashrc || printf "\n\n#initialize bmilcs dot files\nfor bmfile in /etc/bmilcs/dotfiles/.bm*\ndo\n\tsource \"\$bmfile\"\ndone\n" >> /etc/.bashrc
+sudo grep -qxF '#initialize bmilcs dot files' /etc/bash.bashrc || printf "\n\n#initialize bmilcs dot files\nfor bmfile in /etc/bmilcs/dotfiles/.bm*\ndo\n\tsource \"\$bmfile\"\ndone\n" >> /etc/bash.bashrc
 
 # dircolors import (arctic)
 
 
 # ls - group dot files
-sudo grep -qxF 'export LC_COLLATE=' /etc/.bashrc || printf "\n\n# group .dotfiles together (ls command)\nexport LC_COLLATE="C"" >> /etc/.bashrc
+sudo grep -qxF 'export LC_COLLATE=' /etc/bash.bashrc || printf "\n\n# group .dotfiles together (ls command)\nexport LC_COLLATE="C"" >> /etc/bash.bashrc
 #clear
 echo
 echo '====  bmilcs dotfiles refreshed  ===================================================================='
