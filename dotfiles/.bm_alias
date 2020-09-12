@@ -37,7 +37,7 @@ alias ....="cd ../../.. && c && l"
 		rm -rf ~/_bmilcs ~/.bm ~/.bm_* ~/.dir_colors ~/.hosts 
 		sudo rm -rf ~/.bm
 		sudo git clone https://github.com/bmilcs/linux.git ~/.bm
-		sudo chmod -R +x /etc/bmilcs
+		sudo chmod -R +x ~/.bm
 		cd ~/.bm/dotfiles
 		sudo ./install.sh
 		source ~/.bashrc
