@@ -17,7 +17,7 @@ fi
 
 #user name input
 echo "user name?"
-read -e -i ${SUDO_USER:-$USER} -p varUSER
+read -e -i "" ${SUDO_USER:-$USER} -p varUSER
 
 # remove ROOT ssh access
 sed -i '/PermitRootLogin/c\PermitRootLogin no' /etc/ssh/sshd_config
