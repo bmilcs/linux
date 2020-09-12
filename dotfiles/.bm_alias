@@ -37,10 +37,9 @@ alias ....="cd ../../.. && c && l"
 		rm -rf ~/_bmilcs ~/.bm ~/.bm_* ~/.dir_colors ~/.hosts 
 		rm -rf ~/.bm
 		git clone https://github.com/bmilcs/linux.git ~/.bm
-		
 		chmod -R +x ~/.bm
 		cd ~/.bm/dotfiles
-		sudo ./install.sh
+		./install.sh
 		source ~/.bashrc
 		cd "$odir"
 		'
