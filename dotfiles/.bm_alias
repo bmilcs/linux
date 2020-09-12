@@ -34,7 +34,7 @@ alias ....="cd ../../.. && c && l"
 # scripts & dotfiles
 	alias upp='
 		odir="$PWD"
-		rm -rf ~/_bmilcs ~/.hushlogin ~/.bm_* ~/.dir_colors ~/.hosts ~/*dtbak
+		rm -rf ~/_bmilcs ~/.hushlogin ~/.bm_* ~/.dir_colors ~/.hosts ~/*.dtbak
 		cd /etc/
 		sudo rm -rf /etc/bmilcs
 		sudo mkdir /etc/bmilcs
@@ -43,7 +43,7 @@ alias ....="cd ../../.. && c && l"
 		cd /etc/bmilcs/dotfiles/
 		sudo ./install.sh
 		cd /etc
-		source .bashrc
+		source bash.bashrc
 		cd "$odir"
 		'
 	alias mine="/opt/minecraft/tools/mcrcon/mcrcon -H 127.0.0.1 -P 25575 -p nFkA_vKG8FTP2v@K9YdPA6utw -t"
