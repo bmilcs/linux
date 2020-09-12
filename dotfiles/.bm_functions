@@ -1,4 +1,4 @@
-function mkd() {
+function mkdr() {
 	mkdir -p "$@" && cd "$_";
 }
 
@@ -16,7 +16,7 @@ function fdrun() {
 	fi
 }
 
-function ar() {
+function aptr() {
 	sudo apt-get purge $@ -y
 }
 
