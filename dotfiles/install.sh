@@ -1,8 +1,10 @@
 #!/bin/bash
-#-----------------------------------------------------------------------------------------------------
-# symlink all dotfiles from repo
+
+# backup cur dir
 bmDir=$(pwd)
+
 cd ~/_bmilcs/dotfiles
+# symlink all dotfiles from repo
 for file in $(find . -maxdepth 1 -name ".*" -type f -printf "%f\n" ); do
     if [ -e ~/$file ]; then
         mv -f ~/$file{,.dtbak}
