@@ -1,106 +1,66 @@
 #!/bin/bash
-# after deploying fresh linux vm, execute the following:
 # apt-get install sudo -y && cd /tmp && sudo rm -f debian.sh && wget https://raw.githubusercontent.com/bmilcs/linux/master/debian.sh && sudo chmod +x debian.sh && sudo ./debian.sh
-#ssh-import-id gh:bmilcs
+# ssh-import-id gh:bmilcs
 # set -x #echo on
 
-echo '====================================================================================================='
-echo '====  bmilcs debian basic configuration setup  ======================================================'
-echo '====================================================================================================='
-echo
+echo && echo "====================================================================================================="
+echo "====  bmilcs debian basic configuration setup  ======================================================" && echo "=====================================================================================================" && echo
+
+# root check
 echo '> root check'
 if [[ $EUID -ne 0 ]]; then
    echo "ERROR: This script must be run as root" 
    exit 1
 else 
-	echo '... done.'
-	echo
+	echo '... done.' &&	echo
 fi
-echo && echo "----  setup users  ------------------------------------------------------------------------------------" && echo
-read -e -i ${SUDO_USER:-$USER} -p "user name: " varUSER
 
+#user name input
+echo "user name?"
+read -e -i ${SUDO_USER:-$USER} -p varUSER
 
 # remove ROOT ssh access
 sed -i '/PermitRootLogin/c\PermitRootLogin no' /etc/ssh/sshd_config
-# grep -qxF 'PermitRootLogin no' /etc/ssh/sshd_config || echo 'PermitRootLogin no' >> /etc/ssh/sshd_config
 
-echo && echo "====================================================================================================="
-echo "====  apt update & dist-upgrade  ====================================================================" && echo "=====================================================================================================" && echo
-apt-get update && apt-get dist-upgrade -y 
-echo && echo "====================================================================================================="
-echo "====  apt install: sudo | open-vm-tools | nfs-common | dnsutils  ============================================"
-echo "=====================================================================================================" && echo
-apt-get install sudo open-vm-tools nfs-common dnsutils -y #unattended-upgrades apt-listchanges 
-echo
-echo '---- done -------------------------------------------------------------------------------------------'
-echo
-echo '> removing grub pause'
-echo
+# install essentials
+echo && echo "----  apt install: sudo | open-vm-tools | nfs-common | dnsutils  --------------------------------------" && echo
+apt-get update && apt-get upgrade -y && apt-get dist-upgrade -y && apt-get install sudo open-vm-tools nfs-common dnsutils -y && echo && echo #unattended-upgrades apt-listchanges 
+
+# remove grub pause on boot
+echo '> removing grub pause' && echo
 sed -i '/GRUB_TIMEOUT=/c\GRUB_TIMEOUT=0.1' /etc/default/grub
 sed -i '/GRUB_HIDDEN_TIMEOUT=/c\GRUB_HIDDEN_TIMEOUT=0' /etc/default/grub
 update-grub
-echo '----  done  -----------------------------------------------------------------------------------------'
-echo
-echo '====================================================================================================='
-echo '====  configure: user | ssh | apps  ================================================================='
-echo '====================================================================================================='
-echo
-echo '> add user to sudoers: bmilcs'
+echo '... done.' && echo
+
+# add to sudoers & remove password requirement
+echo '> configuring ' $varUSER ' as sudoer' && echo
 usermod -aG sudo $varUSER
-echo '... done.'
-echo 
-echo '> remove sudo password: bmilcs'
-# greppy=$varUSER" ALL=(ALL) NOPASSWD: ALL" 
-# gepp='sudo grep -qxF " $varUSER " ALL=(ALL) NOPASSWD: ALL" /etc/sudoers'
-sudo grep -qxF "$varUSER ALL=(ALL) NOPASSWD: ALL" /etc/sudoers || echo "$varUSER ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
-# $gepp || echo $greppy >> /etc/sudoers
-echo '... done.'
-echo
-# echo '> configuring unattended-upgrades'
-# printf 'APT::Periodic::Update-Package-Lists "1";\nAPT::Periodic::Unattended-Upgrade "1";\nAPT::Periodic::Download-Upgradeable-Packages "1";\nAPT::Periodic::AutocleanInterval "7";\nAPT::Periodic::Verbose "1";' > /etc/apt/apt.conf.d/20auto-upgrades
-# sed -i '/"origin=/c\\t' /etc/apt/apt.conf.d/50unattended-upgrades
-# sed -i '/new stable)./c\\t"o=*"' /etc/apt/apt.conf.d/50unattended-upgrades
-# sed -i '/Unattended-Upgrade::Remove-New-Unused-Dependencies/c\Unattended-Upgrade::Remove-New-Unused-Dependencies "true";' /etc/apt/apt.conf.d/50unattended-upgrades
-# sed -i '/Unattended-Upgrade::Remove-Unused-Kernel-Packages/c\Unattended-Upgrade::Remove-Unused-Kernel-Packages "true";' /etc/apt/apt.conf.d/50unattended-upgrades
-# sed -i '/Unattended-Upgrade::Remove-Unused-Dependencies "/c\Unattended-Upgrade::Remove-Unused-Dependencies "true";' /etc/apt/apt.conf.d/50unattended-upgrades
-# sed -i '/Unattended-Upgrade::Automatic-Reboot-WithUsers "/c\Unattended-Upgrade::Automatic-Reboot-WithUsers "true";' /etc/apt/apt.conf.d/50unattended-upgrades
-# sed -i '/Unattended-Upgrade::Automatic-Reboot "/c\Unattended-Upgrade::Automatic-Reboot "true";' /etc/apt/apt.conf.d/50unattended-upgrades
-# sed -i '/Unattended-Upgrade::Automatic-Reboot-Time/c\Unattended-Upgrade::Automatic-Reboot-Time "01:00";' /etc/apt/apt.conf.d/50unattended-upgrades
-# echo '... done.'
-echo
-echo '> create rsa-ssh keys: bmilcs'
-# sudo mkdir -p /root/.ssh
-# sudo chmod 700 /root/.ssh
-# sudo touch /root/.ssh/authorized_keys
-# sudo chmod 600 /root/.ssh/authorized_keys
-# sudo grep -qxF 'ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAngRc7vefUjzk2k6noOtBlhAzROXTAxG31mwuMXF2/qM8O795WMBHdPndW/5M7Zxk06waqPDDfsjRNj/Zmhfq62kFdTeUP+4WZlo6SZ6v3xVthhf+WQjEDejsVkRoilZIyyA3dxzbLJZzK0RE/sJ8kbIZ1yb+a8sAI6OSUWvIhhfKyfIilNbATuctXKnZRaQVPKHbsCWhS/BYgpVRJmm6TCtjmEnUZGl1+liio4hvlgaXxsZH5Mi2/+1BcKj/5+OQqq8gM2SNDO/vnfRJLTE9yUrvtvUJUJ6XLWnHVigIjZJK/prdzY/N7dHuUVKVV3NsbdhNgzb4N8hsdzRsiGp7Pw== bmilcs' /root/.ssh/authorized_keys || echo 'ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAngRc7vefUjzk2k6noOtBlhAzROXTAxG31mwuMXF2/qM8O795WMBHdPndW/5M7Zxk06waqPDDfsjRNj/Zmhfq62kFdTeUP+4WZlo6SZ6v3xVthhf+WQjEDejsVkRoilZIyyA3dxzbLJZzK0RE/sJ8kbIZ1yb+a8sAI6OSUWvIhhfKyfIilNbATuctXKnZRaQVPKHbsCWhS/BYgpVRJmm6TCtjmEnUZGl1+liio4hvlgaXxsZH5Mi2/+1BcKj/5+OQqq8gM2SNDO/vnfRJLTE9yUrvtvUJUJ6XLWnHVigIjZJK/prdzY/N7dHuUVKVV3NsbdhNgzb4N8hsdzRsiGp7Pw== bmilcs' >> /root/.ssh/authorized_keys
+grep -qxF "$varUSER ALL=(ALL) NOPASSWD: ALL" /etc/sudoers || echo "$varUSER ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+echo '... done.' && echo
+
+# ssh
+echo '> configure ssh & rsa keys'
 sudo -u $varUSER mkdir -p /home/$varUSER/.ssh
 sudo -u $varUSER chmod 700 /home/$varUSER/.ssh
 sudo -u $varUSER touch /home/$varUSER/.ssh/authorized_keys
 sudo -u $varUSER chmod 600 /home/$varUSER/.ssh/authorized_keys
 grep -qxF 'ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAngRc7vefUjzk2k6noOtBlhAzROXTAxG31mwuMXF2/qM8O795WMBHdPndW/5M7Zxk06waqPDDfsjRNj/Zmhfq62kFdTeUP+4WZlo6SZ6v3xVthhf+WQjEDejsVkRoilZIyyA3dxzbLJZzK0RE/sJ8kbIZ1yb+a8sAI6OSUWvIhhfKyfIilNbATuctXKnZRaQVPKHbsCWhS/BYgpVRJmm6TCtjmEnUZGl1+liio4hvlgaXxsZH5Mi2/+1BcKj/5+OQqq8gM2SNDO/vnfRJLTE9yUrvtvUJUJ6XLWnHVigIjZJK/prdzY/N7dHuUVKVV3NsbdhNgzb4N8hsdzRsiGp7Pw== $varUSER' /home/$varUSER/.ssh/authorized_keys || echo 'ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAngRc7vefUjzk2k6noOtBlhAzROXTAxG31mwuMXF2/qM8O795WMBHdPndW/5M7Zxk06waqPDDfsjRNj/Zmhfq62kFdTeUP+4WZlo6SZ6v3xVthhf+WQjEDejsVkRoilZIyyA3dxzbLJZzK0RE/sJ8kbIZ1yb+a8sAI6OSUWvIhhfKyfIilNbATuctXKnZRaQVPKHbsCWhS/BYgpVRJmm6TCtjmEnUZGl1+liio4hvlgaXxsZH5Mi2/+1BcKj/5+OQqq8gM2SNDO/vnfRJLTE9yUrvtvUJUJ6XLWnHVigIjZJK/prdzY/N7dHuUVKVV3NsbdhNgzb4N8hsdzRsiGp7Pw== $varUSER' >> /home/$varUSER/.ssh/authorized_keys
-echo '... done.'
-echo && echo "----  crontab: auto up daily  -------------------------------------------------------------------------" && echo
-echo
-crontab -l | grep -qF '* * up' || (crontab -l >> ~/cronny && echo '30 1 * * * up' >> ~/cronny && crontab ~/cronny && rm ~/cronny)
-echo '... done.'
-echo
-echo '> add rsa-ssh keys to sshd_config'
 grep -qxF 'PermitRootLogin no' /etc/ssh/sshd_config || echo 'PermitRootLogin no' >> /etc/ssh/sshd_config
 grep -qxF 'PubkeyAuthentication yes' /etc/ssh/sshd_config || echo 'PubkeyAuthentication yes' >> /etc/ssh/sshd_config
 grep -qxF 'AuthorizedKeysFile %h/.ssh/authorized_keys' /etc/ssh/sshd_config || echo 'AuthorizedKeysFile %h/.ssh/authorized_keys' >> /etc/ssh/sshd_config
-echo '... done.'
-sudo /etc/init.d/ssh restart
-echo 
-echo '> install: custom login screen'
-# remove bs from ssh login
-touch /home/$varUSER/.hushlogin
-# add banner location to sshd_config
-if grep -Fxq "#Banner none" /etc/ssh/sshd_config 
-then
-	echo '> enabled banner option > /etc/banner'
-	sed -i '/#Banner/c\Banner /etc/banner' /etc/ssh/sshd_config
-fi
+/etc/init.d/ssh restart
+echo '... done.' && echo
+
+# crontab auto
+echo '> crontab autoupdate' && echo
+crontab -l | grep -qF '* * up' || (crontab -l >> ~/cronny && echo '30 1 * * * up' >> ~/cronny && crontab ~/cronny && rm ~/cronny)
+echo '... done.' && echo
+
+echo '> custom ssh login msg'
+touch /home/$varUSER/.hushlogin # remove bs from ssh login
+sed -i '/#Banner none/c\Banner /etc/banner' /etc/ssh/sshd_config
+
 # import custom banner text
 touch /etc/banner
 echo > /etc/banner
@@ -165,3 +125,23 @@ echo '>       open:    putty.exe'
 echo '>    address:    bmilcs@'$HOSTNAME
 echo
 echo '====================================================================================================='
+
+
+
+# echo '> configuring unattended-upgrades'
+# printf 'APT::Periodic::Update-Package-Lists "1";\nAPT::Periodic::Unattended-Upgrade "1";\nAPT::Periodic::Download-Upgradeable-Packages "1";\nAPT::Periodic::AutocleanInterval "7";\nAPT::Periodic::Verbose "1";' > /etc/apt/apt.conf.d/20auto-upgrades
+# sed -i '/"origin=/c\\t' /etc/apt/apt.conf.d/50unattended-upgrades
+# sed -i '/new stable)./c\\t"o=*"' /etc/apt/apt.conf.d/50unattended-upgrades
+# sed -i '/Unattended-Upgrade::Remove-New-Unused-Dependencies/c\Unattended-Upgrade::Remove-New-Unused-Dependencies "true";' /etc/apt/apt.conf.d/50unattended-upgrades
+# sed -i '/Unattended-Upgrade::Remove-Unused-Kernel-Packages/c\Unattended-Upgrade::Remove-Unused-Kernel-Packages "true";' /etc/apt/apt.conf.d/50unattended-upgrades
+# sed -i '/Unattended-Upgrade::Remove-Unused-Dependencies "/c\Unattended-Upgrade::Remove-Unused-Dependencies "true";' /etc/apt/apt.conf.d/50unattended-upgrades
+# sed -i '/Unattended-Upgrade::Automatic-Reboot-WithUsers "/c\Unattended-Upgrade::Automatic-Reboot-WithUsers "true";' /etc/apt/apt.conf.d/50unattended-upgrades
+# sed -i '/Unattended-Upgrade::Automatic-Reboot "/c\Unattended-Upgrade::Automatic-Reboot "true";' /etc/apt/apt.conf.d/50unattended-upgrades
+# sed -i '/Unattended-Upgrade::Automatic-Reboot-Time/c\Unattended-Upgrade::Automatic-Reboot-Time "01:00";' /etc/apt/apt.conf.d/50unattended-upgrades
+# echo '... done.'
+
+# sudo mkdir -p /root/.ssh
+# sudo chmod 700 /root/.ssh
+# sudo touch /root/.ssh/authorized_keys
+# sudo chmod 600 /root/.ssh/authorized_keys
+# sudo grep -qxF 'ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAngRc7vefUjzk2k6noOtBlhAzROXTAxG31mwuMXF2/qM8O795WMBHdPndW/5M7Zxk06waqPDDfsjRNj/Zmhfq62kFdTeUP+4WZlo6SZ6v3xVthhf+WQjEDejsVkRoilZIyyA3dxzbLJZzK0RE/sJ8kbIZ1yb+a8sAI6OSUWvIhhfKyfIilNbATuctXKnZRaQVPKHbsCWhS/BYgpVRJmm6TCtjmEnUZGl1+liio4hvlgaXxsZH5Mi2/+1BcKj/5+OQqq8gM2SNDO/vnfRJLTE9yUrvtvUJUJ6XLWnHVigIjZJK/prdzY/N7dHuUVKVV3NsbdhNgzb4N8hsdzRsiGp7Pw== bmilcs' /root/.ssh/authorized_keys || echo 'ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAngRc7vefUjzk2k6noOtBlhAzROXTAxG31mwuMXF2/qM8O795WMBHdPndW/5M7Zxk06waqPDDfsjRNj/Zmhfq62kFdTeUP+4WZlo6SZ6v3xVthhf+WQjEDejsVkRoilZIyyA3dxzbLJZzK0RE/sJ8kbIZ1yb+a8sAI6OSUWvIhhfKyfIilNbATuctXKnZRaQVPKHbsCWhS/BYgpVRJmm6TCtjmEnUZGl1+liio4hvlgaXxsZH5Mi2/+1BcKj/5+OQqq8gM2SNDO/vnfRJLTE9yUrvtvUJUJ6XLWnHVigIjZJK/prdzY/N7dHuUVKVV3NsbdhNgzb4N8hsdzRsiGp7Pw== bmilcs' >> /root/.ssh/authorized_keys
