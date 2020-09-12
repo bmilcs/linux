@@ -17,7 +17,14 @@ fi
 
 #user name input
 echo "user name?"
-read -e -i "" ${SUDO_USER:-$USER} -p varUSER
+read -e -i ${SUDO_USER:-$USER} -p varUSER
+
+if id "$varUSER" >/dev/null 2>&1; then
+        echo && echo "... name checks out :)"
+else
+        echo "user does not exist"
+				exit 1
+fi
 
 # remove ROOT ssh access
 sed -i '/PermitRootLogin/c\PermitRootLogin no' /etc/ssh/sshd_config
