@@ -18,7 +18,7 @@ sudo grep -qxF '#initialize bmilcs dot files' /etc/bash.bashrc || printf "\n\n#i
 
 
 # ls - group dot files
-sudo grep -qxF 'export LC_COLLATE=' /etc/bash.bashrc || printf "\n\n# group .dotfiles together (ls command)\nexport LC_COLLATE="C"" >> /etc/bash.bashrc
+sudo grep -qxF 'export LC_COLLATE' /etc/bash.bashrc || printf "\n\n# group .dotfiles together (ls command)\nexport LC_COLLATE=\"C\"" >> /etc/bash.bashrc
 #clear
 echo
 echo '====  bmilcs dotfiles refreshed  ===================================================================='
