@@ -59,7 +59,13 @@ echo '... done.' && echo
 
 # custom login notice
 echo '> custom ssh login msg'
-touch /home/$varUSER/.hushlogin # remove bs from ssh login
+sed -i '/#Banner none/c\Banner /etc/banner' /etc/ssh/sshd_config
+sed -i '/PrintMotd/c\PrintMotd no' /etc/ssh/sshd_config
+sed -i '/PrintLastLog/c\PrintLastLog no' /etc/ssh/sshd_config
+session    optional     pam_motd.so
+
+
+
 sed -i '/#Banner none/c\Banner /etc/banner' /etc/ssh/sshd_config
 touch /etc/banner # create custom banner config
 echo > /etc/banner # clear if exists
