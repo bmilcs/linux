@@ -2,7 +2,7 @@ function mkd() {
 	mkdir -p "$@" && cd "$_";
 }
 
-function ai() {
+function apti() {
 	sudo apt-get install $@ -y
 }
 
