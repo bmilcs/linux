@@ -20,7 +20,7 @@ function ar() {
 	sudo apt-get purge $@ -y
 }
 
-function aif() {
+function aptf() {
 	dpkg --get-selections | grep $@
 }
 
