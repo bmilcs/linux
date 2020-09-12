@@ -38,8 +38,10 @@ alias ....="cd ../../.. && c && l"
 		sudo mkdir /etc/bmilcs
 		sudo git clone https://github.com/bmilcs/linux.git /etc/bmilcs
 		sudo chmod -R +x /etc/bmilcs
-		sudo source /etc/bmilcs/dotfiles/install.sh
-		sudo source /etc/.bashrc
+		cd /etc/bmilcs/dotfiles/
+		sudo ./install.sh
+		cd /etc
+		source .bashrc
 		cd "$odir"
 		'
 	alias mine="/opt/minecraft/tools/mcrcon/mcrcon -H 127.0.0.1 -P 25575 -p nFkA_vKG8FTP2v@K9YdPA6utw -t"
