@@ -17,7 +17,7 @@ fi
 
 #user name input
 echo "user name?"
-read -e -i ${SUDO_USER:-$USER} -p varUSER
+read -e -i ${SUDO_USER:-$USER} varUSER
 
 if id "$varUSER" >/dev/null 2>&1; then
         echo && echo "... name checks out :)"
