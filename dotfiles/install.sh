@@ -12,13 +12,13 @@ bmDir=$(pwd)
 #     ln -s $PWD/$file ~/$file
 # done
 # add source loop for new files
-sudo grep -qxF '#initialize bmilcs dot files' /etc/bash.bashrc || printf "\n#initialize bmilcs dot files\nfor bmfile in ~/.bm/dotfiles/.bm*\ndo\n\tsource \"\$bmfile\"\ndone" >> /etc/bash.bashrc
+sudo grep -qxF '#initialize bmilcs dot files' ~/.bashrc || printf "\n#initialize bmilcs dot files\nfor bmfile in ~/.bm/dotfiles/.bm*\ndo\n\tsource \"\$bmfile\"\ndone" >> ~/.bashrc
 
 # dircolors import (arctic)
 
 
 # ls - group dot files
-sudo grep -qxF '#group dotfiles together ls command' /etc/bash.bashrc || printf "\n#group dotfiles together ls command\nexport LC_COLLATE=\"C\"" >> /etc/bash.bashrc
+sudo grep -qxF '#group dotfiles together ls command' ~/.bashrc || printf "\n#group dotfiles together ls command\nexport LC_COLLATE=\"C\"" >> ~/.bashrc
 #clear
 echo
 echo '====  bmilcs dotfiles refreshed  ===================================================================='
