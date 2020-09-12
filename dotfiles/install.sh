@@ -15,7 +15,7 @@ bmDir=$(pwd)
 sudo grep -qxF '#initialize bmilcs dot files' ~/.bashrc || printf "\n#initialize bmilcs dot files\nfor bmfile in ~/.bm/dotfiles/.bm*\ndo\n\tsource \"\$bmfile\"\ndone" >> ~/.bashrc
 
 # dircolors import (arctic)
-
+eval "$(dircolors ~/.bm/dotfiles/.dir_colors)"
 
 # ls - group dot files
 sudo grep -qxF '#group dotfiles together ls command' ~/.bashrc || printf "\n#group dotfiles together ls command\nexport LC_COLLATE=\"C\"" >> ~/.bashrc
