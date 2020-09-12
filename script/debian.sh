@@ -57,13 +57,12 @@ echo '> crontab autoupdate' && echo
 crontab -l | grep -qF '* * up' || (crontab -l >> ~/cronny && echo '30 1 * * * up' >> ~/cronny && crontab ~/cronny && rm ~/cronny)
 echo '... done.' && echo
 
+# custom login notice
 echo '> custom ssh login msg'
 touch /home/$varUSER/.hushlogin # remove bs from ssh login
 sed -i '/#Banner none/c\Banner /etc/banner' /etc/ssh/sshd_config
-
-# import custom banner text
-touch /etc/banner
-echo > /etc/banner
+touch /etc/banner # create custom banner config
+echo > /etc/banner # clear if exists
 printf "%s" "--- welcome to bmilcs homelab -----------------------" >> /etc/banner
 printf "\n%s" "          host:   " >> /etc/banner
 echo $HOSTNAME "(.bm.bmilcs.com)" >> /etc/banner
@@ -77,8 +76,9 @@ wan="${wan#\"}"
 printf "%s" "           wan:   " >> /etc/banner
 echo $wan >> /etc/banner
 printf "%s\n\n" "-----------------------------------------------------" >> /etc/banner
-echo '... done.'
-echo 
+echo '... done.' && echo 
+
+# change uid & gid if bmilcs
 echo "> " $varUSER " uid & gid check"
 bmUID=$(id -u bmilcs)
 bmGID=$(id -g bmilcs)
@@ -100,13 +100,12 @@ else
 	checkUser $varUSER                                                         
 	ret_val=$?                                                              
 	if [ $ret_val -eq 0 ]; then                                                     
-		echo "ERROR! "$varUSER " is logged in."                                                   
+		echo "ERROR! "$varUSER " is logged in."
 		echo && echo "====================================================================================================="
 		echo "====  root login enabled temporarily - ssh back in as root  ========================================="
 		echo "=====================================================================================================" && echo
 		sed -i '/PermitRootLogin/c\PermitRootLogin yes' /etc/ssh/sshd_config
 		sudo /etc/init.d/sshd restart
-		# grep -qxF 'PermitRootLogin yes' /etc/ssh/sshd_config || echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
 		exit 0                                                                  
 	else                                                                            
 		sudo usermod -u 1086 bmilcs
