@@ -12,7 +12,7 @@ cd /etc/bmilcs/dotfiles
 #     ln -s $PWD/$file ~/$file
 # done
 # add source loop for new files
-sudo grep -qxF '#initialize bmilcs dot files' /etc/bash.bashrc || printf "\n\n#initialize bmilcs dot files\nfor bmfile in /etc/bmilcs/dotfiles/.bm*\ndo\n\tsource \"\$bmfile\"\ndone\n" >> /etc/bash.bashrc
+sudo grep -qxF '#initialize bmilcs dot files' /etc/bash.bashrc || printf "\n\n#initialize bmilcs dot files\nfor bmfile in /etc/bmilcs/dotfiles/.bm*\ndo\n\tsource \"\$bmfile\"\ndone" >> /etc/bash.bashrc
 
 # dircolors import (arctic)
 
