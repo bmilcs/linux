@@ -43,7 +43,6 @@ alias ....="cd ../../.. && c && l"
 		sudo chmod -R +x /etc/bmilcs
 		cd /etc/bmilcs/dotfiles
 		sudo ./install.sh
-		cd /etc/profile.d/bmilcs.sh
 		source bash.bashrc
 		cd "$odir"
 		'
