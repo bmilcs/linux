@@ -36,13 +36,14 @@ alias ....="cd ../../.. && c && l"
 		odir="$PWD"
 		rm -rf ~/_bmilcs ~/.hushlogin ~/.bm_* ~/.dir_colors ~/.hosts ~/*.dtbak
 		cd /etc/
+		sudo rm -rf /etc/profile.d/custom.sh
 		sudo rm -rf /etc/bmilcs
 		sudo mkdir /etc/bmilcs
 		sudo git clone https://github.com/bmilcs/linux.git /etc/bmilcs
 		sudo chmod -R +x /etc/bmilcs
-		cd /etc/bmilcs/dotfiles/
+		cd /etc/bmilcs/dotfiles
 		sudo ./install.sh
-		cd /etc
+		cd /etc/profile.d/bmilcs.sh
 		source bash.bashrc
 		cd "$odir"
 		'
