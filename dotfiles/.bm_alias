@@ -38,14 +38,14 @@ alias ....="cd ../../.. && c && l"
 		sudo rm -rf ~/.bm
 		sudo git clone https://github.com/bmilcs/linux.git ~/.bm
 		sudo chmod -R +x /etc/bmilcs
-		cd /etc/bmilcs/dotfiles
+		cd ~/.bm/dotfiles
 		sudo ./install.sh
 		source /etc/profile.d/bmilcs.sh
 		cd "$odir"
 		'
 	alias mine="/opt/minecraft/tools/mcrcon/mcrcon -H 127.0.0.1 -P 25575 -p nFkA_vKG8FTP2v@K9YdPA6utw -t"
 # debian script
-	alias ideb="sudo /bin/bash /etc/bmilcs/script/debian.sh"
+	alias ideb="sudo /bin/bash ~/.bm/script/debian.sh"
 	alias a="alias | sed 's/=.*//'"
 	alias func="declare -f | grep '^[a-z].* ()' | sed 's/{$//'"
 	alias paths='echo -e ${PATH//:/\\n}'
