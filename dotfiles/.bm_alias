@@ -17,8 +17,8 @@ alias ls='ls --color -lhF --group-directories-first'
 #----  file/dir navigation  ----------------------------------------------------------------------------
 alias c="clear"
 alias l="ls"		   # List in long format
-alias ll="ls -nA"       # List in long format, include dotfiles
-alias ll="ls -A"       # List in long format, include dotfiles
+alias ll="ls -A"       # List in long format, include dotfiles, letter uid
+alias lll="ls -nA"       # List in long format, include dotfiles, numerical uid
 alias lf="ls | grep -v '^d'"	#list files
 alias lg="ls | grep"	#search in dir
 alias lsg="ls | grep" #search in dir
