@@ -127,7 +127,6 @@ else
 		sudo find / -user $bmUID -exec chown -h bmilcs {} \;                    
 	fi
 fi
-echo "... done." && echo
 
 echo '====================================================================================================='
 echo '====  bmilcs debian configuration complete  ========================================================='
