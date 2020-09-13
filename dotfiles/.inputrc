@@ -12,6 +12,10 @@ set show-all-if-ambiguous on
 Tab: menu-complete
 "\e[Z": menu-complete-backward
 
+# test
+set show-all-if-unmodified on
+set menu-complete-display-prefix on
+
 # Filtered history search
 "\e[A": history-search-backward
 "\e[B": history-search-forward
