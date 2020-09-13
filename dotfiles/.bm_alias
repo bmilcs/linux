@@ -36,7 +36,7 @@ alias ....="cd ../../.. && c && l"
 	alias upp='
 		odir="$PWD"
 		cd ~
-		rm -rf ~/.bm_* ~/.dir_colors ~/.bm ~/.bmilcs
+		rm -rf ~/.bm_* ~/.dir_colors ~/.bm ~/.bmilcs ~/_bmilcs
 		git clone https://github.com/bmilcs/linux.git ~/.bmilcs
 		chmod -R +x ~/.bmilcs
 		cd ~/.bmilcs/dotfiles
