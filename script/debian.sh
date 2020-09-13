@@ -68,8 +68,8 @@ echo '... done.' && echo
 # custom login notice
 echo '> custom ssh login msg'
 # remove stock crap
-sed -i '/^HUSHLOGIN_FILE/c\#HUSHLOGIN_FILE .hushlogins' /etc/login.defs
-sed -i '/#HUSHLOGIN_FILE /etc/hushlogins/c\HUSHLOGIN_FILE /etc/hushlogins' /etc/login.defs
+sed -i '/^HUSHLOGIN_FILE \.hushlogins/c\#HUSHLOGIN_FILE .hushlogins' /etc/login.defs
+sed -i '/#HUSHLOGIN_FILE \/etc/c\HUSHLOGIN_FILE /etc/hushlogins' /etc/login.defs
 echo /bin/bash | sudo tee -a /etc/hushlogins
 sed -i '/PrintMotd/c\PrintMotd no' /etc/ssh/sshd_config
 sed -i '/PrintLastLog/c\PrintLastLog no' /etc/ssh/sshd_config
