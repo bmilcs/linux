@@ -6,7 +6,6 @@ cd ~/.bmilcs/dotfiles
 
 case $PWD/ in   */.bmilcs/dotfiles*) echo;;   *) exit 1;; esac
 
-
 for file in $(find . -maxdepth 1 -name ".*" -type f -printf "%f\n" ); do
     if [ -e ~/$file ]; then
         mv -f ~/$file{,.old}
