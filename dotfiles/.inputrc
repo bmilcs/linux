@@ -1,6 +1,9 @@
 # Make Tab autocomplete regardless of filename case
 set completion-ignore-case on
 
+# Word Wrap
+set horizontal-scroll-mode Off
+
 # List all matches in case multiple possible completions are possible
 set show-all-if-ambiguous on
 
@@ -12,3 +15,19 @@ Tab: menu-complete
 # Filtered history search
 "\e[A": history-search-backward
 "\e[B": history-search-forward
+
+
+"\eOd": backward-word
+"\eOc": forward-word
+
+# for linux console
+"\e[1~": beginning-of-line
+"\e[4~": end-of-line
+"\e[5~": beginning-of-history
+"\e[6~": end-of-history
+"\e[3~": delete-char
+"\e[2~": quoted-insert
+
+# for xterm
+"\eOH": beginning-of-line
+"\eOF": end-of-line
