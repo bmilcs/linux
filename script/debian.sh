@@ -61,7 +61,7 @@ echo '... done.' && echo
 
 # crontab auto
 echo '> crontab autoupdate' && echo
-sudo -u $varUSER crontab ~/.bmilcs/dotfiles/other/.crontabs
+sudo -u $varUSER crontab ~/.bmilcs/dotfiles/other/crontab
 # crontab -l | grep -qF '* * up' || (crontab -l >> ~/cronny && echo '30 1 * * * up' >> ~/cronny && crontab ~/cronny && rm ~/cronny)
 echo '... done.' && echo
 
