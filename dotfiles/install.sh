@@ -11,8 +11,9 @@ for file in $(find . -maxdepth 1 -name ".*" -type f -printf "%f\n" ); do
     fi
     ln -s $PWD/$file ~/$file
 done
+
 # add source loop for new files
-sudo grep -qxF '# initialize bmilcs dot files' ~/.bashrc || printf "\n\n#=====================================================================================================\n#====  bmilcs customizations  ========================================================================\n#=====================================================================================================\n\n# initialize bmilcs dot files\nfor bmfile in ~/.bm*\ndo\n\tsource \"\$bmfile\"\ndone" >> ~/.bashrc
+sudo grep -qxF '# initialize bmilcs dot files' ~/.bashrc || printf "\n\n#=====================================================================================================\n#====  bmilcs customizations  ========================================================================\n#=====================================================================================================\n\n# initialize bmilcs dot files\nfor bmfile in ~/.bm_*\ndo\n\tsource \"\$bmfile\"\ndone" >> ~/.bashrc
 
 # dircolors import (arctic)
 sudo grep -qxF '# custom dir colors' ~/.bashrc || printf "\n\n# custom dir colors\neval \"\$(dircolors ~/.bm/dotfiles/.dir_colors)\"" >> ~/.bashrc
