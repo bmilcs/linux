@@ -4,7 +4,7 @@
 bmDir=$(pwd)
 
 # symlink all dotfiles from repo
-cd ~/.bm/dotfiles
+cd ~/.bm/dotfilesbmilcs - 20-09-12 (21:11)
 for file in $(find . -maxdepth 1 -name ".*" -type f -printf "%f\n" ); do
     if [ -e ~/$file ]; then
         mv -f ~/$file{,.dtbak}
@@ -12,7 +12,7 @@ for file in $(find . -maxdepth 1 -name ".*" -type f -printf "%f\n" ); do
     ln -s $PWD/$file ~/$file
 done
 # add source loop for new files
-sudo grep -qxF '# initialize bmilcs dot files' ~/.bashrc || printf "\n\n#=====================================================================================================\n#====  bmilcs customizations  ========================================================================\n#=====================================================================================================\n\n# initialize bmilcs dot files\nfor bmfile in ~/.bm*\ndo\n\tsource \"\$bmfile\"\ndone" >> ~/.bashrc
+sudo grep -qxF '# initialize bmilcs dot files' ~/.bashrc || printf "\n\n#=====================================================================================================\n#====  bmilcs customizations  ========================================================================\n#=====================================================================================================\n\n# initialize bmilcs dot files\nfor bmfile in ~/.bm_*\ndo\n\tsource \"\$bmfile\"\ndone" >> ~/.bashrc
 
 # dircolors import (arctic)
 sudo grep -qxF '# custom dir colors' ~/.bashrc || printf "\n\n# custom dir colors\neval \"\$(dircolors ~/.bm/dotfiles/.dir_colors)\"" >> ~/.bashrc
