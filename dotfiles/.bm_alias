@@ -36,18 +36,17 @@ alias ....="cd ../../.. && c && l"
 	alias upp='
 		odir="$PWD"
 		cd ~
-		rm -rf ~/_bmilcs ~/.bm ~/.bm_* ~/.dir_colors ~/.hosts 
-		rm -rf ~/.bm
-		git clone https://github.com/bmilcs/linux.git ~/.bm
-		chmod -R +x ~/.bm
-		cd ~/.bm/dotfiles
+		rm -rf ~/.bm_* ~/.dir_colors ~/.bm ~/.bmilcs
+		git clone https://github.com/bmilcs/linux.git ~/.bmilcs
+		chmod -R +x ~/.bmilcs
+		cd ~/.bmilcs/dotfiles
 		./install.sh
 		source ~/.bashrc
 		cd "$odir"
 		'
 	alias mine="/opt/minecraft/tools/mcrcon/mcrcon -H 127.0.0.1 -P 25575 -p nFkA_vKG8FTP2v@K9YdPA6utw -t"
 # debian script
-	alias ideb="sudo /bin/bash ~/.bm/script/debian.sh"
+	alias ideb="sudo /bin/bash ~/.bmilcs/script/debian.sh"
 	alias a="alias | sed 's/=.*//'"
 	alias func="declare -f | grep '^[a-z].* ()' | sed 's/{$//'"
 	alias paths='echo -e ${PATH//:/\\n}'

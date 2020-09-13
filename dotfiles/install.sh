@@ -4,8 +4,8 @@
 bmDir=$(pwd)
 
 # symlink all dotfiles from repo
-cd ~/.bm/dotfiles
-for file in $(find . -maxdepth 1 -name ".*" -type f -printf "%f\n" ); do
+cd ~/.bmilcs/dotfiles
+for file in $(find . -path '~/.bmilcs/dotfiles/*' -maxdepth 1 -name ".*" -type f -printf "%f\n" ); do
     if [ -e ~/$file ]; then
         mv -f ~/$file{,.dtbak}
     fi
