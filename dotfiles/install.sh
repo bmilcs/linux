@@ -12,14 +12,14 @@ case $PWD/ in   */.bmilcs/dotfiles*) echo;;   *) exit 1;; esac
 
 for file in $(find . -maxdepth 1 -name ".*" -type f -printf "%f\n" ); do
     if [ -e ~/$file ]; then
-        mv -f ~/$file{,.dtbak}
+        mv -f ~/$file{,.old}
     fi
     ln -s $PWD/$file ~/$file
 done
 # add source loop for new files
-sudo grep -qxF '# initialize bmilcs dot files' ~/.bashrc || printf "\n\n#=====================================================================================================\n#====  bmilcs customizations  ========================================================================\n#=====================================================================================================\n\n# initialize bmilcs dot files\nfor bmfile in ~/.bmilcs/dotfiles/.bm_*\ndo\n\tsource \"\$bmfile\"\ndone" >> ~/.bashrc
+sudo grep -qxF '# initialize bmilcs dot files' ~/.bashrc || printf "\n\n#=====================================================================================================\n#====  bmilcs customizations  ========================================================================\n#=====================================================================================================\n\n# initialize bmilcs dot files\nfor bmfile in ~/.bm_*\ndo\n\tsource \"\$bmfile\"\ndone" >> ~/.bashrc
 
-sudo grep -qxF 'for bmfile in' ~/.bashrc || printf "for bmfile in ~/.bmilcs/dotfiles/.bm_*" >> ~/.bashrc
+sudo grep -qxF 'for bmfile in' ~/.bashrc || printf "for bmfile in ~/.bm_*" >> ~/.bashrc
 
 # dircolors import (arctic)
 sudo grep -qxF '# custom dir colors' ~/.bashrc || printf "\n\n# custom dir colors\neval \"\$(dircolors ~/.bmilcs/dotfiles/.dir_colors)\"" >> ~/.bashrc
