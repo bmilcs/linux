@@ -20,6 +20,8 @@ sed -i '/for bmfile in/c\for bmfile in ~/.bm_*' ~/.bashrc
 # dircolors import (arctic)
 sudo grep -qxF '# custom dir colors' ~/.bashrc || printf "\n\n# custom dir colors\neval \"\$(dircolors ~/.dir_colors)\"" >> ~/.bashrc
 
+sed -i '/eval \"\$(dircolors/c\eval "$(dircolors ~/.dir_colors)"' ~/.bashrc
+
 # ls - group dot files
 sudo grep -qxF '# ls > group dotfiles together' ~/.bashrc || printf "\n\n# ls > group dotfiles together\nexport LC_COLLATE=\"C\"" >> ~/.bashrc
 
