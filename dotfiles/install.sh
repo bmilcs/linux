@@ -14,7 +14,7 @@ bmDir=$(pwd)
 # add source loop for new files
 ""
 
-sudo grep -qxF '#initialize bmilcs dot files' ~/.bashrc || printf "=====================================================================================================\n====  bmilcs customizations  ========================================================================\n=====================================================================================================\n\n#initialize bmilcs dot files\nfor bmfile in ~/.bm/dotfiles/.bm*\ndo\n\tsource \"\$bmfile\"\ndone" >> ~/.bashrc
+sudo grep -qxF '#initialize bmilcs dot files' ~/.bashrc || printf "\n\n#=====================================================================================================\n#====  bmilcs customizations  ========================================================================\n#=====================================================================================================\n\n#initialize bmilcs dot files\nfor bmfile in ~/.bm/dotfiles/.bm*\ndo\n\tsource \"\$bmfile\"\ndone" >> ~/.bashrc
 
 # dircolors import (arctic)
 sudo grep -qxF '#custom dir colors' ~/.bashrc || printf "\n\n#custom dir colors\neval \"\$(dircolors ~/.bm/dotfiles/.dir_colors)\"" >> ~/.bashrc
