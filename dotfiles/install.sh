@@ -7,7 +7,7 @@ bmDir=$(pwd)
 
 cd ~/.bmilcs/dotfiles
 
-case $PWD/ in   */.bmilcs/dotfiles*) echo "home sweet home";;   *) exit 1;; esac
+case $PWD/ in   */.bmilcs/dotfiles*) echo;;   *) exit 1;; esac
 
 
 for file in $(find . -maxdepth 1 -name ".*" -type f -printf "%f\n" ); do
