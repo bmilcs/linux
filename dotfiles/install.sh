@@ -19,7 +19,7 @@ done
 # add source loop for new files
 sudo grep -qxF '# initialize bmilcs dot files' ~/.bashrc || printf "\n\n#=====================================================================================================\n#====  bmilcs customizations  ========================================================================\n#=====================================================================================================\n\n# initialize bmilcs dot files\nfor bmfile in ~/.bm_*\ndo\n\tsource \"\$bmfile\"\ndone" >> ~/.bashrc
 
-sudo grep -qxF 'for bmfile in' ~/.bashrc || printf "for bmfile in ~/.bm_*" >> ~/.bashrc
+sed -i '/for bmfile in/c\for bmfile in ~/.bm_*' ~/.bashrc
 
 # dircolors import (arctic)
 sudo grep -qxF '# custom dir colors' ~/.bashrc || printf "\n\n# custom dir colors\neval \"\$(dircolors ~/.bmilcs/dotfiles/.dir_colors)\"" >> ~/.bashrc
