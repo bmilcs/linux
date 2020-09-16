@@ -31,6 +31,9 @@ alias ...="cd ../.. && c && l"
 alias ....="cd ../../.. && c && l"
 #----  github  -----------------------------------------------------------------------------------------
 alias gitkeys='
+	git config --global user.name bmilcs
+	git config --global user.email bmilcs@yahoo.com
+	git config --global color.ui auto
 	mkdir -m 700 -p ~/.ssh
 	curl -s https://github.com/bmilcs.keys >> ~/.ssh/authorized_keys
   chmod 600 ~/.ssh/authorized_keys
