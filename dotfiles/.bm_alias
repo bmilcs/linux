@@ -32,7 +32,7 @@ alias ....="cd ../../.. && c && l"
 #----  github  -----------------------------------------------------------------------------------------
 alias gitkeys='
 	mkdir -m 700 -p ~/.ssh
-	curl -s https://github.com/"$user".keys >> ~/.ssh/authorized_keys
+	curl -s https://github.com/bmilcs.keys >> ~/.ssh/authorized_keys
   chmod 600 ~/.ssh/authorized_keys
 '
 # scripts & dotfiles
