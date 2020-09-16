@@ -26,6 +26,16 @@ else
 				exit 1
 fi
 
+
+echo "> configure git user"
+bmUID=$(id -u bmilcs) && bmGID=$(id -g bmilcs)
+if [ $bmUID == 1086 ] && [ $varUSER == "bmilcs" ] || [ $varUSER != "bmilcs" ]; then
+	 git config --global user.name bmilcs
+	 git config --global user.email bmilcs@yahoo.com
+	 git config --global color.ui auto
+fi
+
+
 # remove ROOT ssh access
 sed -i '/PermitRootLogin/c\PermitRootLogin no' /etc/ssh/sshd_config
 
@@ -94,10 +104,11 @@ printf "%s" "           wan:   " >> /etc/banner
 echo $wan >> /etc/banner
 printf "%s\n\n" "-----------------------------------------------------" >> /etc/banner
 echo '... done.' && echo 
+# configure git user
+
 
 # change uid & gid if bmilcs
 echo "> " $varUSER " uid & gid check"
-bmUID=$(id -u bmilcs) && bmGID=$(id -g bmilcs)
 if [ $bmUID == 1086 ] && [ $varUSER == "bmilcs" ] || [ $varUSER != "bmilcs" ]; then
 	echo '... cheers! uid/pid is fine!'
 else
