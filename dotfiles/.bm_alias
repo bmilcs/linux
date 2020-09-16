@@ -44,8 +44,6 @@ alias ....="cd ../../.. && c && l"
 		source ~/.bashrc
 		cd "$odir"
 		'
-	alias mine="/opt/minecraft/tools/mcrcon/mcrcon -H 127.0.0.1 -P 25575 -p nFkA_vKG8FTP2v@K9YdPA6utw -t"
-# debian script
 	alias ideb="sudo /bin/bash ~/.bmilcs/script/debian.sh"
 	alias a="alias | sed 's/=.*//'"
 	alias func="declare -f | grep '^[a-z].* ()' | sed 's/{$//'"
@@ -55,6 +53,10 @@ alias ....="cd ../../.. && c && l"
 	alias nfsr='sudo systemctl restart nfs-kernel-server'
   alias fstab='sudo nano /etc/fstab'
 	alias fstest='sudo findmnt --verify --verbose'
+
+	
+	alias mine="/opt/minecraft/tools/mcrcon/mcrcon -H 127.0.0.1 -P 25575 -p nFkA_vKG8FTP2v@K9YdPA6utw -t"
+
 	alias infs='
 		sudo apt install nfs-kernel-server 
 		echo && echo "====================================================================================================="
