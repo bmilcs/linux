@@ -6,6 +6,10 @@ function apti() {
 	sudo apt-get install $@ -y
 }
 
+function dexec(){
+	docker exec -ti $@ sh	
+}
+
 function fdrun() {
 	if [ "$HOSTNAME" = docker ]; then
 		echo && echo "----  docker1: www & doc content  ---------------------------------------------------------------------" && echo && cd /tmp && rm -rf /tmp/docker && git clone git@github.com:bmilcs/docker.git /tmp/docker && cd /tmp/docker && rm -f ~/docker/docker-compose.yaml ~/docker/.env && cp 1docker-compose.yaml .env ~/docker/ && cd ~/dockerl && mv 1docker-compose.yaml docker-compose.yaml && docker-compose up -d --remove-orphans

@@ -158,7 +158,7 @@ alias gitkeys='
 # letsencrypt restart
 	alias le="docker restart letsencrypt && docker logs -f letsencrypt"
 #----  docker  -----------------------------------------------------------------------------------------
-	alias dexec='docker exec -ti'
+	# alias dexec is now function
 	alias docps='docker ps -a'
 	alias ddf='docker system df'
 	# # STACK UP AND DOWN
