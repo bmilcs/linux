@@ -156,7 +156,7 @@ alias gitkeys='
 	alias dps='docker ps -a'
 	alias dnet='docker network ls'
 # letsencrypt restart
-	alias le="docker restart letsencrypt && docker logs -f letsencrypt"
+	alias le="docker restart swag && docker logs -f swag"
 #----  docker  -----------------------------------------------------------------------------------------
 	# alias dexec is now function
 	alias docps='docker ps -a'
