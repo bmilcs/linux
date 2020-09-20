@@ -29,9 +29,8 @@ function aptf() {
 	dpkg --get-selections | grep $@
 }
 
-function apts() {
-	systemctl status $@re
-}
+function apts() {	systemctl status $@re; }
+
 
 function myip() {
 	printf "\n%s" "          host:   "
