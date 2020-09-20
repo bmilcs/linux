@@ -118,14 +118,15 @@ alias gitkeys='
 	alias dstop='docker stop $(docker ps -a -q)'
 # remove nfs share volumes
 	alias dvol='
+		docker volume remove docker_audiobooks
+		docker volume remove docker_cloud
 		docker volume remove docker_dl
+		docker volume remove docker_dltor
 		docker volume remove docker_movies
 		docker volume remove docker_music
 		docker volume remove docker_plexlog
 		docker volume remove docker_podcasts
 		docker volume remove docker_tv
-		docker volume remove docker_audiobooks
-		docker volume remove docker_cloud
 		'
 # remove: containers | volumes
 	alias dnew='
