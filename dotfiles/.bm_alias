@@ -64,18 +64,14 @@ alias gitkeys='
 	alias nfsr='sudo systemctl restart nfs-kernel-server'
   alias fstab='sudo nano /etc/fstab'
 	alias fstest='sudo findmnt --verify --verbose'
-
-
 	alias mine="/opt/minecraft/tools/mcrcon/mcrcon -H 127.0.0.1 -P 25575 -p nFkA_vKG8FTP2v@K9YdPA6utw -t"
-
 	alias infs='
 		sudo apt install nfs-kernel-server 
 		echo && echo "====================================================================================================="
 		echo "====  bmilcs: nfs instructions  ====================================================================="  && necho "=====================================================================================================" && echo
 		echo "sudo nano /etc/exports"
 		echo "#path/to/dir          10.0.0.0/8(ro,sync)\"
-		echo "-----------------------------------------------------------------------------------------------------"
-		'
+		echo "-----------------------------------------------------------------------------------------------------"'
 	alias ismb='
 		sudo apt install samba
 		echo && echo "====================================================================================================="
@@ -92,8 +88,7 @@ alias gitkeys='
 		echo "#         read only = no"
 		echo "#         guest ok = no"
 		echo "#         valid users = bmilcs"
-		echo "-----------------------------------------------------------------------------------------------------"
-		'
+		echo "-----------------------------------------------------------------------------------------------------"		'
 	alias smb='sudo nano /etc/samba/smb.conf'
 #----  network  ----------------------------------------------------------------------------------------
 	alias up='
