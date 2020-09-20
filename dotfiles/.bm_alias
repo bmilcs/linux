@@ -144,14 +144,17 @@ alias gitkeys='
 	alias dlogg='cd /nas/docker ; docker-compose -f /nas/docker/docker-compose-t2-vpn.yml logs -tf --tail="50"'
 # run docker-compose (github)
 	alias drun1='cd /tmp && rm -rf /tmp/docker && git clone git@github.com:bmilcs/docker.git /tmp/docker && cd /tmp/docker && rm -f ~/docker/docker-compose.yaml ~/docker/.env && cp 1docker-compose.yaml .env ~/docker/ && cd ~/docker && mv 1docker-compose.yaml docker-compose.yaml &&  docker-compose up -d --remove-orphans'
-	alias drun2='cd /tmp && rm -rf /tmp/docker && git clone git@github.com:bmilcs/docker.git /tmp/docker && cd /tmp/docker && rm -f ~/docker/docker-compose.yaml ~/docker/.env && cp 2docker-compose.yaml .env ~/docker/ && cd ~/docker && mv 2docker-compose.yaml docker-compose.yaml &&  docker-compose up -d --remove-orphans'
 # list all dockers
-	alias dps='docker ps -a'
+	alias dps='docker ps -a --format "table {{.ID}}\t{{.Names}}\t{{.CreatedAt}}" | (read -r; printf "%s\n" "$REPLY"; sort -k 2  )'
 	alias dnet='docker network ls'
 # letsencrypt restart
 	alias le="docker restart swag && docker logs -f swag"
 #----  docker  -----------------------------------------------------------------------------------------
 	alias ddf='docker system df'
+
+
+#----  old  --------------------------------------------------------------------------------------------
+	# alias drun2='cd /tmp && rm -rf /tmp/docker && git clone git@github.com:bmilcs/docker.git /tmp/docker && cd /tmp/docker && rm -f ~/docker/docker-compose.yaml ~/docker/.env && cp 2docker-compose.yaml .env ~/docker/ && cd ~/docker && mv 2docker-compose.yaml docker-compose.yaml &&  docker-compose up -d --remove-orphans'
 	# alias dnet='cd ~/docker ; docker network create ; dcrec1 plexms ; dcup1 ; dcup1v'	
 	# # STACK UP AND DOWN
 	# alias dc1down='cd /nas/docker ; dcdown1v ; dcdown1'
