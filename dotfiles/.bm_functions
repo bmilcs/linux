@@ -7,7 +7,7 @@ function apti() {
 }
 
 function dexec(){
-	complete -F _docker docker exec -ti $@ sh	
+	complete -F _docker exec -ti $@ sh	
 }
 
 function fdrun() {
