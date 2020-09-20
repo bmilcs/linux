@@ -15,8 +15,8 @@ alias ls='echo -e ${RED}$PWD && ls --color -lhF --group-directories-first'
 #----  file/dir navigation  ----------------------------------------------------------------------------
 alias c="clear"
 alias l="ls"		   # List in long format
-alias ll="ls -A"       # List in long format, include dotfiles, letter uid
-alias lll="ls -nA"       # List in long format, include dotfiles, numerical uid
+alias ll="ls -nA"       # List in long format, include dotfiles, letter uid
+alias lll="ls -A"       # List in long format, include dotfiles, numerical uid
 alias lf="ls | grep -v '^d'"	#list files
 alias lg="ls | grep"	#search in dir
 alias lsg="ls | grep" #search in dir
@@ -146,7 +146,6 @@ alias gitkeys='
 		drmi
 		dvol
 		'
-# alias dnet='cd ~/docker ; docker network create ; dcrec1 plexms ; dcup1 ; dcup1v'
 # docker logs
 	alias dlogg='cd /nas/docker ; docker-compose -f /nas/docker/docker-compose-t2-vpn.yml logs -tf --tail="50"'
 # run docker-compose (github)
@@ -158,9 +157,8 @@ alias gitkeys='
 # letsencrypt restart
 	alias le="docker restart swag && docker logs -f swag"
 #----  docker  -----------------------------------------------------------------------------------------
-	# alias dexec is now function
-	alias docps='docker ps -a'
 	alias ddf='docker system df'
+	# alias dnet='cd ~/docker ; docker network create ; dcrec1 plexms ; dcup1 ; dcup1v'	
 	# # STACK UP AND DOWN
 	# alias dc1down='cd /nas/docker ; dcdown1v ; dcdown1'
 	# alias dc1up='cd /nas/docker ; docker network create traefik_proxy ; dcrec1 plexms ; dcup1 ; dcup1v'
