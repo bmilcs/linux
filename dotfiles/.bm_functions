@@ -1,25 +1,30 @@
-function mkdr() {
+#=====================================================================================================
+#====  bmilcs functions  =============================================================================
+#=====================================================================================================
+
+function mkdir() {
 	mkdir -p "$@" && cd "$_";
-}
+	}
 
 function apti() {
 	sudo apt-get install $@ -y
-}
+	}
 
 function dexec() { 
 	docker exec -ti --priveledged $@ sh
-}
+	}
 
 function aptr() {
 	sudo apt-get purge $@ -y
-}
+	}
 
 function aptf() {
 	dpkg --get-selections | grep $@
-}
+	}
 
-function apts() {	systemctl status $@; }
-
+function apts() {	
+	systemctl status $@; 
+	}
 
 function myip() {
 	printf "\n%s" "          host:   "
@@ -32,16 +37,16 @@ function myip() {
 	wan="${wan%\"}"
 	wan="${wan#\"}"
 	printf "%s\n\n" "           wan:   $wan " 
-}
+	}
 
 function ddel() {
 	docker stop $(docker ps -a -q)
 	docker rm $(docker ps -a -q)
-}
+	}
 
 function dlog () {
 	docker logs -f $@
-}
+	}
 
 
 
