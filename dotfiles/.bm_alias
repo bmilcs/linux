@@ -1,10 +1,7 @@
 # ======================================================================================================
 # ===  bmilcs: aliases  ================================================================================
 # ======================================================================================================
-
-# odir="$PWD" && sudo apt install git && rm -rf ~/_bmilcs ~/.bm* ~/.inputr* && cd ~ && mkdir _bmilcs && git clone https://github.com/bmilcs/linux.git ~/_bmilcs && cd ~/_bmilcs && chmod -R +x * && cd dotfiles && ./install.sh && source ~/bash.bashrc && cd "$odir"
-# call docker autocomplete for alias
-_completion_loader docker;
+# rm -rf ~/_bmilcs ~/.bm* ~/.dir_colors ~/.hosts && rm -rf ~/.bm && git clone https://github.com/bmilcs/linux.git ~/.bmilcs && chmod -R +x ~/.bmilcs && cd ~/.bmilcs/dotfiles &&	./install.sh &&	source ~/.bashrc
 #----  stock overwrite  --------------------------------------------------------------------------------
 alias mv='mv -i'	#confirmation
 alias cp='cp -i'	#confirmation
