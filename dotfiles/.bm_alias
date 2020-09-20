@@ -144,6 +144,9 @@ alias gitkeys='
 	alias dlogg='docker-compose -f ~/docker/docker-compose.yaml logs -tf --tail="50"'
 # run docker-compose (github)
 	alias dcr='cd /tmp && rm -rf /tmp/docker && git clone git@github.com:bmilcs/docker.git /tmp/docker && cd /tmp/docker && rm -f ~/docker/docker-compose.yaml ~/docker/.env && cp 1docker-compose.yaml .env ~/docker/ && cd ~/docker && mv 1docker-compose.yaml docker-compose.yaml &&  docker-compose up -d --remove-orphans'
+	alias dcs="docker-compose stop"
+	alias dcre="docker-compose restart"
+	alias dcd="docker-compose down"
 # list all dockers
 	alias dps='docker ps -a --format "table {{.ID}}\t{{.Names}}\t{{.Status}}" | (read -r; printf "%s\n" "$REPLY"; sort -k 2  )'
 	alias dnet='docker network ls'
