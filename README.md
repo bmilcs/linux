@@ -85,15 +85,11 @@ Cron time string 	| Description
             interfaces = 192.168.1.0/24 eth0
             hosts allow = 127.0.0.1/8 192.168.1.0/24
 
-
-
 # increase partition size / expand hard drive of vm
-
 
 - fix command not found
       PATH="/sbin:$PATH"
       
-
 - list partitions
 
       $ fdisk -l
