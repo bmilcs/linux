@@ -1,0 +1,30 @@
+# ======================================================================================================
+# ===  bmilcs: aliases  ================================================================================
+# ======================================================================================================
+# rm -rf ~/_bmilcs ~/.bm* ~/.dir_colors ~/.hosts && rm -rf ~/.bm && git clone https://github.com/bmilcs/linux.git ~/.bmilcs && chmod -R +x ~/.bmilcs && cd ~/.bmilcs>
+#----  stock overwrite  --------------------------------------------------------------------------------
+alias mv='mv -i'#confirmation
+alias cp='cp -i'#confirmation
+alias ln='ln -i'#confirmation
+alias grep='grep'# color
+alias apt-get="sudo apt-get --yes"# auto sudo
+alias apt="sudo apt --yes"# auto sudo
+alias wget='wget -c'# autoresume
+alias ls='ls -lhF'
+#----  file/dir navigation  ----------------------------------------------------------------------------
+alias c="clear"
+alias l="ls"   # List in long format
+alias ll="ls -nA"       # List in long format, include dotfiles, letter uid
+alias lll="ls -A"       # List in long format, include dotfiles, numerical uid
+alias lf="ls | grep -v '^d'"#list files
+alias lg="ls | grep"#search in dir
+alias lsg="ls | grep" #search in dir
+alias pid="cat /etc/passwd"
+alias ld="ls -ld */"   # List in long format, only directories
+alias bm="su bmilcs"# only while root
+alias rt="sudo -s"
+alias rd="cd / && c && l"
+alias h="cd ~ && c && l"
+alias ..="cd ..&& c && l"
+alias ...="cd ../.. && c && l"
+alias ....="cd ../../.. && c && l"

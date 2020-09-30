@@ -28,6 +28,8 @@ alias h="cd ~ && c && l"
 alias ..="cd ..&& c && l"
 alias ...="cd ../.. && c && l"
 alias ....="cd ../../.. && c && l"
+# ssh
+alias sshg="ssh-keygen -t rsa -b 4096"
 #----  github  -----------------------------------------------------------------------------------------
 alias gitkeys='
 	git config --global user.name bmilcs
