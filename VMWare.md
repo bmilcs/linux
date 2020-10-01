@@ -2,8 +2,8 @@
 
 ### ISCSI Datastore Missing After Reboot
 
-  esxcli storage vmfs snapshot list
-  esxcfg-volume -M 
+esxcli storage vmfs snapshot list
+ esxcfg-volume -M 
 
 
 ## vCenter Server Appliance
