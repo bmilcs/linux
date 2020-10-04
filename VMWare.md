@@ -1,4 +1,4 @@
-## VMware ESXI
+## ESXI
 
 ### Updating ESXI Hypervisor via SSH
 
@@ -12,7 +12,7 @@
     esxcfg-volume -M 
 
 
-## vCenter Server Appliance
+## vCSA
 
 ### Certificate Generation w/ Private.key
   
