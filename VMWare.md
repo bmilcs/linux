@@ -1,14 +1,20 @@
-## VMware ESXI
+# ESXI
 
-### ISCSI Datastore Missing After Reboot
+### Updating ESXI Hypervisor via SSH
 
-esxcli storage vmfs snapshot list
- esxcfg-volume -M 
+    # update esxi 1-liner
+    esxcli software vib update -d https://hostupdate.vmware.com/software/VUM/PRODUCTION/main/vmw-depot-index.xml
 
 
-## vCenter Server Appliance
+## ISCSI Datastore Missing After Reboot
 
-### Certificate Generation w/ Private.key
+    esxcli storage vmfs snapshot list
+    esxcfg-volume -M 
+
+
+# vCSA
+
+## Certificate Generation w/ Private.key
   
-  /usr/lib/vmware-vmca/bin/certool --initcsr --privkey=priv.key --pubkey=pub.key --csrfile=csr.csr --config=/usr/lib/vmware-vmca/share/config/certool.cfg
+    /usr/lib/vmware-vmca/bin/certool --initcsr --privkey=priv.key --pubkey=pub.key --csrfile=csr.csr --config=/usr/lib/vmware-vmca/share/config/certool.cfg
 
