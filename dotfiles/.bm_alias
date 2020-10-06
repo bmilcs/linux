@@ -19,8 +19,9 @@ alias lll="ls -A"       # List in long format, include dotfiles, numerical uid
 alias lf="ls | grep -v '^d'"	#list files
 alias lg="ls | grep"	#search in dir
 alias lsg="ls | grep" #search in dir
-alias pid="cat /etc/passwd"
 alias ld="ls -ld */"   # List in long format, only directories
+alias lsd="ls -ld */"   # List in long format, only directories
+alias pid="cat /etc/passwd"
 alias bm="su bmilcs"	# only while root
 alias rt="sudo -s"
 alias rd="cd / && c && l"
@@ -151,7 +152,7 @@ alias gitkeys='
 	alias dcre="docker-compose restart"
 	alias dcd="docker-compose down"
 # list all dockers
-	alias dps='docker ps -a --format "table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Publish}}" | (read -r; printf "%s\n" "$REPLY"; sort -k 2  )'
+	alias dps='docker ps -a --format "table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}" | (read -r; printf "%s\n" "$REPLY"; sort -k 2  )'
 	alias dnet='docker network ls'
 # letsencrypt restart
 	alias le="docker restart swag && docker logs -f swag"
