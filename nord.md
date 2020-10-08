@@ -1,4 +1,6 @@
 
+#nord
+
 sample | hex | #hex | sample | hex | #hex
 ---|---|---|---|---|---
 ![#2e3440](https://via.placeholder.com/200/2e3440/000000?text=+) | #2e3440|2e3440 | ![#d8dee9](https://via.placeholder.com/200/d8dee9/000000?text=+) | #d8dee9|d8dee9 
