@@ -29,8 +29,11 @@ alias h="cd ~ && c && l"
 alias ..="cd ..&& c && l"
 alias ...="cd ../.. && c && l"
 alias ....="cd ../../.. && c && l"
-# ssh
 alias sshg="ssh-keygen -t rsa -b 4096"
+#---- services  ----------------------------------------------------------------------------------------
+alias lss="systemctl list-units --type=service --all"
+alias lssa="systemctl list-units --type=service "
+
 #----  github  -----------------------------------------------------------------------------------------
 alias gitkeys='
 	git config --global user.name bmilcs
@@ -158,8 +161,6 @@ alias gitkeys='
 	alias le="docker restart swag && docker logs -f swag"
 #----  docker  -----------------------------------------------------------------------------------------
 	alias ddf='docker system df'
-
-
 #----  old  --------------------------------------------------------------------------------------------
 	# alias drun2='cd /tmp && rm -rf /tmp/docker && git clone git@github.com:bmilcs/docker.git /tmp/docker && cd /tmp/docker && rm -f ~/docker/docker-compose.yaml ~/docker/.env && cp 2docker-compose.yaml .env ~/docker/ && cd ~/docker && mv 2docker-compose.yaml docker-compose.yaml &&  docker-compose up -d --remove-orphans'
 	# alias dnet='cd ~/docker ; docker network create ; dcrec1 plexms ; dcup1 ; dcup1v'	
