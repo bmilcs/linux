@@ -46,8 +46,12 @@ function ddel() {
 
 function dlog () {
 	docker logs -f $@
+	docker-compose -f ~/docker/docker-compose.yaml logs -tf --tail="50" | grep $@
 	}
 
+function dre () {
+	docker restart $@
+}
 
 
 # function drun() {

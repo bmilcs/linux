@@ -11,10 +11,3 @@ sample | hex | #hex | sample | hex | #hex
 ![#88c0d0](https://via.placeholder.com/200/88c0d0/000000?text=+) | #88c0d0|88c0d0 | ![#d08770](https://via.placeholder.com/200/d08770/000000?text=+) | #d08770|d08770  
 ![#2e3440](https://via.placeholder.com/200/81a1c1/000000?text=+) | #81a1c1|81a1c1 | ![#ebcb8b](https://via.placeholder.com/200/ebcb8b/000000?text=+) | #ebcb8b|ebcb8b  
 ![#5e81ac](https://via.placeholder.com/200/5e81ac/000000?text=+) | #5e81ac|5e81ac | ![#a3be8c](https://via.placeholder.com/200/a3be8c/000000?text=+) | #a3be8c|a3be8c 
-
-
-
-
-
-
-
