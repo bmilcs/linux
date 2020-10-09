@@ -51,6 +51,7 @@ function dlog () {
 
 function dre () {
 	docker restart $@
+	docker logs -f $@
 }
 
 
