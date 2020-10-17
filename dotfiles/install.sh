@@ -25,6 +25,11 @@ sed -i '/eval \"\$(dircolors/c\eval "$(dircolors ~/.dir_colors)"' ~/.bashrc
 # ls - group dot files
 sudo grep -qxF '# ls > group dotfiles together' ~/.bashrc || printf "\n\n# ls > group dotfiles together\nexport LC_COLLATE=\"C\"" >> ~/.bashrc
 
+if [$HOSTNAME == "docker"]; then
+    sudo grep -qxF '# docker directory' ~/.bashrc || printf "\n\n# docker directory\nexport DOCKER_HOME=/docker" >> ~/.bashrc
+fi
+
+
 #clear
 echo
 echo '====  bmilcs dotfiles refreshed  ===================================================================='

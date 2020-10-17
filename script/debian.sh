@@ -36,6 +36,9 @@ if [ $bmUID == 1086 ] && [ $varUSER == "bmilcs" ] || [ $varUSER != "bmilcs" ]; t
 fi
 
 
+
+
+
 # remove ROOT ssh access
 sed -i '/PermitRootLogin/c\PermitRootLogin no' /etc/ssh/sshd_config
 
