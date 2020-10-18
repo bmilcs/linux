@@ -48,15 +48,13 @@ alias gitkeys='
 '
 # scripts & dotfiles
 	alias upp='
-		odir="$PWD"
 		cd ~
 		rm -rf ~/.bm_* ~/.dir_colors ~/.bm ~/.bmilcs ~/_bmilcs
 		git clone https://github.com/bmilcs/linux.git ~/.bmilcs
 		chmod -R +x ~/.bmilcs
-		cd ~/.bmilcs/dotfiles
-		./install.sh
+		(cd ~/.bmilcs/dotfiles ; ./install.sh)
 		source ~/.bashrc
-		cd "$odir"
+		cd ~
 		'
 	alias ideb="sudo /bin/bash ~/.bmilcs/script/debian.sh"
 	alias a="alias | sed 's/=.*//'"
