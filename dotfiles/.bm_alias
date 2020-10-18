@@ -109,8 +109,6 @@ alias gitkeys='
 	alias rnet="sudo /etc/init.d/networking restart"
 	alias enet="sudo nano /etc/network/interfaces"
 #----  bmilcs docker  ----------------------------------------------------------------------------------
-# nav to docker volumes
-	alias ddir='cd ~/docker'
 # remove unused: containers | vol | networks | etc
 	alias drmu='docker system prune -a'
 # remove all containers
@@ -119,6 +117,13 @@ alias gitkeys='
 	alias drmi='docker rmi $(docker images -a -q)'
 # stop all containres
 	alias dstop='docker stop $(docker ps -a -q)'
+# clean up docker system
+	alias dcln='
+		docker image prune -a
+		docker container prune
+		docker volume prune
+		docker network prune
+	'
 # remove nfs share volumes
 	alias dvol='
 		docker volume remove docker_audiobooks
