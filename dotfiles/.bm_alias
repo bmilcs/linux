@@ -115,7 +115,12 @@ alias gitkeys='
 # nav to docker volumes
 	alias ddir='cd ~/docker'
 # remove unused: containers | vol | networks | etc
-	alias drmu='docker system prune -a'
+	alias dcl='
+	docker system prune -a
+	docker container prune
+	docker volume prune
+	docker network prune
+	'
 # remove all containers
 	alias drmc='docker rm $(docker ps -a -q)'
 # remove all images
