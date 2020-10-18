@@ -35,12 +35,13 @@ if [ $bmUID == 1086 ] && [ $varUSER == "bmilcs" ] || [ $varUSER != "bmilcs" ]; t
 	 git config --global color.ui auto
 fi
 
+
 # remove ROOT ssh access
 sed -i '/PermitRootLogin/c\PermitRootLogin no' /etc/ssh/sshd_config
 
 # install essentials
-echo && echo "----  apt install: sudo | open-vm-tools | nfs-common | dnsutils | ncdu | htop -----------------------------------" && echo
-apt-get update && apt-get upgrade -y && apt-get dist-upgrade -y && apt-get install sudo ncdu htop open-vm-tools nfs-common dnsutils -y && echo && echo #unattended-upgrades apt-listchanges 
+echo && echo "----  apt install: sudo | open-vm-tools | nfs-common | dnsutils  --------------------------------------" && echo
+apt-get update && apt-get upgrade -y && apt-get dist-upgrade -y && apt-get install sudo open-vm-tools nfs-common dnsutils -y && echo && echo #unattended-upgrades apt-listchanges 
 
 # remove grub pause on boot
 echo '> removing grub pause' && echo
