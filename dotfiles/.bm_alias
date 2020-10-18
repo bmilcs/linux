@@ -33,7 +33,6 @@ alias sshg="ssh-keygen -t rsa -b 4096"
 #---- services  ----------------------------------------------------------------------------------------
 alias lss="systemctl list-units --type=service --all"
 alias lssa="systemctl list-units --type=service "
-
 #----  github  -----------------------------------------------------------------------------------------
 alias gitkeys='
 	git config --global user.name bmilcs
@@ -48,16 +47,14 @@ alias gitkeys='
 '
 # scripts & dotfiles
 	alias upp='
-		odir=$PWD
-		cd ~
-		rm -rf ~/.bm_* ~/.dir_colors ~/.bm ~/.bmilcs ~/_bmilcs
-		git clone https://github.com/bmilcs/linux.git ~/.bmilcs
-		chmod -R +x ~/.bmilcs
-		cd ~/.bmilcs/dotfiles
-		./install.sh
-		source ~/.bashrc
-		cd $odir
-		'
+	cd ~
+	rm -rf ~/.bm_* ~/.dir_colors ~/.bm ~/.bmilcs ~/_bmilcs
+	git clone https://github.com/bmilcs/linux.git ~/.bmilcs
+	chmod -R +x ~/.bmilcs
+	cd ~/.bmilcs/dotfiles
+	./install.sh
+	source ~/.bashrc
+  '
 	alias ideb="sudo /bin/bash ~/.bmilcs/script/debian.sh"
 	alias a="alias | sed 's/=.*//'"
 	alias func="declare -f | grep '^[a-z].* ()' | sed 's/{$//'"

@@ -35,10 +35,6 @@ if [ $bmUID == 1086 ] && [ $varUSER == "bmilcs" ] || [ $varUSER != "bmilcs" ]; t
 	 git config --global color.ui auto
 fi
 
-
-
-
-
 # remove ROOT ssh access
 sed -i '/PermitRootLogin/c\PermitRootLogin no' /etc/ssh/sshd_config
 
