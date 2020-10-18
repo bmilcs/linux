@@ -33,6 +33,7 @@ alias sshg="ssh-keygen -t rsa -b 4096"
 #---- services  ----------------------------------------------------------------------------------------
 alias lss="systemctl list-units --type=service --all"
 alias lssa="systemctl list-units --type=service "
+
 #----  github  -----------------------------------------------------------------------------------------
 alias gitkeys='
 	git config --global user.name bmilcs
@@ -47,14 +48,16 @@ alias gitkeys='
 '
 # scripts & dotfiles
 	alias upp='
-	cd ~
-	rm -rf ~/.bm_* ~/.dir_colors ~/.bm ~/.bmilcs ~/_bmilcs
-	git clone https://github.com/bmilcs/linux.git ~/.bmilcs
-	chmod -R +x ~/.bmilcs
-	cd ~/.bmilcs/dotfiles
-	./install.sh
-	source ~/.bashrc
-  '
+		odir="$PWD"
+		cd ~
+		rm -rf ~/.bm_* ~/.dir_colors ~/.bm ~/.bmilcs ~/_bmilcs
+		git clone https://github.com/bmilcs/linux.git ~/.bmilcs
+		chmod -R +x ~/.bmilcs
+		cd ~/.bmilcs/dotfiles
+		./install.sh
+		source ~/.bashrc
+		cd "$odir"
+		'
 	alias ideb="sudo /bin/bash ~/.bmilcs/script/debian.sh"
 	alias a="alias | sed 's/=.*//'"
 	alias func="declare -f | grep '^[a-z].* ()' | sed 's/{$//'"
@@ -112,12 +115,7 @@ alias gitkeys='
 # nav to docker volumes
 	alias ddir='cd ~/docker'
 # remove unused: containers | vol | networks | etc
-	alias dcl='
-	docker system prune -a
-	docker container prune
-	docker volume prune
-	docker network prune
-	'
+	alias drmu='docker system prune -a'
 # remove all containers
 	alias drmc='docker rm $(docker ps -a -q)'
 # remove all images
