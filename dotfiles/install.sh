@@ -35,6 +35,7 @@ echo '====  bmilcs dotfiles refreshed  =========================================
 echo
 # crontab -l | grep -qF '* * up' || (crontab -l >> ~/cronny && echo '30 1 * * * up' >> ~/cronny && crontab ~/cronny && rm ~/cronny)
 # echo && echo "----  cronjob: auto-update installed  -----------------------------------------------------------------" && echo
+
 cd ~
 
 
