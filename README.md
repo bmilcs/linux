@@ -87,6 +87,22 @@ Cron time string 	| Description
 
 # increase partition size / expand hard drive of vm
 
+# UBUNTU 
+
+# resize the logical volume to use all the existing and free space of the volume group
+
+      lvm
+      lvm> lvextend -l +100%FREE /dev/ubuntu-vg/ubuntu-lv
+      lvm> exit
+
+# resize the file system to use the new available space in the logical volume
+
+      resize2fs /dev/ubuntu-vg/ubuntu-lv
+
+
+
+
+# DEBIAN
 - fix command not found
       PATH="/sbin:$PATH"
       
