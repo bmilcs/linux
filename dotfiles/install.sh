@@ -30,7 +30,7 @@ sudo grep -qxF '# ls > group dotfiles together' ~/.bashrc || printf "\n\n# ls > 
 
 #clear
 echo
-echo -e '====  ${BRED}bmilcs dotfiles refreshed{WHT}  ===================================================================='
+echo -e "====  ${BRED}bmilcs dotfiles refreshed{WHT}  ===================================================================="
 echo
 # crontab -l | grep -qF '* * up' || (crontab -l >> ~/cronny && echo '30 1 * * * up' >> ~/cronny && crontab ~/cronny && rm ~/cronny)
 # echo && echo "----  cronjob: auto-update installed  -----------------------------------------------------------------" && echo
