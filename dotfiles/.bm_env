@@ -1,5 +1,7 @@
 # Autocorrect typos in path names when using `cd`
 shopt -s cdspell
+
+NC='\033[0m'
 BLK='\033[30m'
 BBLK='\033[1;30m'
 RED='\033[31m'
