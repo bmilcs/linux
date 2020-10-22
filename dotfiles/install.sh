@@ -28,13 +28,6 @@ sed -i '/eval \"\$(dircolors/c\eval "$(dircolors ~/.dir_colors)"' ~/.bashrc
 # ls - group dot files
 sudo grep -qxF '# ls > group dotfiles together' ~/.bashrc || printf "\n\n# ls > group dotfiles together\nexport LC_COLLATE=\"C\"" >> ~/.bashrc
 
-if [ $(id -u) -eq 0 ];
-then # ROOT
-  PS1="\[\e[1;30;41m\]    \[\e[1m\]\H  \[\e[m\]\[\e[0;31;40m\]  \u      \[\e[m\]\[\e[1;30m\] \d | \@ | \# | \[\e[31m\]\w\[\e[1;30m\] | \[\e[30m\] \[\e[m\]\n\[\e[1;34m\]//\[\e[m\] "
-else # normal
-  PS1="\[\e[1;30;44m\]    \[\e[1m\]\H  \[\e[m\]\[\e[0;34;40m\]  \u      \[\e[m\]\[\e[1;30m\] \d | \@ | \# | \[\e[34m\]\w\[\e[1;30m\] | \[\e[30m\] \[\e[m\]\n\[\e[1;31m\]//\[\e[m\] "
-fi
-
 #clear
 echo
 echo '====  bmilcs dotfiles refreshed  ===================================================================='
