@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # symlink all dotfiles from repo
+echo -e "${RED}> installing dot files"
 
 cd ~/.bmilcs/dotfiles
 
