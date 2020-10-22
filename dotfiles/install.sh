@@ -13,8 +13,6 @@ for file in $(find . -maxdepth 1 -name ".*" -type f -printf "%f\n" ); do
     ln -s $PWD/$file ~/$file
 done
 
-
-
 # add source loop for new files
 sudo grep -qxF '# initialize bmilcs dot files' ~/.bashrc || printf "\n\n#=====================================================================================================\n#====  bmilcs customizations  ========================================================================\n#=====================================================================================================\n\n# initialize bmilcs dot files\nfor bmfile in ~/.bm_*\ndo\n\tsource \"\$bmfile\"\ndone" >> ~/.bashrc
 
@@ -29,11 +27,7 @@ sed -i '/eval \"\$(dircolors/c\eval "$(dircolors ~/.dir_colors)"' ~/.bashrc
 sudo grep -qxF '# ls > group dotfiles together' ~/.bashrc || printf "\n\n# ls > group dotfiles together\nexport LC_COLLATE=\"C\"" >> ~/.bashrc
 
 #clear
-echo
 echo -e "====  ${RED}bmilcs dotfiles refreshed${NC}  ===================================================================="
-echo
 # crontab -l | grep -qF '* * up' || (crontab -l >> ~/cronny && echo '30 1 * * * up' >> ~/cronny && crontab ~/cronny && rm ~/cronny)
 # echo && echo "----  cronjob: auto-update installed  -----------------------------------------------------------------" && echo
-cd ~
-
 
