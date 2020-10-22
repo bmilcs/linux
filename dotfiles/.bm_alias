@@ -47,7 +47,6 @@ alias gitkeys='
 '
 # scripts & dotfiles
 	alias upp='
-	  echo -e "${BCYN}----  ${BLU}bmilcs.dotfiles installed ${BGRN}successfully${BCYN}  ---------------------------------------------------------" && echo
 	  echo -e "${BCYN}----  ${BLU}bmilcs.dotfiles fresh pull${BCYN} -----------------------------------------------------------------" && echo
 		cd ~
 		rm -rf ~/.bm_* ~/.dir_colors ~/.bm ~/.bmilcs ~/_bmilcs
