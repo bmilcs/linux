@@ -47,7 +47,7 @@ alias gitkeys='
 '
 # scripts & dotfiles
 	alias upp='
-	  echo -e "${CYN}----  ${BLU}bmilcs.dotfiles fresh pull${CYN} ----------------------------------------------------------------------${NC}"
+	  echo -e "${CYN}----  ${BLU}bmilcs.dotfiles fresh pull${CYN} ----------------------------------------------------------------------"
 		cd ~
 		rm -rf ~/.bm_* ~/.dir_colors ~/.bm ~/.bmilcs ~/_bmilcs
 		git clone https://github.com/bmilcs/linux.git ~/.bmilcs
