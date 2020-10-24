@@ -33,6 +33,7 @@ alias sshg="ssh-keygen -t rsa -b 4096"
 #---- services  ----------------------------------------------------------------------------------------
 alias lss="systemctl list-units --type=service --all"
 alias lssa="systemctl list-units --type=service"
+alias lssg="systemctl list-units --type=service --all | grep"
 #----  github  -----------------------------------------------------------------------------------------
 alias gitkeys='
 	git config --global user.name bmilcs
