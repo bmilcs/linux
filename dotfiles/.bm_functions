@@ -2,6 +2,19 @@
 #====  bmilcs functions  =============================================================================
 #=====================================================================================================
 
+# ----  services  ---------------------------------------------------------------------------------------" && echo
+function sstart() {
+	sudo service $@ start
+	}
+function sstop() {
+	sudo service $@ stop
+	}
+function srestart() {
+	sudo service $@ restart
+	}
+function sstatus() {
+	sudo service $@ status
+	}
 function mkdr() {
 	mkdir -p "$@" && cd "$@";
 	}
