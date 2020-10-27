@@ -1,7 +1,7 @@
 # ======================================================================================================
 # ===  bmilcs: aliases  ================================================================================
 # ======================================================================================================
-# rm -rf ~/_bmilcs ~/.bm* ~/.dir_colors ~/.hosts && rm -rf ~/.bm && git clone https://github.com/bmilcs/linux.git ~/.bmilcs && chmod -R +x ~/.bmilcs && cd ~/.bmilcs/dotfiles &&	./install.sh &&	source ~/.bashrc
+#   rm -rf ~/_bmilcs ~/.bm* ~/.dir_colors ~/.hosts && rm -rf ~/.bm && git clone https://github.com/bmilcs/linux.git ~/.bmilcs && chmod -R +x ~/.bmilcs && cd ~/.bmilcs/dotfiles &&	./install.sh &&	source ~/.bashrc
 #----  stock overwrite  --------------------------------------------------------------------------------
 alias mv='mv -i'	#confirmation
 alias cp='cp -i'	#confirmation
@@ -16,16 +16,15 @@ alias c="clear"
 alias l="ls"		   # List in long format
 alias ll="ls -nA"       # List in long format, include dotfiles, letter uid
 alias lll="ls -A"       # List in long format, include dotfiles, numerical uid
-alias lf="ls | grep -v '^d'"	#list files
-alias lg="ls | grep"	#search in dir
+alias lsf="ls | grep -v '^d'"	#list files
 alias lsg="ls | grep" #search in dir
-alias ld="ls -ld */"   # List in long format, only directories
 alias lsd="ls -ld */"   # List in long format, only directories
 alias pid="cat /etc/passwd"
 alias bm="su bmilcs"	# only while root
 alias rt="sudo -s"
 alias rd="cd / && c && l"
 alias h="cd ~ && c && l"
+alias d="cd ~/docker && c && l"
 alias ..="cd ..&& c && l"
 alias ...="cd ../.. && c && l"
 alias ....="cd ../../.. && c && l"
@@ -34,7 +33,6 @@ alias sshg="ssh-keygen -t rsa -b 4096"
 alias sls="sudo systemctl list-units --type=service --all"
 alias slsa="sudo systemctl list-units --type=service"
 alias slsg="sudo systemctl list-units --type=service --all | grep"
-
 #----  github  -----------------------------------------------------------------------------------------
 alias gitkeys='
 	git config --global user.name bmilcs
@@ -45,153 +43,151 @@ alias gitkeys='
   chmod 600 ~/.ssh/authorized_keys
 	eval "$(ssh-agent -s)"
 	echo "> enter github private key as follows:"
-	echo "  ssh-add ~/.ssh/id_github"
-'
+	echo "  ssh-add ~/.ssh/id_github"'
 # scripts & dotfiles
-	alias upp='
-	  echo -e "${CYN}----  ${BLU}bmilcs.dotfiles fresh pull${CYN} ----------------------------------------------------------------------${WHT}\n "
-		cd ~
-		rm -rf ~/.bm_* ~/.dir_colors ~/.bm ~/.bmilcs ~/_bmilcs
-		git clone https://github.com/bmilcs/linux.git ~/.bmilcs
-		chmod -R +x ~/.bmilcs
-		(cd ~/.bmilcs/dotfiles ; ./install.sh)
-		source ~/.bashrc
-		cd ~
-		'
-	alias ideb="sudo /bin/bash ~/.bmilcs/script/debian.sh"
-	alias a="alias | sed 's/=.*//'"
-	alias func="declare -f | grep '^[a-z].* ()' | sed 's/{$//'"
-	alias paths='echo -e ${PATH//:/\\n}'
+alias upp='
+	echo -e "${CYN}----  ${BLU}bmilcs.dotfiles fresh pull${CYN} ----------------------------------------------------------------------${WHT}\n "
+	cd ~
+	rm -rf ~/.bm_* ~/.dir_colors ~/.bm ~/.bmilcs ~/_bmilcs
+	git clone https://github.com/bmilcs/linux.git ~/.bmilcs
+	chmod -R +x ~/.bmilcs
+	(cd ~/.bmilcs/dotfiles ; ./install.sh)
+	source ~/.bashrc
+	cd ~'
+alias ideb="sudo /bin/bash ~/.bmilcs/script/debian.sh"
+alias a="alias | sed 's/=.*//'"
+alias func="declare -f | grep '^[a-z].* ()' | sed 's/{$//'"
+alias paths='echo -e ${PATH//:/\\n}'
 #----  file sharing  -----------------------------------------------------------------------------------
-	alias nfs='sudo nano /etc/exports'
-	alias nfsr='sudo systemctl restart nfs-kernel-server'
-  alias fstab='sudo nano /etc/fstab'
-	alias fstest='sudo findmnt --verify --verbose'
-	alias mine="/opt/minecraft/tools/mcrcon/mcrcon -H 127.0.0.1 -P 25575 -p nFkA_vKG8FTP2v@K9YdPA6utw -t"
-	alias infs='
-		sudo apt install nfs-kernel-server 
-		echo && echo "====================================================================================================="
-		echo "====  bmilcs: nfs instructions  ====================================================================="  && necho "=====================================================================================================" && echo
-		echo "sudo nano /etc/exports"
-		echo "#path/to/dir          10.0.0.0/8(ro,sync)\"
-		echo "-----------------------------------------------------------------------------------------------------"'
-	alias ismb='
-		sudo apt install samba
-		echo && echo "====================================================================================================="
-		echo "====  bmilcs: samba instructions  ==================================================================="
-		echo "=====================================================================================================" && echo
-		echo "sudo nano /etc/samba/smb.conf"
-		echo "#       workgroup = BM"
-		echo "#       interfaces = 192.168.1.0/24 eth0"
-		echo "#       hosts allow = 127.0.0.1/8 192.168.1.0/24"
-		echo "# [docker]"
-		echo "#         comment = docker vm config files"
-		echo "#         path = /home/bmilcs/docker"
-		echo "#         browseable = yes"
-		echo "#         read only = no"
-		echo "#         guest ok = no"
-		echo "#         valid users = bmilcs"
-		echo "-----------------------------------------------------------------------------------------------------"		'
-	alias smb='sudo nano /etc/samba/smb.conf'
+alias nfs='sudo nano /etc/exports'
+alias nfsr='sudo systemctl restart nfs-kernel-server'
+alias fstab='sudo nano /etc/fstab'
+alias fstest='sudo findmnt --verify --verbose'
+alias mine="/opt/minecraft/tools/mcrcon/mcrcon -H 127.0.0.1 -P 25575 -p nFkA_vKG8FTP2v@K9YdPA6utw -t"
+alias infs='
+	sudo apt install nfs-kernel-server 
+	echo && echo "====================================================================================================="
+	echo "====  bmilcs: nfs instructions  ====================================================================="  && necho "=====================================================================================================" && echo
+	echo "sudo nano /etc/exports"
+	echo "#path/to/dir          10.0.0.0/8(ro,sync)\"
+	echo "-----------------------------------------------------------------------------------------------------"'
+alias ismb='
+	sudo apt install samba
+	echo && echo "====================================================================================================="
+	echo "====  bmilcs: samba instructions  ==================================================================="
+	echo "=====================================================================================================" && echo
+	echo "sudo nano /etc/samba/smb.conf"
+	echo "#       workgroup = BM"
+	echo "#       interfaces = 192.168.1.0/24 eth0"
+	echo "#       hosts allow = 127.0.0.1/8 192.168.1.0/24"
+	echo "# [docker]"
+	echo "#         comment = docker vm config files"
+	echo "#         path = /home/bmilcs/docker"
+	echo "#         browseable = yes"
+	echo "#         read only = no"
+	echo "#         guest ok = no"
+	echo "#         valid users = bmilcs"
+	echo "-----------------------------------------------------------------------------------------------------"		'
+alias smb='sudo nano /etc/samba/smb.conf'
 #----  network  ----------------------------------------------------------------------------------------
-	alias up='
-		echo && echo "==================================================================================================="
-		echo "===  bmilcs update script  ========================================================================"
-		echo "==================================================================================================="
-		echo && echo "----  apt-get update  -------------------------------------------------------------------------" && echo
-		sudo apt-get update -y
-		echo && echo "----  apt-get dist-upgrade  -------------------------------------------------------------------" && echo
-		sudo apt-get dist-upgrade -y
-		echo && echo "----  apt-get  autoclean  ---------------------------------------------------------------------" && echo
-		sudo apt-get autoclean -y && 
-		echo && echo "----  apt-get purge  --------------------------------------------------------------------------" && echo
-		sudo apt-get purge -y
-		echo && echo "----  bmilcs linux git  -----------------------------------------------------------------------" && echo
-		upp
-		'
-	alias rnet="sudo /etc/init.d/networking restart"
-	alias enet="sudo nano /etc/network/interfaces"
+alias up='
+	echo && echo "==================================================================================================="
+	echo "===  bmilcs update script  ========================================================================"
+	echo "==================================================================================================="
+	echo && echo "----  apt-get update  -------------------------------------------------------------------------" && echo
+	sudo apt-get update -y
+	echo && echo "----  apt-get dist-upgrade  -------------------------------------------------------------------" && echo
+	sudo apt-get dist-upgrade -y
+	echo && echo "----  apt-get  autoclean  ---------------------------------------------------------------------" && echo
+	sudo apt-get autoclean -y && 
+	echo && echo "----  apt-get purge  --------------------------------------------------------------------------" && echo
+	sudo apt-get purge -y
+	echo && echo "----  bmilcs linux git  -----------------------------------------------------------------------" && echo
+	upp
+	'
+alias rnet="sudo /etc/init.d/networking restart"
+alias enet="sudo nano /etc/network/interfaces"
 #----  bmilcs docker  ----------------------------------------------------------------------------------
 # remove unused: containers | vol | networks | etc
-	alias drmu='docker system prune -a'
+alias drmu='docker system prune -a'
 # remove all containers
-	alias drmc='docker rm $(docker ps -a -q)'
+alias drmc='docker rm $(docker ps -a -q)'
 # remove all images
-	alias drmi='docker rmi $(docker images -a -q)'
+alias drmi='docker rmi $(docker images -a -q)'
 # stop all containres
-	alias dstop='docker stop $(docker ps -a -q)'
+alias dstop='docker stop $(docker ps -a -q)'
 # clean up docker system
-	alias dcln='
-		docker image prune -a
-		docker container prune
-		docker volume prune
-		docker network prune
-	'
+alias dcln='
+	docker image prune -a
+	docker container prune
+	docker volume prune
+	docker network prune
+'
 # remove nfs share volumes
-	alias dvol='
-		docker volume remove docker_audiobooks
-		docker volume remove docker_cloud
-		docker volume remove docker_dl
-		docker volume remove docker_dltor
-		docker volume remove docker_movies
-		docker volume remove docker_music
-		docker volume remove docker_plexlog
-		docker volume remove docker_podcasts
-		docker volume remove docker_tv
-		'
+alias dvol='
+	docker volume remove docker_audiobooks
+	docker volume remove docker_cloud
+	docker volume remove docker_dl
+	docker volume remove docker_dltor
+	docker volume remove docker_movies
+	docker volume remove docker_music
+	docker volume remove docker_plexlog
+	docker volume remove docker_podcasts
+	docker volume remove docker_tv
+	'
 # remove: containers | volumes
-	alias dnew='
-		dstop
-		drmc
-		dvol
-		'
+alias dnew='
+	dstop
+	drmc
+	dvol
+	'
 # nuke all
-	alias dnuke='
-		dstop
-		drmc
-		dvol
-		drmi
-		'
+alias dnuke='
+	dstop
+	drmc
+	dvol
+	drmi
+	'
 # docker logs
-	alias dclog='docker-compose -f ~/docker/docker-compose.yaml logs -tf --tail="50"'
+alias dclog='docker-compose -f ~/docker/docker-compose.yaml logs -tf --tail="50"'
 # run docker-compose (github)
-	alias dcr='cd /tmp && rm -rf /tmp/docker && git clone git@github.com:bmilcs/docker.git /tmp/docker && cd /tmp/docker && rm -f ~/docker/docker-compose.yaml ~/docker/.env && cp 1docker-compose.yaml .env ~/docker/ && cd ~/docker && mv 1docker-compose.yaml docker-compose.yaml &&  docker-compose up -d --remove-orphans'
-	alias dcs="docker-compose stop"
-	alias dcre="docker-compose restart"
-	alias dcd="docker-compose down"
+alias dcr='cd /tmp && rm -rf /tmp/docker && git clone git@github.com:bmilcs/docker.git /tmp/docker && cd /tmp/docker && rm -f ~/docker/docker-compose.yaml ~/docker/.env && cp 1docker-compose.yaml .env ~/docker/ && cd ~/docker && mv 1docker-compose.yaml docker-compose.yaml &&  docker-compose up -d --remove-orphans'
+alias dcs="docker-compose stop"
+alias dcre="docker-compose restart"
+alias dcd="docker-compose down"
 # list all dockers
-	alias dps='docker ps -a --format "table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}" | (read -r; printf "%s\n" "$REPLY"; sort -k 2  )'
-	alias dnet='docker network ls'
+alias dps='docker ps -a --format "table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}" | (read -r; printf "%s\n" "$REPLY"; sort -k 2  )'
+alias dnet='docker network ls'
 # letsencrypt restart
-	alias le="docker restart swag && docker logs -f swag"
-	alias swag="docker restart swag && docker logs -f swag"
+alias le="docker restart swag && docker logs -f swag"
+alias swag="docker restart swag && docker logs -f swag"
 #----  docker  -----------------------------------------------------------------------------------------
-	alias ddf='docker system df'
+alias ddf='docker system df'
 #----  old  --------------------------------------------------------------------------------------------
-	# alias drun2='cd /tmp && rm -rf /tmp/docker && git clone git@github.com:bmilcs/docker.git /tmp/docker && cd /tmp/docker && rm -f ~/docker/docker-compose.yaml ~/docker/.env && cp 2docker-compose.yaml .env ~/docker/ && cd ~/docker && mv 2docker-compose.yaml docker-compose.yaml &&  docker-compose up -d --remove-orphans'
-	# alias dnet='cd ~/docker ; docker network create ; dcrec1 plexms ; dcup1 ; dcup1v'	
-	# # STACK UP AND DOWN
-	# alias dc1down='cd /nas/docker ; dcdown1v ; dcdown1'
-	# alias dc1up='cd /nas/docker ; docker network create traefik_proxy ; dcrec1 plexms ; dcup1 ; dcup1v'
-	# alias dc2down='cd /nas/docker ; dcdown2v ; dcdown2'
-	# alias dc2up='cd /nas/docker ; docker network create --gateway 192.168.90.1 --subnet 192.168.90.0/24 t2_proxy ; dcrec2 plexms ; dcup2 ; dcup2v'
-	# # DOCKER TRAEFIK 2
-	# alias dcrun2='cd /nas/docker ; docker-compose -f /nas/docker/docker-compose-t2.yml '
-	# alias dclogs2='cd /nas/docker ; docker-compose -f /nas/docker/docker-compose-t2.yml logs -tf --tail="50" '
-	# alias dcup2='dcrun2 up -d'
-	# alias dcdown2='dcrun2 down'
-	# alias dcrec2='dcrun2 up -d --force-recreate'
-	# alias dcstop2='dcrun2 stop'
-	# alias dcrestart2='dcrun2 restart '
-	# 	# DOCKER TRAEFIK 2 VPN
-	# alias dcrun2v='cd /nas/docker ; docker-compose -f /nas/docker/docker-compose-t2-vpn.yml '
-	# alias dclogs2v='cd /nas/docker ; docker-compose -f /nas/docker/docker-compose-t2-vpn.yml logs -tf --tail="50" '
-	# alias dcup2v='dcrun2v up -d'
-	# alias dcdown2v='dcrun2v down'
-	# alias dcrec2v='dcrun2v up -d --force-recreate'
-	# alias dcstop2v='dcrun2v stop'
-	# alias dcrestart2v='dcrun2v restart '
-	# alias dcpull2v='cd /nas/docker ; docker-compose -f /nas/docker/docker-compose-t2-vpn.yml  pull'
+# alias drun2='cd /tmp && rm -rf /tmp/docker && git clone git@github.com:bmilcs/docker.git /tmp/docker && cd /tmp/docker && rm -f ~/docker/docker-compose.yaml ~/docker/.env && cp 2docker-compose.yaml .env ~/docker/ && cd ~/docker && mv 2docker-compose.yaml docker-compose.yaml &&  docker-compose up -d --remove-orphans'
+# alias dnet='cd ~/docker ; docker network create ; dcrec1 plexms ; dcup1 ; dcup1v'	
+# # STACK UP AND DOWN
+# alias dc1down='cd /nas/docker ; dcdown1v ; dcdown1'
+# alias dc1up='cd /nas/docker ; docker network create traefik_proxy ; dcrec1 plexms ; dcup1 ; dcup1v'
+# alias dc2down='cd /nas/docker ; dcdown2v ; dcdown2'
+# alias dc2up='cd /nas/docker ; docker network create --gateway 192.168.90.1 --subnet 192.168.90.0/24 t2_proxy ; dcrec2 plexms ; dcup2 ; dcup2v'
+# # DOCKER TRAEFIK 2
+# alias dcrun2='cd /nas/docker ; docker-compose -f /nas/docker/docker-compose-t2.yml '
+# alias dclogs2='cd /nas/docker ; docker-compose -f /nas/docker/docker-compose-t2.yml logs -tf --tail="50" '
+# alias dcup2='dcrun2 up -d'
+# alias dcdown2='dcrun2 down'
+# alias dcrec2='dcrun2 up -d --force-recreate'
+# alias dcstop2='dcrun2 stop'
+# alias dcrestart2='dcrun2 restart '
+# 	# DOCKER TRAEFIK 2 VPN
+# alias dcrun2v='cd /nas/docker ; docker-compose -f /nas/docker/docker-compose-t2-vpn.yml '
+# alias dclogs2v='cd /nas/docker ; docker-compose -f /nas/docker/docker-compose-t2-vpn.yml logs -tf --tail="50" '
+# alias dcup2v='dcrun2v up -d'
+# alias dcdown2v='dcrun2v down'
+# alias dcrec2v='dcrun2v up -d --force-recreate'
+# alias dcstop2v='dcrun2v stop'
+# alias dcrestart2v='dcrun2v restart '
+# alias dcpull2v='cd /nas/docker ; docker-compose -f /nas/docker/docker-compose-t2-vpn.yml  pull'
 #----  unattended-upgrades  ----------------------------------------------------------------------------
 # # run now
 # 	alias uur="sudo unattended-upgrade -d"
