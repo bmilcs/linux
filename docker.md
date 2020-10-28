@@ -1,10 +1,3 @@
-# docker
-
-## docker networks
-
-
-
-
 ## docker group & user setup
 
 	# root user
