@@ -1,5 +1,5 @@
-
-#nord
+# Nord
+Quick color reference via bmilcs
 
 sample | hex | #hex | sample | hex | #hex
 ---|---|---|---|---|---
