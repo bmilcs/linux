@@ -10,4 +10,4 @@ sample | hex | #hex | sample | hex | #hex
 ![#8fbcbb](https://via.placeholder.com/100/8fbcbb/000000?text=+) | #8fbcbb|rgb(143,188,187) | ![#bf616a](https://via.placeholder.com/100/bf616a/000000?text=+) | #bf616a|rgb(191,97,106)  
 ![#88c0d0](https://via.placeholder.com/100/88c0d0/000000?text=+) | #88c0d0|rgb(136,192,208) | ![#d08770](https://via.placeholder.com/100/d08770/000000?text=+) | #d08770|rgb(208,135,112)  
 ![#2e3440](https://via.placeholder.com/100/81a1c1/000000?text=+) | #81a1c1|rgb(129,161,193) | ![#ebcb8b](https://via.placeholder.com/100/ebcb8b/000000?text=+) | #ebcb8b|rgb(235,203,139)  
-![#5e81ac](https://via.placeholder.com/100/5e81ac/000000?text=+) | #5e81ac|rgb(94,129,172) | ![#a3be8c](https://via.placeholder.com/100/a3be8c/000000?text=+) | #a3be8c|rgb(163,190,140) 
+![#5e81ac](https://via.placeholder.com/100/5e81ac/000000?text=+) | #5e81ac|rgb(94,129,172) | ![#a3be8c](https://via.placeholder.com/100/a3be8c/000000?text=+) | #a3be8c|rgb(163,190,140)   
