@@ -45,15 +45,15 @@ alias gitkeys='
 	echo "> enter github private key as follows:"
 	echo "  ssh-add ~/.ssh/id_github"'
 # scripts & dotfiles
-alias upp='
-	echo -e "${CYN}----  ${BLU}bmilcs.dotfiles fresh pull${CYN} ----------------------------------------------------------------------${WHT}\n "
-	cd ~
-	rm -rf ~/.bm_* ~/.dir_colors ~/.bm ~/.bmilcs ~/_bmilcs
-	git clone https://github.com/bmilcs/linux.git ~/.bmilcs
-	chmod -R +x ~/.bmilcs
-	(cd ~/.bmilcs/dotfiles ; ./install.sh)
-	source ~/.bashrc
-	cd ~'
+alias upp='(cd ~/.bmilcs/script ; ./update_repo.sh)'
+	# echo -e "${CYN}----  ${BLU}bmilcs.dotfiles fresh pull${CYN} ----------------------------------------------------------------------${WHT}\n "
+	# cd ~
+	# rm -rf ~/.bm_* ~/.dir_colors ~/.bm ~/.bmilcs ~/_bmilcs
+	# git clone https://github.com/bmilcs/linux.git ~/.bmilcs
+	# chmod -R +x ~/.bmilcs
+	# (cd ~/.bmilcs/dotfiles ; ./install.sh)
+	# source ~/.bashrc
+	# cd ~'
 alias ideb="sudo /bin/bash ~/.bmilcs/script/debian.sh"
 alias ibak="sudo /bin/bash ~/.bmilcs/script/backup.sh"
 alias a="alias | sed 's/=.*//'"
