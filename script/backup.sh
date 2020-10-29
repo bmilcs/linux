@@ -7,7 +7,7 @@ NC='\033[0m' ; BLK='\033[30m' ; RED='\033[31m' ; GRN='\033[32m' ; YLW='\033[33m'
 
 B='\033[1m'
 DIM='\033[2m'
-ITL='\033[3m'
+ITAL='\033[3m'
 UL='\033[4m'
 BLINK='\033[5m'
 INV='\033[7m'
@@ -20,7 +20,7 @@ if [[ $EUID -ne 0 ]]; then
    echo -e "${RED}${B}ERROR:${N} ${ITAL}This script must be run as root.${NC}" 
    exit 1
 else 
-	echo -e "${GRN}${B}ROOT${N} ${ITAL}permission granted.${NC}" 
+	echo -e "${GRN}${B}ROOT${NC} ${ITAL}permission granted.${NC}" 
 fi
 
 # sudo grep -qxF 'unraid:/mnt/user/storage/video/movies   /nas/media/movies     nfs     auto,defaults,nofail 0 0' /etc/fstab || sudo echo 'unraid:/mnt/user/storage/video/movies   /nas/media/movies     nfs     auto,defaults,nofail 0 0' >> /etc/fstab
