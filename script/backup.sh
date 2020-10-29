@@ -14,7 +14,7 @@ INV='\033[7m'
 
 
 
-echo && echo "${DIM}${B}----  ${CYN}bmilcs: backup script  --------------------------------------------------------------------------" && echo
+echo -e '\n${DIM}${B}----  ${CYN}bmilcs: backup script  --------------------------------------------------------------------------\n'
 echo '> root check'
 if [[ $EUID -ne 0 ]]; then
    echo -e "${RED}${B}ERROR:${N} ${BLINK}This script must be run as root.${NC}" 
