@@ -3,7 +3,8 @@ NC='\033[0m';B='\033[1m';DIM='\033[2m';ITAL='\033[3m';UL='\033[4m';BLINK='\033[5
 echo -e "${BLU}${DIM}----  ${BLU}bmilcs.git update:${BLU} ${YLW}started  ${BLU}${DIM}-----------------------------------------------------------------\n${NC}"
 cd ~
 rm -rf ~/.bm_* ~/.dir_colors ~/.bm ~/.bmilcs ~/_bmilcs
-git clone --quiet https://github.com/bmilcs/linux.git ~/.bmilcs && chmod -R +x ~/.bmilcs && (cd ~/.bmilcs/dotfiles ; ./install.sh) && source ~/.bashrc
+git clone 
+--progress --quiet https://github.com/bmilcs/linux.git ~/.bmilcs && chmod -R +x ~/.bmilcs && (cd ~/.bmilcs/dotfiles ; ./install.sh) && source ~/.bashrc
 echo -e "${BLU}${DIM}----  ${BLU}bmilcs.git update: ${GRN}completed  ${BLU}${DIM}---------------------------------------------------------------\n${NC}"
 
 cd ~
