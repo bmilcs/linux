@@ -21,7 +21,7 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 else 
 	echo -e "${RED}${B}ERROR:${RED} ${BLINK}This script must be run as root.${NC}" 
-	echo -e "${GRN}${B}ROOT${NC} ${GRN}permission granted.${NC}" 
+	echo -e "${GRN}${B}ROOT ${GRN}permission granted.${NC}" 
 fi
 
 # sudo grep -qxF 'unraid:/mnt/user/storage/video/movies   /nas/media/movies     nfs     auto,defaults,nofail 0 0' /etc/fstab || sudo echo 'unraid:/mnt/user/storage/video/movies   /nas/media/movies     nfs     auto,defaults,nofail 0 0' >> /etc/fstab
