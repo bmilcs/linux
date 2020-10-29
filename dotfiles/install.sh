@@ -19,7 +19,7 @@ sed -i '/eval \"\$(dircolors/c\eval "$(dircolors ~/.dir_colors)"' ~/.bashrc
 # ls - group dot files
 sudo grep -qxF '# ls > group dotfiles together' ~/.bashrc || printf "\n\n# ls > group dotfiles together\nexport LC_COLLATE=\"C\"" >> ~/.bashrc
 # let the ppl know
-echo -e "${BLU}${DIM}----  ${BLU}${B}bmilcs.linux github repo updated ${G}successfully  ${BLU}${DIM}---------------------------------------------\n${NC}"
+echo -e "${BLU}${DIM}----  ${BLU}${B}bmilcs.linux github repo updated ${GRN}successfully  ${BLU}${DIM}---------------------------------------------\n${NC}"
 # crontab -l | grep -qF '* * up' || (crontab -l >> ~/cronny && echo '30 1 * * * up' >> ~/cronny && crontab ~/cronny && rm ~/cronny)
 # echo && echo "----  cronjob: auto-update installed  -----------------------------------------------------------------" && echo
 
