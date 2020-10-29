@@ -4,4 +4,4 @@ echo -e "${BLU}${DIM}----  ${BLU}${B}bmilcs.linux github repo${GRN} update  ${BL
 cd ~
 rm -rf ~/.bm_* ~/.dir_colors ~/.bm ~/.bmilcs ~/_bmilcs
 git clone https://github.com/bmilcs/linux.git ~/.bmilcs && chmod -R +x ~/.bmilcs && (cd ~/.bmilcs/dotfiles ; ./install.sh) && source ~/.bashrc
-cd ~'
+cd ~
