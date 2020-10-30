@@ -9,7 +9,6 @@ NC='\033[0m';B='\033[1m';DIM='\033[2m';ITAL='\033[3m';UL='\033[4m';BLINK='\033[5
 echo -e "${BLU}${DIM}----  ${BLU}${B}bmilcs-backup${GRN} started${BLU}${DIM}  ------------------------------------------------------------------------\n"
 # ROOT CHECK
 echo -e "${PUR}• ${BLU}root check ${NC}\n"
-
 if [[ $EUID -ne 0 ]]; then
         echo -e "${RED}  [X] ${B}error     ${YLW}        root access required\n${NC}\n"
         exit 1
@@ -34,8 +33,8 @@ then
         # CREATE BMBAK GROUP
         echo -e "${PUR}• ${BLU}creating bmbak (1999) ${NC}\n"
         groupadd -g 1999 bmbak
-        usermod -a -G bmbak ${USER}
-        usermod -a -G root ${USER}
+        usermod -a -G bmbak ${LOGNAME}
+        usermod -a -G bmbak root
         echo -e "  ${GRN}[√] done.${NC}\n"
         # useradd -g $USERGROUP -d /home/$USERNAME -s /bin/bash -m $USERNAME
 fi
