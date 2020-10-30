@@ -40,7 +40,7 @@ else
         # CREATE BMBAK GROUP
         groupadd -g 1999 bmbak
         usermod -a -G bmbak $1  # LOGNAME = original user
-        if getent group bmbak | grep -q "\b${1}\b"; then
+        if getent group bmbak | grep -q "\b$1\b"; then
                 echo -e "  ${GRN}[√] $1 added to group${NC}\n"
         else
                 echo -e "${RED}  [X] ${B}error     ${YLW}unable to add $1 to bmbak group.\n${NC}\n"
