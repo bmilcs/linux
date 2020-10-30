@@ -8,6 +8,7 @@ NC='\033[0m';B='\033[1m';DIM='\033[2m';ITAL='\033[3m';UL='\033[4m';BLINK='\033[5
 # TITLE
 echo -e "${BLU}${DIM}----  ${BLU}${B}bmilcs-backup${GRN} started${BLU}${DIM}  ------------------------------------------------------------------------\n"
 
+sudo delgroup bmbak
 # ROOT CHECK
 echo -e "${PUR}• ${BLU}root check ${NC}\n"
 if [[ $EUID -ne 0 ]]; then
