@@ -39,8 +39,8 @@ else
         # CREATE BMBAK GROUP
         groupadd -g 1999 bmbak
         usermod -a -G bmbak ${LOGNAME}  # LOGNAME = original user
-        if getent group bmbak | grep -q "\b${LOGNAME}\b"; then
-                echo -e "  ${GRN}[√] ${LOGNAME} added to group${NC}\n"
+        if getent group bmbak | grep -q "\b${USER}\b"; then
+                echo -e "  ${GRN}[√] ${USER} added to group${NC}\n"
         else
                 echo -e "${RED}  [X] ${B}error     ${YLW}unable to add ${LOGNAME} to bmbak group.\n${NC}\n"
                 exit 1
@@ -65,7 +65,7 @@ fi
 echo -e "${PUR}• ${BLU}creating nfs mount w/ perms ${NC}\n"
 # CREATE /NFS/HOST | PERMISSIONS
 mkdir -p /nfs/${HOSTNAME} && chown bmilcs:bmbak /nfs/${HOSTNAME} && chmod 770 /nfs/${HOSTNAME}
-id# ADD FSTAB MOUNT
+id # ADD FSTAB MOUNT
 echo -e "  ${GRN}[√] done.${NC}\n" 
 FST='10.9.9.100:/mnt/bm/data/backup/'${HOSTNAME}'   /nfs/'$HOSTNAME'     nfs     auto,defaults,nofail 0 0'
 sudo grep -qxF "${FST}" /etc/fstab || sudo echo "${FST}" >> /etc/fstab
