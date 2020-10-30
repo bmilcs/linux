@@ -89,8 +89,8 @@ sudo sed -i "/^retain\tweekly/c\retain\tweekly\t4" /etc/rsnapshot.conf
 sudo sed -i "/^retain\tbeta/c\retain\tweekly\t4" /etc/rsnapshot.conf
 sudo sed -i "/^retain\tmonthly/c\retain\tmonthly\t2" /etc/rsnapshot.conf
 sudo sed -i "/^retain\tgamma/c\retain\tmonthly\t2" /etc/rsnapshot.conf
-sudo sed -i "/^logfile/c\logfile\t/nfs/${HOME}/backup.log" /etc/rsnapshot.conf
-sudo sed -i "/^lockfile/c\lockfile\t/nfs/${HOME}/rnapshot.pid" /etc/rsnapshot.conf
+sudo sed -i "/^logfile/c\logfile\t/nfs/${HOSTNAME}/backup.log" /etc/rsnapshot.conf
+sudo sed -i "/^lockfile/c\lockfile\t/nfs/${HOSTNAME}/rnapshot.pid" /etc/rsnapshot.conf
 
 grep 'rsnapshot daily' /etc/crontab || echo '30 3          * * *           root    rsnapshot daily' >> /etc/crontab
 grep 'rsnapshot weekly' /etc/crontab || echo '0  3          * * 1           root    rsnapshot weekly' >> /etc/crontab
