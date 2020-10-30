@@ -82,7 +82,7 @@ echo -e "${BLU}${DIM}----  ${BLU}freenas backup point mounted  ${BLU}${DIM}-----
 apt update ; apt install rsnapshot -y
 
 sudo sed -i "/^snapshot_root/c\snapshot_root\t/nfs/${HOSTNAME}" /etc/rsnapshot.conf
-sudo sed -i "/^#no_create_root/c\no_create_root 1" /etc/rsnapshot.conf
+sudo sed -i "/^#no_create_root/c\no_create_root\t1" /etc/rsnapshot.conf
 sudo sed -i "/^retain\tdaily/c\retain\tdaily\t7" /etc/rsnapshot.conf
 sudo sed -i "/^retain\talpha/c\retain\tdaily\t7" /etc/rsnapshot.conf
 sudo sed -i "/^retain\tweekly/c\retain\tweekly\t4" /etc/rsnapshot.conf
