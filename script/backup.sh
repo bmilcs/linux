@@ -90,7 +90,7 @@ sudo sed -i "/^retain\tbeta/c\retain\tweekly\t4" /etc/rsnapshot.conf
 sudo sed -i "/^retain\tmonthly/c\retain\tmonthly\t2" /etc/rsnapshot.conf
 sudo sed -i "/^retain\tgamma/c\retain\tmonthly\t2" /etc/rsnapshot.conf
 sudo sed -i "/logfile\t\//c\logfile\t/nfs/backup.log" /etc/rsnapshot.conf
-sudo sed -i "/^lockfile/c\lockfile\t/${HOME}/rnapshot.pid" /etc/rsnapshot.conf
+sudo sed -i "/^lockfile/c\lockfile\t/\/home\/$1\/rnapshot.pid" /etc/rsnapshot.conf
 sudo sed -i "/^backup\t\/home\/\t/c\#backup \/home/" /etc/rsnapshot.conf
 sudo sed -i "/^backup\t\/etc\/\t/c\#backup \/etc/" /etc/rsnapshot.conf
 sudo sed -i "/^backup\t\/usr\/local\/\t/c\#backup \/usr\/local\/" /etc/rsnapshot.conf
