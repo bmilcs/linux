@@ -38,11 +38,11 @@ else
         echo -e "${PUR}• ${BLU}creating bmbak (1999) ${NC}\n"
         # CREATE BMBAK GROUP
         groupadd -g 1999 bmbak
-        usermod -a -G bmbak ${1}  # LOGNAME = original user
+        usermod -a -G bmbak $1  # LOGNAME = original user
         if getent group bmbak | grep -q "\b${1}\b"; then
-                echo -e "  ${GRN}[√] ${1} added to group${NC}\n"
+                echo -e "  ${GRN}[√] $1 added to group${NC}\n"
         else
-                echo -e "${RED}  [X] ${B}error     ${YLW}unable to add ${1} to bmbak group.\n${NC}\n"
+                echo -e "${RED}  [X] ${B}error     ${YLW}unable to add $1 to bmbak group.\n${NC}\n"
                 exit 1
         fi
         usermod -a -G bmbak root
