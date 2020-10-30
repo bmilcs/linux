@@ -62,7 +62,7 @@ if grep -qs "$mount" /proc/mounts; then
         umount "$mount"         # for testing
 fi
 
-echo -e "${PUR}• ${BLU}creating nfs mount w/ perms ${NC}\n"
+echo -e "\n\n${PUR}• ${BLU}creating nfs mount w/ perms ${NC}\n"
 # CREATE /NFS/HOST | PERMISSIONS
 mkdir -p /nfs/${HOSTNAME} && chown bmilcs:bmbak /nfs/${HOSTNAME} && chmod 770 /nfs/${HOSTNAME}
 echo -e "  ${GRN}[√] done.${NC}\n" 
