@@ -90,3 +90,7 @@ sudo sed -i "/^retain\tbeta/c\retain\tweekly\t4" /etc/rsnapshot.conf
 sudo sed -i "/^retain\tmonthly/c\retain\tmonthly\t2" /etc/rsnapshot.conf
 sudo sed -i "/^retain\tgamma/c\retain\tmonthly\t2" /etc/rsnapshot.conf
 sudo sed -i "/^logfile/c\logfile\t/nfs/${HOME}/backup.log" /etc/rsnapshot.conf
+
+grep 'bmilcs    rsnapshot daily' /etc/crontab || echo '30 3          * * *           bmilcs    rsnapshot daily' >> /etc/crontab
+grep 'bmilcs    rsnapshot weekly' /etc/crontab || echo '0  3          * * 1           bmilcs    rsnapshot weekly' >> /etc/crontab
+grep 'bmilcs    rsnapshot monthly' /etc/crontab || echo '30 2          1 * *           bmilcs    rsnapshot monthly' >> /etc/crontab
