@@ -32,6 +32,8 @@ echo -e "${PUR}• ${BLU}checking for bmbak group ${NC}\n"
 # grep bmbak /etc/group 2>&1>/dev/null
 # if [ $? != 0 ]  # BMBAK MISSING?
 if getent group bmbak | grep -q "\b${LOGNAME}\b"; then
+        echo -e "  ${GRN}[√] done.${NC}\n"
+else
         echo -e "${RED}  [X] ${B}error     ${YLW}        bmbak isn't configured \n${NC}"
         echo -e "${PUR}• ${BLU}creating bmbak (1999) ${NC}\n"
         # CREATE BMBAK GROUP
