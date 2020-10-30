@@ -28,7 +28,7 @@ fi
 # CHECK IF BACKUP USER GROUP EXISTS
 echo -e "${PUR}• ${BLU}checking for bmbak group ${NC}\n"
 grep bmbak /etc/group 2>&1>/dev/null
-if [$? != 0]
+if [ $? != 0 ]
 then
         echo -e "${RED}  [X] ${B}error     ${YLW}        bmbak is missing\n${NC}\n"
         # CREATE BMBAK GROUP
