@@ -34,7 +34,7 @@ echo -e "${PUR}• ${BLU}bmbak group check ${NC}\n"
 if getent group bmbak | grep -q "\b$1\b"; then
         echo -e "  ${GRN}[√] done.${NC}\n"
 else
-        echo -e "${RED}  [X] bmbak isn't configured \n${NC}"
+        echo -e "${PUR}• ${BLU}bmbak missing ${NC}"
         echo -e "      ${PUR}• ${BLU}creating bmbak (1999) ${NC}\n"
         # CREATE BMBAK GROUP
         groupadd -g 1999 bmbak
