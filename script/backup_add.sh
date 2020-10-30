@@ -6,7 +6,6 @@ if [[ ! $REPLY =~ ^[Yy]$ ]]; then
 				exit 0
 fi        
 
-
 dirname=${1}
 shopt -s extglob           # enable +(...) glob syntax
 result=${dirname%%+(/)}    # trim however many trailing slashes exist
