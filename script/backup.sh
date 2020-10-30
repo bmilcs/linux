@@ -95,3 +95,5 @@ sudo sed -i "/^lockfile/c\lockfile\t/nfs/${HOSTNAME}/rnapshot.pid" /etc/rsnapsho
 grep 'rsnapshot daily' /etc/crontab || echo '30 3          * * *           root    rsnapshot daily' >> /etc/crontab
 grep 'rsnapshot weekly' /etc/crontab || echo '0  3          * * 1           root    rsnapshot weekly' >> /etc/crontab
 grep 'rsnapshot monthly' /etc/crontab || echo '30 2          1 * *           root    rsnapshot monthly' >> /etc/crontab
+
+rsnapshot config-test
