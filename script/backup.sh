@@ -76,8 +76,12 @@ if [ $? != 0 ]; then
         exit 1
 fi
 
-cd /nfs/$HOSTNAME
-echo -e "  ${GRN}[√] done${NC}\n"        
+
+echo -e "${BLU}${DIM}----  ${BLU}freenas backup point mounted  ${BLU}${DIM}--------------------------------------------------------------\n${NC}"
+
+apt update ; apt install rsnapshot -y
+
+
 
 
 
