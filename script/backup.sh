@@ -45,7 +45,6 @@ else
         else
                 echo -e "${RED}  [X] ${B}error     ${YLW}unable to add $1 to bmbak group.\n${NC}\n"
         fi
-                exit 1
         usermod -a -G bmbak root
         if getent group bmbak | grep -q "\broot\b"; then
                 echo -e "  ${GRN}[√] root added to group${NC}\n"
