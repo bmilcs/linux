@@ -18,7 +18,8 @@ fi
 
 
 #ENSURE FOLDER IS CREATED ON FREENAS
-echo -e "${DIM}> ${NC}${BLU}ssh into FREENAS ${GRN}\"../backup/${HOSTNAME}\" ${NC}${BLU}\n  type \"${HOSTNAME}\" once done! Make sure!"
+echo -e "${PUR}• ${BLU}ssh into FREENAS & create folder: ../backup/$ ${NC}"
+# echo -e "${DIM}> ${NC}${BLU}ssh into FREENAS ${GRN}\"../backup/${HOSTNAME}\" ${NC}${BLU}\n  type \"${HOSTNAME}\" once done! Make sure!"
 read -e varUSER
 
 if [ "$varUSER" != "$HOSTNAME" ]; then
