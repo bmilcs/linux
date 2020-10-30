@@ -71,16 +71,12 @@ FST='10.9.9.100:/mnt/bm/data/backup/'${HOSTNAME}'   /nfs/'$HOSTNAME'     nfs    
 sudo grep -qxF "${FST}" /etc/fstab || sudo echo "${FST}" >> /etc/fstab
 # MOUNT FOLDER
 echo -e "${PUR}• ${BLU}attempting to mount nfs mount ${NC}\n"
-sudo mount -av
-echo -e "  ${GRN}[√] done.${NC}\n"
-
-
-mount "$mount"
+sudo mount $mount
 if [ $? -eq 0 ]; then
         echo "Mount success!"
 else
         echo "Something went wrong with the mount..."
 fi
-
+echo -e "  ${GRN}[√] done.${NC}\n"
 
 
