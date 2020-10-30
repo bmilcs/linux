@@ -42,7 +42,7 @@ fi
 echo -e "${PUR}• ${BLU}creating folder & fstab mount ${NC}\n"
 # CREATE /NFS/HOST | PERMISSIONS
 mkdir -p /nfs/${HOSTNAME}
-chown -R bmilcs:bmbak /nfs/${HOSTNAME}
+chown bmilcs:bmbak /nfs/${HOSTNAME}
 chmod 770 /nfs/${HOSTNAME}
 echo -e "  ${GRN}[√] done.${NC}\n"# ADD FSTAB MOUNT
 FST='10.9.9.100:/mnt/bm/data/backup/'${HOSTNAME}'   /nfs/'$HOSTNAME'     nfs     auto,defaults,nofail 0 0'
