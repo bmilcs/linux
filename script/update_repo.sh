@@ -5,4 +5,4 @@ cd ~
 rm -rf ~/.bm_* ~/.dir_colors ~/.bm ~/.bmilcs ~/_bmilcs
 git clone --quiet https://github.com/bmilcs/linux.git ~/.bmilcs && chmod -R +x ~/.bmilcs && (cd ~/.bmilcs/dotfiles ; ./install.sh) && source ~/.bashrc
 echo -e "  ${GRN}[√] done.${NC}\n"
-# echo -e "${BLU}${DIM}----  ${BLU}bmilcs.git update: ${GRN}completed  ${BLU}${DIM}---------------------------------------------------------------\n${NC}"
+# echo -e "${BLU}${DIM}----  ${BLU}bmilcs.git update: ${GRN}completed  ${BLU}${DIM}---------------------------------------------------------------\n${NC}"    
