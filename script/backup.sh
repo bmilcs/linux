@@ -52,7 +52,7 @@ else
 fi
 
 
-mount="/nfs/${HOST}"
+mount="/nfs/${HOSTNAME}"
 if grep -qs "$mount" /proc/mounts; then
         umount "$mount"
 fi
