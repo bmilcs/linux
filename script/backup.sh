@@ -8,14 +8,13 @@ NC='\033[0m';B='\033[1m';DIM='\033[2m';ITAL='\033[3m';UL='\033[4m';BLINK='\033[5
 # SCRIPT TITLE
 echo -e "${BLU}${DIM}----  ${BLU}${B}bmilcs-backup${GRN} started${BLU}${DIM}  ------------------------------------------------------------------------\n"
 
-echo -e "${PUR}• ${BLU}update bmilcs.repo ${NC}"
+echo -e "${PUR}• ${BLU}update bmilcs.repo ${NC}\n"
 (cd ~/.bmilcs/script ; ./update_repo.sh)
-echo -e "  ${GRN}[√] done.${NC}"
 # ROOT CHECK
-echo -e "${PUR}• ${BLU}root check ${NC}"
+echo -e "${PUR}• ${BLU}root check ${NC}\n"
 
 if [[ $EUID -ne 0 ]]; then
-        echo -e "${RED}  [X] ${B}error     ${YLW}root access required\n${NC}"
+        echo -e "${RED}  [X] ${B}error     ${YLW}        root access required\n${NC}\n"
         exit 1
 else 
         echo -e "  ${GRN}[√] done.${NC}\n"
