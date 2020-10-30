@@ -53,8 +53,8 @@ fi
 
 mount="/nfs/${HOSTNAME}"
 if grep -qs "$mount" /proc/mounts; then
-        echo -e "  ${GRN}[√] /nfs/$HOSTNAME is already mounted!${NC} PROCEED?\n" 
-        read -p "      (y/n)? " -n 1 -r
+        echo -e "${RED}  [X] ${B}error     ${YLW}/nfs/$HOSTNAME is already mounted\n${NC}"
+        read -p "      PROCEED? (y/n)  " -n 1 -r
         if [[ ! $REPLY =~ ^[Yy]$ ]]; then
                 echo -e "\n  ${GRN}[√] done.${NC}\n"
                 exit 0
