@@ -89,3 +89,4 @@ sudo sed -i "/^retain\tweekly/c\retain\tweekly 4" /etc/rsnapshot.conf
 sudo sed -i "/^retain\tbeta/c\retain\tweekly 4" /etc/rsnapshot.conf
 sudo sed -i "/^retain\tmonthly/c\retain\tmonthly 2" /etc/rsnapshot.conf
 sudo sed -i "/^retain\tgamma/c\retain\tmonthly 2" /etc/rsnapshot.conf
+sudo sed -i "/retain\tdelta/c\" /etc/rsnapshot.conf
