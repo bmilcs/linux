@@ -70,11 +70,14 @@ sudo grep -qxF "${FST}" /etc/fstab || sudo echo "${FST}" >> /etc/fstab
 # MOUNT FOLDER
 echo -e "${PUR}• ${BLU}attempting to mount nfs mount ${NC}\n"
 sudo mount $mount
-if [ $? -eq 0 ]; then
-        echo -e "  ${GRN}[√] done.${NC}\n"        
-else
+if [ $? != 0 ]; then
         echo -e "${RED}  [X] ${B}error     ${YLW}something went wrong\n${NC}\n"
+        exit 1
 fi
+
+cd /nfs/$HOSTNAME
+echo -e "  ${GRN}[√] done${NC}\n"        
+
 
 
 
