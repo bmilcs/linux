@@ -12,4 +12,4 @@ result=${dirname%%+(/)}    # trim however many trailing slashes exist
 result=${result##*/}       # remove everything before the last / that still remains
 printf '%s\n' "$result"
 
-grep "$1" /etc/rsnapshot.conf || echo -e "backup\t${1}\t/nfs/${HOSTNAME}/$result" >> /etc/rsnapshot.conf
+grep "$1" /etc/rsnapshot.conf || echo -e "backup\t${1}\t/nfs/${HOSTNAME}" >> /etc/rsnapshot.conf
