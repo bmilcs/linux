@@ -38,11 +38,16 @@ then
         echo -e "  ${GRN}[√] done.${NC}\n"
         # useradd -g $USERGROUP -d /home/$USERNAME -s /bin/bash -m $USERNAME
 fi
-echo -e "${PUR}• ${BLU}creating folder & fstab mount ${NC}\n"
+
+
+mount="/nfs/${HOST}"
+if grep -qs "$mount" /proc/mounts; then
+        umount "$mount"
+fi
+
+echo -e "${PUR}• ${BLU}creating nfs mount w/ perms ${NC}\n"
 # CREATE /NFS/HOST | PERMISSIONS
-mkdir -p /nfs/${HOSTNAME}
-chown bmilcs:bmbak /nfs/${HOSTNAME}
-chmod 770 /nfs/${HOSTNAME}
+mkdir -p /nfs/${HOSTNAME} && chown bmilcs:bmbak /nfs/${HOSTNAME} && chmod 770 /nfs/${HOSTNAME}
 echo -e "  ${GRN}[√] done.${NC}\n"# ADD FSTAB MOUNT
 FST='10.9.9.100:/mnt/bm/data/backup/'${HOSTNAME}'   /nfs/'$HOSTNAME'     nfs     auto,defaults,nofail 0 0'
 sudo grep -qxF "${FST}" /etc/fstab || sudo echo "${FST}" >> /etc/fstab
@@ -50,3 +55,14 @@ sudo grep -qxF "${FST}" /etc/fstab || sudo echo "${FST}" >> /etc/fstab
 echo -e "${PUR}• ${BLU}attempting to mount nfs mount ${NC}\n"
 sudo mount -av
 echo -e "  ${GRN}[√] done.${NC}\n"
+
+
+mount "$mount"
+if [ $? -eq 0 ]; then
+        echo "Mount success!"
+else
+        echo "Something went wrong with the mount..."
+fi
+
+
+
