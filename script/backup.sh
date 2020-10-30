@@ -26,7 +26,7 @@ if [ "$varUSER" != "$HOSTNAME" ]; then
 fi
 
 # CHECK IF BACKUP USER GROUP EXISTS
-echo -e "${PUR}• ${BLU}bmbak group check ${NC}\n"
+echo -e "\n${PUR}• ${BLU}bmbak group check ${NC}\n"
 # grep bmbak /etc/group 2>&1>/dev/null
 # if [ $? != 0 ]  # BMBAK MISSING?
 if getent group bmbak | grep -q "\b$1\b"; then
