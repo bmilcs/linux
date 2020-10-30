@@ -45,7 +45,7 @@ alias gitkeys='
 	echo "> enter github private key as follows:"
 	echo "  ssh-add ~/.ssh/id_github"'
 # scripts & dotfiles
-alias upp='cd ~ ; ('
+alias upp='cd ~ ; (/bin/bash ~/.bmilcs/script/update_repo.sh)'
 	# echo -e "${CYN}----  ${BLU}bmilcs.dotfiles fresh pull${CYN} ----------------------------------------------------------------------${WHT}\n "
 	# cd ~
 	# rm -rf ~/.bm_* ~/.dir_colors ~/.bm ~/.bmilcs ~/_bmilcs
