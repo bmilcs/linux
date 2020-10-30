@@ -55,7 +55,8 @@ alias upp='cd ~ ; (cd ~/.bmilcs/script ; ./update_repo.sh) ; cd ~'
 	# source ~/.bashrc
 	# cd ~'
 alias ideb="sudo /bin/bash ~/.bmilcs/script/debian.sh"
-alias ibak="/bin/bash ~/.bmilcs/script/update_repo.sh ; sudo /bin/bash ~/.bmilcs/script/backup.sh"
+# alias ibak="/bin/bash ~/.bmilcs/script/update_repo.sh ; sudo /bin/bash ~/.bmilcs/script/backup.sh"
+alias ibak="sudo /bin/bash ~/.bmilcs/script/backup.sh"
 alias a="alias | sed 's/=.*//'"
 alias func="declare -f | grep '^[a-z].* ()' | sed 's/{$//'"
 alias paths='echo -e ${PATH//:/\\n}'
