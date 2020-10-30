@@ -21,10 +21,8 @@ fi
 echo -e "${PUR}• ${BLU}ssh into FREENAS & create folder: ${PUR}/mnt/bm/data/backup/${YLW}${HOSTNAME} ${NC}\n"
 read -e varUSER
 if [ "$varUSER" != "$HOSTNAME" ]; then
-        echo -e "${BLU}${DIM}----  ${RED}${B}exiting${YLW}: incorrect host name provided  ${BLU}${DIM}-----------------------------------------------------\n"
+        echo -e "${RED}  [X] ${B}error     ${YLW}wrong hostname\n${NC}"
 	exit 1
-else
-        echo -e "\n  ${GRN}[√] done.${NC}\n"
 fi
 
 # CHECK IF BACKUP USER GROUP EXISTS
