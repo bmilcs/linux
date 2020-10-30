@@ -8,7 +8,6 @@ NC='\033[0m';B='\033[1m';DIM='\033[2m';ITAL='\033[3m';UL='\033[4m';BLINK='\033[5
 # TITLE
 echo -e "${BLU}${DIM}----  ${BLU}${B}bmilcs-backup${GRN} started${BLU}${DIM}  ------------------------------------------------------------------------\n"
 
-sudo delgroup bmbak
 # ROOT CHECK
 echo -e "${PUR}• ${BLU}root check ${NC}\n"
 if [[ $EUID -ne 0 ]]; then
@@ -29,27 +28,27 @@ else
 fi
 
 # CHECK IF BACKUP USER GROUP EXISTS
-echo -e "${PUR}• ${BLU}checking for bmbak group ${NC}\n"
+echo -e "${PUR}• ${BLU}bmbak group check ${NC}\n"
 # grep bmbak /etc/group 2>&1>/dev/null
 # if [ $? != 0 ]  # BMBAK MISSING?
 if getent group bmbak | grep -q "\b$1\b"; then
         echo -e "  ${GRN}[√] done.${NC}\n"
 else
-        echo -e "${RED}  [X] ${B}error     ${YLW}        bmbak isn't configured \n${NC}"
-        echo -e "${PUR}• ${BLU}creating bmbak (1999) ${NC}\n"
+        echo -e "${RED}  [X] bmbak isn't configured \n${NC}"
+        echo -e "      ${PUR}• ${BLU}creating bmbak (1999) ${NC}\n"
         # CREATE BMBAK GROUP
         groupadd -g 1999 bmbak
         usermod -a -G bmbak $1  # LOGNAME = original user
         if getent group bmbak | grep -q "\b$1\b"; then
-                echo -e "  ${GRN}[√] $1 added to group${NC}\n"
+                echo -e "        ${GRN}[√] $1 added to group${NC}\n"
         else
-                echo -e "${RED}  [X] ${B}error     ${YLW}unable to add $1 to bmbak group.\n${NC}\n"
+                echo -e "${RED}        [X] ${B}error     ${YLW}unable to add $1 to bmbak group.\n${NC}\n"
         fi
         usermod -a -G bmbak root
         if getent group bmbak | grep -q "\broot\b"; then
-                echo -e "  ${GRN}[√] root added to group${NC}\n"
+                echo -e "        ${GRN}[√] root added to group${NC}\n"
         else
-                echo -e "${RED}  [X] ${B}error     ${YLW}unable to add root to bmbak group.\n${NC}\n"
+                echo -e "${RED}        [X] ${B}error     ${YLW}unable to add root to bmbak group.\n${NC}\n"
                 exit 1
         fi
         echo -e "  ${GRN}[√] done.${NC}\n"
@@ -65,7 +64,6 @@ fi
 echo -e "${PUR}• ${BLU}creating nfs mount w/ perms ${NC}\n"
 # CREATE /NFS/HOST | PERMISSIONS
 mkdir -p /nfs/${HOSTNAME} && chown bmilcs:bmbak /nfs/${HOSTNAME} && chmod 770 /nfs/${HOSTNAME}
-id # ADD FSTAB MOUNT
 echo -e "  ${GRN}[√] done.${NC}\n" 
 FST='10.9.9.100:/mnt/bm/data/backup/'${HOSTNAME}'   /nfs/'$HOSTNAME'     nfs     auto,defaults,nofail 0 0'
 sudo grep -qxF "${FST}" /etc/fstab || sudo echo "${FST}" >> /etc/fstab
