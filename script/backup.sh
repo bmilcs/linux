@@ -48,14 +48,16 @@ else
                 echo -e "${RED}        [X] ${B}error     ${YLW}unable to add root to bmbak group.\n${NC}\n"
                 exit 1
         fi
-        echo -e "  ${GRN}[√] done.${NC}\n"
         # useradd -g $USERGROUP -d /home/$USERNAME -s /bin/bash -m $USERNAME
 fi
 
-
 mount="/nfs/${HOSTNAME}"
 if grep -qs "$mount" /proc/mounts; then
-        umount "$mount"
+        read -p  "  ${GRN}[√] /nfs/$HOSTNAME is already mounted!${NC} PROCEED?\n" -n 1 -r
+        if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+                echo -e "  ${GRN}[√] done.${NC}\n"
+        fi        
+        umount "$mount"         # for testing
 fi
 
 echo -e "${PUR}• ${BLU}creating nfs mount w/ perms ${NC}\n"
