@@ -32,7 +32,7 @@ echo -e "\n${PUR}• ${BLU}bmbak group check ${NC}\n"
 if getent group bmbak | grep -q "\b$1\b"; then
         echo -e "  ${GRN}[√] done.${NC}\n"
 else
-        echo -e "      ${PUR}• ${BLU}creating bmbak (1999) ${NC}\n"
+        echo -e "      ${PUR}• ${YLW}creating bmbak (1999) ${NC}\n"
         # CREATE BMBAK GROUP
         groupadd -g 1999 bmbak
         usermod -a -G bmbak $1  # LOGNAME = original user
