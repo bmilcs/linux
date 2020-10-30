@@ -89,4 +89,4 @@ sudo sed -i "/^retain\tweekly/c\retain\tweekly\t4" /etc/rsnapshot.conf
 sudo sed -i "/^retain\tbeta/c\retain\tweekly\t4" /etc/rsnapshot.conf
 sudo sed -i "/^retain\tmonthly/c\retain\tmonthly\t2" /etc/rsnapshot.conf
 sudo sed -i "/^retain\tgamma/c\retain\tmonthly\t2" /etc/rsnapshot.conf
-sudo sed -i "/retain\tdelta/c\" /etc/rsnapshot.conf
+sudo sed -i "/^logfile/c\logfile\t/nfs/${HOME}/backup.log" /etc/rsnapshot.conf
