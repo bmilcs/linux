@@ -51,9 +51,9 @@ else
         # useradd -g $USERGROUP -d /home/$USERNAME -s /bin/bash -m $USERNAME
 fi
 
-mount="/nfs/${HOSTNAME}"
+mount="/nfs/"
 if grep -qs "$mount" /proc/mounts; then
-        echo -e "${RED}  [X] ${B}error     ${YLW}/nfs/$HOSTNAME is already mounted\n${NC}"
+        echo -e "${RED}  [X] ${B}error     ${YLW}/nfs is already mounted\n${NC}"
         read -p "      PROCEED? (y/n)  " -n 1 -r
         if [[ ! $REPLY =~ ^[Yy]$ ]]; then
                 echo -e "\n  ${GRN}[√] done.${NC}\n"
@@ -64,9 +64,9 @@ fi
 
 echo -e "\n\n${PUR}• ${BLU}creating nfs mount w/ perms ${NC}\n"
 # CREATE /NFS/HOST | PERMISSIONS
-mkdir -p /nfs/${HOSTNAME} && chown bmilcs:bmbak /nfs && chmod 770 /nfs/
+mkdir -p /nfs/ && chown bmilcs:bmbak /nfs && chmod 770 /nfs/
 echo -e "  ${GRN}[√] done.${NC}\n" 
-FST='10.9.9.100:/mnt/bm/data/backup/'${HOSTNAME}'   /nfs/'$HOSTNAME'     nfs     auto,defaults,nofail 0 0'
+FST='10.9.9.100:/mnt/bm/data/backup/'${HOSTNAME}'   /nfs/       nfs     auto 0 0'
 sudo grep -qxF "${FST}" /etc/fstab || sudo echo "${FST}" >> /etc/fstab
 # MOUNT FOLDER
 echo -e "${PUR}• ${BLU}attempting to mount nfs mount ${NC}\n"
@@ -81,7 +81,7 @@ echo -e "${BLU}${DIM}----  ${BLU}freenas backup point mounted  ${BLU}${DIM}-----
 
 apt install rsnapshot -y
 
-sudo sed -i "/^snapshot_root/c\snapshot_root\t/nfs/${HOSTNAME}" /etc/rsnapshot.conf
+sudo sed -i "/^snapshot_root/c\snapshot_root\t/nfs" /etc/rsnapshot.conf
 sudo sed -i "/^no_create_root/c\no_create_root\t1" /etc/rsnapshot.conf
 sudo sed -i "/^retain\tdaily/c\retain\tdaily\t7" /etc/rsnapshot.conf
 sudo sed -i "/^retain\talpha/c\retain\tdaily\t7" /etc/rsnapshot.conf
@@ -89,7 +89,7 @@ sudo sed -i "/^retain\tweekly/c\retain\tweekly\t4" /etc/rsnapshot.conf
 sudo sed -i "/^retain\tbeta/c\retain\tweekly\t4" /etc/rsnapshot.conf
 sudo sed -i "/^retain\tmonthly/c\retain\tmonthly\t2" /etc/rsnapshot.conf
 sudo sed -i "/^retain\tgamma/c\retain\tmonthly\t2" /etc/rsnapshot.conf
-sudo sed -i "/logfile\t\//c\logfile\t/nfs/${HOSTNAME}/backup.log" /etc/rsnapshot.conf
+sudo sed -i "/logfile\t\//c\logfile\t/nfs/backup.log" /etc/rsnapshot.conf
 sudo sed -i "/^lockfile/c\lockfile\t/home\/$1\/rnapshot.pid" /etc/rsnapshot.conf
 sudo sed -i "/^backup\t\/home\/\t/c\#backup \/home/" /etc/rsnapshot.conf
 sudo sed -i "/^backup\t\/etc\/\t/c\#backup \/etc/" /etc/rsnapshot.conf
