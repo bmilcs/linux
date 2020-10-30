@@ -43,6 +43,6 @@ mkdir -p /nfs/${HOSTNAME}
 # ASSIGN PERMISSIONS
 
 # ADD FSTAB MOUNT
-FST='10.9.9.100:/mnt/bm/data/backup/test/'${HOSTNAME}'   /nfs/'$HOSTNAME'     nfs     auto,defaults,nofail 0 0'
+FST='10.9.9.100:/mnt/bm/data/backup/'${HOSTNAME}'   /nfs/'$HOSTNAME'     nfs     auto,defaults,nofail 0 0'
 sudo grep -qxF "${FST}" /etc/fstab || sudo echo "${FST}" >> /etc/fstab
 
