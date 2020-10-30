@@ -7,7 +7,7 @@ if [[ ! $REPLY =~ ^[Yy]$ ]]; then
 				exit 0
 fi        
 
-grep "$1" /etc/rsnapshot.conf || echo -e "backup\t${1}\tlocalhost/" >> /etc/rsnapshot.conf
+grep "$PWD" /etc/rsnapshot.conf || echo -e "backup\t${1}\tlocalhost/" >> /etc/rsnapshot.conf
 
 rsnapshot configtest
 
