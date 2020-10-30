@@ -5,9 +5,8 @@
 # ===================================================================================================
 # INIT COLOR-VAR'S
 NC='\033[0m';B='\033[1m';DIM='\033[2m';ITAL='\033[3m';UL='\033[4m';BLINK='\033[5m';INV='\033[7m'; BLK=${NC}'\033[30m';RED=${NC}'\033[31m';GRN=${NC}'\033[32m';YLW=${NC}'\033[33m';BLU=${NC}'\033[34m';PUR=${NC}'\033[35m';CYN=${NC}'\033[36m';WHT=${NC}'\033[37m';TIME="$(date +"%I:%M %P")"
-# SCRIPT TITLE
+# TITLE
 echo -e "${BLU}${DIM}----  ${BLU}${B}bmilcs-backup${GRN} started${BLU}${DIM}  ------------------------------------------------------------------------\n"
-su -c '/bin/bash ~/.bmilcs/script/update_repo.sh' - bmilcs
 
 # ROOT CHECK
 echo -e "${PUR}• ${BLU}root check ${NC}\n"
@@ -17,6 +16,7 @@ if [[ $EUID -ne 0 ]]; then
 else 
         echo -e "  ${GRN}[√] done.${NC}\n"
 fi
+
 #ENSURE FOLDER IS CREATED ON FREENAS
 echo -e "${PUR}• ${BLU}ssh into FREENAS & create folder: ${PUR}/mnt/bm/data/backup/${YLW}${HOSTNAME} ${NC}\n"
 read -e varUSER
@@ -26,16 +26,24 @@ if [ "$varUSER" != "$HOSTNAME" ]; then
 else
         echo -e "  ${GRN}[√] done.${NC}\n"
 fi
+
 # CHECK IF BACKUP USER GROUP EXISTS
 echo -e "${PUR}• ${BLU}checking for bmbak group ${NC}\n"
-grep bmbak /etc/group 2>&1>/dev/null
-if [ $? != 0 ]
-then
-        echo -e "${RED}  [X] ${B}error     ${YLW}        bmbak is missing\n${NC}\n"
-        # CREATE BMBAK GROUP
+# grep bmbak /etc/group 2>&1>/dev/null
+# if [ $? != 0 ]  # BMBAK MISSING?
+if getent group bmbak | grep -q "\b${LOGNAME}\b"; then
+        echo -e "${RED}  [X] ${B}error     ${YLW}        bmbak isn't configured \n${NC}"
         echo -e "${PUR}• ${BLU}creating bmbak (1999) ${NC}\n"
+        # CREATE BMBAK GROUP
         groupadd -g 1999 bmbak
-        usermod -a -G bmbak ${LOGNAME}
+        usermod -a -G bmbak ${LOGNAME}  # LOGNAME = original user
+        if getent group bmbak | grep -q "\b${LOGNAME}\b"; then
+                echo -e "  ${GRN}[√] ${LOGNAME} added to group${NC}\n"
+        else
+                echo -e "${RED}  [X] ${B}error     ${YLW}unable to add ${LOGNAME} to bmbak group.\n${NC}\n"
+                exit 1
+        fi
+        exit 1
         usermod -a -G bmbak root
         echo -e "  ${GRN}[√] done.${NC}\n"
         # useradd -g $USERGROUP -d /home/$USERNAME -s /bin/bash -m $USERNAME
