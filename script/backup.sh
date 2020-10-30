@@ -12,7 +12,7 @@ echo -e "${BLU}${DIM}----  ${BLU}${B}bmilcs-backup${GRN} started${BLU}${DIM}  --
 echo -e "${PUR}• ${BLU}root check ${NC}\n"
 if [[ $EUID -ne 0 ]]; then
         echo -e "${RED}  [X] ${B}error     ${YLW}        root access required\n${NC}\n"
-        exit 1
+        # exit 1
 else 
         echo -e "  ${GRN}[√] done.${NC}\n"
 fi
