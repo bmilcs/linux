@@ -83,10 +83,10 @@ apt update ; apt install rsnapshot -y
 
 sudo sed -i "/^snapshot_root/c\snapshot_root /nfs/${HOSTNAME}" /etc/rsnapshot.conf
 sudo sed -i "/^#no_create_root/c\no_create_root 1" /etc/rsnapshot.conf
-sudo sed -i "/^retain\tdaily/c\retain\tdaily 7" /etc/rsnapshot.conf
-sudo sed -i "/^retain\talpha/c\retain\tdaily 7" /etc/rsnapshot.conf
-sudo sed -i "/^retain\tweekly/c\retain\tweekly 4" /etc/rsnapshot.conf
-sudo sed -i "/^retain\tbeta/c\retain\tweekly 4" /etc/rsnapshot.conf
-sudo sed -i "/^retain\tmonthly/c\retain\tmonthly 2" /etc/rsnapshot.conf
-sudo sed -i "/^retain\tgamma/c\retain\tmonthly 2" /etc/rsnapshot.conf
+sudo sed -i "/^retain\tdaily/c\retain\tdaily\t7" /etc/rsnapshot.conf
+sudo sed -i "/^retain\talpha/c\retain\tdaily\t7" /etc/rsnapshot.conf
+sudo sed -i "/^retain\tweekly/c\retain\tweekly\t4" /etc/rsnapshot.conf
+sudo sed -i "/^retain\tbeta/c\retain\tweekly\t4" /etc/rsnapshot.conf
+sudo sed -i "/^retain\tmonthly/c\retain\tmonthly\t2" /etc/rsnapshot.conf
+sudo sed -i "/^retain\tgamma/c\retain\tmonthly\t2" /etc/rsnapshot.conf
 sudo sed -i "/retain\tdelta/c\" /etc/rsnapshot.conf
