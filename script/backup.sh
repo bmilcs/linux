@@ -4,24 +4,21 @@
 # ===  bmilcs.git backup script  ====================================================================
 # ===================================================================================================
 
-echo -e "\n${BLU}${DIM}=====================================================================================================\n====  ${BLU}bmilcs.git backup script  ${BLU}${DIM}=====================================================================\n=====================================================================================================${NC}"
-
+# INIT COLOR-VAR'S
 NC='\033[0m';B='\033[1m';DIM='\033[2m';ITAL='\033[3m';UL='\033[4m';BLINK='\033[5m';INV='\033[7m'; BLK=${NC}'\033[30m';RED=${NC}'\033[31m';GRN=${NC}'\033[32m';YLW=${NC}'\033[33m';BLU=${NC}'\033[34m';PUR=${NC}'\033[35m';CYN=${NC}'\033[36m';WHT=${NC}'\033[37m';TIME="$(date +"%I:%M %P")"
-# ROOT CHECK
+# SCRIPT TITLE
 echo -e "${BLU}${DIM}----  ${BLU}${B}bmilcs-backup${GRN} started${BLU}${DIM}  ------------------------------------------------------------------------\n"
+# ROOT CHECK
 echo -e "${PUR}• ${BLU}root check ${NC}"
+
 if [[ $EUID -ne 0 ]]; then
-echo -e "${RED}  [X] ${B}error     ${YLW}root access required\n${NC}\n"
-   exit 1
+        echo -e "${RED}  [X] ${B}error     ${YLW}root access required\n${NC}"
+        exit 1
 else 
-echo -e "  ${GRN}[√] done.${NC}\n"
+        echo -e "  ${GRN}[√] done.${NC}\n"
 fi
-
-
-
-
 #ENSURE FOLDER IS CREATED ON FREENAS
-echo -e "${PUR}• ${BLU}ssh into FREENAS & create folder: ../backup/$ ${NC}"
+echo -e "${PUR}• ${BLU}ssh into FREENAS & create folder: ${PUR}/mnt/bm/data/backup/${HOSTNAME} ${NC}"
 # echo -e "${DIM}> ${NC}${BLU}ssh into FREENAS ${GRN}\"../backup/${HOSTNAME}\" ${NC}${BLU}\n  type \"${HOSTNAME}\" once done! Make sure!"
 read -e varUSER
 
