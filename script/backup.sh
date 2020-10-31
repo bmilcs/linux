@@ -29,23 +29,23 @@ fi
 echo -e "\n${PUR}• ${BLU}bmbak group check ${NC}\n"
 # grep bmbak /etc/group 2>&1>/dev/null
 # if [ $? != 0 ]  # BMBAK MISSING?
-if getent group bmbak | grep -q "\b$1\b"; then
+if getent group $1 | grep -q "\broot\b"; then
         echo -e "  ${GRN}[√] done.${NC}\n"
 else
-        echo -e "      ${PUR}• ${YLW}creating bmbak (1999) ${NC}\n"
+        # echo -e "      ${PUR}• ${YLW}creating bmbak (1999) ${NC}\n"
         # CREATE BMBAK GROUP
-        groupadd -g 1999 bmbak
-        usermod -a -G bmbak $1  # LOGNAME = original user
-        if getent group bmbak | grep -q "\b$1\b"; then
-                echo -e "        ${GRN}[√] $1 added to group${NC}\n"
-        else
-                echo -e "${RED}        [X] ${B}error     ${YLW}unable to add $1 to bmbak group.\n${NC}\n"
-        fi
-        usermod -a -G bmbak root
-        if getent group bmbak | grep -q "\broot\b"; then
+        # groupadd -g 1999 bmbak
+        # usermod -a -G bmbak $1  # LOGNAME = original user
+        # if getent group bmbak | grep -q "\b$1\b"; then
+        #         echo -e "        ${GRN}[√] $1 added to group${NC}\n"
+        # else
+        #         echo -e "${RED}        [X] ${B}error     ${YLW}unable to add $1 to bmbak group.\n${NC}\n"
+        # fi
+        usermod -a -G $1 root
+        if getent group $1 | grep -q "\broot\b"; then
                 echo -e "        ${GRN}[√] root added to group${NC}\n"
         else
-                echo -e "${RED}        [X] ${B}error     ${YLW}unable to add root to bmbak group.\n${NC}\n"
+                echo -e "${RED}        [X] ${B}error     ${YLW}unable to add root to bmilcs group.\n${NC}\n"
                 exit 1
         fi
         # useradd -g $USERGROUP -d /home/$USERNAME -s /bin/bash -m $USERNAME
