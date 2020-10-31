@@ -13,8 +13,8 @@ echo -e "\n"
 grep "# bmilcs.backup locations" /etc/rsnapshot.conf || echo -e "\n# bmilcs.backup locations" >> /etc/rsnapshot.conf
 
 # IF NOT EXIST, ADD BACKUP PATH
-bakfolder=$(basename $PWD)
-grep $'backup\t\t'$PWD /etc/rsnapshot.conf || echo -e "backup\t\t${PWD}\t\t${bakfolder}/" >> /etc/rsnapshot.conf
+# bakfolder=$(basename $PWD)
+grep $'backup\t\t'$PWD /etc/rsnapshot.conf || echo -e "backup\t\t${PWD}\/.\/\t\t\.\//" >> /etc/rsnapshot.conf
 
 # CHECK IF RSNAPSHOT CONFIG IS VALID
 echo -e "\n${PUR}• ${BLU}config test output ${NC}\n"
