@@ -64,7 +64,7 @@ fi
 
 echo -e "\n\n${PUR}• ${BLU}creating nfs mount w/ perms ${NC}\n"
 # CREATE /NFS/HOST | PERMISSIONS
-mkdir -p /nfs/ && chown bmilcs:bmbak /nfs && chmod 770 /nfs/
+mkdir -p /nfs/ && chown $1:$1 /nfs && chmod 770 /nfs/
 echo -e "  ${GRN}[√] done.${NC}\n" 
 FST='10.9.9.100:/mnt/bm/data/backup/'${HOSTNAME}'   /nfs/       nfs     auto 0 0'
 sudo grep -qxF "${FST}" /etc/fstab || sudo echo "${FST}" >> /etc/fstab
