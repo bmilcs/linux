@@ -51,7 +51,7 @@ else
         # useradd -g $USERGROUP -d /home/$USERNAME -s /bin/bash -m $USERNAME
 fi
 
-mount="/nfs/"
+mount="/nfs"
 if grep -qs "$mount" /proc/mounts; then
         echo -e "${RED}  [X] ${B}error     ${YLW}/nfs is already mounted\n${NC}"
         read -p "      PROCEED? (y/n)  " -n 1 -r
