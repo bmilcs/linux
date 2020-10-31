@@ -34,8 +34,8 @@ alias sls="sudo systemctl list-units --type=service --all"
 alias slsa="sudo systemctl list-units --type=service"
 alias slsg="sudo systemctl list-units --type=service --all | grep"
 # scripts & dotfiles
-alias up='update ; upp'
-alias upp='cd ~ ; (/bin/bash ~/.bmilcs/script/update_repo.sh) ; source ~/.bashrc'
+# alias up='update ; upp'
+# alias upp='cd ~ ; (/bin/bash ~/.bmilcs/script/update_repo.sh) ; source ~/.bashrc'
 alias ideb="sudo /bin/bash ~/.bmilcs/script/debian.sh"
 # alias ibak="/bin/bash ~/.bmilcs/script/update_repo.sh ; sudo /bin/bash ~/.bmilcs/script/backup.sh"
 alias ibak="upp ; sudo /bin/bash ~/.bmilcs/script/backup.sh install $USER"

@@ -21,4 +21,7 @@ sudo grep -qxF '# ls > group dotfiles together' ~/.bashrc || printf "\n\n# ls > 
 # let the ppl know
 # crontab -l | grep -qF '* * up' || (crontab -l >> ~/cronny && echo '30 1 * * * up' >> ~/cronny && crontab ~/cronny && rm ~/cronny)
 # echo && echo "----  cronjob: auto-update installed  -----------------------------------------------------------------" && echo
-sudo mv ~/.bmilcs/script/update_sys.sh /usr/local/bin/update
+
+# create custom commands 
+sudo mv ~/.bmilcs/script/update_sys.sh /usr/local/bin/up
+sudo mv ~/.bmilcs/script/update_repo.sh /usr/local/bin/upp
