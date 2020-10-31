@@ -30,7 +30,7 @@ alias ...="cd ../.. && c && l"
 alias ....="cd ../../.. && c && l"
 alias sshg="ssh-keygen -t rsa -b 4096"
 alias sysg="sudo cat /var/log/syslog | grep "
-alias sysls="sudo cat /var/log/syslog"
+alias sysls="sudo cat /var/log/syslog" 
 #---- services  ----------------------------------------------------------------------------------------
 alias sls="sudo systemctl list-units --type=service --all"
 alias slsa="sudo systemctl list-units --type=service"

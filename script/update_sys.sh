@@ -11,4 +11,9 @@ echo -e "${PUR}• ${BLU}sudo apt clean -y ${NC}"
 sudo apt clean -y
 echo -e "${PUR}• ${BLU}sudo apt autoclean -y ${NC}"
 sudo apt autoclean -y
+if pihole -v PIHOLE &> /dev/null
+then
+	echo -e "${PUR}• ${BLU}sudo pihole -up ${NC}"
+	sudo pihole -up
+fi
 echo -e "  ${GRN}[√] done.${NC}\n"
