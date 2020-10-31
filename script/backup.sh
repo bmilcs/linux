@@ -6,6 +6,8 @@
 # INIT COLOR-VAR'S
 NC='\033[0m';B='\033[1m';DIM='\033[2m';ITAL='\033[3m';UL='\033[4m';BLINK='\033[5m';INV='\033[7m'; BLK=${NC}'\033[30m';RED=${NC}'\033[31m';GRN=${NC}'\033[32m';YLW=${NC}'\033[33m';BLU=${NC}'\033[34m';PUR=${NC}'\033[35m';CYN=${NC}'\033[36m';WHT=${NC}'\033[37m';TIME="$(date +"%I:%M %P")"
 
+echo -e "\$1 is ${1}\n\$2 is ${2}"
+
 if [ "$1" = "add" ] ; then
         #PROMPT
         echo -e "${PUR}• ${BLU}add $2 to automated backup? \n${NC}\t\t"
