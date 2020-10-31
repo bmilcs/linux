@@ -20,9 +20,9 @@ if [ "$1" = "add" ] ; then
 
         # IF NOT EXIST, ADD BACKUP PATH
         bakfolder=$(basename $2)
+        # grep $'backup\t\t'$2'/./' /etc/rsnapshot.conf || echo -e "backup\t\t${2}/./\t\t${bakfolder}/" >> /etc/rsnapshot.conf
         grep $'backup\t\t'$2'/./' /etc/rsnapshot.conf || echo -e "backup\t\t${2}/./\t\t${bakfolder}/" >> /etc/rsnapshot.conf
 
-grep $'backup\t\t'$PWD'/./' test.conf || echo -e "backup\t\t${PWD}/./\t\t${bakfolder}/" >> test.conf
         # CHECK IF RSNAPSHOT CONFIG IS VALID
         echo -e "\n${PUR}• ${BLU}config test output ${NC}\n"
         rsnapshot configtest
