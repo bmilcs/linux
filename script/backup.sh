@@ -133,7 +133,7 @@ elif [ "$1" = "install" ] ; then
         echo -e "reset rsnapshot config for testing" > /etc/cron.d/rsnapshot
         grep '# bmilcs.backup automation' /etc/crontab || echo -e "#-> bmilcs.backup automation" > /etc/cron.d/rsnapshot
         grep 'rsnapshot daily' /etc/crontab || echo -e "30 3 * * *\t${2}\tbash\trsnapshot daily" >> /etc/cron.d/rsnapshot
-        grep 'rsnapshot weekly' /etc/crontab || echo -e "0 30 * * 1\t${2}\tbash\trsnapshot weekly" >> /etc/cron.d/rsnapshot
+        grep 'rsnapshot weekly' /etc/crontab || echo -e "30 0 * * 1\t${2}\tbash\trsnapshot weekly" >> /etc/cron.d/rsnapshot
         # grep 'rsnapshot monthly' /etc/crontab || echo "30 2          1 * *           root    rsnapshot monthly" >> /etc/crontab
 
         echo -e "${PUR}• ${BLU}checking rsnapshot config ${NC}"
