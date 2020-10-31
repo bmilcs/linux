@@ -16,4 +16,5 @@ then
 	echo -e "${PUR}• ${BLU}sudo pihole -up ${NC}"
 	sudo pihole -up
 fi
+upp
 echo -e "  ${GRN}[√] done.${NC}\n"
