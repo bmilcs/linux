@@ -81,7 +81,7 @@ echo -e "${BLU}${DIM}----  ${BLU}freenas backup point mounted  ${BLU}${DIM}-----
 
 apt install rsnapshot -y
 
-sudo sed -i.bak "/^#backup\t/d" /etc/rsnapshot.conf # backup stock rsnapshot config, containing #backup lines
+sudo sed -i.bak "/^#backup/d" /etc/rsnapshot.conf # backup stock rsnapshot config, containing #backup lines
 sudo sed -i "/^backup\t\//d" /etc/rsnapshot.conf # delete backup w/ single tab (not created by script \t\t
 sudo sed -i "/^snapshot_root/c\snapshot_root\t/nfs" /etc/rsnapshot.conf
 sudo sed -i "/^#no_create_root/c\no_create_root\t1" /etc/rsnapshot.conf
