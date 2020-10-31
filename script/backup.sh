@@ -131,9 +131,9 @@ elif [ "$1" = "install" ] ; then
         sudo sed -i "/^lockfile/c\lockfile\t/home\/$2\/rnapshot.pid" /etc/rsnapshot.conf
 
         echo -e "reset rsnapshot config for testing" > /etc/cron.d/rsnapshot
-        grep '# bmilcs.backup automation' /etc/crontab || echo -e "# bmilcs.backup automation" > /etc/cron.d/rsnapshot
-        grep 'rsnapshot daily' /etc/crontab || echo -e "30 3 * * *\t${1}\trsnapshot daily" >> /etc/cron.d/rsnapshot
-        grep 'rsnapshot weekly' /etc/crontab || echo -e "0 30 * * 1\t${1}\trsnapshot weekly" >> /etc/cron.d/rsnapshot
+        grep '# bmilcs.backup automation' /etc/crontab || echo -e "#-> bmilcs.backup automation" > /etc/cron.d/rsnapshot
+        grep 'rsnapshot daily' /etc/crontab || echo -e "30 3 * * *\t${2}\trsnapshot daily" >> /etc/cron.d/rsnapshot
+        grep 'rsnapshot weekly' /etc/crontab || echo -e "0 30 * * 1\t${2}\trsnapshot weekly" >> /etc/cron.d/rsnapshot
         # grep 'rsnapshot monthly' /etc/crontab || echo "30 2          1 * *           root    rsnapshot monthly" >> /etc/crontab
 
         echo -e "${PUR}• ${BLU}checking rsnapshot config ${NC}"
@@ -143,6 +143,6 @@ elif [ "$1" = "" ] ; then
         echo -e "${RED}  [X] ${B}error     ${YLW}argument missingoptions: add | install\n${NC}"
         exit 1
 else 
-        what are you saying? \"${1}\"
+        what are you saying? \"${2}\"
         echo -e "${RED}  [X] ${B}error     ${YLW}what are you saying? \"$1\" is not a valid argument\n${NC}"
 fi
