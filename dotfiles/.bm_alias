@@ -29,15 +29,13 @@ alias ..="cd ..&& c && l"
 alias ...="cd ../.. && c && l"
 alias ....="cd ../../.. && c && l"
 alias sshg="ssh-keygen -t rsa -b 4096"
+alias sysg="sudo cat /var/log/syslog | grep "
+alias sysls="sudo cat /var/log/syslog"
 #---- services  ----------------------------------------------------------------------------------------
 alias sls="sudo systemctl list-units --type=service --all"
 alias slsa="sudo systemctl list-units --type=service"
 alias slsg="sudo systemctl list-units --type=service --all | grep"
-# scripts & dotfiles
-# alias up='update ; upp'
-# alias upp='cd ~ ; (/bin/bash ~/.bmilcs/script/update_repo.sh) ; source ~/.bashrc'
 alias ideb="sudo /bin/bash ~/.bmilcs/script/debian.sh"
-# alias ibak="/bin/bash ~/.bmilcs/script/update_repo.sh ; sudo /bin/bash ~/.bmilcs/script/backup.sh"
 alias ibak="upp ; sudo /bin/bash ~/.bmilcs/script/backup.sh install $USER"
 alias ibakls="sudo cat /etc/rsnapshot.conf | grep ^backup"
 alias ibakadd="sudo /bin/bash ~/.bmilcs/script/backup.sh add"
