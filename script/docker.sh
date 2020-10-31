@@ -1,3 +1,4 @@
+set -e
 rm -rf /tmp/docker 
 git clone git@github.com:bmilcs/docker.git /tmp/docker
 rm -f ~/docker/docker-compose.yaml ~/docker/.env
