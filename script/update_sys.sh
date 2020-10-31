@@ -18,6 +18,6 @@ then
 fi
 if docker-compose -v DOCKER-COMPOSE &> /dev/null
 then
-	
+	 dcr
 fi
 upp
