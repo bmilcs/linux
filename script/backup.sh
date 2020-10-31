@@ -18,7 +18,7 @@ else
 fi
 
 #ENSURE FOLDER IS CREATED ON FREENAS
-echo -e "${PUR}• ${CYN}ssh into FREENAS & create folder: ${YLW}\"/mnt/bm/data/backup/${RED}${HOSTNAME}\" ${BLU}\n"
+echo -e "${PUR}• ${CYN}ssh into FREENAS & create folder: ${RED}\"/mnt/bm/data/backup/${YLW}${HOSTNAME}\" ${BLU}\n"
 read -p "  enter \"${HOSTNAME}\": " -e varUSER 
 if [ "$varUSER" != "$HOSTNAME" ]; then
         echo -e "${RED}  [X] ${B}error     ${YLW}wrong hostname\n${NC}"
