@@ -18,7 +18,7 @@ else
 fi
 
 #ENSURE FOLDER IS CREATED ON FREENAS
-echo -e "${PUR}• ${BLU}ssh into FREENAS & create folder: ${PUR}/mnt/bm/data/backup/${YLW}${HOSTNAME} ${NC}\n"
+echo -e "${PUR}• ${NC}ssh into FREENAS & create folder: \"${YLW}/mnt/bm/data/backup/${RED}${HOSTNAME}\" ${NC}\n"
 read -e varUSER
 if [ "$varUSER" != "$HOSTNAME" ]; then
         echo -e "${RED}  [X] ${B}error     ${YLW}wrong hostname\n${NC}"
@@ -29,6 +29,7 @@ fi
 echo -e "\n${PUR}• ${BLU}$1 group check ${NC}\n"
 # grep bmbak /etc/group 2>&1>/dev/null
 # if [ $? != 0 ]  # BMBAK MISSING?
+
 if getent group $1 | grep -q "\broot\b"; then
         echo -e "  ${GRN}[√] done.${NC}\n"
 else
@@ -63,11 +64,13 @@ if grep -qs "$mount" /proc/mounts; then
 fi
 
 echo -e "\n\n${PUR}• ${BLU}creating nfs mount w/ perms ${NC}\n"
+
 # CREATE /NFS/HOST | PERMISSIONS
 mkdir -p /nfs/ && chown $1:$1 /nfs && chmod 770 /nfs/
 echo -e "  ${GRN}[√] done.${NC}\n" 
 FST='10.9.9.100:/mnt/bm/data/backup/'${HOSTNAME}'   /nfs/       nfs     auto 0 0'
 sudo grep -qxF "${FST}" /etc/fstab || sudo echo "${FST}" >> /etc/fstab
+
 # MOUNT FOLDER
 echo -e "${PUR}• ${BLU}attempting to mount nfs mount ${NC}\n"
 sudo mount $mount
