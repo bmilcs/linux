@@ -6,11 +6,15 @@ if [[ ! $REPLY =~ ^[Yy]$ ]]; then
 				echo -e "${RED}  [X] ${B}error     ${YLW}cancelled request\n${NC}"
 				exit 0
 fi        
+bakfolder=$(basename $PWD)
 
 grep "# bmilcs.backup locations" /etc/rsnapshot.conf || echo -e "# bmilcs.backup locations" >> /etc/rsnapshot.conf
-grep "$PWD" /etc/rsnapshot.conf || echo -e "backup\t\t${PWD}\t\t./" >> /etc/rsnapshot.conf
+grep "$PWD" /etc/rsnapshot.conf || echo -e "backup\t\t${PWD}\t\t${bakfolder}/" >> /etc/rsnapshot.conf
 
+echo -e "${PUR}• ${BLU}config test output ${NC}"
 rsnapshot configtest
 
-backup          /home/bmilcs/docker/./          ./
-backup  /home/bmilcs/./plex/Library     ./
+echo -e "  ${GRN}[√] done.${NC}\n"
+
+# backup          /home/bmilcs/docker/./          ./
+# backup  /home/bmilcs/./plex/Library     ./
