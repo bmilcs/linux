@@ -16,4 +16,8 @@ then
 	echo -e "${PUR}• ${BLU}sudo pihole -up ${NC}"
 	sudo pihole -up
 fi
+if docker-compose -v DOCKER-COMPOSE &> /dev/null
+then
+	
+fi
 upp
