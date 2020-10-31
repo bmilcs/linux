@@ -8,7 +8,7 @@ if [[ ! $REPLY =~ ^[Yy]$ ]]; then
 				echo -e "${RED}  [X] ${B}error     ${YLW}cancelled request\n${NC}"
 				exit 0
 fi        
-echo 
+echo -e "\n"
 # IF NOT EXIST, ADD HEADER
 grep "# bmilcs.backup locations" /etc/rsnapshot.conf || echo -e "\n# bmilcs.backup locations" >> /etc/rsnapshot.conf
 
