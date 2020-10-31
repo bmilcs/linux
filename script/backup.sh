@@ -26,7 +26,7 @@ if [ "$varUSER" != "$HOSTNAME" ]; then
 fi
 
 # CHECK IF BACKUP USER GROUP EXISTS
-echo -e "\n${PUR}• ${BLU}bmbak group check ${NC}\n"
+echo -e "\n${PUR}• ${BLU}$1 group check ${NC}\n"
 # grep bmbak /etc/group 2>&1>/dev/null
 # if [ $? != 0 ]  # BMBAK MISSING?
 if getent group $1 | grep -q "\broot\b"; then
@@ -45,7 +45,7 @@ else
         if getent group $1 | grep -q "\broot\b"; then
                 echo -e "        ${GRN}[√] root added to group${NC}\n"
         else
-                echo -e "${RED}        [X] ${B}error     ${YLW}unable to add root to bmilcs group.\n${NC}\n"
+                echo -e "${RED}        [X] ${B}error     ${YLW}unable to add root to $1 group.\n${NC}\n"
                 exit 1
         fi
         # useradd -g $USERGROUP -d /home/$USERNAME -s /bin/bash -m $USERNAME
