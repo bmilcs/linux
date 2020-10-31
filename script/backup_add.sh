@@ -8,7 +8,7 @@ if [[ ! $REPLY =~ ^[Yy]$ ]]; then
 				echo -e "${RED}  [X] ${B}error     ${YLW}cancelled request\n${NC}"
 				exit 0
 fi        
-
+echo 
 # IF NOT EXIST, ADD HEADER
 grep "# bmilcs.backup locations" /etc/rsnapshot.conf || echo -e "\n# bmilcs.backup locations" >> /etc/rsnapshot.conf
 
@@ -17,7 +17,7 @@ bakfolder=$(basename $PWD)
 grep $'backup\t\t'$PWD /etc/rsnapshot.conf || echo -e "backup\t\t${PWD}\t\t${bakfolder}/" >> /etc/rsnapshot.conf
 
 # CHECK IF RSNAPSHOT CONFIG IS VALID
-echo -e "\n${PUR}• ${BLU}config test output ${NC}"
+echo -e "\n${PUR}• ${BLU}config test output ${NC}\n"
 rsnapshot configtest
 
 echo -e "\n  ${GRN}[√] done.${NC}\n"
