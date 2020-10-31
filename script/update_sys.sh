@@ -10,3 +10,4 @@ echo -e "${PUR}• ${BLU}sudo apt clean -y ${NC}"
 sudo apt clean -y
 echo -e "${PUR}• ${BLU}sudo apt autoclean -y ${NC}"
 sudo apt autoclean -y
+echo -e "  ${GRN}[√] done.${NC}\n"
