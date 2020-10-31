@@ -16,11 +16,11 @@ if [ "$1" = "add" ] ; then
         fi        
         echo -e "\n"
         # IF NOT EXIST, ADD HEADER
-        grep "# bmilcs.backup locations" /etc/rsnapshot.conf || echo -e "\n# bmilcs.backup locations" >> /etc/rsnapshot.conf
+        grep "# bmilcs.backup locations" /etc/rsnapshot.conf || echo -e "\n#-> bmilcs.backup locations" >> /etc/rsnapshot.conf
 
         # IF NOT EXIST, ADD BACKUP PATH
         bakfolder=$(basename $PWD)
-        grep $'backup\t\t'$PWD /etc/rsnapshot.conf || echo -e "backup\t\t${PWD}/./\t\t${bakfolder}/" >> /etc/rsnapshot.conf
+        grep $'backup\t\t'$PWD'/./' /etc/rsnapshot.conf || echo -e "backup\t\t${PWD}/./\t\t${bakfolder}/" >> /etc/rsnapshot.conf
 
         # CHECK IF RSNAPSHOT CONFIG IS VALID
         echo -e "\n${PUR}• ${BLU}config test output ${NC}\n"
