@@ -6,7 +6,7 @@
 # INIT COLOR-VAR'S
 NC='\033[0m';B='\033[1m';DIM='\033[2m';ITAL='\033[3m';UL='\033[4m';BLINK='\033[5m';INV='\033[7m'; BLK=${NC}'\033[30m';RED=${NC}'\033[31m';GRN=${NC}'\033[32m';YLW=${NC}'\033[33m';BLU=${NC}'\033[34m';PUR=${NC}'\033[35m';CYN=${NC}'\033[36m';WHT=${NC}'\033[37m';TIME="$(date +"%I:%M %P")"
 
-if [ "$1" = "add" ]; then
+if [ "$1" = "add" ] ; then
         #PROMPT
         echo -e "${PUR}• ${BLU}add $PWD to automated backup? \n${NC}\t\t"
         read -p "      PROCEED? (y/n)  " -n 1 -r
@@ -28,7 +28,7 @@ if [ "$1" = "add" ]; then
 
         echo -e "\n  ${GRN}[√] done.${NC}\n"
         exit 0
-else if [ "$1" = "install" ] ; then
+elif [ "$1" = "install" ] ; then
         # TITLE
         echo -e "${BLU}${DIM}----  ${BLU}${B}bmilcs-backup${GRN} started${BLU}${DIM}  ------------------------------------------------------------------------\n"
 
@@ -136,7 +136,7 @@ else if [ "$1" = "install" ] ; then
         echo -e "${PUR}• ${BLU}checking rsnapshot config ${NC}"
         rsnapshot configtest
         exit 0
-else if [ "$1" = "" ] ; then
+elif [ "$1" = "" ] ; then
         echo -e "${RED}  [X] ${B}error     ${YLW}argument missingoptions: add | install\n${NC}"
         exit 1
 else 
