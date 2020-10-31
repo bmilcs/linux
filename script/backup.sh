@@ -16,7 +16,7 @@ if [ "$1" = "add" ] ; then
         fi  
         echo -e "\n"
         # IF NOT EXIST, ADD HEADER
-        grep "# bmilcs.backup locations" /etc/rsnapshot.conf || echo -e "\n#-> bmilcs.backup locations" >> /etc/rsnapshot.conf
+        grep "#-> bmilcs.backup locations" /etc/rsnapshot.conf || echo -e "\n#-> bmilcs.backup locations" >> /etc/rsnapshot.conf
 
         # IF NOT EXIST, ADD BACKUP PATH
         bakfolder=$(basename $2)
