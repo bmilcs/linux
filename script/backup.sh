@@ -10,7 +10,7 @@ echo -e "\$1 is ${1}\n\$2 is ${2}"
 
 if [ "$1" = "add" ] ; then
         #PROMPT
-        echo -e "${PUR}• ${BLU}add $2 to automated backup? \n${NC}\t\t"
+        echo -e "${PUR}• ${BLU}add $PWD to automated backup? \n${NC}\t\t"
         read -p "      PROCEED? (y/n)  " -n 1 -r
         if [[ ! $REPLY =~ ^[Yy]$ ]]; then
                 echo -e "${RED}  [X] ${B}error     ${YLW}cancelled request\n${NC}"
@@ -21,9 +21,9 @@ if [ "$1" = "add" ] ; then
         grep "#-> bmilcs.backup locations" /etc/rsnapshot.conf || echo -e "\n#-> bmilcs.backup locations" >> /etc/rsnapshot.conf
 
         # IF NOT EXIST, ADD BACKUP PATH
-        bakfolder=$(basename $2)
-        # grep $'backup\t\t'$2'/./' /etc/rsnapshot.conf || echo -e "backup\t\t${2}/./\t\t${bakfolder}/" >> /etc/rsnapshot.conf
-        grep $'backup\t\t'$2'/./' /etc/rsnapshot.conf || echo -e "backup\t\t${2}/./\t\t${bakfolder}/" >> /etc/rsnapshot.conf
+        bakfolder=$(basename $PWD)
+        # grep $'backup\t\t'$PWD'/./' /etc/rsnapshot.conf || echo -e "backup\t\t${2}/./\t\t${bakfolder}/" >> /etc/rsnapshot.conf
+        grep $'backup\t\t'$PWD'/./' /etc/rsnapshot.conf || echo -e "backup\t\t${PWD}/./\t\t${bakfolder}/" >> /etc/rsnapshot.conf
 
         # CHECK IF RSNAPSHOT CONFIG IS VALID
         echo -e "\n${PUR}• ${BLU}config test output ${NC}\n"
