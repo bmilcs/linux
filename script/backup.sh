@@ -87,8 +87,8 @@ sudo sed -i "/^retain\tdaily/c\retain\tdaily\t7" /etc/rsnapshot.conf
 sudo sed -i "/^retain\talpha/c\retain\tdaily\t7" /etc/rsnapshot.conf
 sudo sed -i "/^retain\tweekly/c\retain\tweekly\t4" /etc/rsnapshot.conf
 sudo sed -i "/^retain\tbeta/c\retain\tweekly\t4" /etc/rsnapshot.conf
-sudo sed -i "/^retain\tmonthly/c\retain\tmonthly\t2" /etc/rsnapshot.conf
-sudo sed -i "/^retain\tgamma/c\retain\tmonthly\t2" /etc/rsnapshot.conf
+sudo sed -i "/^retain\tmonthly/c\#retain\tmonthly\t2" /etc/rsnapshot.conf
+sudo sed -i "/^retain\tgamma/c\#retain\tmonthly\t2" /etc/rsnapshot.conf
 sudo sed -i "/logfile\t\//c\logfile\t/nfs/backup.log" /etc/rsnapshot.conf
 sudo sed -i "/^lockfile/c\lockfile\t/home\/$1\/rnapshot.pid" /etc/rsnapshot.conf
 sudo sed -i "/^backup\t\/home\/\t/c\#backup \/home/" /etc/rsnapshot.conf
@@ -97,7 +97,7 @@ sudo sed -i "/^backup\t\/usr\/local\/\t/c\#backup \/usr\/local\/" /etc/rsnapshot
 
 grep 'rsnapshot daily' /etc/crontab || echo '30 3          * * *           root    rsnapshot daily' >> /etc/crontab
 grep 'rsnapshot weekly' /etc/crontab || echo '0  3          * * 1           root    rsnapshot weekly' >> /etc/crontab
-grep 'rsnapshot monthly' /etc/crontab || echo '30 2          1 * *           root    rsnapshot monthly' >> /etc/crontab
+# grep 'rsnapshot monthly' /etc/crontab || echo '30 2          1 * *           root    rsnapshot monthly' >> /etc/crontab
 
 echo -e "${PUR}• ${BLU}checking rsnapshot config ${NC}"
 rsnapshot configtest
