@@ -12,3 +12,5 @@ grep "$PWD" /etc/rsnapshot.conf || echo -e "backup\t\t${PWD}\t\t./" >> /etc/rsna
 
 rsnapshot configtest
 
+backup          /home/bmilcs/docker/./          ./
+backup  /home/bmilcs/./plex/Library     ./
