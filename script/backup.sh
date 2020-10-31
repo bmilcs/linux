@@ -85,6 +85,7 @@ apt install rsnapshot -y
 sudo sed -i.bak '/BACKUP POINTS \/ SCRIPTS/,$ d' /etc/rsnapshot.conf
 # sudo sed -n '/BACKUP POINTS \/ SCRIPTS/q;p' /etc/rsnapshot.conf
 sudo sed -i "/^backup\t\//d" /etc/rsnapshot.conf # delete backup w/ single tab (not created by script \t\t
+sudo sed -i "/#######################/d" /etc/rsnapshot.conf
 sudo sed -i "/^#\s/d" /etc/rsnapshot.conf # delete all # explainations
 sudo sed -i "/^#$/d" /etc/rsnapshot.conf # delete # only lines
 sudo sed -i "/^$/d" /etc/rsnapshot.conf # delete blank lines
