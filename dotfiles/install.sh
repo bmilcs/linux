@@ -25,3 +25,4 @@ sudo grep -qxF '# ls > group dotfiles together' ~/.bashrc || printf "\n\n# ls > 
 # create custom commands 
 sudo mv ~/.bmilcs/script/update_sys.sh /usr/local/bin/up
 sudo mv ~/.bmilcs/script/update_repo.sh /usr/local/bin/upp
+sudo mv ~/.bmilcs/script/docker.sh /usr/local/bin/dcr
