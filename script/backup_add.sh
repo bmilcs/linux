@@ -7,6 +7,7 @@ if [[ ! $REPLY =~ ^[Yy]$ ]]; then
 				exit 0
 fi        
 
+grep "# bmilcs.backup locations" /etc/rsnapshot.conf || echo -e "# bmilcs.backup locations" >> /etc/rsnapshot.conf
 grep "$PWD" /etc/rsnapshot.conf || echo -e "backup\t\t${PWD}\t\t./" >> /etc/rsnapshot.conf
 
 rsnapshot configtest
