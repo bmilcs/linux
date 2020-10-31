@@ -95,9 +95,9 @@ sudo sed -i "/^backup\t\/home\/\t/c\#backup \/home/" /etc/rsnapshot.conf
 sudo sed -i "/^backup\t\/etc\/\t/c\#backup \/etc/" /etc/rsnapshot.conf
 sudo sed -i "/^backup\t\/usr\/local\/\t/c\#backup \/usr\/local\/" /etc/rsnapshot.conf
 
-grep '# bmilcs.backup automation' /etc/crontab || echo "# bmilcs.backup automation" > /etc/cron.d/rsnapshot
-grep 'rsnapshot daily' /etc/crontab || echo "30 3 * * *\t${1}\trsnapshot daily" >> /etc/cron.d/rsnapshot
-grep 'rsnapshot weekly' /etc/crontab || echo "0 30 * * 1\t${1}\trsnapshot weekly" >> /etc/cron.d/rsnapshot
+grep '# bmilcs.backup automation' /etc/crontab || echo -e "# bmilcs.backup automation" > /etc/cron.d/rsnapshot
+grep 'rsnapshot daily' /etc/crontab || echo -e "30 3 * * *\t${1}\trsnapshot daily" >> /etc/cron.d/rsnapshot
+grep 'rsnapshot weekly' /etc/crontab || echo -e "0 30 * * 1\t${1}\trsnapshot weekly" >> /etc/cron.d/rsnapshot
 # grep 'rsnapshot monthly' /etc/crontab || echo "30 2          1 * *           root    rsnapshot monthly" >> /etc/crontab
 
 echo -e "${PUR}• ${BLU}checking rsnapshot config ${NC}"
