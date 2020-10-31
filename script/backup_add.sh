@@ -8,7 +8,8 @@ if [[ ! $REPLY =~ ^[Yy]$ ]]; then
 fi        
 bakfolder=$(basename $PWD)
 
-grep "# bmilcs.backup locations" /etc/rsnapshot.conf || echo -e "# bmilcs.backup locations" >> /etc/rsnapshot.conf
+grep "# bmilcs.backup locations" /etc/rsnapshot.conf || echo -e "\n# bmilcs.backup locations" >> /etc/rsnapshot.conf
+
 grep "$PWD" /etc/rsnapshot.conf || echo -e "backup\t\t${PWD}\t\t${bakfolder}/" >> /etc/rsnapshot.conf
 
 echo -e "${PUR}• ${BLU}config test output ${NC}"
