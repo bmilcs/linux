@@ -81,8 +81,9 @@ echo -e "${BLU}${DIM}----  ${BLU}freenas backup point mounted  ${BLU}${DIM}-----
 
 apt install rsnapshot -y
 
+sudo sed -i.bak "/^#backup\t/d" /etc/rsnapshot.conf # backup stock rsnapshot config, containing #backup lines
 sudo sed -i "/^snapshot_root/c\snapshot_root\t/nfs" /etc/rsnapshot.conf
-sudo sed -i "/^no_create_root/c\no_create_root\t1" /etc/rsnapshot.conf
+sudo sed -i "/^#no_create_root/c\no_create_root\t1" /etc/rsnapshot.conf
 sudo sed -i "/^retain\tdaily/c\retain\tdaily\t7" /etc/rsnapshot.conf
 sudo sed -i "/^retain\talpha/c\retain\tdaily\t7" /etc/rsnapshot.conf
 sudo sed -i "/^retain\tweekly/c\retain\tweekly\t4" /etc/rsnapshot.conf
@@ -94,6 +95,7 @@ sudo sed -i "/^lockfile/c\lockfile\t/home\/$1\/rnapshot.pid" /etc/rsnapshot.conf
 sudo sed -i "/^backup\t\/home\/\t/c\#backup \/home/" /etc/rsnapshot.conf
 sudo sed -i "/^backup\t\/etc\/\t/c\#backup \/etc/" /etc/rsnapshot.conf
 sudo sed -i "/^backup\t\/usr\/local\/\t/c\#backup \/usr\/local\/" /etc/rsnapshot.conf
+
 
 echo -e "reset rsnapshot config for testing" > /etc/cron.d/rsnapshot
 grep '# bmilcs.backup automation' /etc/crontab || echo -e "# bmilcs.backup automation" > /etc/cron.d/rsnapshot
