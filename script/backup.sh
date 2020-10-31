@@ -140,8 +140,6 @@ else if [ "$1" = "" ] ; then
         echo -e "${RED}  [X] ${B}error     ${YLW}argument missingoptions: add | install\n${NC}"
         exit 1
 else 
-what are you saying? \"${1}\"
-echo -e "${RED}  [X] ${B}error     ${YLW}what are you saying? \"$1\" is not a valid argument\n${NC}"
- 
- 
+        what are you saying? \"${1}\"
+        echo -e "${RED}  [X] ${B}error     ${YLW}what are you saying? \"$1\" is not a valid argument\n${NC}"
 fi
