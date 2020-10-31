@@ -56,9 +56,9 @@ alias upp='cd ~ ; (/bin/bash ~/.bmilcs/script/update_repo.sh) ; source ~/.bashrc
 	# cd ~'
 alias ideb="sudo /bin/bash ~/.bmilcs/script/debian.sh"
 # alias ibak="/bin/bash ~/.bmilcs/script/update_repo.sh ; sudo /bin/bash ~/.bmilcs/script/backup.sh"
-alias ibak="upp ; sudo /bin/bash ~/.bmilcs/script/backup.sh $USER"
+alias ibak="upp ; sudo /bin/bash ~/.bmilcs/script/backup.sh install $USER"
 alias ibakls="sudo cat /etc/rsnapshot.conf | grep ^backup"
-alias ibakadd="sudo /bin/bash ~/.bmilcs/script/backup_add.sh"
+alias ibakadd="sudo /bin/bash ~/.bmilcs/script/backup_add.sh add"
 alias rsnap="sudo nano /etc/rsnapshot.conf"
 alias a="alias | sed 's/=.*//'"
 alias func="declare -f | grep '^[a-z].* ()' | sed 's/{$//'"
