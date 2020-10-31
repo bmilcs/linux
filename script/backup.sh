@@ -50,27 +50,27 @@ else if [ "$1" = "install" ] ; then
         fi
 
         # CHECK IF BACKUP USER GROUP EXISTS
-        echo -e "\n${PUR}• ${BLU}$1 group check ${NC}\n"
+        echo -e "\n${PUR}• ${BLU}$2 group check ${NC}\n"
         # grep bmbak /etc/group 2>&1>/dev/null
         # if [ $? != 0 ]  # BMBAK MISSING?
 
-        if getent group $1 | grep -q "\broot\b"; then
+        if getent group $2 | grep -q "\broot\b"; then
                 echo -e "  ${GRN}[√] done.${NC}\n"
         else
                 # echo -e "      ${PUR}• ${YLW}creating bmbak (1999) ${NC}\n"
                 # CREATE BMBAK GROUP
                 # groupadd -g 1999 bmbak
-                # usermod -a -G bmbak $1  # LOGNAME = original user
-                # if getent group bmbak | grep -q "\b$1\b"; then
-                #         echo -e "        ${GRN}[√] $1 added to group${NC}\n"
+                # usermod -a -G bmbak $2  # LOGNAME = original user
+                # if getent group bmbak | grep -q "\b$2\b"; then
+                #         echo -e "        ${GRN}[√] $2 added to group${NC}\n"
                 # else
-                #         echo -e "${RED}        [X] ${B}error     ${YLW}unable to add $1 to bmbak group.\n${NC}\n"
+                #         echo -e "${RED}        [X] ${B}error     ${YLW}unable to add $2 to bmbak group.\n${NC}\n"
                 # fi
-                usermod -a -G $1 root
-                if getent group $1 | grep -q "\broot\b"; then
+                usermod -a -G $2 root
+                if getent group $2 | grep -q "\broot\b"; then
                         echo -e "        ${GRN}[√] root added to group${NC}\n"
                 else
-                        echo -e "${RED}        [X] ${B}error     ${YLW}unable to add root to $1 group.\n${NC}\n"
+                        echo -e "${RED}        [X] ${B}error     ${YLW}unable to add root to $2 group.\n${NC}\n"
                         exit 1
                 fi
                 # useradd -g $USERGROUP -d /home/$USERNAME -s /bin/bash -m $USERNAME
@@ -90,7 +90,7 @@ else if [ "$1" = "install" ] ; then
         echo -e "\n\n${PUR}• ${BLU}creating nfs mount w/ perms ${NC}\n"
 
         # CREATE /NFS/HOST | PERMISSIONS
-        mkdir -p /nfs/ && chown $1:$1 /nfs && chmod 770 /nfs/
+        mkdir -p /nfs/ && chown $2:$2 /nfs && chmod 770 /nfs/
         echo -e "  ${GRN}[√] done.${NC}\n" 
         FST='10.9.9.100:/mnt/bm/data/backup/'${HOSTNAME}'   /nfs/       nfs     auto 0 0'
         sudo grep -qxF "${FST}" /etc/fstab || sudo echo "${FST}" >> /etc/fstab
@@ -125,7 +125,7 @@ else if [ "$1" = "install" ] ; then
         sudo sed -i "/^retain\tmonthly/c\#retain\tmonthly\t2" /etc/rsnapshot.conf
         sudo sed -i "/^retain\tgamma/c\#retain\tmonthly\t2" /etc/rsnapshot.conf
         sudo sed -i "/logfile\t\//c\logfile\t/nfs/backup.log" /etc/rsnapshot.conf
-        sudo sed -i "/^lockfile/c\lockfile\t/home\/$1\/rnapshot.pid" /etc/rsnapshot.conf
+        sudo sed -i "/^lockfile/c\lockfile\t/home\/$2\/rnapshot.pid" /etc/rsnapshot.conf
 
         echo -e "reset rsnapshot config for testing" > /etc/cron.d/rsnapshot
         grep '# bmilcs.backup automation' /etc/crontab || echo -e "# bmilcs.backup automation" > /etc/cron.d/rsnapshot
