@@ -95,8 +95,13 @@ elif [ "$1" = "install" ] ; then
         # CREATE /NFS/HOST | PERMISSIONS
         mkdir -p /nfs/ && chown $2:$2 /nfs && chmod 770 /nfs/
         echo -e "  ${GRN}[√] done.${NC}\n" 
-        FST='10.9.9.100:/mnt/bm/data/backup/'${HOSTNAME}'   /nfs/       nfs     auto 0 0'
-        sudo grep -qxF "${FST}" /etc/fstab || sudo echo "${FST}" >> /etc/fstab
+        if [ "$HOSTNAME" != "vpn" ] ; then
+                FST='10.9.9.100:/mnt/bm/data/backup/'${HOSTNAME}'   /nfs/       nfs     auto 0 0'
+                sudo grep -qxF "${FST}" /etc/fstab || sudo echo "${FST}" >> /etc/fstab
+        else
+                FST='freenas:/mnt/bm/data/backup/'${HOSTNAME}'   /nfs/       nfs     auto 0 0'
+                sudo grep -qxF "${FST}" /etc/fstab || sudo echo "${FST}" >> /etc/fstab
+        fi
 
         # MOUNT FOLDER
         echo -e "${PUR}• ${BLU}attempting to mount nfs mount ${NC}\n"
