@@ -4,19 +4,26 @@ set -e
 upp
 echo -e "${PUR}• ${BLU}sudo apt update -y ${NC}"
 sudo apt update -y
+echo -e "  ${GRN}[√] done.${NC}\n"
 echo -e "${PUR}• ${BLU}sudo apt full-upgrade -y ${NC}"
 sudo apt full-upgrade -y
+echo -e "  ${GRN}[√] done.${NC}\n"
 echo -e "${PUR}• ${BLU}sudo apt autoremove -y ${NC}"
 sudo apt autoremove -y
+echo -e "  ${GRN}[√] done.${NC}\n"
 echo -e "${PUR}• ${BLU}sudo apt clean -y ${NC}"
 sudo apt clean -y
+echo -e "  ${GRN}[√] done.${NC}\n"
 echo -e "${PUR}• ${BLU}sudo apt autoclean -y ${NC}"
 sudo apt autoclean -y
+echo -e "  ${GRN}[√] done.${NC}\n"
+# update pihole test
 if pihole -v PIHOLE &> /dev/null
 then
 	echo -e "${PUR}• ${BLU}sudo pihole -up ${NC}"
 	sudo pihole -up
 fi
+# docker-compose update test
 if docker-compose -v DOCKER-COMPOSE &> /dev/null
 then
 	 dcr
