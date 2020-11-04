@@ -23,7 +23,6 @@ alias wget='wget -c'								# autoresume
 
 #---------------------------------  file/dir navigation  ---------------------------------#
 alias c="clear"
-alias pid="cat /etc/passwd"
 alias bm="su bmilcs"	# only while root
 alias rt="sudo -s"
 alias rd="cd / && c && l"
@@ -35,22 +34,27 @@ alias ....="cd ../../.. && c && l"
 alias sshg="ssh-keygen -t rsa -b 4096"
 alias syslogg="sudo cat /var/log/syslog | grep "
 alias syslogls="sudo cat /var/log/syslog" 
+alias pid="cat /etc/passwd"
 
 #---------------------------------------  services  ---------------------------------------#
 alias srvcls="sudo systemctl list-units --type=service --all"
 alias srvclsa="sudo systemctl list-units --type=service"
 alias srvcg="sudo systemctl list-units --type=service --all | grep"
 
-#-----------------------------------  script adjacent  -----------------------------------#
+#--------------------------------------  debian os  --------------------------------------#
 alias ideb="sudo /bin/bash ~/.bmilcs/script/debian.sh"
+#------------------------------  rsnapshot backup scripting  ------------------------------#
 alias ibak="upp ; sudo /bin/bash ~/.bmilcs/script/backup.sh install $USER"
 alias ibakls="sudo cat /etc/rsnapshot.conf | grep ^backup"
 alias ibakadd="sudo /bin/bash ~/.bmilcs/script/backup.sh add"
 alias rsnap="sudo nano /etc/rsnapshot.conf"
+#-------------------------------------  github repo  -------------------------------------#
+alias upp="dirr=${PWD} ; cd ~ ; upp ; cd $dirr"
+
 alias a="alias | sed 's/=.*//'"
 alias func="declare -f | grep '^[a-z].* ()' | sed 's/{$//'"
 alias paths='echo -e ${PATH//:/\\n}'
-alias upp="upp ${PWD}"
+
 
 #-------------------------------------  file sharing  -------------------------------------#
 alias nfs='sudo nano /etc/exports'
