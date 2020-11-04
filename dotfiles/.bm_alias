@@ -50,6 +50,7 @@ alias rsnap="sudo nano /etc/rsnapshot.conf"
 alias a="alias | sed 's/=.*//'"
 alias func="declare -f | grep '^[a-z].* ()' | sed 's/{$//'"
 alias paths='echo -e ${PATH//:/\\n}'
+alias upp="upp ${PWD}"
 
 #-------------------------------------  file sharing  -------------------------------------#
 alias nfs='sudo nano /etc/exports'
