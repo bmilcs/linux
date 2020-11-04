@@ -5,22 +5,22 @@ upp
 echo -e "${BLU}[ ${B}sudo apt update -y ${BLU}]${NC}"
 sudo apt update -y
 echo -e "  ${GRN}[√] done.${NC}\n"
-echo -e "${BLU}${B}${UL}sudo apt full-upgrade -y ${NC}"
+echo -e "${BLU}[ ${B}sudo apt full-upgrade -y ${BLU}]${NC}"
 sudo apt full-upgrade -y
 echo -e "  ${GRN}[√] done.${NC}\n"
-echo -e "${BLU}${B}${UL}sudo apt autoremove -y ${NC}"
+echo -e "${BLU}[ ${B}sudo apt autoremove -y ${BLU}]${NC}"
 sudo apt autoremove -y
 echo -e "  ${GRN}[√] done.${NC}\n"
-echo -e "${BLU}${B}${UL}sudo apt clean -y ${NC}"
+echo -e "${BLU}[ ${B}sudo apt clean -y ${BLU}]${NC}"
 sudo apt clean -y
 echo -e "  ${GRN}[√] done.${NC}\n"
-echo -e "${BLU}${B}${UL}sudo apt autoclean -y ${NC}"
+echo -e "${BLU}[ ${B}sudo apt autoclean -y ${BLU}]${NC}"
 sudo apt autoclean -y
 echo -e "  ${GRN}[√] done.${NC}\n"
 # update pihole test
 if pihole -v PIHOLE &> /dev/null
 then
-	echo -e "${BLU}${B}${UL}sudo pihole -up ${NC}"
+	echo -e "${BLU}[ ${B}sudo pihole -up ${BLU}]${NC}"
 	sudo pihole -up
 fi
 # docker-compose update test
@@ -28,5 +28,3 @@ if docker-compose -v DOCKER-COMPOSE &> /dev/null
 then
 	 dcr
 fi
-
-

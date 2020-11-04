@@ -2,24 +2,26 @@
 # ===  bmilcs: aliases  ================================================================================
 # ======================================================================================================
 #   rm -rf ~/_bmilcs ~/.bm* ~/.dir_colors ~/.hosts && rm -rf ~/.bm && git clone https://github.com/bmilcs/linux.git ~/.bmilcs && chmod -R +x ~/.bmilcs && cd ~/.bmilcs/dotfiles &&	./install.sh &&	source ~/.bashrc
-#---  directories & files  -----------------------------------------------------------------------------
+
+#---------------------------------  directories & files  ---------------------------------#
 alias ls='ls --color -lhF --group-directories-first'
-alias l="ls"		   # List in long format
-alias ll="ls -nA"       # List in long format, include dotfiles, letter uid
-alias lll="ls -A"       # List in long format, include dotfiles, numerical uid
-alias lsf="ls | grep -v '^d'"	#list files
+alias l="ls"
+alias ll="ls -nA" #long, all, # puid
+alias lll="ls -A" # long, all, abc puid
+alias lsf="ls | grep -v '^d'"	#ls files
 alias lsg="ls | grep" #search in dir
-alias lsd="ls -ld */"   # List in long format, only directories
-alias mv='mv -i'	#confirmation
-alias cp='cp -i'	#confirmation
-alias ln='ln -i'	#confirmation
+alias lsd="ls -ld */"   # ls, long, dir
+alias mv='mv -i' #confirmation
+alias cp='cp -i' #confirmation
+alias ln='ln -i' #confirmation
 alias grep='grep --color=auto'			# color
 
-
+#-----------------------------------------  apt  -----------------------------------------#
 alias apt-get="sudo apt-get --yes"	# auto sudo
 alias apt="sudo apt --yes"					# auto sudo
 alias wget='wget -c'								# autoresume
-#----  file/dir navigation  ----------------------------------------------------------------------------
+
+#---------------------------------  file/dir navigation  ---------------------------------#
 alias c="clear"
 alias pid="cat /etc/passwd"
 alias bm="su bmilcs"	# only while root
@@ -33,11 +35,13 @@ alias ....="cd ../../.. && c && l"
 alias sshg="ssh-keygen -t rsa -b 4096"
 alias syslogg="sudo cat /var/log/syslog | grep "
 alias syslogls="sudo cat /var/log/syslog" 
-#---- services  ----------------------------------------------------------------------------------------
+
+#---------------------------------------  services  ---------------------------------------#
 alias srvcls="sudo systemctl list-units --type=service --all"
 alias srvclsa="sudo systemctl list-units --type=service"
 alias srvcg="sudo systemctl list-units --type=service --all | grep"
-#---- script adjacent  ---------------------------------------------------------------------------------
+
+#-----------------------------------  script adjacent  -----------------------------------#
 alias ideb="sudo /bin/bash ~/.bmilcs/script/debian.sh"
 alias ibak="upp ; sudo /bin/bash ~/.bmilcs/script/backup.sh install $USER"
 alias ibakls="sudo cat /etc/rsnapshot.conf | grep ^backup"
@@ -46,7 +50,8 @@ alias rsnap="sudo nano /etc/rsnapshot.conf"
 alias a="alias | sed 's/=.*//'"
 alias func="declare -f | grep '^[a-z].* ()' | sed 's/{$//'"
 alias paths='echo -e ${PATH//:/\\n}'
-#----  file sharing  -----------------------------------------------------------------------------------
+
+#-------------------------------------  file sharing  -------------------------------------#
 alias nfs='sudo nano /etc/exports'
 alias nfsr='sudo systemctl restart nfs-kernel-server'
 alias fstab='sudo nano /etc/fstab'
