@@ -2,7 +2,7 @@
 
 ###### install dotfiles, scripts, etc.
 
-    sudo apt install git && rm -rf ~/_bmilcs ~/.bm* ~/.inputr* && cd ~ && mkdir _bmilcs && git clone https://github.com/bmilcs/linux.git ~/_bmilcs && cd ~/_bmilcs && chmod -R +x * && cd dotfiles && ./install.sh && source ~/.bashrc && l
+    (sudo apt install git ; rm -rf ~/_bmilcs ~/.bm* ~/.inputr* ; git clone https://github.com/bmilcs/linux.git ~/.bmilcs ; chmod -R +x ~/.bmilcs/* ; /bin/bash ~/.bmilcs/dotfiles/install.sh ; source ~/.bashrc)
 
 
 todo:
