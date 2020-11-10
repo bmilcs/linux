@@ -120,15 +120,11 @@ alias dcln='
 '
 # remove nfs share volumes
 alias dvol='
-	docker volume remove docker_audiobooks
-	docker volume remove docker_cloud
-	docker volume remove docker_dl
-	docker volume remove docker_dltor
-	docker volume remove docker_movies
-	docker volume remove docker_music
-	docker volume remove docker_plexlog
-	docker volume remove docker_podcasts
-	docker volume remove docker_tv
+	volz="audiobooks cloud dl movies music plexlog podcasts tv"
+	for vz in $volz
+	do
+		docker volume rm docker_${vz}
+	done
 	'
 # remove: containers | volumes
 alias dnew='
