@@ -45,13 +45,12 @@ alias svstop="sudo systemctl stop"
 #--------------------------------------  debian os  --------------------------------------#
 alias ideb="sudo /bin/bash ~/.bmilcs/script/debian.sh"
 #------------------------------  rsnapshot backup scripting  ------------------------------#
-alias ibak="upp ; sudo /bin/bash ~/.bmilcs/script/backup.sh install $USER"
+alias ibak="upp ; sudo /bin/bash ~/.bmilcs/script/backup.sh install $USER ; source ~/.bashrc"
 alias ibakls="sudo cat /etc/rsnapshot.conf | grep ^backup"
 alias ibakadd="sudo /bin/bash ~/.bmilcs/script/backup.sh add"
 alias rsnap="sudo nano /etc/rsnapshot.conf"
 #-------------------------------------  github repo  -------------------------------------#
-alias upp="dirr=${PWD} ; cd ~ ; upp ; cd $dirr"
-
+alias upp="dirr=${PWD} ; cd ~ ; upp ; cd $dirr ; source ~/.bashrc"
 alias a="alias | sed 's/=.*//'"
 alias func="declare -f | grep '^[a-z].* ()' | sed 's/{$//'"
 alias paths='echo -e ${PATH//:/\\n}'
