@@ -35,12 +35,13 @@ alias sshg="ssh-keygen -t rsa -b 4096"
 alias syslogg="sudo cat /var/log/syslog | grep "
 alias syslogls="sudo cat /var/log/syslog" 
 alias pid="cat /etc/passwd"
-
 #---------------------------------------  services  ---------------------------------------#
-alias srvcls="sudo systemctl list-units --type=service --all"
-alias srvclsa="sudo systemctl list-units --type=service"
-alias srvcg="sudo systemctl list-units --type=service --all | grep"
-
+alias svls="sudo systemctl list-units --type=service --all"
+alias svlsa="sudo systemctl list-units --type=service"
+alias svg="sudo systemctl list-units --type=service --all | grep"
+alias svstart="sudo systemctl start"
+alias svr="sudo systemctl status"
+alias svstop="sudo systemctl stop"
 #--------------------------------------  debian os  --------------------------------------#
 alias ideb="sudo /bin/bash ~/.bmilcs/script/debian.sh"
 #------------------------------  rsnapshot backup scripting  ------------------------------#
@@ -112,12 +113,7 @@ alias drmi='docker rmi $(docker images -a -q)'
 # stop all containres
 alias dstop='docker stop $(docker ps -a -q)'
 # clean up docker system
-alias dcln='
-	docker image prune -a
-	docker container prune
-	docker volume prune
-	docker network prune
-'
+alias dcln='docker image prune -a ; docker container prune ; docker volume prune ; docker network prune'
 # remove nfs share volumes
 alias dvol='
 	volz="audiobooks cloud dl movies music plexlog podcasts tv"
