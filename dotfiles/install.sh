@@ -23,8 +23,10 @@ sudo grep -qxF '# ls > group dotfiles together' ~/.bashrc || printf "\n\n# ls > 
 # echo && echo "----  cronjob: auto-update installed  -----------------------------------------------------------------" && echo
 
 # create custom commands 
-sudo mv ~/.bmilcs/script/update_sys.sh /usr/local/bin/up
-sudo mv ~/.bmilcs/script/update_repo.sh /usr/local/bin/upp
+sudo mv --force ~/.bmilcs/script/update_sys.sh /usr/local/bin/up
+sudo mv --force ~/.bmilcs/script/update_repo.sh /usr/local/bin/upp
 if [ "$HOSTNAME" = "docker" ] ; then
-sudo mv ~/.bmilcs/script/docker.sh /usr/local/bin/dcr
+sudo mv --force ~/.bmilcs/script/docker.sh /usr/local/bin/dcr
+else
+rm ~/.bm_docker
 fi

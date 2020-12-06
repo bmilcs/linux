@@ -1,0 +1,7 @@
+alias gitp='gitt push'
+alias gitt='/usr/bin/git --git-dir=$HOME/docker/.git/ --work-tree=$HOME/docker'
+
+function gita() {
+        gitt add $@
+        gitt commit -m "Added $@"
+}
