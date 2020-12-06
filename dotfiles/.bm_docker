@@ -1,4 +1,4 @@
-alias gitp='gitt commit -a "update" && gitt push'
+alias gitp='gitt commit -a -m "update" && gitt push'
 alias gitt='/usr/bin/git --git-dir=$HOME/docker/.git/ --work-tree=$HOME/docker'
 
 function gita() {
