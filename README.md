@@ -13,6 +13,7 @@ todo:
 compare copied data and export missing content to log
 
       rsync -avun --no-group --no-owner --no-perms --no-times /original/nas/dir/ user@newhost:/new/nas/dir/ >> bmilcs_missing.log
+
       # save output to a file, as it takes a while with huge amounts of data and if you're like me, you'll forget you ran it.
       >> bmilcs.log 
 

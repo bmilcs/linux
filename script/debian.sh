@@ -9,8 +9,8 @@ echo "====  bmilcs debian basic configuration setup  ===========================
 # root check
 echo '> root check'
 if [[ $EUID -ne 0 ]]; then
-   echo "ERROR: This script must be run as root" 
-   exit 1
+  echo "ERROR: This script must be run as root" 
+  exit 1
 else 
 	echo '... done.' &&	echo
 fi
@@ -29,13 +29,10 @@ fi
 echo "> configure git user"
 bmUID=$(id -u bmilcs) && bmGID=$(id -g bmilcs)
 if [ $bmUID == 1086 ] && [ $varUSER == "bmilcs" ] || [ $varUSER != "bmilcs" ]; then
-	 git config --global user.name bmilcs
-	 git config --global user.email bmilcs@yahoo.com
-	 git config --global color.ui auto
+	git config --global user.name bmilcs
+	git config --global user.email bmilcs@yahoo.com
+	git config --global color.ui auto
 fi
-
-# remove ROOT ssh access
-sed -i '/PermitRootLogin/c\PermitRootLogin no' /etc/ssh/sshd_config
 
 # install essentials
 echo && echo "----  apt install: sudo | open-vm-tools | nfs-common | dnsutils | ncdu | htop -----------------------------------" && echo
@@ -61,9 +58,14 @@ sudo -u $varUSER chmod 700 /home/$varUSER/.ssh
 sudo -u $varUSER touch /home/$varUSER/.ssh/authorized_keys
 sudo -u $varUSER chmod 600 /home/$varUSER/.ssh/authorized_keys
 grep -qxF 'ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAngRc7vefUjzk2k6noOtBlhAzROXTAxG31mwuMXF2/qM8O795WMBHdPndW/5M7Zxk06waqPDDfsjRNj/Zmhfq62kFdTeUP+4WZlo6SZ6v3xVthhf+WQjEDejsVkRoilZIyyA3dxzbLJZzK0RE/sJ8kbIZ1yb+a8sAI6OSUWvIhhfKyfIilNbATuctXKnZRaQVPKHbsCWhS/BYgpVRJmm6TCtjmEnUZGl1+liio4hvlgaXxsZH5Mi2/+1BcKj/5+OQqq8gM2SNDO/vnfRJLTE9yUrvtvUJUJ6XLWnHVigIjZJK/prdzY/N7dHuUVKVV3NsbdhNgzb4N8hsdzRsiGp7Pw== $varUSER' /home/$varUSER/.ssh/authorized_keys || echo 'ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAngRc7vefUjzk2k6noOtBlhAzROXTAxG31mwuMXF2/qM8O795WMBHdPndW/5M7Zxk06waqPDDfsjRNj/Zmhfq62kFdTeUP+4WZlo6SZ6v3xVthhf+WQjEDejsVkRoilZIyyA3dxzbLJZzK0RE/sJ8kbIZ1yb+a8sAI6OSUWvIhhfKyfIilNbATuctXKnZRaQVPKHbsCWhS/BYgpVRJmm6TCtjmEnUZGl1+liio4hvlgaXxsZH5Mi2/+1BcKj/5+OQqq8gM2SNDO/vnfRJLTE9yUrvtvUJUJ6XLWnHVigIjZJK/prdzY/N7dHuUVKVV3NsbdhNgzb4N8hsdzRsiGp7Pw== $varUSER' >> /home/$varUSER/.ssh/authorized_keys
-grep -qxF 'PermitRootLogin no' /etc/ssh/sshd_config || echo 'PermitRootLogin no' >> /etc/ssh/sshd_config
-grep -qxF 'PubkeyAuthentication yes' /etc/ssh/sshd_config || echo 'PubkeyAuthentication yes' >> /etc/ssh/sshd_config
-grep -qxF 'AuthorizedKeysFile %h/.ssh/authorized_keys' /etc/ssh/sshd_config || echo 'AuthorizedKeysFile %h/.ssh/authorized_keys' >> /etc/ssh/sshd_config
+sed -i '/#PermitRootLogin/c\PermitRootLogin no' /etc/ssh/sshd_config
+sed -i '/#PubkeyAuthentication/c\PubkeyAuthentication yes' /etc/ssh/sshd_config
+sed -i '/#PasswordAuthentication/c\PasswordAuthentication no' /etc/ssh/sshd_config
+sed -i '/#AuthorizedKeysFile/c\AuthorizedKeysFile %h/.ssh/authorized_keys' /etc/ssh/sshd_config
+# grep -qxF 'PermitRootLogin no' /etc/ssh/sshd_config || echo 'PermitRootLogin no' >> /etc/ssh/sshd_config
+# grep -qxF 'PubkeyAuthentication yes' /etc/ssh/sshd_config || echo 'PubkeyAuthentication yes' >> /etc/ssh/sshd_config
+# grep -qxF 'AuthorizedKeysFile %h/.ssh/authorized_keys' /etc/ssh/sshd_config || echo 'AuthorizedKeysFile %h/.ssh/authorized_keys' >> /etc/ssh/sshd_config
+# grep -qxF 'Password' /etc/ssh/sshd_config || echo 'AuthorizedKeysFile %h/.ssh/authorized_keys' >> /etc/ssh/sshd_config
 /etc/init.d/ssh restart
 echo '... done.' && echo
 
