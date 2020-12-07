@@ -5,7 +5,7 @@ NC='\033[0m';B='\033[1m';DIM='\033[2m';ITAL='\033[3m';UL='\033[4m';BLINK='\033[5
 
 CHECK_PAC=$(which pacman)
 
- if [[ ! -z $CHECK_PAC ]]; then
+if [[ ! -z $CHECK_PAC ]]; then
 	echo 'error: arch-based distro. ignoring bmilcs-linux github.'
 else
 	set -e

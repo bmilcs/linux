@@ -28,8 +28,6 @@ else
 	echo -e "  ${GRN}[√] done.${NC}\n"
 fi
 
-
-
 # update pihole test
 if pihole -v PIHOLE &> /dev/null
 then
