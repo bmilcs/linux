@@ -1,27 +1,33 @@
-# bmilcs: archlinux notes
+# ARCHLINUX NOTES
 
-## dotfiles
-	### setup bare repo
+*My personal ramblings in my attempt to learn archlinux.* -bmilcs
+## DOTFILES
+
+### setup bare repo
+
 		git init --bare $HOME/.dotfiles 
 		alias gitt='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 		gitt config --local status.showUntrackedFiles no
 		echo "alias gitt='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'" >> $HOME/.bashrc # or zsh
 
-	### import
+### import existing repo
 		alias gitt='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 		echo "alias gitt='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'" >> $HOME/.bashrc # or zsh
 		git clone --bare https://github.com/bmilcs/dotfiles.git $HOME/.dotfiles
 		gitt checkout
-	### if unable to checkout, move offending files to backup folder
+
+		# if unable to checkout, move offending files to backup folder
 		mkdir -p .dotfiles-backup && \
 		config checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | \
 		xargs -I{} mv {} .dotfiles-backup/{}
 
-## audio
-remove nvidia hdmi soundcard
+## AUDIO
 
-	# find pci id
-	lspci | grep -i audio
+
+### remove nvidia hdmi soundcard
+
+		# find pci id
+		lspci | grep -i audio
 
 	# find folder
 	find /sys/devices -name *01:00.1
