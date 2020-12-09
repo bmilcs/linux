@@ -4,8 +4,10 @@
 
 # ----  services  ---------------------------------------------------------------------------------------" && echo
 function unifii() {
-		wget -o ~/unifi/unifi_sysvinit_all.deb https://dl.ui.com/unifi/$@/unifi_sysvinit_all.deb
-		sudo dpkg -i ~/unifi/unifi_sysvinit_all.deb
+		cd
+		rm -rf unifi_sysvinit_all.deb
+		wget https://dl.ui.com/unifi/$@/unifi_sysvinit_all.deb
+		sudo dpkg -i unifi_sysvinit_all.deb
 }
 
 function sstart() {
