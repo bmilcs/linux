@@ -52,7 +52,7 @@ alias ibakls="sudo cat /etc/rsnapshot.conf | grep ^backup"
 alias ibakadd="sudo /bin/bash ~/.bmilcs/script/backup.sh add"
 alias rsnap="sudo nano /etc/rsnapshot.conf"
 #-------------------------------------  github repo  -------------------------------------#
-alias upp="dirr=${PWD} ; cd ~ ; upp ; cd $dirr ; source ~/.bashrc"
+# alias upp="dirr=${PWD} ; cd ~ ; upp ; cd $dirr ; source ~/.bashrc"
 alias a="alias | sed 's/=.*//'"
 alias func="declare -f | grep '^[a-z].* ()' | sed 's/{$//'"
 alias paths='echo -e ${PATH//:/\\n}'
