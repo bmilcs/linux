@@ -4,12 +4,8 @@
 
 # ----  services  ---------------------------------------------------------------------------------------" && echo
 function unifii() {
-	if [ $@ == "" ] ; then
-		echo "fail"
-	else
-		wget -o ~/unifi/$@.deb https://dl.ui.com/unifi/$@/unifi_sysvinit_all.deb
-		sudo dpkg -i ~/unifi/$@.deb
-	fi
+		wget -o ~/unifi/$@.deb https://dl.ui.com/unifi/$@/unifi_sysvinit_all.deb && sudo dpkg -i ~/unifi/$@.deb
+
 }
 
 function sstart() {
