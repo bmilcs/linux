@@ -4,7 +4,7 @@
 
 # ----  services  ---------------------------------------------------------------------------------------" && echo
 function unifii() {
-	if [ $unifi == "" ] ; then
+	if [ $@ == "" ] ; then
 		echo "fail"
 	else
 		wget -o ~/unifi/$@.deb https://dl.ui.com/unifi/$@/unifi_sysvinit_all.deb
