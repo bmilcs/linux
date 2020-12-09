@@ -3,6 +3,11 @@
 #=====================================================================================================
 
 # ----  services  ---------------------------------------------------------------------------------------" && echo
+function unifii() {
+	wget -o ~/unifi/$@.deb https://dl.ui.com/unifi/$@/unifi_sysvinit_all.deb
+	sudo dpkg -i ~/unifi/$@.deb
+}
+
 function sstart() {
 	sudo service $@ start
 	}

@@ -1,5 +1,7 @@
 # ARCHLINUX NOTES
 
+
+
 *My personal ramblings in my attempt to learn archlinux.* -bmilcs
 ## DOTFILES
 
