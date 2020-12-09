@@ -4,6 +4,8 @@
 #   rm -rf ~/_bmilcs ~/.bm* ~/.dir_colors ~/.hosts && rm -rf ~/.bm && git clone https://github.com/bmilcs/linux.git ~/.bmilcs && chmod -R +x ~/.bmilcs && cd ~/.bmilcs/dotfiles &&	./install.sh &&	source ~/.bashrc
 
 #---------------------------------  directories & files  ---------------------------------#
+alias upp="upp && source ~/.bashrc"
+
 alias ls='ls --color -lhF --group-directories-first'
 alias l="ls"
 alias ll="ls -nA" #long, all, # puid
