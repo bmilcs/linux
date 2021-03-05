@@ -1,4 +1,12 @@
-# bmilcs linux
+# bmilcs linux 
+
+> I bit the bullet & moved to Archlinux full-time in December of 2020. The migration from Debian-based VM's to a pacman-centric workstation required a fresh start. Come take a look:
+
+
+ 
+### [dot.bmilcs.com](https://dot.bmilcs.com)
+
+---
 
 ###### install dotfiles, scripts, etc.
 
